@@ -54,10 +54,9 @@ Example output:
 ```
 Under your `$BNCHOME`, there will be two newly created folders: `config` and `data`. All configuration files will be saved at `config` and blockchain data will be saved at `data`.
 
-
 3. Setup Configuration
 
-* Add Seed Nodes
+3.1 Add Seed Nodes
 
 For a full node, it must connect to one or more known nodes to join Binance Chain. There are several famous `seed node` that offer known nodes address of the network to newly joined full nodes.
 
@@ -72,24 +71,24 @@ print seeds
 
 If you want to add  seed nodes, please feel free to edit the field `seeds` of `$BNCHOME/config/config.yaml`with returned seed node info from previous request.
 
-* More Configurations
+3.2  More Configurations
 
-    - Log: The log file is under `home`- the directory specified when starting `bnbchaind`. The latest log file is `bnc.log`. The process will create a new log file every one hour. To make sure you have sufficient disk space to keep the log, we strongly recommend you to change the log location by changing `logFileRoot` option in `$BNCHOME/config/app.toml`.
-    - Service Port: RPC service listen on port 27147 and P2P service listens on port 27146 by default. Make sure these two ports are open before starting a full node, unless the full node has to listen on other ports.
-    - Store: All the state and block data will store under `$BNCHOME/data`, do not delete or edit any of these files.
-    - More detailed configuration options please visit `node-binary/fullnode/{network}/node/config.toml` and `node-binary/fullnode/{network}/node/app.toml`
+- Log: The log file is under `home`- the directory specified when starting `bnbchaind`. The latest log file is `bnc.log`. The process will create a new log file every one hour. To make sure you have sufficient disk space to keep the log, we strongly recommend you to change the log location by changing `logFileRoot` option in `$BNCHOME/config/app.toml`.
+- Service Port: RPC service listen on port 27147 and P2P service listens on port 27146 by default. Make sure these two ports are open before starting a full node, unless the full node has to listen on other ports.
+- Store: All the state and block data will store under `$BNCHOME/data`, do not delete or edit any of these files.
+- More detailed configuration options please visit `node-binary/fullnode/{network}/node/config.toml` and `node-binary/fullnode/{network}/node/app.toml`
 
-* Download Genesis File
+3.3  Download Genesis File
 
 The Genesis file is the basis for the entire network initialization, which contains  information for creating a Genesis block (such as ChainID, consensus params,app state), initialize account balances, parameters for each module, and validators info. Each genesis state starts with a list of account balances.
 To download genesis file for Binance Chain, please remove the auto generated genesis file under `$BNCHOME/config` and execute the following command to replace that:
 ```
-curl http://data-seed-pre-2-s1.binance.org/genesis > $BNCHOME/config/genesis.json
+wget https://raw.githubusercontent.com/binance-chain/node-binary/master/genesis.json  > $BNCHOME/config/genesis.json
 ```
-3. Start your node
+4. Start your node
 Start the full node according to the platform. Replace the `platform` var with `mac` or `linux` in the following command:
 ```bash
-./{{platform}}/bnbchaind start --home ./node  &
+./{{platform}}/bnbchaind start --home $BNCHOME  &
 ```
 
 **Notice**: For now, it may take a long time to sync blocks from Binance Chain. If you are not interested in sync historical blocks, you can change `state_sync` option in `{home}/config/app.toml` to true, it will catch up with the chain on most recent height after today's UTC 0:00. (so if now is 23:59, wait one more minute will get much faster sync up speed)
@@ -97,11 +96,6 @@ Start the full node according to the platform. Replace the `platform` var with `
 > Please note the `state sync` function is just usable and many improvements are still needed to be done, so it is not  encouraged to enable `state sync` for now.
 
 Only after catching up with Binance Chain, the full node can handle requests correctly.
-
-
-
-
-
 
 
 
