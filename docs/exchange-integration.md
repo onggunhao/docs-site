@@ -12,9 +12,12 @@
 
 There are some public nodes running by Binance Chain community which allows you to interact with the blockchain. There are two ways:
 ### REST API 
- Here is a list of all the Rest API information it provides: <https://docs.binance.org/api-reference/dex-api/paths.html> 
+There are some [accelerate nodes](https://docs.binance.org/faq.html#what-is-the-accelerated-node) which provides some advanced API services for the public.
+Here is a list of all the Rest API information it provides: <https://docs.binance.org/api-reference/dex-api/paths.html>
+
 ### Node RPC
-Here is a list of all the Node RPC services it provides: <https://docs.binance.org/api-reference/node-rpc.html> 
+There are some data seed node in the network which allow users perform low-level operations like executing ABCI queries, viewing network/consensus state or broadcasting a transaction.
+If you run a full node by yourself, you can also use those RPC functions. Here is a list of all the Node RPC services it provides: <https://docs.binance.org/api-reference/node-rpc.html>
 
 
 ## Run your own full node
