@@ -357,7 +357,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
     "k": {
       "t": 123400000,     // Kline start time
       "T": 123460000,     // Kline close time
-      "s": "BNBBTC",      // Symbol
+      "s": "ABC_0DX-BNB",      // Symbol
       "i": "1m",          // Interval
       "f": "100",         // First trade ID
       "L": "200",         // Last trade ID
@@ -403,7 +403,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
   "data": {
     "e": "24hrTicker",  // Event type
     "E": 123456789,     // Event time
-    "s": "BNBBTC",      // Symbol
+    "s": "ABC_0DX-BNB",      // Symbol
     "p": "0.0015",      // Price change
     "P": "250.00",      // Price change percent
     "w": "0.0018",      // Weighted average price
@@ -456,7 +456,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
     {
       "e": "24hrTicker",  // Event type
       "E": 123456789,     // Event time
-      "s": "BNBBTC",      // Symbol
+      "s": "ABC_0DX-BNB",      // Symbol
       "p": "0.0015",      // Price change
       "P": "250.00",      // Price change percent
       "w": "0.0018",      // Weighted average price
@@ -511,7 +511,7 @@ A ticker for a single symbol is pushed every second.
   "data": {
     "e": "24hrMiniTicker",    // Event type
     "E": 123456789,           // Event time
-    "s": "BNBBTC",            // Symbol
+    "s": "ABC_0DX-BNB",            // Symbol
     "c": "0.0025",            // Current day's close price
     "o": "0.0010",            // Open price
     "h": "0.0025",            // High price
@@ -550,7 +550,7 @@ Array of 24hr Mini Ticker statistics for a all symbols pushed every second.
     {
       "e": "24hrMiniTicker",      // Event type
       "E": 123456789,             // Event time
-      "s": "BNBBTC",              // Symbol
+      "s": "ABC_0DX-BNB",              // Symbol
       "c": "0.0025",              // Current day's close price
       "o": "0.0010",              // Open price
       "h": "0.0025",              // High price

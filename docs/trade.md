@@ -4,10 +4,18 @@ Binance DEX is the native marketplace which allows you to exchange digital asset
 
 ## Place Order
 You could place a new order with the following command on testnet:
+
 ```
-$ bnbcli dex order  --symbol ZEBRA-16D_BNB  --side 1 --price 1000000 --qty 1000 --from guest --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 -t gte
+$ tbnbcli dex order  --symbol ZEBRA-16D_BNB  --side 1 --price 1000000 --qty 1000 --from guest --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 -t gte
 ```
-You will be able to place order on mainnet by replaceing `chain-id` and `node`. 
+
+You will be able to place order on mainnet by replaceing `chain-id` and `node`.
+
+Example on **mainnet**:
+
+```
+$ bnbcli dex order  --symbol ZEBRA-16D_BNB  --side 1 --price 1000000 --qty 1000 --from guest  --chain-id Binance-Chain-Tigris   --node  https://dataseed5.defibit.io:443  -t gte
+```
 
 For `side`, you need to put 1 as buy or 2 as sell.
 
@@ -22,16 +30,24 @@ The order id is needed if you want to cancel this order later.
 
 ## Cancel Order
 To cancel an order, you could use the following command to cencel order on testnet:
+
 ```
-bnbcli dex cancel --symbol ZEBRA-16D_BNB   --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --refid  813E4939F1567B219704FFC2AD4DF58BDE010879-30 --from guest
+tbnbcli dex cancel --symbol ZEBRA-16D_BNB   --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --refid  813E4939F1567B219704FFC2AD4DF58BDE010879-30 --from guest
 ```
 Please note that `refid` is what you got from `order` command. 
+
+Example on **mainnet**:
+
+```
+bnbcli dex cancel --symbol ZEBRA-16D_BNB   --chain-id Binance-Chain-Tigris   --node  https://dataseed5.defibit.io:443 --refid  813E4939F1567B219704FFC2AD4DF58BDE010879-30 --from guest
+```
+
 ## View Orders
 
 To veryfy that your commands are executed as expected, you could query the orderbook of testnet. 
 
 ```
-bnbcli dex show -l ZEBRA-16D_BNB   --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
+tbnbcli dex show -l ZEBRA-16D_BNB   --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 Example output is the following:
 ```
@@ -54,4 +70,10 @@ Example output is the following:
     114.58796000|      0.17500000|      0.00000000|      0.00000000
   15305.95524500|      0.20000000|      0.00000000|      0.00000000
   10283.97968700|      0.30000000|      0.00000000|      0.00000000
+```
+
+Example on **mainnet**:
+
+```
+bnbcli dex show -l ZEBRA-16D_BNB    --chain-id Binance-Chain-Tigris   --node  https://dataseed5.defibit.io:443
 ```

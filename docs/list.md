@@ -37,7 +37,7 @@ $  ./bnbcli dex list -s AAA-254 --quote-asset-symbol BNB --from test \
 Example on **testnet**:
 
 ```bash
-$  ./bnbcli dex list -s AAA-254 --quote-asset-symbol BNB --from test \
+$  ./tbnbcli dex list -s AAA-254 --quote-asset-symbol BNB --from test \
 --init-price 100000000 --proposal-id 15 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json
 {  
    "Height":"282409",

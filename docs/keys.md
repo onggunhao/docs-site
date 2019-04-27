@@ -12,6 +12,8 @@ Binance Chain CLI will sign the transaction for you if the password is right.
 
 ## Usage
 
+The usage are same for `bnbcli` and `tbnbcli`
+
 ```bash
 $ ./bnbcli keys
 Keys allows you to manage your local keystore for tendermint.

@@ -38,6 +38,8 @@ cd node-binary/cli/{network}/{version}
 
 Once you have downloaded the binary for your platform, you may drop it into any folder you like. Open a terminal window or `cmd.exe` in that folder, and then follow the examples on the documentation site.
 
+For mainnet:
+
 ```bash
 $  ./bnbcli
 ```
@@ -47,6 +49,18 @@ On Windows you would most likely use this instead:
 ```bash
 C:\> bnbcli.exe
 ```
+
+For testnet:
+```bash
+$  ./tbnbcli
+```
+
+On Windows you would most likely use this instead:
+
+```bash
+C:\> tbnbcli.exe
+```
+
 
 ## Where to connect
 
@@ -199,3 +213,5 @@ For detailed usage, you can refer to:
 
 `bnbcli` will save data about validatorset changes at home of `bnbcli`. Once you want to use `bnbcli` for different blockchains, for example, you want to change from testnet to mainnet, the data will be stale. In order to swtich between blockchains, you need clean data folder `rm -rf ~/.bnbcli/.bnblite/`  or create a new home folder for bnbcli with `--home` flag.
 If you forget to specify different home folder path, then you will not be able to make queries with `bnbcli`.
+
+The same logic applies to `tbnbcli`.

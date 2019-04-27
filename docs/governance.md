@@ -58,13 +58,13 @@ Example on **mainnet**:
 Example on **testnet**:
 
 ```shell
-./bnbcli gov submit-list-proposal --from test --deposit 10000000000:BNB 
+./tbnbcli gov submit-list-proposal --from test --deposit 10000000000:BNB
 --base-asset-symbol AAA-254 --quote-asset-symbol BNB --init-price 100000000 --title "list AAA-254/BNB" 
 --description "list AAA-254/BNB" --expire-time 1570665600 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json --voting-period 604800 
 ```
 
-#### Add deposit for a Proposal
-In current Binance Chain Mainnet, the max deposit period is **two days**. After submitting a proposal, you have two days  to increase your deposit, otherwise your proposal will not go to voting period and get rejected directly. 
+#### Add deposit for a Proposal (Optional)
+If the initial deppsit for your proposal in `submit-list-proposal` is not enough, you can increase the deposit with `deposit` operation. In current Binance Chain Mainnet, the max deposit period is **two days**. After submitting a proposal, you have two days  to increase your deposit, otherwise your proposal will not go to voting period and get rejected directly.
 
 Please note the amount is  boosted by **1e8** for decimal part. 
 
@@ -78,7 +78,7 @@ Example on **mainnet**:
 Example on **testnet**:
 
 ```shell
-./bnbcli gov deposit --from name --proposal-id <proposl-ID> --deposit <amount>：BNB --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 
+./tbnbcli gov deposit --from name --proposal-id <proposl-ID> --deposit <amount>：BNB --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 
 #### Query Information of a Proposal
@@ -93,7 +93,7 @@ Example on **mainnet**:
 Example on **testnet**:
 
 ```shell
-./bnbcli gov query-proposal --proposal-id <proposal-ID> --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
+./tbnbcli gov query-proposal --proposal-id <proposal-ID> --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 Example output；
 ```json
@@ -136,7 +136,7 @@ Example on **mainnet**:
 Example on **testnet**:
 
 ```shell
-./bnbcli gov query-votes --proposal-id 272 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
+./tbnbcli gov query-votes --proposal-id 272 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 Example output:
 ```

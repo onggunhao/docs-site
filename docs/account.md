@@ -56,7 +56,7 @@ Your wallet will be unlocked and you can get you address(for this example is `tb
 
 You can get `bnbcli` by following instructions [here](./api-reference/cli.md).
 
-You should get mnemonic if you follow the instructions above. You can restore you key via `bnbcli` or create a new key.
+You should get mnemonic if you follow the instructions above. You can restore you key via `bnbcli` or `tbnbcli`.
 
 + Restore your key
 
@@ -72,7 +72,7 @@ test	local	tbnb14m2gcdjq7aqkdtu2m9qrqrl8eevzpqfj9xc0uu	bnbp1addwnpepqt7nf2dwgfxv
 
 + Create a new key
 
-You can also create a new key and you will get a new mnemonic.
+You can also create a new key and you will get a new mnemonic with `bnbcli` or `tbnbcli`.
 ```bash
 $ ./bnbcli keys add new_key
 Enter a passphrase for your key:
@@ -96,7 +96,7 @@ $  ./bnbcli account bnc1wwgakqy32m7vdnlf00pctf9hnaak37eh7wkmqa --trust-node --ch
 Example on **testnet**:
 
 ```bash
-$  ./bnbcli account bnc1wwgakqy32m7vdnlf00pctf9hnaak37eh7wkmqa --trust-node  --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
+$  ./tbnbcli account bnc1wwgakqy32m7vdnlf00pctf9hnaak37eh7wkmqa --trust-node  --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 {  
    "type":"bnbchain/Account",
    "value":{  

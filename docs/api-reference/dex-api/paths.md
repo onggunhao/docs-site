@@ -769,7 +769,7 @@ varies with msg type.
         "source": "0"  // fixed, source of the transaction
     }
 }
-```
+``` 
  |  |
 
 ### Account  
@@ -812,7 +812,7 @@ varies with msg type.
 | Name | Type | Description | Example |
 | ---- | ---- | ----------- | ------- |
 | base_asset_symbol | string (currency) | symbol of base asset | BNB |
-| quote_asset_symbol | string (currency) | symbol of quote asset | ABC |
+| quote_asset_symbol | string (currency) | symbol of quote asset | ABC-5CA |
 | price | string (fixed8) | In decimal form, e.g. 1.00000000 | 0.00000000 |
 | tick_size | string (fixed8) | Minimium price change in decimal form, e.g. 1.00000000 | 0.00000001 |
 | lot_size | string (fixed8) | Minimium trading quantity in decimal form, e.g. 1.00000000 | 0.000001 |

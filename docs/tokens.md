@@ -32,7 +32,7 @@ Example on **testnet**:
 
 ```bash
 # To issue a NNB token with total-supply 1 billion on testnet
-> ./bnbcli token issue --token-name "new bnb" --total-supply 100000000000000000 --symbol NNB --mintable --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+> ./tbnbcli token issue --token-name "new bnb" --total-supply 100000000000000000 --symbol NNB --mintable --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 
 Committed at block 1887 (tx hash: B90A055DDD570AE42A7050182993A0B4DBC81A0D, ... Issued NNB-B90...)
 ```
@@ -50,7 +50,7 @@ Example on **mainnet**:
 Example on **testnet**: 
 
 ```bash
- > ./bnbcli token mint --amount 100000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+ > ./tbnbcli token mint --amount 100000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
 
 ## Burn
@@ -65,7 +65,7 @@ Example on **mainnet**:
 Example on **testnet**: 
 
 ```bash
- > ./bnbcli token burn --amount 100000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+ > ./tbnbcli token burn --amount 100000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
 
 ## Freeze & Unfreeze
@@ -87,9 +87,9 @@ Example on **mainnet**:
 Example on **testnet**: 
 
 ```bash
-> ./bnbcli token freeze --amount 20000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+> ./tbnbcli token freeze --amount 20000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
 
 ```bash
-> ./bnbcli token unfreeze --amount 20000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+> ./tbnbcli token unfreeze --amount 20000000000000000 --symbol NNB-B90 --from alice --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
