@@ -35,6 +35,9 @@ Binance Chain has its own built-in governance module that lets BNB holders submi
 * `expire-time`: This is the time for you to send list transaction if your proposal is passed. This time cannot be ealry than current time.
 
 ### Participate in Governance
+####  Tools
+
+Please use this [tool](<https://github.com/binance-chain/node-binary/tree/master/tools>) for generating
 
 ####  Submit a List Proposal
 To add a new trading pairs, you could run the following command :
