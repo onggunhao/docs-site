@@ -5,7 +5,7 @@
 Please note the fees must be paid first in BNB before the transaction can be executed.
 
 
-If you want to read more about the idea of account and balance, please refer to this [doc](accounts.md).
+If you want to read more about the idea of account and balance, please refer to this [doc](account.md).
 
 ## Simple Transfer and Memo
 
