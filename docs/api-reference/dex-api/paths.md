@@ -73,7 +73,7 @@ The Binance Chain HTTP API provides access to a Binance Chain node deployment an
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | Success | [ [Validator](#validator) ] |
+| 200 | Success | [ [Validators](#validators) ] |
 | 400 | Bad Request | [Error](#error) |
 | 404 | Not Found |  |
 | default | Generic error response | [Error](#error) |
@@ -683,12 +683,21 @@ If the time window is larger than limits, only the first n klines will return. I
 | ap_time | string | event time | e.g. 2019-01-21T10:30:00Z |
 | block_time | string | block height | 12345678 |
 
-### Validator  
+### Validators  
 
 | Name | Type | Description | Example |
 | ---- | ---- | ----------- | ------- |
 | block_height | long | Current block height | 12345 |
-| validators | [  ] |  |  |
+| validators | [ [Validator](#validator) ] |  |  |
+
+### Validator  
+
+| Name | Type | Description | Example |
+| ---- | ---- | ----------- | ------- |
+| address | string (hex address) | Address |  |
+| pub_key | [ integer ] | Public key bytes |  |
+| voting_power | integer |  |  |
+| accum | integer |  |  |
 
 ### Peer  
 

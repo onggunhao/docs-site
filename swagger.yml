@@ -133,7 +133,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Validator'
+              $ref: '#/definitions/Validators'
         '400':
           description: 'Bad Request'
           schema:
@@ -1258,7 +1258,7 @@ definitions:
     properties:
       ap_time: {type: string, description: event time , example: e.g. 2019-01-21T10:30:00Z}
       block_time: {type: string, description: block height, example: 12345678}
-  Validator:
+  Validators:
     type: object
     properties:
       block_height:
@@ -1270,12 +1270,18 @@ definitions:
       validators:
         type: array
         required: true
+        title: Validators
         items:
-          properties:
+          $ref: '#/definitions/Validator'
+
+
+  Validator:
+        type: object
+        properties:
             address:
               type: string
               description: Address
-              format: hexaddress
+              format: hex address
               required: true
             pub_key:
               type: array
@@ -1291,6 +1297,9 @@ definitions:
             accum:
               type: integer
               required: true
+
+
+
   Peer:
     type: object
     properties:
