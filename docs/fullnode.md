@@ -102,8 +102,10 @@ Only after catching up with Binance Chain, the full node can handle requests cor
 #### Sync Data
 
 There are two ways for you to get synced with other peers in blockchain network:
-* Fast sync
+* Fast Sync
 * State Sync
+
+These two method can be used together. 
 
 #####  Fast Sync
 The default way for syncing with other data seed node is fast sync. In fast sync, you need to download all the blocks from your peers and execute all the transansaction in every block. The sync speed is about 20 blocks/s, which is slower than state sync.
@@ -111,8 +113,8 @@ The default way for syncing with other data seed node is fast sync. In fast sync
 Configuration for `$BNCHOME/config/config.toml`:
 
 * `fast_sync` Must be set to `true`
-* `state_sync_reactor` Must be set to `false`
-* `state_sync` Must be set to `false`
+* `state_sync_reactor` Can be set to `false` or `true`
+* `state_sync` Can be set to `false` or `true`
 
 #####  State Sync
 
