@@ -1724,6 +1724,9 @@ definitions:
         enum:
         - BUY
         - SELL
+      singleFee:
+        type: string
+        description: trading fee of this order
       status:
         type: string
         description: "enum [Ack, PartialFill, IocNoFill, FullyFill, Canceled, Expired, FailedBlocking, FailedMatching, IocExpire]"
@@ -1837,6 +1840,9 @@ definitions:
       buyerOrderId:
         type: string
         description: order id for buyer
+      buySingleFee:
+        type: string
+        description: trading fee for the buyer address on this single trade
       price:
         type: string
         description: trade price
@@ -1855,9 +1861,15 @@ definitions:
       sellerOrderId:
         type: string
         description: seller order ID
+      sellSingleFee:
+        type: string
+        description: trading fee for the seller address on this single trade
       symbol:
         type: string
         description: asset symbol
+      tickType:
+        type: string
+        description: "enum [Unknown,SellTaker,BuyTaker,BuySurplus,SellSurplus,Neutral]"
       time:
         type: integer
         description: trade time
