@@ -1291,7 +1291,6 @@ definitions:
         title: Validators
         items:
           $ref: '#/definitions/Validator'
-
   Validator:
         type: object
         properties:
