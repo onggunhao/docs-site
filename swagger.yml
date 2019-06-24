@@ -1291,7 +1291,7 @@ definitions:
         title: Validators
         items:
           $ref: '#/definitions/Validator'
-  
+
   Validator:
         type: object
         properties:
@@ -1555,20 +1555,20 @@ definitions:
         required: true
       list_price:
         type: string
-        description: "In decimal form, e.g. 1.00000000"
-        example: "0.00000000"
+        description: "In decimal form"
+        example: "1.00000000"
         format: fixed8
         required: true
       tick_size:
         type: string
-        description: "Minimium price change in decimal form, e.g. 1.00000000"
+        description: "Minimium price change in decimal form"
         example: "0.00000001"
         format: fixed8
         required: true
       lot_size:
         type: string
-        description: "Minimium trading quantity in decimal form, e.g. 1.00000000"
-        example: "0.000001"
+        description: "Minimium trading quantity in decimal form"
+        example: "1.00000000"
         format: fixed8
         required: true
   Fee:
