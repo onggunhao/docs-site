@@ -1723,9 +1723,6 @@ definitions:
         enum:
         - BUY
         - SELL
-      singleFee:
-        type: string
-        description: trading fee of this order
       status:
         type: string
         description: "enum [Ack, PartialFill, IocNoFill, FullyFill, Canceled, Expired, FailedBlocking, FailedMatching, IocExpire]"
