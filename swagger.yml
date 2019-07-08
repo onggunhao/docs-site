@@ -1839,6 +1839,7 @@ definitions:
       buySingleFee:
         type: string
         description: trading fee for the buyer address on this single trade
+        example: "BNB:0.00000172;"
       price:
         type: string
         description: trade price
@@ -1860,6 +1861,7 @@ definitions:
       sellSingleFee:
         type: string
         description: trading fee for the seller address on this single trade
+        example: "BNB:0.00000216;"
       symbol:
         type: string
         description: asset symbol
