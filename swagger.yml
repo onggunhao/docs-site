@@ -1693,7 +1693,7 @@ definitions:
         type: string
       fee:
         type: string
-        description: trading fee on the block of this order
+        description: trading fee on the latest updated block of this order. Multiple assets are split by semicolon.
       lastExecutedPrice:
         type: string
         description: price of last execution
@@ -1898,7 +1898,7 @@ definitions:
         format: int64
       fee:
         type: string
-        description: total fee collected
+        description: total fee collected. Multiple assets are split by semicolon.
       tradeCount:
         type: integer
         description: trade count of the address on the block
