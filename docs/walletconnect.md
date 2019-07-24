@@ -142,3 +142,20 @@ A response like this should be sent back from the wallet app:
 Remember to call `killSession()` when the user has finished using the integration from your app!
 
 This will redirect the user back to the unlock screen in the web wallet.
+
+## Continuous WalletConnect
+
+A revised Wallet Connect communication steps are disccussed [here](https://github.com/binance-chain/BEPs/pull/23). After users’ consent, Mobile or other Wallet can *continuously* sign requested transactions from Web Wallet without promoting to user for confirmation, as long as the transactions satisfy the predefined and agreed with the conditions.
+
+### Implementation
+
+The Equal has opensourced their WalletConnect implementation: https://github.com/Equal-Network/WalletConnect-BinanceDEX-GoogleChrome
+
+Core characteristics:
+
+* Support WalletConnect
+* Read QR-code from Binance Dex
+* Auto connect to Binance dex
+* Auto approve session from WalletConnect
+* Approve / reject request from WalletConnect
+* Kill session
