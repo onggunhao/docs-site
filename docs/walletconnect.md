@@ -147,6 +147,21 @@ This will redirect the user back to the unlock screen in the web wallet.
 
 A revised Wallet Connect communication steps are disccussed [here](https://github.com/binance-chain/BEPs/pull/23). After users’ consent, Mobile or other Wallet can *continuously* sign requested transactions from Web Wallet without promoting to user for confirmation, as long as the transactions satisfy the predefined and agreed with the conditions.
 
+### Continuous Signing Wallet
+
+Upon scanning the QR code, or after getting the first transaction to confirm, the mobile Wallet can ask for the below optional input parameters. After the wallet may directly sign the requested transactions without asking users to review and confirm the trade.
+
+* Supported transaction type: NewOrder and Cancel
+
+| Name | Type | Content |
+|------|------|---------|
+| Timeout Window | int64 | time in minutes. It stands for these minutes, mobile Wallet will not ask for confirmation but directly sign the requested transactions. If yes, the “Timeout Window” will be renewed after the last user transaction. |
+| Allowed Symbols | string | A string of different asset symbols, separated by “,” (comma). Only the trading pairs that have base asset contained by this string can be traded. |
+| Allowed Order Size | int64 | Only the orders that have a smaller quantity than this number are directly signed. |
+| Allowed Total Quantity | int64 | The total quantity of the orders should be no larger than the value defined here |
+| Allowed Number of Orders | int64 | Total number of order is allowed |
+| Cancel Is Relaxed | bool | If yes, the “Allowed Symbols” and “Allowed Order Size” and “Allowed Total Quantity” and “Allowed Number of Orders” are NOT applicable to limit the Cancel action, i.e. all the cancels can be signed within the “Timeout Window”. |
+
 ### Implementation
 
 The Equal has opensourced their WalletConnect implementation: https://github.com/Equal-Network/WalletConnect-BinanceDEX-GoogleChrome
