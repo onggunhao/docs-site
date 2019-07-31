@@ -805,7 +805,7 @@ paths:
         allowEmptyValue: false
       - name: status
         in: query
-        description: "order status list. Allowed value: [Ack, PartialFill, IocNoFill, FullyFill, Canceled, Expired, FailedBlocking, FailedMatching]"
+        description: "order status list. Allowed value: [Ack, IocExpire, IocNoFill, FullyFill, Canceled, Expired, FailedBlocking, FailedMatching]"
         required: false
         type: enum string
         items:
