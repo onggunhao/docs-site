@@ -7,7 +7,7 @@
       "guides/intro/testnet"
     ],
     "Concepts": [
-      "guides/concepts/accounts",
+      "account",
       "guides/concepts/assets",
       "guides/concepts/matching-engine",
       "guides/concepts/cross-chain-atomic-swaps",
@@ -15,7 +15,7 @@
       "guides/concepts/fees",
       "guides/concepts/governance",
       "guides/concepts/encoding",
-      "guides/concepts/walletconnect"
+      "walletconnect"
     ],
     "Run a node": [
       "guides/node/nodetypes",
@@ -23,7 +23,7 @@
       "guides/node/lightnode"
     ],
     "Walkthroughs": [
-      "cookbooks/atomic-swaps",
+      "atomic-swap",
       "cookbooks/listing",
       "cookbooks/launch-stablecoin"
     ]
