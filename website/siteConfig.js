@@ -38,10 +38,16 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    // {doc: 'doc1', label: 'Docs'},
-    // {doc: 'doc4', label: 'API'},
-    // {page: 'help', label: 'Help'},
-    // {blog: true, label: 'Blog'},
+    { doc: "guides/intro/intro", label: "Guides" },
+    { doc: "api-reference/api-reference", label: "API Reference" },
+    { doc: "enduser/how-to-trade", label: "End User" },
+    { blog: true, label: "Blog" },
+    {
+      href: "https://github.com/binance-chain/node-binary",
+      label: "GitHub"
+    },
+    { search: true },
+    { languages: true }
   ],
 
   // If you have users set above, you add it here:
@@ -77,7 +83,8 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: "Highlight.js"
+    // See https://github.com/highlightjs/highlight.js/tree/master/src/styles
+    theme: "solarized-dark"
   },
 
   // Add custom scripts here that would be placed in <script> tags.

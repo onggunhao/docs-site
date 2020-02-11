@@ -29,7 +29,7 @@
     ]
   },
   "api-sidebar": {
-    "Overview": ["api/api"],
+    "Overview": ["api-reference/api-reference"],
     "Node RPC": ["api/rpc/rpc", "api/rpc/cli", "api/rpc/http"],
     "Javascript SDK": ["api/javascript"],
     "Go SDK": [

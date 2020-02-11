@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "A website for testing",
+    "tagline": "Binance Chain",
     "docs": {
       "account": {
         "title": "account"
@@ -13,6 +13,9 @@
       },
       "anti-frontrun": {
         "title": "anti-frontrun"
+      },
+      "api-reference/api-reference": {
+        "title": "API Reference"
       },
       "api-reference/api-server": {
         "title": "api-reference/api-server"
@@ -29,6 +32,18 @@
       "api-reference/dex-api/ws-streams": {
         "title": "api-reference/dex-api/ws-streams"
       },
+      "api-reference/go-sdk/go-api": {
+        "title": "Go SDK Functions"
+      },
+      "api-reference/go-sdk/go-example": {
+        "title": "Go SDK Examples"
+      },
+      "api-reference/go-sdk/go-intro": {
+        "title": "Go SDK Overview"
+      },
+      "api-reference/go-sdk/go-websocket": {
+        "title": "Go Websocket Client"
+      },
       "api-reference/http-api": {
         "title": "api-reference/http-api"
       },
@@ -39,7 +54,7 @@
         "title": "api-reference/node-rpc"
       },
       "api-reference/sdk": {
-        "title": "api-reference/sdk"
+        "title": "SDKs"
       },
       "api-reference/transactions": {
         "title": "api-reference/transactions"
@@ -62,6 +77,15 @@
       "encoding": {
         "title": "encoding"
       },
+      "enduser/explorer": {
+        "title": "Binance Chain Explorer"
+      },
+      "enduser/how-to-trade": {
+        "title": "How to Trade"
+      },
+      "enduser/wallets": {
+        "title": "Wallets"
+      },
       "exchange-integration": {
         "title": "exchange-integration"
       },
@@ -82,6 +106,64 @@
       },
       "governance": {
         "title": "governance"
+      },
+      "guides/concepts/accounts": {
+        "title": "Accounts"
+      },
+      "guides/concepts/architecture": {
+        "title": "Architecture"
+      },
+      "guides/concepts/assets": {
+        "title": "Assets"
+      },
+      "guides/concepts/cross-chain-atomic-swaps": {
+        "title": "Cross-chain Atomic Swaps"
+      },
+      "guides/concepts/encoding": {
+        "title": "Encoding"
+      },
+      "guides/concepts/fees": {
+        "title": "Fees"
+      },
+      "guides/concepts/governance": {
+        "title": "Governance"
+      },
+      "guides/concepts/matching-engine": {
+        "title": "Matching Engine"
+      },
+      "guides/concepts/signatures": {
+        "title": "Signatures"
+      },
+      "guides/concepts/threshold-signature-scheme": {
+        "title": "Threshold Signature Scheme"
+      },
+      "guides/concepts/trading-specification": {
+        "title": "Trading Specification"
+      },
+      "guides/concepts/walletconnect": {
+        "title": "Wallet Connect"
+      },
+      "guides/intro/create-address": {
+        "title": "Create an address"
+      },
+      "guides/intro/intro": {
+        "title": "Introduction",
+        "sidebar_label": "Introduction"
+      },
+      "guides/intro/testnet": {
+        "title": "Testnet"
+      },
+      "guides/intro/transfer": {
+        "title": "Make a Transfer"
+      },
+      "guides/node/fullnode": {
+        "title": "Run a Full Node"
+      },
+      "guides/node/lightnode": {
+        "title": "Light Node"
+      },
+      "guides/node/nodetypes": {
+        "title": "Types of Nodes"
       },
       "hardware-wallets": {
         "title": "hardware-wallets"
@@ -250,15 +332,22 @@
       }
     },
     "links": {
-      "Docs": "Docs",
-      "API": "API",
-      "Help": "Help",
-      "Blog": "Blog"
+      "Guides": "Guides",
+      "API Reference": "API Reference",
+      "End User": "End User",
+      "Blog": "Blog",
+      "GitHub": "GitHub"
     },
     "categories": {
-      "Docusaurus": "Docusaurus",
-      "First Category": "First Category",
-      "Second Category": "Second Category"
+      "Quickstart": "Quickstart",
+      "Concepts": "Concepts",
+      "Run a node": "Run a node",
+      "Walkthroughs": "Walkthroughs",
+      "Overview": "Overview",
+      "Node RPC": "Node RPC",
+      "Javascript SDK": "Javascript SDK",
+      "Go SDK": "Go SDK",
+      "End User Guide": "End User Guide"
     }
   },
   "pages-strings": {
