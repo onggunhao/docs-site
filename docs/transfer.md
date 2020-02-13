@@ -1,9 +1,13 @@
+---
+id: transfer
+title: Transfers
+---
+
 # Asset Transfer
 
 `Transfer` is the most basic transaction Binance Chain supports, it moves assets among different addresses.
 
 Please note the fees must be paid first in BNB before the transaction can be executed.
-
 
 If you want to read more about the idea of account and balance, please refer to this [doc](account.md).
 
@@ -31,6 +35,7 @@ Fee charged and balance will be showed in below.
 ### CLI
 
 If you want to send token to an address, make sure you have restored your key. You can list all of your keys:
+
 ```bash
  ./bnbcli keys list --home ~/.bnbcli
 NAME:	TYPE:	ADDRESS:						PUBKEY:
@@ -130,6 +135,7 @@ Password to sign with 'test':
 ```
 
 Example on **testnet**:
+
 ```bash
 ./tbnbcli send --from from-key-name --to to-address --amount 200000000:BNB --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json --memo "Test transfer"
 
@@ -158,6 +164,7 @@ Password to sign with 'test':
 ```
 
 If you are not familiar with CLI, you can use `-h` to get helps:
+
 ```bash
  ./bnbcli send -h
 Create and sign a send tx
@@ -197,6 +204,7 @@ Global Flags:
 Sometimes, you may want to transfer tokens to multiple people. So `bnbcli` also provides you a `multi-send` command.
 
 You can use `-h` to get helps:
+
 ```bash
  ./bnbcli token multi-send -h
 Create and sign a multi send tx
@@ -304,20 +312,22 @@ Password to sign with 'test':
 And you can also try `--transfers-file`.
 
 Assume that you have a file named `transaction.json` in your current path and content is :
+
 ```json
 [
-   {
-      "to":"bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl",
-      "amount":"100000000000000:BNB"
-   },
-   {
-      "to":"bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw",
-      "amount":"100000000000000:BNB"
-   }
+  {
+    "to": "bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl",
+    "amount": "100000000000000:BNB"
+  },
+  {
+    "to": "bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw",
+    "amount": "100000000000000:BNB"
+  }
 ]
 ```
 
 Then you can specify `--transfers-file` and send it to **mainnet**:
+
 ```bash
  ./bnbcli token multi-send --home ./testnodecli --from test --chain-id Binance-Chain-Tigris --node  https://dataseed5.defibit.io:443  --transfers-file ./transaction.json --json
 Password to sign with 'test':
@@ -349,6 +359,7 @@ Password to sign with 'test':
 ```
 
 Example on **testnet**:
+
 ```bash
  ./tbnbcli token multi-send --home ./testnodecli --from test--chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80  --transfers-file ./transaction.json --json
 
@@ -381,10 +392,67 @@ Password to sign with 'test':
 ```
 
 ## Verify Transfer Transaction
-To confirm that your transaction went through, you can use the following queries:
-```json
-{"hash":"E79DE52B7D8F6BA93787C5B0389AF26C0C29C03BC84DAE42317965797E38076E","height":"1412766","tx":{"type":"auth/StdTx","value":{"msg":[{"type":"cosmos-sdk/Send","value":{"inputs":[{"address":"tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5","coins":[{"denom":"BNB","amount":"20"}]}],"outputs":[{"address":"tbnb1qq559fkes779t3q9p9aegnjplvtc53yg9vusah","coins":[{"denom":"BNB","amount":"20"}]}]}}],"signatures":[{"pub_key":{"type":"tendermint/PubKeySecp256k1","value":"AhOb3ZXecsIqwqKw+HhTscyi6K35xYpKaJx10yYwE0Qa"},"signature":"AlpHUBlC/V0cR7YNm5G46aAjmeRIxjkX9Vg8EtTKkfgPso+snT3/r2nRNjsphtjTonub3VYfE4lwOnjpY+Jwcg==","account_number":"406226","sequence":"27"}],"memo":"Test transfer","source":"0","data":null}},"result":{"log":"Msg 0: ","tags":[{"key":"c2VuZGVy","value":"dGJuYjFzeWx5ancwMzJlYWpyOWN5bGxwMjZuMDQzMDBxenpyZTM4cXl2NQ=="},{"key":"cmVjaXBpZW50","value":"dGJuYjFxcTU1OWZrZXM3Nzl0M3E5cDlhZWduanBsdnRjNTN5Zzl2dXNhaA=="},{"key":"YWN0aW9u","value":"c2VuZA=="}]}}
-```
-As you can see from the example output, this transaction is executed at block height 1412766 and you could read about the details.
-Double check with blockchain explorer if you interact with the network through a  full-node.
 
+To confirm that your transaction went through, you can use the following queries:
+
+```json
+{
+  "hash": "E79DE52B7D8F6BA93787C5B0389AF26C0C29C03BC84DAE42317965797E38076E",
+  "height": "1412766",
+  "tx": {
+    "type": "auth/StdTx",
+    "value": {
+      "msg": [
+        {
+          "type": "cosmos-sdk/Send",
+          "value": {
+            "inputs": [
+              {
+                "address": "tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5",
+                "coins": [{ "denom": "BNB", "amount": "20" }]
+              }
+            ],
+            "outputs": [
+              {
+                "address": "tbnb1qq559fkes779t3q9p9aegnjplvtc53yg9vusah",
+                "coins": [{ "denom": "BNB", "amount": "20" }]
+              }
+            ]
+          }
+        }
+      ],
+      "signatures": [
+        {
+          "pub_key": {
+            "type": "tendermint/PubKeySecp256k1",
+            "value": "AhOb3ZXecsIqwqKw+HhTscyi6K35xYpKaJx10yYwE0Qa"
+          },
+          "signature": "AlpHUBlC/V0cR7YNm5G46aAjmeRIxjkX9Vg8EtTKkfgPso+snT3/r2nRNjsphtjTonub3VYfE4lwOnjpY+Jwcg==",
+          "account_number": "406226",
+          "sequence": "27"
+        }
+      ],
+      "memo": "Test transfer",
+      "source": "0",
+      "data": null
+    }
+  },
+  "result": {
+    "log": "Msg 0: ",
+    "tags": [
+      {
+        "key": "c2VuZGVy",
+        "value": "dGJuYjFzeWx5ancwMzJlYWpyOWN5bGxwMjZuMDQzMDBxenpyZTM4cXl2NQ=="
+      },
+      {
+        "key": "cmVjaXBpZW50",
+        "value": "dGJuYjFxcTU1OWZrZXM3Nzl0M3E5cDlhZWduanBsdnRjNTN5Zzl2dXNhaA=="
+      },
+      { "key": "YWN0aW9u", "value": "c2VuZA==" }
+    ]
+  }
+}
+```
+
+As you can see from the example output, this transaction is executed at block height 1412766 and you could read about the details.
+Double check with blockchain explorer if you interact with the network through a full-node.

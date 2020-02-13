@@ -1,3 +1,11 @@
+---
+id: architecture
+title: Architecture
+---
+
+- [ ] https://docs.binance.org/blockchain.html
+- [ ] Hyperlink to existing document
+
 ## Consensus Details
 
 Binance Chain is a peer-to-peer distributed system, connecting together multiple clients that reach consensus on their views of the "state of the world". Binance Chain uses [Tendermint](https://github.com/tendermint/tendermint) BFT consensus and has a dedicated `application layer` that runs upon it. A simplified overview of the application's architecture might look something like this:

@@ -107,8 +107,8 @@
       "governance": {
         "title": "governance"
       },
-      "guides/concepts/accounts": {
-        "title": "Accounts"
+      "guides/concepts/architecture": {
+        "title": "Architecture"
       },
       "guides/concepts/assets": {
         "title": "Assets"
@@ -140,8 +140,14 @@
       "guides/concepts/walletconnect": {
         "title": "Wallet Connect"
       },
+      "guides/intro/access": {
+        "title": "Accessing Binance Chain"
+      },
       "guides/intro/create-address": {
         "title": "Create an address"
+      },
+      "guides/intro/install": {
+        "title": "Install CLI"
       },
       "guides/intro/intro": {
         "title": "Introduction",
@@ -208,7 +214,7 @@
         "title": "trading-spec"
       },
       "transfer": {
-        "title": "transfer"
+        "title": "Transfers"
       },
       "tss": {
         "title": "tss"
@@ -339,6 +345,7 @@
       "Quickstart": "Quickstart",
       "Concepts": "Concepts",
       "Run a node": "Run a node",
+      "BNB": "BNB",
       "Walkthroughs": "Walkthroughs",
       "Overview": "Overview",
       "Node RPC": "Node RPC",
