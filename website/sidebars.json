@@ -1,0 +1,49 @@
+{
+  "guides-sidebar": {
+    "Quickstart": [
+      "guides/intro/intro",
+      "guides/intro/create-address",
+      "guides/intro/transfer",
+      "guides/intro/testnet"
+    ],
+    "Concepts": [
+      "account",
+      "guides/concepts/assets",
+      "guides/concepts/matching-engine",
+      "guides/concepts/cross-chain-atomic-swaps",
+      "guides/concepts/threshold-signature-scheme",
+      "guides/concepts/fees",
+      "guides/concepts/governance",
+      "guides/concepts/encoding",
+      "walletconnect"
+    ],
+    "Run a node": [
+      "guides/node/nodetypes",
+      "guides/node/fullnode",
+      "guides/node/lightnode"
+    ],
+    "Walkthroughs": [
+      "atomic-swap",
+      "cookbooks/listing",
+      "cookbooks/launch-stablecoin"
+    ]
+  },
+  "api-sidebar": {
+    "Overview": ["api-reference/api-reference"],
+    "Node RPC": ["api/rpc/rpc", "api/rpc/cli", "api/rpc/http"],
+    "Javascript SDK": ["api/javascript"],
+    "Go SDK": [
+      "api/go/go-intro",
+      "api/go/go-example",
+      "api/go/go-api",
+      "api/go/go-websocket"
+    ]
+  },
+  "enduser-sidebar": {
+    "End User Guide": [
+      "enduser/how-to-trade",
+      "enduser/wallets",
+      "enduser/explorer"
+    ]
+  }
+}
