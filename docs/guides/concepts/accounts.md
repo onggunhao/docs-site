@@ -1,8 +1,3 @@
----
-id: accounts
-title: Accounts
----
-
 - [ ] https://docs.binance.org/account.html
 - [ ] https://docs.binance.org/chain-access.html#account-and-sequence-number
 

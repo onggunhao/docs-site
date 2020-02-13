@@ -3,6 +3,28 @@ id: wallets
 title: Wallets
 ---
 
+### Web Wallet
+
+- You can create a key via [web wallet](https://testnet.binance.org/create)
+
+Follow the instructions and set your password (password is used to unlock the keystore file that you will get here):
+
+![create key](../assets/create_key_1.png)
+
+Then click `Download Keystore File` and you will get a keystore file and be directed to mnemonic page. Make sure to back up mnemonic here as it will be used to restore your key.
+
+![create key](../assets/create_key_2.png)
+
+- You can restore your key [here](https://testnet.binance.org/unlock)
+
+Choose `Mnenomic Phrase`, paste the mnemonic you get above and set your session password:
+
+![create key](../assets/create_key_3.png)
+
+Your wallet will be unlocked and you can get your address here (for this example it is `tbnb14m2gcdjq7aqkdtu2m9qrqrl8eevzpqfj9xc0uu`):
+
+![create key](../assets/create_key_4.png)
+
 To start, navigate to the Binance Chain <u>[homepage](https://www.binance.org/en)</u>(or<u>[testnet](https://testnet.binance.org/en/)</u> if you wish to test using testnet funds) and click on “Create Wallet” in the upper left-hand corner of your screen.
 
 You will be prompted with a tutorial on how to create a wallet directly on the website. Read it carefully!

@@ -5,8 +5,8 @@
     "previous": "Previous",
     "tagline": "Binance Chain",
     "docs": {
-      "account": {
-        "title": "account"
+      "accounts": {
+        "title": "Accounts"
       },
       "acknowledgement": {
         "title": "acknowledgement"
@@ -109,9 +109,6 @@
       },
       "guides/concepts/accounts": {
         "title": "Accounts"
-      },
-      "guides/concepts/architecture": {
-        "title": "Architecture"
       },
       "guides/concepts/assets": {
         "title": "Assets"
