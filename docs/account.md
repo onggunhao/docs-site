@@ -146,3 +146,17 @@ A `json` of the following structure will be returned.
   }
 }
 ```
+
+### Account Number
+
+The `Account Number` is an internal identifier for the account. It is unique to each account.
+
+### Sequence Number
+
+The `Sequence Number` allows Binance Chain to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack). Every new transaction, when broadcast, should include an increment over the current `Sequence Number`. Once the transaction is recorded on the blockchain, the account's `Sequence Number` is incremented to the latest transaction's.
+
+> This is similar to Cosmos' implementation of the Sequence Number, or Ethereum's [nonce](https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending)
+
+This logic forces the client to be aware of the current `Sequence Number`, either by reading from the
+blockchain via API, or keep the counting locally by themselves. The recommended way is to keep
+counting locally and re-synchronize from the blockchain periodically.
