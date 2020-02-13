@@ -4,17 +4,16 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
-- [ ] https://docs.binance.org/blockchain.html (talk about high-level architecture)
-
-## Intro
-
-[Binance Chain]() is a blockchain developed by [Binance]() and its community that implements a vision of a decentralized exchange (DEX) for digital assets.
-
-At the heart of Binance Chain is a highly performant [matching engine]() built on [distributed consensus]() that aims to replicate the <1 second trading efficiency of current centralized exchanges.
+[Binance Chain](https://www.binance.org) is a blockchain developed by [Binance](https://www.binance.com) and its community, that implements a vision of a decentralized exchange (DEX) for digital assets. It features a highly performant [matching engine](../concepts/matching-engine) built on [distributed consensus](../concepts/architecture) that aims to replicate the <1 second trading efficiency of current centralized exchanges.
 
 Binance Chain transactions burns [BNB]() (the native token of the Binance ecosystem), according to a fee schedule.
 
-Binance Chain also includes efforts to implement [listing assets from other chains](cross-chain-atomic-swaps), and cryptographic primitives such as [threshold signatures](threshold-signature-scheme).
+## Innovation
+
+Binance Chain implements innovative new technologies to push the cryptocurrency industry forward. This includes:
+
+- Atomic swaps to [listing assets from other chains](cross-chain-atomic-swaps)
+- Cryptographic primitives to improve security such as [threshold signatures](threshold-signature-scheme).
 
 ## Functionality
 
@@ -39,4 +38,4 @@ Binance Chain also implements new features, such as
 
 There are different ways to participate in the network, from light nodes to full validators.
 
-Binance Chain follows a philosophy of progressive decentralization. We envision a future where organizations and individuals can run validator nodes, and BNB can be staked to join governance.
+Binance Chain embraces a philosophy of progressive decentralization, and envisions a future where BNB can be staked by organizations and individuals to participate in governance and run validator nodes.
