@@ -128,6 +128,9 @@
       "guides/concepts/matching-engine": {
         "title": "Matching Engine"
       },
+      "guides/concepts/networks": {
+        "title": "Networks"
+      },
       "guides/concepts/signatures": {
         "title": "Signatures"
       },
@@ -143,8 +146,8 @@
       "guides/intro/access": {
         "title": "Accessing Binance Chain"
       },
-      "guides/intro/create-address": {
-        "title": "Create an address"
+      "guides/intro/create-account": {
+        "title": "Create an account"
       },
       "guides/intro/install": {
         "title": "Install CLI"
@@ -153,10 +156,10 @@
         "title": "Introduction",
         "sidebar_label": "Introduction"
       },
-      "guides/intro/testnet": {
-        "title": "Testnet"
+      "guides/intro/make-trade": {
+        "title": "Make a trade"
       },
-      "guides/intro/transfer": {
+      "guides/intro/make-transfer": {
         "title": "Make a Transfer"
       },
       "guides/node/fullnode": {

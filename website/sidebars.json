@@ -4,8 +4,9 @@
       "guides/intro/intro",
       "guides/intro/access",
       "guides/intro/install",
-      "guides/intro/create-address",
-      "guides/intro/transfer"
+      "guides/intro/create-account",
+      "guides/intro/make-transfer",
+      "guides/intro/make-trade"
     ],
     "Concepts": [
       "accounts",

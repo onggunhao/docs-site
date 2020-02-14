@@ -1,6 +1,6 @@
 ---
-id: create-address
-title: Create an address
+id: create-account
+title: Create an account
 ---
 
 ## Create an Address
