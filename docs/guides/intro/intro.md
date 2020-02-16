@@ -8,11 +8,9 @@ sidebar_label: Introduction
 
 Binance Chain transactions burns [BNB]() (the native token of the Binance ecosystem), according to a fee schedule.
 
-## Innovation
-
 Binance Chain implements innovative new technologies to push the cryptocurrency industry forward. This includes:
 
-- Atomic swaps to [listing assets from other chains](cross-chain-atomic-swaps)
+- Atomic swaps to [list assets from other chains](cross-chain-atomic-swaps)
 - Cryptographic primitives to improve security such as [threshold signatures](threshold-signature-scheme).
 
 ## Functionality

@@ -146,8 +146,11 @@
       "guides/intro/access": {
         "title": "Accessing Binance Chain"
       },
+      "guides/intro/bnb": {
+        "title": "The BNB Token"
+      },
       "guides/intro/create-account": {
-        "title": "Create an account"
+        "title": "Create an Account"
       },
       "guides/intro/install": {
         "title": "Install CLI"
@@ -157,7 +160,7 @@
         "sidebar_label": "Introduction"
       },
       "guides/intro/make-trade": {
-        "title": "Make a trade"
+        "title": "Make a Trade"
       },
       "guides/intro/make-transfer": {
         "title": "Make a Transfer"
