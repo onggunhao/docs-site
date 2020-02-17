@@ -98,27 +98,31 @@ $ tbnbcli send
 
 This should result in a `json` of the following format being returned:
 
-```shell
+```bash
 {
-  "type": "bnbchain/Account",
-  "value": {
-    "base": {
-      "address": "tbnb1h4hmqakp86y4lfxhynf3a08lu7q2n8vxw5dze5",
-      "coins": [
-        {
-          "denom": "BNB",
-          "amount": "1"
-        }
-      ],
-      "public_key": null,
-      "account_number": "708999",
-      "sequence": "0"
-    },
-    "name": "",
-    "frozen": null,
-    "locked": null,
-    "flags": "0"
-  }
+   "Height":"68766197",
+   "TxHash":"30CBDA98F636099665F0B7AB76BAD039FF5A63C0D29BD51D097D3E36188A5957",
+   "Response":{
+      "log":"Msg 0: ",
+      "events":[
+         {
+            "attributes":[
+               {
+                  "key":"c2VuZGVy",
+                  "value":"Ym5iMW16NzluNHQzMDlkcmY0NzQ1enZ0NW5jdXltcTh1N3huajdwdHh6"
+               },
+               {
+                  "key":"cmVjaXBpZW50",
+                  "value":"Ym5iMXlnM2VncnJ6enNjazQ2bWowd3RzdG05ZjYyMDlwcjB5ZWowdDA4"
+               },
+               {
+                  "key":"YWN0aW9u",
+                  "value":"c2VuZA=="
+               }
+            ]
+         }
+      ]
+   }
 }
 ```
 
