@@ -1,3 +1,8 @@
+---
+id: hardware-wallets
+title: Hardware Wallets
+---
+
 # Ledger
 
 For instructions on how to use your Ledger Nano S with Binance Chain and Binance DEX, please visit the following page:

@@ -1,3 +1,8 @@
+---
+id: light-client
+title: Light Client
+---
+
 # Run a light client to join Binance Chain
 
 Light client is a program that connects to a full node to help users access and interact with Binance chain
@@ -7,11 +12,11 @@ in a secure and decentralized manner without having to sync the full blockchain.
 
 - Light client does not store blocks or states,this way it needs less disk space (50 megabytes will be enough).
 - Light client does not join p2p network and it does not produce any network cost when it is idle. The network
-overhead depends on how many requests the light client handles concurrently.
+  overhead depends on how many requests the light client handles concurrently.
 - Light client does not replay state of the chain so that there is not CPU cost when idle. The CPU cost also
-depends on how many requests the light client handles concurrently.
+  depends on how many requests the light client handles concurrently.
 - Light client is faster than a full node even if it lagged behind the core network for a few months. It only needs a few seconds
-to catch up with core network.
+  to catch up with core network.
 
 ## Platforms and System Requirement
 
@@ -21,12 +26,14 @@ We support running light client node on `Mac OS X`, `Windows` and `Linux`.<br/>
 The light client will soon be open sourced, afterwards you can cross compile light client binary and run it on other platforms.
 
 ### Requirements
+
 - 50 megabytes of free disk space.
 - 2 CPU cores, 50 megabytes of memory (RAM).
 
 ## Run a light client node
 
 Download:
+
 ```bash
 git clone https://github.com/binance-chain/node-binary.git
 ```
@@ -89,15 +96,16 @@ print (seeds)
 ```
 
 ### Example for Mainnet:
+
 ```bash
 ./lightd --chain-id "Binance-Chain-Tigris" --node tcp://dataseed1.binance.org:80 > node.log  &
 ```
 
 ### Example for Testnet:
+
 ```bash
 ./lightd --chain-id "Binance-Chain-Nile" --node tcp://data-seed-pre-0-s1.binance.org:80 > node.log  &
 ```
-
 
 ## Working with the light client
 

@@ -1,7 +1,12 @@
 ---
-id: testnet
-title: Testnet
+id: networks
+title: Networks
 ---
+
+- [ ] Explain the difference between mainnet and testnet
+- [ ] Include the main terms used (i.e. tigris, nile)
+
+## Testnet
 
 The testnet is a test environment for Binance Chain network, run by the Binance Chain development community, which is open to developers.
 

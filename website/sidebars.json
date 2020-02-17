@@ -2,12 +2,36 @@
   "guides-sidebar": {
     "Quickstart": [
       "guides/intro/intro",
-      "guides/intro/create-address",
-      "guides/intro/transfer",
-      "guides/intro/testnet"
+      "guides/intro/access",
+      "guides/intro/create-account",
+      "guides/intro/make-transfer",
+      "guides/intro/make-trade"
     ],
     "Concepts": [
-      "account",
+      "accounts",
+
+      "networks",
+      "anti-front-running",
+      "atomic-swap",
+      "blockchain",
+      "encoding",
+      "exchange-integration",
+      "faq",
+      "governance",
+      "keys",
+      "list",
+      "match",
+      "match-examples",
+      "memo-validation",
+      "offline",
+      "timelock",
+      "tokens",
+      "trade",
+      "trading-spec",
+      "transfer",
+      "tss",
+      "walletconnect",
+      "guides/concepts/architecture",
       "guides/concepts/assets",
       "guides/concepts/matching-engine",
       "guides/concepts/cross-chain-atomic-swaps",
@@ -18,12 +42,16 @@
       "walletconnect"
     ],
     "Run a node": [
+      "fullnode",
+      "fullnodeissues",
+      "extra-data-from-fullnode",
+      "light-client",
       "guides/node/nodetypes",
       "guides/node/fullnode",
       "guides/node/lightnode"
     ],
     "Walkthroughs": [
-      "atomic-swap",
+      "list_instructions",
       "cookbooks/listing",
       "cookbooks/launch-stablecoin"
     ]

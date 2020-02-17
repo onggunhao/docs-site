@@ -1,3 +1,8 @@
+---
+id: keys
+title: Keys
+---
+
 ## Introduction
 
 Binance Chain CLI has a sub-command named `keys` to manage private keys.<br/>

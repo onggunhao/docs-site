@@ -1,19 +1,33 @@
-# Run Full Node to Join Binance Chain
-  * [Supported Platforms](#supported-platforms)
-  * [Minimum System Requirements](#minimum-system-requirements)
-  * [Steps to Run a Full Node](#steps-to-run-a-full-node)
-    + [Option One: Installation Script](#option-one--installation-script)
-    + [Option Two: Manual Installation](#option-two--manual-installation)
-    + [Initialize Home Folder](#initialize-home-folder)
-    + [Setup Configuration](#setup-configuration)
-    + [Add Seed Nodes](#add-seed-nodes)
-  * [Upgrading Full Node](#upgrading-full-node)
-  * [Monitoring](#monitoring)
-  * [Get Extra Data From Your Full Node](#get-extra-data-from-your-full-node)
-  * [Common Issues and Solutions](#common-issues-and-solutions)
+---
+id: fullnode
+title: Full Node
+---
 
->Note: Please take a note that this is a pre-alpha version and the software is not stabilized.<br/>
-Many changes and upgrades are expected to come.
+# Run Full Node to Join Binance Chain
+
+- [Run Full Node to Join Binance Chain](#run-full-node-to-join-binance-chain)
+  - [Supported Platforms](#supported-platforms)
+  - [Minimum System Requirements](#minimum-system-requirements)
+  - [Steps to Run a Full Node](#steps-to-run-a-full-node)
+    - [Option One: Installation Script](#option-one-installation-script)
+    - [Option Two: Manual Installation](#option-two-manual-installation)
+    - [Initialize Home Folder](#initialize-home-folder)
+    - [Setup Configuration](#setup-configuration)
+    - [Add Seed Nodes](#add-seed-nodes)
+      - [Additional Configuration](#additional-configuration)
+      - [Start your node](#start-your-node)
+      - [Sync Data](#sync-data)
+        - [Fast Sync](#fast-sync)
+        - [State Sync](#state-sync)
+        - [Hot Sync](#hot-sync)
+        - [Monitor Syncing Process](#monitor-syncing-process)
+  - [Upgrading Full Node](#upgrading-full-node)
+  - [Monitoring](#monitoring)
+  - [Get Extra Data From Your Full Node](#get-extra-data-from-your-full-node)
+  - [Common Issues and Solutions](#common-issues-and-solutions)
+
+> Note: Please take a note that this is a pre-alpha version and the software is not stabilized.<br/>
+> Many changes and upgrades are expected to come.
 
 A `full node` of Binance Chain is a `witness`, which observes the consensus messaging, <br/>
 downloads blocks from `data seed nodes` and executes business logic to achieve the consistent state as `validator node` (and other `full node`).<br/>
@@ -32,7 +46,7 @@ The hardware must meet certain requirements to run a full node.
 - 4 cores of CPU and 8 gigabytes of memory (RAM).
 - A broadband Internet connection with upload/download speeds of at least 1 megabyte per second
 - Your full node has to run at least 4 hours per 24 hours in order to catch up with Binance Chain
-More hours will be better, run your node continuously for best results.
+  More hours will be better, run your node continuously for best results.
 
 ## Steps to Run a Full Node
 
@@ -40,8 +54,8 @@ More hours will be better, run your node continuously for best results.
 
 We have a community-maintained installer script (`install.sh`) that takes care of chain directory setup. This uses the following defaults:
 
-* Home folder in `~/.bnbchaind`
-* Client executables stored in `/usr/local/bin` (i.e. `light` or `bnbchaind`)
+- Home folder in `~/.bnbchaind`
+- Client executables stored in `/usr/local/bin` (i.e. `light` or `bnbchaind`)
 
 ```shell
 # One-line install
@@ -111,10 +125,10 @@ If you want to add seed nodes, please feel free to edit the field `seeds` of `$B
 #### Additional Configuration
 
 - Log: The log file is under `home`- the directory specified when starting `bnbchaind`.<br/>
-The latest log file is `bnc.log`. The process will create a new log file every one hour.<br/>
-To make sure you have sufficient disk space to keep the log files, we strongly recommend you to change the log location by changing `logFileRoot` option in `$BNCHOME/config/app.toml`.<br/>
+  The latest log file is `bnc.log`. The process will create a new log file every one hour.<br/>
+  To make sure you have sufficient disk space to keep the log files, we strongly recommend you to change the log location by changing `logFileRoot` option in `$BNCHOME/config/app.toml`.<br/>
 - Service Port: RPC service listens on port `27147` and P2P service listens on port `27146` by default.<br/>
-Make sure these two ports are open before starting a full node, unless the full node has to listen on other ports.
+  Make sure these two ports are open before starting a full node, unless the full node has to listen on other ports.
 - Store: All the state and block data will store under `$BNCHOME/data`, do not delete or edit any of these files.
 
 #### Start your node
@@ -132,22 +146,23 @@ Only after catching up with Binance Chain, the full node can handle requests cor
 
 There are three ways for you to get synced with other peers in blockchain network:
 
-* Fast Sync
-* State Sync
-* Hot Sync
+- Fast Sync
+- State Sync
+- Hot Sync
 
 These methods can be used together.
 
 ##### Fast Sync
+
 The default way for syncing with other data seed node is fast sync.<br/>
 In fast sync, you need to download all the blocks from your peers and execute all the transaction in every block.<br/>
 The sync speed is about 20 blocks/s, which is slower than state sync.
 
 Configuration is located in `$BNCHOME/config/config.toml`:
 
-* `fast_sync` Must be set to `true`
-* `state_sync_reactor` Can be set to `false` or `true`
-* `state_sync` Can be set to `false` or `true`
+- `fast_sync` Must be set to `true`
+- `state_sync_reactor` Can be set to `false` or `true`
+- `state_sync` Can be set to `false` or `true`
 
 ##### State Sync
 
@@ -156,11 +171,11 @@ Now you do not need to allocate more memories to your full node for this feature
 
 Configuration is located in `$BNCHOME/config/config.toml`:
 
-* `state_sync_reactor` Must be set to `true`
-* `recv_rate` Must set to `102428800`
-* `ping_interval` Recommendation is set to `10m30s`
-* `pong_timeout` Recommendation is set to `450s`
-* `state_sync_height` Recommendation is set to `0`, so it allows to state sync from the peers's latest height.
+- `state_sync_reactor` Must be set to `true`
+- `recv_rate` Must set to `102428800`
+- `ping_interval` Recommendation is set to `10m30s`
+- `pong_timeout` Recommendation is set to `450s`
+- `state_sync_height` Recommendation is set to `0`, so it allows to state sync from the peers's latest height.
 
 State sync can help fullnode in same status with other peers within short time (according to our test, a one month ~800M DB snapshot in binance chain testnet can be synced in around 45 minutes) so that you can receive latest blocks/transactions and query latest status of orderbook, account balances etc.. But state sync DOES NOT download historical blocks before state sync height, if you start your node with state sync and it synced at height 10000, then your local database would only have blocks after height 10000.
 
@@ -168,15 +183,14 @@ If full node has already started, suggested way is to delete the (after backup) 
 
 State sync will run only once after you start your full node. Once state sync succeeds, later fullnode restart would not state sync anymore. But if you do want state sync again, you need to delete `$BNCHOME/data/STATESYNC.LOCK`.
 
-
-If you turn on the `state_sync_reactor`, the snapshots of heights will be saved at `$HOME/data/snapshot/<height>` automatically. To save disk space, you can delete the directory or turn off the  `state_sync_reactor`.
+If you turn on the `state_sync_reactor`, the snapshots of heights will be saved at `$HOME/data/snapshot/<height>` automatically. To save disk space, you can delete the directory or turn off the `state_sync_reactor`.
 
 ##### Hot Sync
 
 > Please note that this feature is still expreimental and is not recommended.
 
-In Binance Chain network, almost every fullnode operator will first enable `state-sync` to get synced with peers. After downloading all the state machine changes, the fullnode will go back to `fast-sync` mode and eventually in `consensus` mode.  In fast-sync mode, the fullnode will have high delay because it needs to be aware of peers’ heights. It downloads all the blocks in parallel and verifying their commits. On the other hand, when a fullnode is under `consensus` state, it will consume a lot of bandwidth and CPU resources because it receives a lot of redundant messages for consensus engine and writes more WAL.
-To increase the efficiency for fullnodes, the `hot-sync` protocol is introduced. A fullnode under `hot-sync` protocol will pull the blocks from its peers and it will subscribe these blocks in advance. It will skip the message for prevotes and only subscribe to maj23 precommit and block proposal messages. At the same time, it will put its peers in different buckets and subscribe to peers in active buckets. `Hot-Sync` can help fullnodes gossip blocks in low latency, while cost less network, memory, cpu and disk resources than Tendermint consensus protocol. Even cheap hardware can easily run a fullnode, and a  fullnode can connect with more peers than before by saving network and CPU resources.
+In Binance Chain network, almost every fullnode operator will first enable `state-sync` to get synced with peers. After downloading all the state machine changes, the fullnode will go back to `fast-sync` mode and eventually in `consensus` mode. In fast-sync mode, the fullnode will have high delay because it needs to be aware of peers’ heights. It downloads all the blocks in parallel and verifying their commits. On the other hand, when a fullnode is under `consensus` state, it will consume a lot of bandwidth and CPU resources because it receives a lot of redundant messages for consensus engine and writes more WAL.
+To increase the efficiency for fullnodes, the `hot-sync` protocol is introduced. A fullnode under `hot-sync` protocol will pull the blocks from its peers and it will subscribe these blocks in advance. It will skip the message for prevotes and only subscribe to maj23 precommit and block proposal messages. At the same time, it will put its peers in different buckets and subscribe to peers in active buckets. `Hot-Sync` can help fullnodes gossip blocks in low latency, while cost less network, memory, cpu and disk resources than Tendermint consensus protocol. Even cheap hardware can easily run a fullnode, and a fullnode can connect with more peers than before by saving network and CPU resources.
 
 The state transition of a hot sync reactor can be of three part:
 
@@ -187,17 +201,16 @@ The state transition of a hot sync reactor can be of three part:
                                  |  /
                                 Mute
 ```
+
 1. `Mute`: will only answer subscribe requests from others, will not sync from others or from consensus reactor. The Hot Sync reactor stays in `Mute` when it is fast syncing.
-2. `Hot`:  handle subscribe requests from other peers as a publisher, also subscribe block messages from other peers as a subscriber. A non-validators will stay in `Hot` when the peer have catch up after fast syncing.
+2. `Hot`: handle subscribe requests from other peers as a publisher, also subscribe block messages from other peers as a subscriber. A non-validators will stay in `Hot` when the peer have catch up after fast syncing.
 3. `Consensus`: handle subscribes requests from other peers as a publisher, but get block/commit message from consensus reactor. A sentry node should stay in `Consensus`. Or a non-validator should switch from `Hot` to `Consensus` when it become a validator.
 
 Configuration is located in `$BNCHOME/config/config.toml`:
 
-* `hot_sync_reactor` Must be set to `true`
-* `hot_sync` Can be set to `false` or `true`
-* `hot_sync_timeout` is the max wait time for subscribe a block. It only takes effect when hot_sync is true
-
-
+- `hot_sync_reactor` Must be set to `true`
+- `hot_sync` Can be set to `false` or `true`
+- `hot_sync_timeout` is the max wait time for subscribe a block. It only takes effect when hot_sync is true
 
 ##### Monitor Syncing Process
 
@@ -241,4 +254,3 @@ If you want to get extra information about order book, balance changes or block 
 ## Common Issues and Solutions
 
 Please refer to this [doc](fullnodeissue.md) to find answers to common issues.
-

@@ -1,3 +1,8 @@
+---
+id: blockchain
+title: Blockchain Architecture
+---
+
 # The Binance Chain Blockchain
 
 The purpose of the new blockchain and DEX is to create an alternative marketplace for issuing and exchanging digital assets in a decentralized manner.
@@ -27,7 +32,6 @@ Binance Chain is a peer-to-peer distributed system, connecting together multiple
 
 For more information, please have a look at the [Tendermint spec](https://github.com/tendermint/tendermint/blob/master/docs/spec/consensus/consensus.md).
 
-
 ## Node Roles
 
 ### What is a Validator Node?
@@ -40,7 +44,6 @@ blockchain as EOS or dBFT in NEO. The initial validators are selected from trust
 Binance community, and will eventually expand to more members as the Binance blockchain and
 ecosystem matures, this responsibility will be distributed. The decentralized governance procedure
 will be introduced and executed. More qualified organization/individual can become Validators.
-
 
 ### What is a Witness Node?
 
@@ -89,18 +92,21 @@ trades are not stored as state either, because they can be reproduced via balanc
 ## Cryptographic Design
 
 ### Account and Address
+
 For normal users, all the keys and addresses can be generated via Binance [Web Wallet](https://www.binance.org/en/create).
 
 This default wallet would use a similar way to generate keys as Bitcoin, i.e. use 256 bits entropy to generate a 24-word mnemonic based on [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki), and then use the mnemonic and an empty passphrase to generate a seed; finally use the seed to generate a master key, and derive the private key using BIP32/BIP44 with HD prefix as `"44'/714'/"`, which is reserved at [SLIP 44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md).
 
-*714 comes from Binance's birthday, July 14th. :)*
+_714 comes from Binance's birthday, July 14th. :)_
 
 #### Keys
+
 Binance Chain uses the same elliptic curve cryptography as the current [Bitcoin implementation](https://github.com/btcsuite/btcd/tree/master/btcec), i.e. `secp256k1`. Its private key is 32 bytes while public key is 33 bytes.
 
 #### Address
 
 Addresses on Binance Chain are 20 bytes and may be expressed as:
+
 ```
 Address = RIPEMD160(SHA256(compressed public key))
 ```
@@ -110,6 +116,7 @@ Typically, an address is encoded in the [bech32](https://github.com/bitcoin/bips
 A Binance Chain address is therefore more similar to a [Bitcoin Cash address](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/cashaddr.md), which does not include a SegWit program script.
 
 Address format pseudo-code:
+
 ```
 Address_Bech32 = HRP + '1' + bech32.encode(convert8BitsTo5Bits(RIPEMD160(SHA256(compressed public key))))
 ```

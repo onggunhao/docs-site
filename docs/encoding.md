@@ -1,3 +1,8 @@
+---
+id: encoding
+title: Transaction Encoding
+---
+
 # Binance Chain Transaction Encoding Specification
 
 Binance Chain transactions are protocol-based data types and can only be submitted in a compatible encoded frame.
@@ -11,6 +16,7 @@ However the client sides only needs to stick to the specifications outlined belo
 Binance Chain (Amino) encoding logic may encode a data structure into two output formats: Binary and JSON.
 
 ### JSON Marshal
+
 Amino supports JSON encoding natively, which is the same as other usual json marshalers. Except that it can add one more `type` info for registered type, as shown below.
 
 ```json
@@ -19,6 +25,7 @@ Amino supports JSON encoding natively, which is the same as other usual json mar
   "value": <JSON>
 }
 ```
+
 ### Binary Marshal
 
 **[Please note the below binary encoding logic is subjected to future changes. Please watch out for the community news](resources.md).**
@@ -28,13 +35,12 @@ Binary encoding is a variant of Google protocol buffer. The bytes are layed out 
 1. a [varint](https://developers.google.com/protocol-buffers/docs/encoding#varints) encoded integer - it contains the length of the encoded bytes for the object, which is displayed as `SIZE-OF-ENCODED` in the below structs. Please note that it contains the length of encoded bytes and also the type prefix (below), but not itself, e.g. if the encoded msg is 20 bytes, then the length would be 20 + 4 = 24, while 4 is used for the type prefix bytes.
 2. an object type prefix of 4-8 bytes - For different type of objects, there will be different type prefixes, and they are displayed as in the specific objects below (data structures).
 3. a binary encoded object - the encoding is mostly the same as protocol buffer encoding mechanism, except the embedded fields of complex type:
-    - to encode data field of some specific types, an object type prefix for the field will be added ahead of the real encoding.
+   - to encode data field of some specific types, an object type prefix for the field will be added ahead of the real encoding.
 4. repeated (array) Encoding - it is the same as google protocol buffer, while encoding of the object/struct may contain the type prefix as shown below.
 
 ## Binance Chain Transaction Encoding
 
 Below are the data types that can be sent to Binance Chain as requests, and their encoding layout. To simplify the presentation, we will use a variant of [Google protocol buffer proto3](https://developers.google.com/protocol-buffers/docs/proto3) language to illustrate how the data fields are organized. Except the all-capitalized fields, other fields will use the default `proto3` encoding logic.
-
 
 ### Standard Transaction
 
@@ -54,6 +60,7 @@ message StdTx {
 ```
 
 ### StdSignBytes
+
 ```go
 type StdSignDoc struct {
   AccountNumber int64             `json:"account_number"`
@@ -77,41 +84,40 @@ The canonical bytes for signing are generated from the StdSignBytes method. It p
 
 ```json
 {
-   "sequence" : "64",
-   "account_number" : "12",
-   "data" : null,
-   "chain_id" : "chain-bnb",
-   "memo" : "smiley",
-   "msgs" : [
-      {
-         "inputs" : [
+  "sequence": "64",
+  "account_number": "12",
+  "data": null,
+  "chain_id": "chain-bnb",
+  "memo": "smiley",
+  "msgs": [
+    {
+      "inputs": [
+        {
+          "coins": [
             {
-               "coins" : [
-                  {
-                     "denom" : "BNB",
-                     "amount" : "200000000"
-                  }
-               ],
-               "address" : "bnc1hgm0p7khfk85zpz5v0j8wnej3a90w7098fpxyh"
+              "denom": "BNB",
+              "amount": "200000000"
             }
-         ],
-         "outputs" : [
+          ],
+          "address": "bnc1hgm0p7khfk85zpz5v0j8wnej3a90w7098fpxyh"
+        }
+      ],
+      "outputs": [
+        {
+          "address": "bnc1cku54wwn66w2rkgs3h6v5zxrwtzyew8chcl720",
+          "coins": [
             {
-               "address" : "bnc1cku54wwn66w2rkgs3h6v5zxrwtzyew8chcl720",
-               "coins" : [
-                  {
-                     "denom" : "BNB",
-                     "amount" : "200000000"
-                  }
-               ]
+              "denom": "BNB",
+              "amount": "200000000"
             }
-         ]
-      }
-   ],
-   "source" : "1"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "1"
 }
 ```
-
 
 This JSON string, **with all whitespace removed and keys sorted in alphabetical order**, is signed with the private key of the sender. This signature is then attached to the `StdTx` structure described in the above section. Please note that the transaction broadcasted to the blockchain is not JSON - the JSON is merely used as a canonical representation to generate the signature.
 
@@ -140,9 +146,11 @@ message StdSignature {
 ```
 
 ### Message Types
+
 Messages represent the individual operations possible on Binance Chain, and these can be inserted into `StdTx.msgs` field. Message types are otherwise known as "transaction types", and these terms are used interchangably in this document and in our technical documentation. So far every `StdTx` transaction "container" can only contain one "message".
 
 #### Transfer
+
 Transfer is the transaction for transfering funds to different addresses.
 
 ```go
@@ -167,6 +175,7 @@ message Send {
 ```
 
 #### NewOrder
+
 NewOrder transaction will create a new order to buy or sell tokens on Binance DEX.
 
 ```go
@@ -185,6 +194,7 @@ message NewOrder {
 ```
 
 ##### Order ID
+
 Order ID is unique across the world. It is generated by sender and acknowledged by Binance DEX. The current implementation is composed from 3 parts:
 
 1. Sender address in HEX format, without human-readable prefix
@@ -194,6 +204,7 @@ Order ID is unique across the world. It is generated by sender and acknowledged 
 E.g. `40C2979694BBC961023D1D27BE6FC4D21A9FEBE6-5`
 
 #### Cancel
+
 Cancel transactions (cancel the outstanding/unfilled) orders from the Binance DEX. After cancel success, the locked quantity on the orders will return back to the originating address balance and become free to use, i.e. transfer or send new orders.
 
 ```go
@@ -207,6 +218,7 @@ message CancelOrder {
 ```
 
 #### Freeze
+
 Freeze transaction will move the amount of the tokens into a `frozen` state, in which they cannot be used for transfers or sending new orders.
 
 ```go
@@ -220,6 +232,7 @@ message TokenFreeze {
 ```
 
 #### Unfreeze
+
 Unfreeze will reversely turn the amount of `frozen` tokens back to free state.
 
 ```go
@@ -233,6 +246,7 @@ message TokenUnfreeze {
 ```
 
 #### Vote
+
 Vote transactions for proposals.
 
 ```go
@@ -246,6 +260,7 @@ message Vote {
 ```
 
 Below are options for `option`:
+
 ```go
 OptionYes           = 0x01  // yes
 OptionAbstain       = 0x02  // abstain
@@ -254,7 +269,9 @@ OptionNoWithVeto    = 0x04  // no with veto
 ```
 
 #### Issue
+
 Issue (create) new asset on Binance chain.
+
 ```go
 message IssueTokenValue  {
   0x17EFAB80 // hardcoded, object type prefix in 4 bytes
@@ -267,7 +284,9 @@ message IssueTokenValue  {
 ```
 
 #### Mint
+
 Mint is used to increase the total supply of a token.
+
 ```go
 message Mint {
   0x467E0829 // hardcoded, object type prefix in 4 bytes
@@ -278,7 +297,9 @@ message Mint {
 ```
 
 #### Burn
+
 Burn is used to decrease the total supply of a token.
+
 ```go
 message TokenBurn {
   0x7ED2D2A0 // hardcoded, object type prefix in 4 bytes
@@ -289,7 +310,9 @@ message TokenBurn {
 ```
 
 #### List
+
 List is used to add a new trading pair.
+
 ```go
 message DexList{
   0xB41DE13F // hardcoded, object type prefix in 4 bytes
@@ -302,7 +325,9 @@ message DexList{
 ```
 
 #### Submit Proposal
+
 Submit proposal is used to create a proposal for validators about adding trading pairs
+
 ```go
 message Submit{
   0xB42D614E // hardcoded, object type prefix in 4 bytes
@@ -319,7 +344,9 @@ message Submit{
 ```
 
 #### Deposit
+
 Deposit is used to increase the total deposit of a proposal.
+
 ```go
 message Deposit{
   0xA18A56E5 // hardcoded, object type prefix in 4 bytes
@@ -331,8 +358,11 @@ message Deposit{
   }
 }
 ```
+
 #### Set Account Flags
+
 You can set the flag value of your account.
+
 ```go
 message SetAccountFlags{
   0xBEA6E301 // hardcoded, object type prefix in 4 bytes
@@ -342,7 +372,9 @@ message SetAccountFlags{
 ```
 
 #### Time-lock
+
 You can only lock tokens on your own account for a certain period of time.
+
 ```go
 message Timerelock{
   0x07921531 // hardcoded, object type prefix in 4 bytes
@@ -357,9 +389,10 @@ message Timerelock{
 }
 ```
 
-
 #### Time-unlock
-You can  unlock tokens on your own account after a certain period of time.
+
+You can unlock tokens on your own account after a certain period of time.
+
 ```go
 message Timeunlock{
   0xC4050C6C   // hardcoded, object type prefix in 4 bytes
@@ -369,7 +402,9 @@ message Timeunlock{
 ```
 
 #### Time-relock
-You can  relock tokens on your own account after a certain period of time.
+
+You can relock tokens on your own account after a certain period of time.
+
 ```go
 message Timerelock{
   0x504711DA // hardcoded, object type prefix in 4 bytes
@@ -410,6 +445,7 @@ message HTLT{
 ```
 
 #### Deposit HTLT
+
 Deposit Hash Timer Locked Transfer is to lock new BEP2 asset to an existed HTLT which is for single chain atomic swap.
 
 ```go
@@ -424,7 +460,9 @@ message DepositHTLT{
   bytes swap_id
 }
 ```
+
 #### Claim HTLT
+
 Claim Hash Timer Locked Transfer is to claim the locked asset by showing the random number value that matches the hash. Each HTLT locked asset is guaranteed to be release once.
 
 ```go
@@ -435,13 +473,14 @@ message ClaimHTLTMsg{
   bytes random_number
 }
 ```
+
 #### Refund HTLT
 
 Refund Hash Timer Locked Transfer is to refund the locked asset after timelock is expired.
+
 ```go
 message RefundHTLTMsg{
   0x3454A27C // hardcoded, object type prefix in 4 bytes
   bytes from // sender's address
   bytes swap_id
 ```
-

@@ -5,14 +5,14 @@
     "previous": "Previous",
     "tagline": "Binance Chain",
     "docs": {
-      "account": {
-        "title": "account"
+      "accounts": {
+        "title": "Accounts"
       },
       "acknowledgement": {
         "title": "acknowledgement"
       },
-      "anti-frontrun": {
-        "title": "anti-frontrun"
+      "anti-front-running": {
+        "title": "Anti Front-Running"
       },
       "api-reference/api-reference": {
         "title": "API Reference"
@@ -60,10 +60,10 @@
         "title": "api-reference/transactions"
       },
       "atomic-swap": {
-        "title": "atomic-swap"
+        "title": "Atomic Swaps"
       },
       "blockchain": {
-        "title": "blockchain"
+        "title": "Blockchain Architecture"
       },
       "chain-access": {
         "title": "chain-access"
@@ -75,7 +75,7 @@
         "title": "dataseed_list"
       },
       "encoding": {
-        "title": "encoding"
+        "title": "Transaction Encoding"
       },
       "enduser/explorer": {
         "title": "Binance Chain Explorer"
@@ -87,28 +87,25 @@
         "title": "Wallets"
       },
       "exchange-integration": {
-        "title": "exchange-integration"
+        "title": "Exchange Integration"
       },
       "faq": {
-        "title": "faq"
+        "title": "FAQ"
       },
       "fullnode": {
-        "title": "fullnode"
+        "title": "Full Node"
       },
-      "fullnodeissue": {
-        "title": "fullnodeissue"
+      "fullnodeissues": {
+        "title": "Full Node Issues"
       },
-      "get-extra-data-from-fullnode": {
-        "title": "get-extra-data-from-fullnode"
+      "extra-data-from-fullnode": {
+        "title": "Get Extra Data from Full Node"
       },
       "get-started": {
         "title": "get-started"
       },
       "governance": {
-        "title": "governance"
-      },
-      "guides/concepts/accounts": {
-        "title": "Accounts"
+        "title": "Governance"
       },
       "guides/concepts/architecture": {
         "title": "Architecture"
@@ -131,6 +128,9 @@
       "guides/concepts/matching-engine": {
         "title": "Matching Engine"
       },
+      "guides/concepts/networks": {
+        "title": "Networks"
+      },
       "guides/concepts/signatures": {
         "title": "Signatures"
       },
@@ -143,17 +143,26 @@
       "guides/concepts/walletconnect": {
         "title": "Wallet Connect"
       },
-      "guides/intro/create-address": {
-        "title": "Create an address"
+      "guides/intro/access": {
+        "title": "Accessing Binance Chain"
+      },
+      "guides/intro/bnb": {
+        "title": "The BNB Token"
+      },
+      "guides/intro/create-account": {
+        "title": "Create an Account"
+      },
+      "guides/intro/install": {
+        "title": "Install CLI"
       },
       "guides/intro/intro": {
         "title": "Introduction",
         "sidebar_label": "Introduction"
       },
-      "guides/intro/testnet": {
-        "title": "Testnet"
+      "guides/intro/make-trade": {
+        "title": "Make a Trade"
       },
-      "guides/intro/transfer": {
+      "guides/intro/make-transfer": {
         "title": "Make a Transfer"
       },
       "guides/node/fullnode": {
@@ -166,55 +175,55 @@
         "title": "Types of Nodes"
       },
       "hardware-wallets": {
-        "title": "hardware-wallets"
+        "title": "Hardware Wallets"
       },
       "index": {
         "title": "index"
       },
       "keys": {
-        "title": "keys"
+        "title": "Keys"
       },
       "light-client": {
-        "title": "light-client"
+        "title": "Light Client"
       },
-      "list_instruction": {
-        "title": "list_instruction"
+      "list-instructions": {
+        "title": "Listing Instructions"
       },
       "list": {
-        "title": "list"
+        "title": "List"
       },
       "match-examples": {
-        "title": "match-examples"
+        "title": "Matching Examples"
       },
       "match": {
-        "title": "match"
+        "title": "Matching Logic"
       },
       "memo-validation": {
-        "title": "memo-validation"
+        "title": "Memo Validation"
       },
       "offline": {
-        "title": "offline"
+        "title": "Offline"
       },
       "resources": {
         "title": "resources"
       },
       "timelock": {
-        "title": "timelock"
+        "title": "Timelock"
       },
       "tokens": {
-        "title": "tokens"
+        "title": "Tokens"
       },
       "trade": {
-        "title": "trade"
+        "title": "Trade"
       },
       "trading-spec": {
-        "title": "trading-spec"
+        "title": "Trading Spec"
       },
       "transfer": {
-        "title": "transfer"
+        "title": "Transfers"
       },
       "tss": {
-        "title": "tss"
+        "title": "Threshold Signatures"
       },
       "tutorial/how-to-create-a-wallet-on-trustwallet": {
         "title": "tutorial/how-to-create-a-wallet-on-trustwallet"
@@ -238,7 +247,7 @@
         "title": "walletconnect-support"
       },
       "walletconnect": {
-        "title": "walletconnect"
+        "title": "WalletConnect"
       },
       "wallets": {
         "title": "wallets"

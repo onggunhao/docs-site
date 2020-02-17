@@ -1,5 +1,7 @@
-
-
+---
+id: trading-spec
+title: Trading Spec
+---
 
 # Binance DEX Trading Specification
 
@@ -10,27 +12,27 @@ It is a standard type of Binance Chain transaction. Orders are composed of the b
 
 0. Symbol Pairs: the list pair the order wants to trade.
 1. Order Type: Binance DEX only accept LIMIT orders, which is adhering to SEC definitions of LIMIT orders
-2. Price: price users would like to pay for the specified token quantity, presented as a float
-number of quote currency. This must be rounded by tick size. Internally it can be multiplied by 1e8(10^8) in order to store as an integer
-in the range of int64.
-3. Quantity: number of tokens users want to buy or sell. That must be rounded by lot size. Internally it can be multiplied by
-1e8(10^8) in order to store as an integer in the range of int64.
-4. Side: buy or sell
-5. Time: entry time of the order, which is the block number(height) the order gets booked in.
-6. TimeInForce:
+1. Price: price users would like to pay for the specified token quantity, presented as a float
+   number of quote currency. This must be rounded by tick size. Internally it can be multiplied by 1e8(10^8) in order to store as an integer
+   in the range of int64.
+1. Quantity: number of tokens users want to buy or sell. That must be rounded by lot size. Internally it can be multiplied by
+   1e8(10^8) in order to store as an integer in the range of int64.
+1. Side: buy or sell
+1. Time: entry time of the order, which is the block number(height) the order gets booked in.
+1. TimeInForce:
 
-    * GTE: Good Till Expire. Order would stay effective until expire time. Order may expire in the UTC midnight after more than 259, 200 blocks, which is 72 hours in term of blocking time.
-    * IOC: Immediate or Cancel. Orders would be executed as much as it can in the booking block
-    round and then got canceled back if there is still quantity left.
+   - GTE: Good Till Expire. Order would stay effective until expire time. Order may expire in the UTC midnight after more than 259, 200 blocks, which is 72 hours in term of blocking time.
+   - IOC: Immediate or Cancel. Orders would be executed as much as it can in the booking block
+     round and then got canceled back if there is still quantity left.
 
 Orders would be rejected when:
 
 0. user address cannot be located with asset
 1. Account does not possess enough token to buy or sell
-2. Exchange is down or has problem to match it
-3. The token is not listed against any base currencies
-4. Other order parameters are not valid
-5. Duplicated order ID
+1. Exchange is down or has problem to match it
+1. The token is not listed against any base currencies
+1. Other order parameters are not valid
+1. Duplicated order ID
 
 Orders may be canceled / expired back when:
 
@@ -56,7 +58,6 @@ every UTC mid-night to filter out all the expired orders. After the scan, all th
 would be removed from the order book, the locked quantity in the account would be unlocked.
 Before this action all the existing orders in the order book is subject to matching.
 
-
 ## Precision
 
 All the numbers are limited to 8-digit decimals.
@@ -76,74 +77,72 @@ existing orders on the order book can still be traded.
 
 We have five kinds of order operations, each kind has its specific fee calculation logic and collection timing as the table described below.
 
-| Operation    |  Calculation  |  Collection Timing |
-|:------------- |:------- |:------- |
-| Place order | free | - |
-| Cancel order| fixed fees | when the `Cancel` transaction executes |
-| Order expire| fixed fees if fully expired, otherwise free| when the scheduled order expiration happenes |
-| IOC order cancel| fixed fees if fully canceled, otherwise free| when the IOC order is not fully filled |
-| Order execution | rate based fees | when the order matched |
+| Operation        | Calculation                                  | Collection Timing                            |
+| :--------------- | :------------------------------------------- | :------------------------------------------- |
+| Place order      | free                                         | -                                            |
+| Cancel order     | fixed fees                                   | when the `Cancel` transaction executes       |
+| Order expire     | fixed fees if fully expired, otherwise free  | when the scheduled order expiration happenes |
+| IOC order cancel | fixed fees if fully canceled, otherwise free | when the IOC order is not fully filled       |
+| Order execution  | rate based fees                              | when the order matched                       |
 
 BNB is the priority in the fee collection and has some discounts.
 
 DEX would always calculate and collect the fees based on the latest balance and in the best interest of users.
 
-
 ### Current Fees Table on Mainnet
 
 Fees are variable and may change over time as governance proposals are proposed and voted on. The current fees table for **Mainnet** is as follows:
 
-Transaction Type | Pay in Non-BNB Asset | Pay in BNB | Exchange (DEX) Related
--- | -- | -- | --
-New Order | 0 | 0 | Y
-Cancel (No Fill) | Equivalent 0.00025 BNB | 0.00005 BNB | Y
-Order Expire (No Fill) | Equivalent 0.00025 BNB | 0.00005 BNB | Y
-IOC (No Fill) | Equivalent 0.0001 BNB | 0.000025 BNB | Y
-Transfer | N/A | 0.000375 BNB | N
-Multi-send | N/A | 0.0003 BNB | N
-Issue Asset | N/A | 500 BNB | N
-Mint Asset | N/A | 5 BNB | N
-Burn Asset | N/A | 0.5 BNB | N
-Freeze/Unfreeze Asset | N/A | 0.005 BNB | N
-Lock/unlock/relock Asset | N/A | 0.01 BNB | N
-List Asset | N/A | 1000 BNB | N
-Submit List Proposal | N/A | 5 BNB | N
-Submit Delist Proposal | N/A | 1000 BNB | N
-Deposit | N/A | 0.000625 BNB | N
-Enable Memo Check | N/A | 1 BNB | N
-Disable Memo Check | N/A | 1 BNB | N
-HTLT | N/A | 0.000375 BNB | N
-depositHTLT | N/A | 0.000375 BNB | N
-claimHTLT | N/A | 0.000375 BNB | N
-refundHTLT | N/A | 0.000375 BNB | N
-
-
+| Transaction Type         | Pay in Non-BNB Asset   | Pay in BNB   | Exchange (DEX) Related |
+| ------------------------ | ---------------------- | ------------ | ---------------------- |
+| New Order                | 0                      | 0            | Y                      |
+| Cancel (No Fill)         | Equivalent 0.00025 BNB | 0.00005 BNB  | Y                      |
+| Order Expire (No Fill)   | Equivalent 0.00025 BNB | 0.00005 BNB  | Y                      |
+| IOC (No Fill)            | Equivalent 0.0001 BNB  | 0.000025 BNB | Y                      |
+| Transfer                 | N/A                    | 0.000375 BNB | N                      |
+| Multi-send               | N/A                    | 0.0003 BNB   | N                      |
+| Issue Asset              | N/A                    | 500 BNB      | N                      |
+| Mint Asset               | N/A                    | 5 BNB        | N                      |
+| Burn Asset               | N/A                    | 0.5 BNB      | N                      |
+| Freeze/Unfreeze Asset    | N/A                    | 0.005 BNB    | N                      |
+| Lock/unlock/relock Asset | N/A                    | 0.01 BNB     | N                      |
+| List Asset               | N/A                    | 1000 BNB     | N                      |
+| Submit List Proposal     | N/A                    | 5 BNB        | N                      |
+| Submit Delist Proposal   | N/A                    | 1000 BNB     | N                      |
+| Deposit                  | N/A                    | 0.000625 BNB | N                      |
+| Enable Memo Check        | N/A                    | 1 BNB        | N                      |
+| Disable Memo Check       | N/A                    | 1 BNB        | N                      |
+| HTLT                     | N/A                    | 0.000375 BNB | N                      |
+| depositHTLT              | N/A                    | 0.000375 BNB | N                      |
+| claimHTLT                | N/A                    | 0.000375 BNB | N                      |
+| refundHTLT               | N/A                    | 0.000375 BNB | N                      |
 
 ### Mainnet Fees API
 
 View system fees updated in real time [here](https://dex.binance.org/api/v1/fees).
 
-
 ### Multi-send Fees
-`bnbcli`  offers you a multi-send command to transfer multiple tokens to multiple people. 20% discount is available for `multi-send` transactions. For now, `multi-send` transaction will send some tokens from one address to multiple output addresses. If the count of output address is bigger than the threshold, currently it's 2, then the total transaction fee is  0.001 BNB per token per address.
+
+`bnbcli` offers you a multi-send command to transfer multiple tokens to multiple people. 20% discount is available for `multi-send` transactions. For now, `multi-send` transaction will send some tokens from one address to multiple output addresses. If the count of output address is bigger than the threshold, currently it's 2, then the total transaction fee is 0.001 BNB per token per address.
 For example, if you send 3 ABC token,1 SAT token and 1 ABC to 3 different addresses.
 
 ```json
 [
-   {
-      "to":"bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl",
-      "amount":"100000000:BNB,100000000:ABC"
-   },
-   {
-      "to":"bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw",
-      "amount":"100000000:BNB"
-   },
-   {
-      "to":"bnb1l86xty0maxdgst9pnypz6chvtsmpydkjflfioe",
-      "amount":"100000000:BNB,100000000:SAT"
-   }
+  {
+    "to": "bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl",
+    "amount": "100000000:BNB,100000000:ABC"
+  },
+  {
+    "to": "bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw",
+    "amount": "100000000:BNB"
+  },
+  {
+    "to": "bnb1l86xty0maxdgst9pnypz6chvtsmpydkjflfioe",
+    "amount": "100000000:BNB,100000000:SAT"
+  }
 ]
 ```
+
 You will pay on mainnet/testnet
 
 ```
@@ -156,41 +155,39 @@ Trading fees are subject to complex logic that may mean that individual trades a
 
 The current fee for trades, applied on the settled amounts, is as follows:
 
-Transaction Type | Pay in non-BNB Asset | Pay in BNB
--- | -- | --
-Trade | 0.1% | 0.04%
+| Transaction Type | Pay in non-BNB Asset | Pay in BNB |
+| ---------------- | -------------------- | ---------- |
+| Trade            | 0.1%                 | 0.04%      |
 
-Trading fee can be queried at [here](https://dex.binance.org/api/v1/fees?format=amino). It's under the "params/DexFeeParam/".  "FeeRate" and "FeeRateNative" are both under unit of 10^-6.
+Trading fee can be queried at [here](https://dex.binance.org/api/v1/fees?format=amino). It's under the "params/DexFeeParam/". "FeeRate" and "FeeRateNative" are both under unit of 10^-6.
 
 ### Current Fees Table on Testnet
 
 Fees are variable and may change over time as governance proposals are proposed and voted on. The current fees table for Testnet as of **2019-04-17** is as follows:
 
-
-Transaction Type | Pay in Non-BNB Asset | Pay in BNB | Exchange (DEX) Related
--- | -- | -- | --
-New Order | 0 | 0 | Y
-Cancel (No Fill) | Equivalent 0.00025 BNB | 0.00005 BNB | Y
-Order Expire (No Fill) | Equivalent 0.00025 BNB | 0.00005 BNB | Y
-IOC (No Fill) | Equivalent 0.0001 BNB | 0.000025 BNB | Y
-Transfer | N/A | 0.000375 BNB | N
-Multi-send | N/A | 0.0003 BNB | N
-Issue Asset | N/A | 500 BNB | N
-Mint Asset | N/A | 5 BNB | N
-Burn Asset | N/A | 0.5 BNB | N
-Freeze/Unfreeze Asset | N/A | 0.005 BNB | N
-Lock/unlock/relock Asset | N/A | 0.01 BNB | N
-List Asset | N/A | 1000 BNB | N
-Submit List Proposal | N/A | 5 BNB | N
-Submit Delist Proposal | N/A | 1000 BNB | N
-Deposit | N/A | 0.000625 BNB | N
-Enable Memo Check | N/A | 1 BNB | N
-Disable Memo Check | N/A | 1 BNB | N
-HTLT | N/A | 0.000375 BNB | N
-depositHTLT | N/A |  0.000375 BNB | Y
-claimHTLT | N/A |  0.000375 BNB | Y
-refundHTLT | N/A |  0.000375 BNB | Y
-
+| Transaction Type         | Pay in Non-BNB Asset   | Pay in BNB   | Exchange (DEX) Related |
+| ------------------------ | ---------------------- | ------------ | ---------------------- |
+| New Order                | 0                      | 0            | Y                      |
+| Cancel (No Fill)         | Equivalent 0.00025 BNB | 0.00005 BNB  | Y                      |
+| Order Expire (No Fill)   | Equivalent 0.00025 BNB | 0.00005 BNB  | Y                      |
+| IOC (No Fill)            | Equivalent 0.0001 BNB  | 0.000025 BNB | Y                      |
+| Transfer                 | N/A                    | 0.000375 BNB | N                      |
+| Multi-send               | N/A                    | 0.0003 BNB   | N                      |
+| Issue Asset              | N/A                    | 500 BNB      | N                      |
+| Mint Asset               | N/A                    | 5 BNB        | N                      |
+| Burn Asset               | N/A                    | 0.5 BNB      | N                      |
+| Freeze/Unfreeze Asset    | N/A                    | 0.005 BNB    | N                      |
+| Lock/unlock/relock Asset | N/A                    | 0.01 BNB     | N                      |
+| List Asset               | N/A                    | 1000 BNB     | N                      |
+| Submit List Proposal     | N/A                    | 5 BNB        | N                      |
+| Submit Delist Proposal   | N/A                    | 1000 BNB     | N                      |
+| Deposit                  | N/A                    | 0.000625 BNB | N                      |
+| Enable Memo Check        | N/A                    | 1 BNB        | N                      |
+| Disable Memo Check       | N/A                    | 1 BNB        | N                      |
+| HTLT                     | N/A                    | 0.000375 BNB | N                      |
+| depositHTLT              | N/A                    | 0.000375 BNB | Y                      |
+| claimHTLT                | N/A                    | 0.000375 BNB | Y                      |
+| refundHTLT               | N/A                    | 0.000375 BNB | Y                      |
 
 ### Testnet Fees API
 
@@ -199,7 +196,7 @@ View system fees updated in real time [here](https://testnet-dex.binance.org/api
 ### Notes
 
 - Trade fee is calculated based on trade notional value, while fees for other transactions are fixed.
-It is free to send new GTE order, cancel a partially filled order, and you will not be charged a fee when the system expires a partially filled order (GTE or IOC).
+  It is free to send new GTE order, cancel a partially filled order, and you will not be charged a fee when the system expires a partially filled order (GTE or IOC).
 
 - Non-Trade related transactions will be charged a fee when the transactions happen, and can only be paid in BNB. The transaction will be rejected if the address does not have enough BNB.
 
