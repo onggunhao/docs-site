@@ -2,7 +2,6 @@
   "guides-sidebar": {
     "Quickstart": [
       "guides/intro/intro",
-      "guides/intro/bnb",
       "guides/intro/access",
       "guides/intro/create-account",
       "guides/intro/make-transfer",
