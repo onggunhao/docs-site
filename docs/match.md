@@ -1,7 +1,11 @@
+---
+id: match
+title: Matching Logic
+---
+
 # What exactly is Binance DEX matching logic?
 
 Binance DEX uses periodic auction to match all available orders. Maker/Taker concepts are introduced to enhance the current periodic auction match algorithm. The match is still executed only once in each block while the execution prices may vary for maker and taker orders.
-
 
 ## Match Candidates
 
@@ -21,7 +25,7 @@ The below matching logic would be applied on every listed token pairs.
 - The match only happens when the best bid and ask prices are 'crossed', i.e. best bid > best ask.
 
 - There would be only 1 price selected in one match round as the best prices among all the fillable
-orders, to show the fairness.
+  orders, to show the fairness.
 
 - All the orders would be matched first by the price aggressiveness and then block height that they get accepted.
 
@@ -36,15 +40,16 @@ The execution price would be selected as the below logic, in order to:
 Please check [this article](match-examples.md) with detailed examples for this if you are interested.
 
 ## Order Matches
+
 After the execution price is concluded. Order match would happen in sequence of the price and time, i.e.
 
 - Orders with best bid price would match with order with best ask price;
 - If the orders on one price cannot be fully filled by the opposite orders:
-for the orders with the same price, the orders from the earlier blocks would be selected and filled first
+  for the orders with the same price, the orders from the earlier blocks would be selected and filled first
 - If the orders have the same price and block height, and cannot be fully filled, the execution
-would be allocated to each order in proportion to their quantity (floored if the number has a partial lot).
-If the allocation cannot be accurately divided, a deterministic algorithm would guarantee that no consistent
-bias to any orders.
+  would be allocated to each order in proportion to their quantity (floored if the number has a partial lot).
+  If the allocation cannot be accurately divided, a deterministic algorithm would guarantee that no consistent
+  bias to any orders.
 
 After the execution price `P` is concluded, buy orders with price equal to or larger than `P`, and sell orders with price equal to or less than `P` will match. For the orders that come into match in the new block, the trades will be allocated according to the below principles:
 
@@ -58,27 +63,27 @@ For other orders that have arrived in the previous blocks, they will join match 
 
 Among all the orders to be allocated, between buy and sell sides, this specification defines four concepts.
 
-| Name        | Definition                           |
-| ----------- | ------------------------------------ |
-| Maker Order | order from the previous blocks       |
-| Taker Order | new incoming order in the current block   |
-| Maker Side  | buy or sell side which has maker orders. May also have taker orders.  |
-| Taker Side  | buy or sell side which only has taker orders. |
+| Name        | Definition                                                           |
+| ----------- | -------------------------------------------------------------------- |
+| Maker Order | order from the previous blocks                                       |
+| Taker Order | new incoming order in the current block                              |
+| Maker Side  | buy or sell side which has maker orders. May also have taker orders. |
+| Taker Side  | buy or sell side which only has taker orders.                        |
 
 In each round of match, for all the orders that can be filled with the concluded price `P`, the algorithm ensures only one of the below two circumstances can happen,
 
 1. Both buy and sell side are `Taker Side`, when there is no leftover orders from all the previous blocks;
 
-2. One side is `Maker Side` that has orders from previous blocks (and may/may not have orders from this current block),  and the other is `Taker Side` that only has orders from this current block.
-
+2. One side is `Maker Side` that has orders from previous blocks (and may/may not have orders from this current block), and the other is `Taker Side` that only has orders from this current block.
 
 ### Execution Pricing
+
 Among all the orders to be allocated,
 
 1. For maker side:
 
-    * all the maker orders are executed at their limit price
-    * all the taker orders on the maker side are executed at the concluded price `P`
+   - all the maker orders are executed at their limit price
+   - all the taker orders on the maker side are executed at the concluded price `P`
 
 2. For taker side, all the orders are executed at the average execution price from the above #1
 

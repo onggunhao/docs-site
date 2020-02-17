@@ -1,3 +1,8 @@
+---
+id: extra-data-from-fullnode
+title: Get Extra Data from Full Node
+---
+
 # Get Extra Data From Your Full Node
 
 This document is intended for developers who are interested in transactions, order books, account changes, fee charges in every block and would like to build their own downstream services of the full node.<br/>
@@ -19,31 +24,33 @@ Since the release of bnbchaind `v0.6.3`, you can customize the version of `kafka
 ```
 kafkaVersion = "2.1.0"
 ```
+
 If you are using another version of Kafka, please test the compatibility first.
 
 ### 1. OrderUpdates
-You can set  the `publishOrderUpdates` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
+
+You can set the `publishOrderUpdates` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
 Then, the full node will save all the trades that have been filled, orders that changed and proposals that been submitted.
 
-* Example:
+- Example:
 
-All those [extra info](https://docs.binance.org/get-extra-data-from-fullnode.html#publish-different-messages-to-local-files ) can also be found in exported data from your fullnode.
+All those [extra info](https://docs.binance.org/get-extra-data-from-fullnode.html#publish-different-messages-to-local-files) can also be found in exported data from your fullnode.
 
 ### Changes
+
 In `trade` data structure, there are five new fields: `SSrc`,`BSrc`,`SSingleFee`, `BSingleFee` and `TickerType`.
 
-* `SSrc`: Source code of Sell order transaction
-* `BSrc`: Source code of Buy order transaction
-* `SSingleFee`: fee of matched sell order
-* `BSingleFee`: fee of matched buy order
-* `TickerType`: ticker type
+- `SSrc`: Source code of Sell order transaction
+- `BSrc`: Source code of Buy order transaction
+- `SSingleFee`: fee of matched sell order
+- `BSingleFee`: fee of matched buy order
+- `TickerType`: ticker type
 
 In `Order` data structure, there is a new field: `singlefee`. This is used to show the fee of this order.
 
-`Status` is used to indicate the current status of this order. Namely there are 9 status:  0 for Acknowledge; 1 for Canceled ; 2 for Expired , 3 for IocNoFill, 4 for IocExpire, 5 for PartialFill, 6 for FullyFill, 7 for FailedBlocking, 8 for FailedMatching.
+`Status` is used to indicate the current status of this order. Namely there are 9 status: 0 for Acknowledge; 1 for Canceled ; 2 for Expired , 3 for IocNoFill, 4 for IocExpire, 5 for PartialFill, 6 for FullyFill, 7 for FailedBlocking, 8 for FailedMatching.
 
 For example:
-
 
 ```json
 {
@@ -273,13 +280,12 @@ For example:
 }
 ```
 
-
 ### 2. AccountBalance
 
 You can set the `publishAccountBalance` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
 Then, the full node will save all the changed accounts.
 
-* Example
+- Example
 
 ```
 {
@@ -300,7 +306,7 @@ Then, the full node will save all the changed accounts.
 You can set the `publishOrderBook` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
 Then, the full node will save all order book changes.
 
-* Example
+- Example
 
 ```
 {
@@ -326,7 +332,7 @@ Then, the full node will save all order book changes.
 You can set the `publishBlockFee` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
 Then, the full node will save all the block fee charged.
 
-* Example
+- Example
 
 ```
 {
@@ -336,12 +342,12 @@ Then, the full node will save all the block fee charged.
 }
 ```
 
-
 ### 5. Transfers
+
 You can set the `publishTransfer` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
 Then, the full node will save all the transfer transactions.
 
-* Example
+- Example
 
 ```
 {
@@ -364,12 +370,14 @@ Then, the full node will save all the transfer transactions.
 ```
 
 ## Publish Different Messages to Kafka
+
 You can set the `publishKafka` option to `true` in `nodebinary/fullnode/{network}/node/app.toml`.<br/>
 Then, the full node will save messages that you are interested into Kafka, and you can consume them in your own apps.<br/>
 The message is encoded based on `Avro` serialization system.<br/>
 Their schemas are shown below:<br/>
 
 - **OrderUpdates**:
+
 ```
 {
     "type": "record",
@@ -506,6 +514,7 @@ Their schemas are shown below:<br/>
 ```
 
 - **OrderBooksSchema**:
+
 ```
 {
     "type": "record",
@@ -549,6 +558,7 @@ Their schemas are shown below:<br/>
 ```
 
 - **AccountBalanceSchema**:
+
 ```
 {
             "type": "record",
@@ -591,8 +601,8 @@ Their schemas are shown below:<br/>
 
 ```
 
-
 - **BlockFeeSchema**:
+
 ```
 {
     "type": "record",
@@ -607,6 +617,7 @@ Their schemas are shown below:<br/>
 ```
 
 - **TransfersSchema**:
+
 ```
 {
     "type": "record",

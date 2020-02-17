@@ -1,37 +1,44 @@
+---
+id: faq
+title: FAQ
+---
+
 # Binance Chain FAQ v0.5
-- [Binance Chain and Binance DEX](#what-is-binance-chain-or-binance-dex)
-- [Design Principles](#what-is-the-design-principle-of-binance-chain)
-- [Current Features](#what-can-you-do-on-binance-chain)
-- [Future Enhancements](#will-binance-chain-introduce-more-features-and-transaction-types-in-the-future)
-- [Native Coin](#what-is-the-native-coin-on-binance-chain)
-- [Registration](#how-can-i-register-on-binance-chaindex-and-start-trading)
-- [Trading on Binance DEX](#how-can-i-send-orders-on-binance-dex)
-    - [New Orders](#order)
-    - [Immediate or Cancel Orders](#what-is-immediate-or-cancel-order)
-    - [Order Matching](#match)
-    - [Trades](#trade)
-    - [Order Expiry](#what-is-order-expire)
-    - [Assets and Trade Information](#where-can-i-see-my-assets-and-trades)
-    - [Order Information](#when-can-i-see-my-order-on-the-blockchain-after-i-send-it)
-    - [Fee Structure](#what-is-the-fee-structure)
-- [Balance and Order Information Visibility](#can-i-see-ordersbalances-of-others-or-can-other-people-see-my-ordersbalances)
-- [API Information and Usage](#informations-provided-through-api-and-their-usage)
-    - [API Rate Limits](#is-there-any-limit-to-using-the-api-to-send-orders-or-check-market-data)
-    - [Wallet and API usage costs](#what-does-wallet-and-api-cost-to-use)
-    - [API Market Data](#what-market-data-can-i-get)
-    - [Tick Size and Lot Size](#what-are-the-tick-size-and-lot-size-are-they-fixed)
-    - [Order Notional Value](#are-there-limits-on-notional-value-of-an-order)
-    - [Decimal precision on Binance Chain and Binance DEX](#what-is-the-decimal-precision-for-prices-and-quantities-on-binance-chaindex)
-- [Private Key Recovery](#i-forgot-the-private-key-for-my-address-how-can-i-get-it-back)
-- [Stolen Private Key Assets Recovery](#my-private-key-got-stolen-by-hackers-how-can-i-recover-my-assets)
-- [Accelerated Node](#what-is-the-accelerated-node)
-- [Asset Issuance](#how-can-i-issue-an-asset)
-- [Consensus Algorithm](#what-is-the-consensus-algorithm-used-on-binance-chain)
-- [Full Node](#can-i-run-a-full-node-for-binance-chain)
-- [Smart Contracts](#does-binance-chain-support-smart-contracts)
-- [Cross-Chain Transfers](#how-can-i-transfer-tokens-such-as-bitcoin-from-other-block-chains-onto-binance-chain)
-- [Trading Pair Creation](#how-is-a-trading-pair-created-on-binance-dex)
-- [Third Party Integration](#how-would-a-third-party-integrate-with-binance-chain-and-binance-dex)
+
+- [Binance Chain FAQ v0.5](#binance-chain-faq-v05)
+  - [What is Binance Chain, or Binance DEX?](#what-is-binance-chain-or-binance-dex)
+  - [What is the design principle of Binance Chain?](#what-is-the-design-principle-of-binance-chain)
+  - [What can you do on Binance Chain?](#what-can-you-do-on-binance-chain)
+  - [Will Binance Chain introduce more features and transaction types in the future?](#will-binance-chain-introduce-more-features-and-transaction-types-in-the-future)
+  - [What is the native coin on Binance Chain?](#what-is-the-native-coin-on-binance-chain)
+  - [How can I register on Binance Chain/DEX and start trading?](#how-can-i-register-on-binance-chaindex-and-start-trading)
+  - [How can I send orders on Binance DEX?](#how-can-i-send-orders-on-binance-dex)
+    - [Order](#order)
+    - [What is `Immediate Or Cancel order`?](#what-is-immediate-or-cancel-order)
+    - [Match](#match)
+    - [Trade](#trade)
+    - [What is `Order Expire`?](#what-is-order-expire)
+    - [Where can I see my assets and trades?](#where-can-i-see-my-assets-and-trades)
+    - [When can I see my order on the blockchain after I send it?](#when-can-i-see-my-order-on-the-blockchain-after-i-send-it)
+    - [What is the Fee Structure?](#what-is-the-fee-structure)
+  - [Can I see orders/balances of others or can other people see my orders/balances?](#can-i-see-ordersbalances-of-others-or-can-other-people-see-my-ordersbalances)
+  - [Information provided through API and their usage](#information-provided-through-api-and-their-usage)
+    - [Is there any limit to using the API to send orders or check market data?](#is-there-any-limit-to-using-the-api-to-send-orders-or-check-market-data)
+    - [What does Wallet and API cost to use?](#what-does-wallet-and-api-cost-to-use)
+    - [What Market Data can I get?](#what-market-data-can-i-get)
+    - [What are the tick size and lot size? Are they fixed?](#what-are-the-tick-size-and-lot-size-are-they-fixed)
+    - [Are there limits on notional value of an order?](#are-there-limits-on-notional-value-of-an-order)
+    - [What is the decimal precision for prices and quantities on Binance Chain/DEX?](#what-is-the-decimal-precision-for-prices-and-quantities-on-binance-chaindex)
+  - [I forgot the private key for my address, how can I get it back?](#i-forgot-the-private-key-for-my-address-how-can-i-get-it-back)
+  - [My private key got stolen by hackers, how can I recover my assets?](#my-private-key-got-stolen-by-hackers-how-can-i-recover-my-assets)
+  - [What is the Accelerated Node?](#what-is-the-accelerated-node)
+  - [How can I issue an asset?](#how-can-i-issue-an-asset)
+  - [What is the consensus algorithm used on Binance Chain?](#what-is-the-consensus-algorithm-used-on-binance-chain)
+  - [Can I run a full node for Binance Chain?](#can-i-run-a-full-node-for-binance-chain)
+  - [Does Binance Chain support Smart Contracts?](#does-binance-chain-support-smart-contracts)
+  - [How can I transfer tokens, such as Bitcoin, from other block chains onto Binance Chain?](#how-can-i-transfer-tokens-such-as-bitcoin-from-other-block-chains-onto-binance-chain)
+  - [How is a trading pair created on Binance DEX?](#how-is-a-trading-pair-created-on-binance-dex)
+  - [How would a third-party integrate with Binance Chain and Binance DEX?](#how-would-a-third-party-integrate-with-binance-chain-and-binance-dex)
 
 ## What is Binance Chain, or Binance DEX?
 
@@ -44,7 +51,7 @@ The main focuses for the design of Binance Chain are:
 
 - No custody of funds: traders maintain control of their private keys and funds.
 - High performance: low latency, high throughput for a large user base, and high liquidity trading.
-We target to achieve 1 second block times, with 1 confirmation finality.
+  We target to achieve 1 second block times, with 1 confirmation finality.
 - Low cost: in both fees and liquidity cost.
 - Easy user experience: as friendly as Binance.com.
 - Fair trading: minimize front-running, to the extent possible.
@@ -83,6 +90,7 @@ There is no need to register. All you need is a Binance Chain address, which can
 any [wallet](./wallets.md) that supports Binance Chain. Then you can trade BNB or other assets stored on that address.
 
 ## How can I send orders on Binance DEX?
+
 ### Order
 
 On Binance DEX, you can send "new order" messages to buy or sell certain assets. You can also
@@ -97,9 +105,9 @@ In Binance DEX v1.0, the order message contains:
 - Price: only limit price orders are supported in Binance Chain v1.0
 - Amount
 - Time In Force: Binance DEX supports `Immediate Or Cancel` (IOC) and `Good Till Expiry` (GTE)
-orders. GTE orders can quote on the exchange until they are filled by the opposite orders satisfying
-the limit price, or canceled by client themselves, or expire after 72 hours after 00:00 (UTC).
-Check the "What is `Order Expire`" section of the FAQ for more information.
+  orders. GTE orders can quote on the exchange until they are filled by the opposite orders satisfying
+  the limit price, or canceled by client themselves, or expire after 72 hours after 00:00 (UTC).
+  Check the "What is `Order Expire`" section of the FAQ for more information.
 
 Network nodes examine orders to ensure they are valid. Once the orders are accepted, they are
 booked on the next block, and get matched accordingly.
@@ -170,12 +178,12 @@ proposal-vote procedure. See a fee-change proposal [here](https://explorer.binan
 - Trade fee is calculated based on trade notional value, while fees for other transactions are fixed.
 - It is free to send a new GET order, cancel a partially filled order, or expire a partially filled order.
 - Non-Trade related transactions will be charged with a fee when the transactions happen, and can
-only be paid in BNB. The transaction will be rejected if the address does not have enough BNB.
+  only be paid in BNB. The transaction will be rejected if the address does not have enough BNB.
 - Trade-related transactions will be charged with a fee when an order is filled, or
-canceled/expired/IOC-expired with no fills. If there is enough BNB to pay, BNB fee structure will
-be used, otherwise, non-BNB fee structure will be used instead.
+  canceled/expired/IOC-expired with no fills. If there is enough BNB to pay, BNB fee structure will
+  be used, otherwise, non-BNB fee structure will be used instead.
 - If the whole order value and free balance for the receiving asset are not enough to pay the fee,
-all the receiving asset and its residual balance will be charged.
+  all the receiving asset and its residual balance will be charged.
 
 ## Can I see orders/balances of others or can other people see my orders/balances?
 
@@ -274,8 +282,9 @@ Feel free to talk to Binance community.
 Right now, there are 2 ways to transfer tokens cross-chain:
 
 1. via interoperability among different chains. After the latest “Archimedes” upgrade, [BEP3](https://github.com/binance-chain/BEPs/blob/master/BEP3.md) was introduced and it defines native transactions to support [Hash Timelock Contract (HTLC)](https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts) on Binance Chain and it also to defines the infrastructure standard and procedure to use HTLC for inter-chain [atomic swap](https://www.binance.vision/blockchain/atomic-swaps-explained) to easily swap tokens on different chains. Binance Chain development community has finished implementing its solution for BEP3 with BEP2 and ERC20 tokens and decided to open-source all of the key components, including：
-*  [smart-contract solution](https://github.com/binance-chain/bep3-smartcontracts) that supports Atomic Peg Swap (APS) for Ethereum. Please note that this solution is already audited by 3rd party.
-* [deputy process](https://github.com/binance-chain/bep3-deputy) written in GoLang that handles swap activities
+
+- [smart-contract solution](https://github.com/binance-chain/bep3-smartcontracts) that supports Atomic Peg Swap (APS) for Ethereum. Please note that this solution is already audited by 3rd party.
+- [deputy process](https://github.com/binance-chain/bep3-deputy) written in GoLang that handles swap activities
 
 Any developer is welcome to test the solutions in testnet and then use them in mainnet.
 
@@ -283,7 +292,7 @@ Any developer is welcome to test the solutions in testnet and then use them in m
 
 Atomic swap and this centralized approach are not exclusive to other decentralized approaches, which can also be implemented in parallel. There are many cross-chain solutions being developed and we are very interested in them.
 
-Please do __NOT__ try to transfer anything on existing network to Binance Chain testnet, you may experience loss by doing so, because testnet doesn't run with real coins.
+Please do **NOT** try to transfer anything on existing network to Binance Chain testnet, you may experience loss by doing so, because testnet doesn't run with real coins.
 
 ## How is a trading pair created on Binance DEX?
 

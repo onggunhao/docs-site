@@ -1,15 +1,30 @@
+---
+id: tss
+title: Threshold Signatures
+---
+
 # User Guide of Threshold Signature Scheme (TSS) in Binance Chain
 
-- [User Guide of Threshold Signature Scheme (TSS) in Binance Chain](#user-guide-of-threshold-signature-scheme--tss--in-binance-chain)
-  * [Introduction](#introduction)
-  * [Motivation](#motivation)
-  * [Implementation](#implementation)
-  * [Security Audit](#security-audit)
-  * [Workflow](#workflow)
-  * [Where can I download the Binance TSS CLI?](#where-can-i-download-the-binance-tss-cli)
-  * [How to Use](#how-to-use)
-  * [Changes to `bnbcli/tbnbcli`](#changes-to--bnbcli-tbnbcli-)
-  * [Example](#example)
+- [User Guide of Threshold Signature Scheme (TSS) in Binance Chain](#user-guide-of-threshold-signature-scheme-tss-in-binance-chain)
+  - [Introduction](#introduction)
+  - [Motivation](#motivation)
+  - [Implementation](#implementation)
+  - [Security Audit](#security-audit)
+  - [Workflow](#workflow)
+  - [Where can I download the Binance TSS CLI?](#where-can-i-download-the-binance-tss-cli)
+  - [How to Use](#how-to-use)
+    - [Init](#init)
+    - [Describe](#describe)
+    - [Channel](#channel)
+    - [Keygen](#keygen)
+    - [Regroup](#regroup)
+  - [Changes to `bnbcli/tbnbcli`](#changes-to-bnbclitbnbcli)
+  - [Example](#example)
+    - [Step 1: Init TSS](#step-1-init-tss)
+    - [Step 2: Generate Channel ID for bootstraping](#step-2-generate-channel-id-for-bootstraping)
+    - [Step 3: Generate and Share Secret](#step-3-generate-and-share-secret)
+    - [Step 4: Sign Transaction](#step-4-sign-transaction)
+    - [Step 5: Regroup Vault](#step-5-regroup-vault)
 
 ## Introduction
 

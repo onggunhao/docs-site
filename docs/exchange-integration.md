@@ -1,33 +1,48 @@
+---
+id: exchange-integration
+title: Exchange Integration
+---
+
 # Exchange Integration
-- [Public Services](#public-services)
+
+- [Exchange Integration](#exchange-integration)
+  - [Public Services](#public-services)
     - [REST API](#rest-api)
     - [Node RPC](#node-rpc)
-- [Full Node](#full-node)
-- [Access via Node Command Line Interface (CLI)](#access-via-node-command-line-interface-cli)
-- [SDKs](#sdks)
-- [Important: Ensuring Transaction Finality](#important-ensuring-transaction-finality)
+  - [Running a Full Node](#running-a-full-node)
+  - [Access via Node Command Line Interface (CLI)](#access-via-node-command-line-interface-cli)
+  - [SDKs](#sdks)
+  - [Important: Ensuring Transaction Finality](#important-ensuring-transaction-finality)
+    - [The Recommended Way (via WebSocket)](#the-recommended-way-via-websocket)
+    - [The Alternative Way (via RPC Polling)](#the-alternative-way-via-rpc-polling)
 
 ## Public Services
+
 There are public nodes running by Binance Chain community which will allow you to interact with the blockchain.
 
 ### REST API
+
 [Accelerated nodes](https://docs.binance.org/faq.html#what-is-the-accelerated-node) provide advanced API services for the public.<br/>
 List of all the Rest API information available on accelerated node can be found: [here](api-reference/dex-api/paths.md)
 
 ### Node RPC
-There are multiple data seed node in the network which allow users to  perform low-level operations like executing ABCI queries, broadcasting a transaction or viewing network/consensus state.<br/>
+
+There are multiple data seed node in the network which allow users to perform low-level operations like executing ABCI queries, broadcasting a transaction or viewing network/consensus state.<br/>
 If you run a full node by yourself, you can also use those RPC functions.<br/>
 List of all endpoints Node RPC service provides can be found: [here](api-reference/node-rpc.md)
 
 ## Running a Full Node
+
 Running a full node requires considerable computational/bandwidth resources.<br/>
 Please refer to this guide about [how to run your own node](fullnode.md).
 
 ## Access via Node Command Line Interface (CLI)
+
 Command Line Interface is currently available for Linux, Mac and Windows.<br/>
 Please refer to the [CLI Reference](api-reference/cli.md).
 
 ## SDKs
+
 There are multiple advanced SDK solutions available for Binance chain.<br/>
 Majority of SDKs provide simplified functions to:
 
@@ -54,6 +69,7 @@ In brief, transactions pass through several [phases](https://tendermint.com/docs
 The status "code" recorded for each of these phases can differ, so be sure to check that it is `0` (meaning success) for each of them. A non-zero "code" indicates that there was a problem with the transaction during processing.
 
 For example, [this transaction](https://explorer.binance.org/tx/F296E84917A92FC4876AFE77DE662CC9417F9D6F2EB8ED1AD723A5433EBB8362) was invalid because the order was already canceled. You can query that the code for this transaction is `405`.
+
 ```json
 {
 code: 393621,
@@ -101,7 +117,7 @@ While there is an RPC command called `BroadcastTxCommit` which will wait for bot
 
 Instead, there are two ways that you can go about checking the status of your transaction after you have broadcasted it.
 
-If you haven't received anything after a couple of blocks, resend the transaction. If the same happens again, send it to some other node. This is safe to do so long as you are broadcasting the *same* transaction. Transactions are unique in the blockchain and you cannot spend the coins twice by retrying the send of the same data.
+If you haven't received anything after a couple of blocks, resend the transaction. If the same happens again, send it to some other node. This is safe to do so long as you are broadcasting the _same_ transaction. Transactions are unique in the blockchain and you cannot spend the coins twice by retrying the send of the same data.
 
 ### The Recommended Way (via WebSocket)
 

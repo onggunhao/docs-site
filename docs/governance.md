@@ -1,62 +1,75 @@
+---
+id: governance
+title: Governance
+---
+
 # Governance
+
 - [Governance](#governance)
-  * [Primer on Governance](#primer-on-governance)
-  * [Proposal Workflow](#proposal-workflow)
-    + [Global Parameters](#global-parameters)
-    + [Proposal Parameters](#proposal-parameters)
-    + [Participate in Governance](#participate-in-governance)
-        - [Submit a List Proposal](#submit-a-list-proposal)
-        - [Submit a Delist Proposal](#submit-a-delist-proposal)
-        - [Add deposit for a Proposal](#add-deposit-for-a-proposal-optional)
-        - [Query Information of a Proposal](#query-information-of-a-proposal)
-        - [Query votes of a Proposal](#query-votes-of-a-proposal)
-  * [Key Notions](#key-notions)
+  - [Primer on Governance](#primer-on-governance)
+  - [Proposal Workflow](#proposal-workflow)
+    - [Global Parameters](#global-parameters)
+    - [Proposal Parameters](#proposal-parameters)
+    - [Participate in Governance](#participate-in-governance)
+      - [Tools](#tools)
+      - [Submit a List Proposal](#submit-a-list-proposal)
+      - [Submit a Delist Proposal](#submit-a-delist-proposal)
+      - [Add deposit for a Proposal (Optional)](#add-deposit-for-a-proposal-optional)
+      - [Query Information of a Proposal](#query-information-of-a-proposal)
+      - [Query votes of a Proposal](#query-votes-of-a-proposal)
+  - [Key Notions](#key-notions)
       - [Vote options](#vote-options)
       - [Quorum](#quorum)
       - [Veto](#veto)
       - [Threshold](#threshold)
       - [Tally Result Example](#tally-result-example)
 
-
 ## Primer on Governance
 
 Binance Chain has its own built-in governance module that lets BNB holders submit proposals for adding trade pairs. In order for the proposal to be open for voting, it needs to come with a `deposit` that is greater than a parameter called `Deposit`. The `deposit` need not be provided in its entirety by the submitter. If the initial proposer's `deposit` is not sufficient, the proposal enters the `deposit_period` status. Then, any BNB holder can increase the deposit by sending a `depositTx`.
 A purely-code-controlled escrow account will be used to hold deposits during voting period. It is a kind of account which is derived from a hard-coded string in binance chain protocol. This kind of account has no its own private key and it's only controled by code in protocol. The code for calculating escrow account is the same as how it's done in [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/blob/82a2c5d6d86ffd761f0162b93f0aaa57b7f66fe7/x/supply/internal/types/account.go#L40):
+
 ```
 DepositedCoinsAccAddr = sdk.AccAddress(crypto.AddressHash([]byte("BinanceChainDepositedCoins")))
 ```
+
 The account for mainnet is: **bnb1vu5max8wqn997ayhrrys0drpll2rlz4dh39s3h** and the account for testnet is: **tbnb1vu5max8wqn997ayhrrys0drpll2rlz4deyv53x**. Once the swap is claimed or refunded, the fund will be transfered from the purely-code-controlled escrow account to client accounts.
 
 ## Proposal Workflow
+
 ![workflow](./assets/workflow.jpg)
 
 ### Global Parameters
-* `min-deposit`: The threshold for submitting a proposal on mainnet is **1000BNB**, and the threshold for submitting a proposal on testnet is **2000BNB**
-* `deposit_period`: This is a global parameter and the value for mainnet is two days and testnet is two week. It means the time to deposit enough BNB tokens is two days in mainnet and two weeks in testnet.
-* `fee`: Checkout the fee of governance-related transactions [here](trading-spec.md)
+
+- `min-deposit`: The threshold for submitting a proposal on mainnet is **1000BNB**, and the threshold for submitting a proposal on testnet is **2000BNB**
+- `deposit_period`: This is a global parameter and the value for mainnet is two days and testnet is two week. It means the time to deposit enough BNB tokens is two days in mainnet and two weeks in testnet.
+- `fee`: Checkout the fee of governance-related transactions [here](trading-spec.md)
 
 ### Proposal Parameters
-* `deposit` : your input must be larger than `min-deposit`.
-* `voting-period`: This is the time for validators to vote, your input in seconds, if you omit this field, the default voting period is one week.
-* `expire-time`: This is the time for you to send list transaction if your proposal passed. This time cannot be earlier than current time.
+
+- `deposit` : your input must be larger than `min-deposit`.
+- `voting-period`: This is the time for validators to vote, your input in seconds, if you omit this field, the default voting period is one week.
+- `expire-time`: This is the time for you to send list transaction if your proposal passed. This time cannot be earlier than current time.
 
 ### Participate in Governance
+
 #### Tools
 
-Please use this [tool](<https://github.com/binance-chain/node-binary/tree/master/tools>) for generating
+Please use this [tool](https://github.com/binance-chain/node-binary/tree/master/tools) for generating
 
 If you are using a MacBook, you can also use this [desktop GUI](https://github.com/binance-chain/chain-tooling/tree/airdrop/token-app) for token management operations.
 
 #### Submit a List Proposal
+
 To add a new trading pairs, you can run the following command:<br/>
 Please note:<br/>
 
-+ `--init-price` is boosted by **1e8** for decimal part, such as 100000000, is 1 BNB
-+ `--from`: put your key name for the address / key, you can only list with the owners address of your token.
-+ `--expire-time`: expire time is the deadline after which you will no longer be able to list your token though your proposal is passed.
-+ `--voting-period`: The voting period is for validators to vote. The unit is in seconds and the default voting period is one week. The max voting period is two weeks. The votes from validators will be tallied after the voting period ends.
-+ `--title`: title of proposal
-Please note that the deposit and init-price are boosted by **1e8** for decimal part.
+- `--init-price` is boosted by **1e8** for decimal part, such as 100000000, is 1 BNB
+- `--from`: put your key name for the address / key, you can only list with the owners address of your token.
+- `--expire-time`: expire time is the deadline after which you will no longer be able to list your token though your proposal is passed.
+- `--voting-period`: The voting period is for validators to vote. The unit is in seconds and the default voting period is one week. The max voting period is two weeks. The votes from validators will be tallied after the voting period ends.
+- `--title`: title of proposal
+  Please note that the deposit and init-price are boosted by **1e8** for decimal part.
 
 Example on **mainnet**:
 
@@ -74,24 +87,24 @@ Example on **testnet**:
 --description "list AAA-254/BNB" --expire-time 1570665600 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json --voting-period 604800
 ```
 
-
 #### Submit a Delist Proposal
+
 In testnet, only validators can make a delist proposal. To add a new delist pairs, a validator can run the following command:<br/>
 
 Please note:<br/>
-+ `--quote-asset-symbol`: the base asset symbol
-+ `--base-asset-symbol`: the asset symbol you want to delist
-+ `--from`: put your key name for the address key, you can only list with the owners address of your token.
-+ `--voting-period`: The voting period is for validators to vote. The unit is in seconds and the default voting period is one week. The max voting period is two weeks. The votes from validators will be tallied after the voting period ends.
-+ `--justification`: reason for proposal
-+ `--depodit`: this field will indicate how much tokens will be used as deposit for this proposal. Governance module will transfer deposit tokens to a purely-code-controlled escrow account and before the lock time expires. The account for mainnet is:*bnb1vu5max8wqn997ayhrrys0drpll2rlz4dh39s3h*  and the account for testnet is: *tbnb1vu5max8wqn997ayhrrys0drpll2rlz4deyv53x* 
+
+- `--quote-asset-symbol`: the base asset symbol
+- `--base-asset-symbol`: the asset symbol you want to delist
+- `--from`: put your key name for the address key, you can only list with the owners address of your token.
+- `--voting-period`: The voting period is for validators to vote. The unit is in seconds and the default voting period is one week. The max voting period is two weeks. The votes from validators will be tallied after the voting period ends.
+- `--justification`: reason for proposal
+- `--depodit`: this field will indicate how much tokens will be used as deposit for this proposal. Governance module will transfer deposit tokens to a purely-code-controlled escrow account and before the lock time expires. The account for mainnet is:_bnb1vu5max8wqn997ayhrrys0drpll2rlz4dh39s3h_ and the account for testnet is: _tbnb1vu5max8wqn997ayhrrys0drpll2rlz4deyv53x_
 
 Example on **mainnet**:
 
 ```
 bnbcli gov submit-delist-proposal --title "delist EDD-0AC" --voting-period 7200 --deposit "200000000000:BNB" --justification " justification " --base-asset-symbol EDD-0AC --quote-asset-symbol BNB --from <your-key-name> --chain-id Binance-Chain-Tigris --node https://dataseed5.defibit.io:443 --trust-node
 ```
-
 
 Example on **testnet**:
 
@@ -100,6 +113,7 @@ tbnbcli gov submit-delist-proposal --title "delist EDD-0AC" --voting-period 7200
 ```
 
 #### Add deposit for a Proposal (Optional)
+
 If the initial deposit for your proposal in `submit-list-proposal` is not enough, you can increase the deposit with `deposit` operation. In current Binance Chain Mainnet, the max deposit period is **two days**. After submitting a proposal, you have two days to increase your deposit, otherwise your proposal will not go into the voting period and gets rejected directly.
 
 Please note the amount is boosted by **1e8** for decimal part.
@@ -117,6 +131,7 @@ Example on **testnet**:
 ```
 
 #### Query Information of a Proposal
+
 To see detailed information of specific proposal, you can run the following command:
 
 Example on **mainnet**:
@@ -132,6 +147,7 @@ Example on **testnet**:
 ```
 
 Example output:
+
 ```json
 {
   "type": "gov/TextProposal",
@@ -158,9 +174,11 @@ Example output:
   }
 }
 ```
+
 You can get the information about the proposal's status and its tally result this way.
 
 #### Query votes of a Proposal
+
 You can track the votes for your proposal with the following command:
 
 Example on **mainnet**:
@@ -176,6 +194,7 @@ Example on **testnet**:
 ```
 
 Example output:
+
 ```
 [
   {
@@ -239,7 +258,9 @@ Example output:
 ## Key Notions
 
 #### Vote options
+
 There are four vote options:
+
 - `Yes`
 - `No`
 - `NoWithVeto`

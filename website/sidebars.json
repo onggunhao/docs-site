@@ -10,8 +10,28 @@
     ],
     "Concepts": [
       "accounts",
-      "transfer",
+
       "networks",
+      "anti-front-running",
+      "atomic-swap",
+      "blockchain",
+      "encoding",
+      "exchange-integration",
+      "faq",
+      "governance",
+      "keys",
+      "list",
+      "match",
+      "match-examples",
+      "memo-validation",
+      "offline",
+      "timelock",
+      "tokens",
+      "trade",
+      "trading-spec",
+      "transfer",
+      "tss",
+      "walletconnect",
       "guides/concepts/architecture",
       "guides/concepts/assets",
       "guides/concepts/matching-engine",
@@ -23,13 +43,16 @@
       "walletconnect"
     ],
     "Run a node": [
+      "fullnode",
+      "fullnodeissues",
+      "extra-data-from-fullnode",
+      "light-client",
       "guides/node/nodetypes",
       "guides/node/fullnode",
       "guides/node/lightnode"
     ],
-    "BNB": ["mainnet-switch"],
     "Walkthroughs": [
-      "atomic-swap",
+      "list_instructions",
       "cookbooks/listing",
       "cookbooks/launch-stablecoin"
     ]

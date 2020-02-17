@@ -1,52 +1,64 @@
+---
+id: fullnodeissues
+title: Full Node Issues
+---
+
 # Common Issues When Running a Full Node
 
-+ [How to monitor your full node syncing process?](#how-to-monitor-your-full-node-syncing-process)
-+ [Common Issues](#common-issues)
-    - [AppHash Confliction](#apphash-confliction)
-    - [Peer connection error](#peer-connection-error)
-    - [Connection Timeout](#connection-timeout)
-    - [Out of memory](#out-of-memory)
-    - [No priv_validator_state.json after reset](#no-priv-validator-statejson-after-reset)
-    - [`bnbchaind` crashes because of `too many open files`](#-bnbchaind--crashes-because-of--too-many-open-files-)
-    - [Forget to Upgrade](#forget-to-upgrade)
-    - [`bnbchaind` is not properly killed](#-bnbchaind--is-not-properly-killed)
-
+- [Common Issues When Running a Full Node](#common-issues-when-running-a-full-node)
+    - [How to monitor your full node syncing process?](#how-to-monitor-your-full-node-syncing-process)
+    - [Common Issues](#common-issues)
+      - [AppHash Confliction](#apphash-confliction)
+      - [Peer connection error](#peer-connection-error)
+      - [Connection Timeout](#connection-timeout)
+      - [Out of memory](#out-of-memory)
+      - [No priv_validator_state.json after reset](#no-privvalidatorstatejson-after-reset)
+      - [`bnbchaind` crashes because of `too many open files`](#bnbchaind-crashes-because-of-too-many-open-files)
+      - [Forget to Upgrade](#forget-to-upgrade)
+      - [`bnbchaind` is not properly killed](#bnbchaind-is-not-properly-killed)
 
 ### How to monitor your full node syncing process?
 
-* You can check the current height of full node by visiting `localhost:26657/status`
-* You can check the log info in your log under your $BNCHOME.<br/>
-Monitor the output with:
+- You can check the current height of full node by visiting `localhost:26657/status`
+- You can check the log info in your log under your \$BNCHOME.<br/>
+  Monitor the output with:
+
 ```
 tail -f $BNCHOME/bnc.log
 ```
+
 ### Common Issues
 
 If you start running a full node from scratch, you are likely to encounter the following issues:
 
 #### AppHash Confliction
 
-* Error Log
+- Error Log
+
 ```
 panic: Tendermint state.AppHash does not match AppHash after replay. Got XXXXXXX, expected 251DF08F2BA7824F0875D33992CF03EA35106DDD34B3A9FE4EFA0B73CDD2FE14
 ```
+
 This error is caused by a consensus issue and thus bnbchaind will panic.
 
-* Solution
+- Solution
 
 To solve this issue, make sure that you have downloaded the correct genesis file.<br/>
 If you replaced the genesis file, then you need to do a node reset.<br/>
 To reset node:
+
 ```
 rm $BNCHOME/data
 
 rm $BNCHOME/config/priv_validator_key.json
 ```
+
 Then, start again.
 
 #### Peer connection error
 
-* Error log:
+- Error log:
+
 ```
 E[2019-04-17|23:52:24.069] Connection failed @ recvRoutine (reading byte) module=p2p peer=[aea74b16d28d06cbfbb1179c177e8cd71315cce4@54.64.99.130:27146](http://aea74b16d28d06cbfbb1179c177e8cd71315cce4@54.64.99.130:27146)conn=MConn{[52.199.237.19:27146](http://52.199.237.19:27146)} err=EOF
 E[2019-04-17|23:52:24.070] Stopping peer for error module=p2p peer=&quot;Peer{MConn{[52.199.237.19:27146](http://52.199.237.19:27146)} aea74b16d28d06cbfbb1179c177e8cd71315cce4 out}&quot; err=EOF
@@ -54,39 +66,43 @@ E[2019-04-17|23:52:24.070] Stopping peer for error module=p2p peer=&quot;Peer{MC
 
 This error is caused by the handshake failing between two peers.
 
-* Solution
+- Solution
 
 To solve this problem, you need to make sure node_key.json is under `$BNCHOME/config` and nodes will try to re-connect automatically, so this issue should not persist.
 
 #### Connection Timeout
 
-* Error log
+- Error log
+
 ```
 Dialing failed module=pex addr=2c1fa9c1698961da38d8cd50da9fe8b4bc433c50@34.202.245.91:26856 err=&quot;dial tcp 34.202.245.91:26856: i/o timeout&quot; attempts=3
 ```
 
-* Solution
+- Solution
 
 Check your internet connection and make sure it is stable.
 
 #### Out of memory
 
-* Error Log
+- Error Log
+
 ```
 fatal error: out of memory
 ```
 
-* Solution
+- Solution
 
 Your machine must have more than `16 GB of memory`, otherwise, it will not handle DB restoration during state sync.
 
 #### No priv_validator_state.json after reset
 
-* Error log
+- Error log
+
 ```
 open /Users/.bnbchaind/data/priv_validator_state.json: no such file or directory
 ```
-* Solution
+
+- Solution
 
 Delete both `priv_validator_state.json` & `node_key.json` file and `data` folder if you want to reset your full node.
 
@@ -97,11 +113,13 @@ The default number of files Linux can open (per-process) is `1024`.<br/>
 This causes the process to crash.<br/>
 
 A quick fix is to run `ulimit -n 65535` (increase the number of open files allowed) and then restart the process with:
+
 ```
 bnbchaind start
 ```
 
 Verify the number of open files:
+
 ```
 ulimit -a
 core file size          (blocks, -c) 0
@@ -121,12 +139,13 @@ max user processes              (-u) 3829
 virtual memory          (kbytes, -v) unlimited
 file locks                      (-x) unlimited
 ```
-Please note that open files are different now.
 
+Please note that open files are different now.
 
 #### Forget to Upgrade
 
 The Binance Chain has a hardfork upgrade and if you failed to upgrade your fullnode to the latest version, `bnbchaind` process will stop and even if you restart with the latest version, the following error will appear:
+
 ```
 panic: Tendermint state.AppHash does not match AppHash after replay. Got , expected 393887B67F69B19CAB5C48FB87B4966018ABA893FB3FFD241C0A94D2C8668DD2
 goroutine 1 [running]:
@@ -137,16 +156,17 @@ github.com/binance-chain/node/vendor/github.com/tendermint/tendermint/consensus.
 
 To recover from the `state` conflict error, you need to:
 
-* Backup your home directory,  (default is ~/.bnbchaind)
+- Backup your home directory, (default is ~/.bnbchaind)
 
-* Download the tool: [state-recover](https://github.com/binance-chain/node-binary/tree/master/tools/recover)
+- Download the tool: [state-recover](https://github.com/binance-chain/node-binary/tree/master/tools/recover)
 
-* Get the height of upgrade, this height will be announced in the upgrade announcement on the forum.  For example, if it's announced as 5000 in the forum and run the following command will make your full node recover to the last block before the upgrade, and that is 4999 :
+- Get the height of upgrade, this height will be announced in the upgrade announcement on the forum. For example, if it's announced as 5000 in the forum and run the following command will make your full node recover to the last block before the upgrade, and that is 4999 :
+
 ```
 ./state_recover 4999 <your_home_path>
 ```
 
-* Restart with the latest version of `bnbchaind`
+- Restart with the latest version of `bnbchaind`
 
 ```
 bnbchaind start &
@@ -155,13 +175,16 @@ bnbchaind start &
 #### `bnbchaind` is not properly killed
 
 If you started your `bnbchaind` process after it was not properly killed. You will see the following error:
+
 ```
 panic: ERROR:
 Codespace: 5
 Code: 9
 Message: "Initial ProposalID already set"
 ```
+
 To recover, please reset your node and restart:
+
 ```
 bnbchaind unsafe-reset-all --home<your-home-dir>
 ```

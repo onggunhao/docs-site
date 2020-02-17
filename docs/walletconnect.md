@@ -1,3 +1,8 @@
+---
+id: walletconnect
+title: WalletConnect
+---
+
 # <img src="./assets/walletconnect.svg" width="60"> WalletConnect
 
 The Binance Chain Web Wallet supports connecting with external wallet providers via the [WalletConnect protocol](https://docs.walletconnect.org/tech-spec).
@@ -16,11 +21,11 @@ Wallet providers should make use of the [WalletConnect Client SDK](https://docs.
 
 Since we do not use Ethereum transactions, there are some differences:
 
-* Typically `sendTransaction` is used with Ethereum transaction parameters in WalletConnect dApp integrations. But in Binance Chain's case, instead of invoking `sendTransaction` in the WalletConnect flow, the new [`sendCustomRequest`](https://docs.walletconnect.org/client-sdk#send-custom-request) call is used instead with a method called `bnb_sign` (see below).
+- Typically `sendTransaction` is used with Ethereum transaction parameters in WalletConnect dApp integrations. But in Binance Chain's case, instead of invoking `sendTransaction` in the WalletConnect flow, the new [`sendCustomRequest`](https://docs.walletconnect.org/client-sdk#send-custom-request) call is used instead with a method called `bnb_sign` (see below).
 
-* The external wallet provider is responsible for sending back the signature and public key of the transaction but should _not_ broadcast the transaction itself. We have instead defined a custom `result` format in the form of stringified JSON containing the signature and public key. The reason for this is that the wallet app probably does not have access to the complete serialized binary form of the transaction (as this requires Amino encoding).
+- The external wallet provider is responsible for sending back the signature and public key of the transaction but should _not_ broadcast the transaction itself. We have instead defined a custom `result` format in the form of stringified JSON containing the signature and public key. The reason for this is that the wallet app probably does not have access to the complete serialized binary form of the transaction (as this requires Amino encoding).
 
-* The web wallet will send back a second custom call (after `bnb_sign`) called `bnb_tx_confirmation`, which contains the boolean result of the transaction build/broadcast and any error message encountered by the web wallet during broadcasting. In a complete implementation, this confirmation callback should be responded to with a call to `approveRequest`.
+- The web wallet will send back a second custom call (after `bnb_sign`) called `bnb_tx_confirmation`, which contains the boolean result of the transaction build/broadcast and any error message encountered by the web wallet during broadcasting. In a complete implementation, this confirmation callback should be responded to with a call to `approveRequest`.
 
 ## Sequence Diagram
 
@@ -62,10 +67,10 @@ We have two custom call request formats, here are examples of them:
               "coins": [
                 {
                   "amount": 1000000000,
-                  "denom": "BNB",
-                },
-              ],
-            },
+                  "denom": "BNB"
+                }
+              ]
+            }
           ],
           "outputs": [
             {
@@ -73,15 +78,15 @@ We have two custom call request formats, here are examples of them:
               "coins": [
                 {
                   "amount": 1000000000,
-                  "denom": "BNB",
-                },
-              ],
-            },
-          ],
-        },
+                  "denom": "BNB"
+                }
+              ]
+            }
+          ]
+        }
       ],
       "sequence": "31",
-      "source": "1",
+      "source": "1"
     }
   ]
 }
@@ -102,11 +107,11 @@ In `result`, a JSON-encoded object must be included containing the following hex
 
 Note that:
 
-* `id` and `jsonrpc` are usually pre-filled by the client SDK, so there should be no need to set this in the object yourself.
+- `id` and `jsonrpc` are usually pre-filled by the client SDK, so there should be no need to set this in the object yourself.
 
-* `signature` should be 64 bytes in length (128 hex chars)
+- `signature` should be 64 bytes in length (128 hex chars)
 
-* `publicKey` should be 65 bytes in length (130 hex chars, non-compressed form, prefixed with `0x04`)
+- `publicKey` should be 65 bytes in length (130 hex chars, non-compressed form, prefixed with `0x04`)
 
 ### Example: bnb_tx_confirmation
 

@@ -1,3 +1,8 @@
+---
+id: match-examples
+title: Matching Examples
+---
+
 # Match Steps and Examples
 
 ## Match Steps
@@ -5,35 +10,36 @@
 - Step 0: no match for one side market, or market without crossed order book
 
 - Step 1: Maximum matched volume. The Equilibrium Price (EP) should be the price at which the maximum
-volume can be traded. In the case of more than one price level with the same executable volume,
-the algorithm should go to step 2
+  volume can be traded. In the case of more than one price level with the same executable volume,
+  the algorithm should go to step 2
 
 - Step 2: Minimum surplus. In the case of more than one price level with the same maximum executable
-volume, the EP should be the price with the lowest surplus (imbalance) volume. The surplus is
-absolute leftover volume at the EP. If multiple surplus amounts have the same lowest value, precede to step 3.
+  volume, the EP should be the price with the lowest surplus (imbalance) volume. The surplus is
+  absolute leftover volume at the EP. If multiple surplus amounts have the same lowest value, precede to step 3.
 
 - Step 3: Market Pressure. If multiple prices satisfy 1 and 2, establish where market pressure of the potential
-price exists. Surplus with a positive sign indicates buy side pressure while surplus with a negative
-sign indicates sell side pressure.
+  price exists. Surplus with a positive sign indicates buy side pressure while surplus with a negative
+  sign indicates sell side pressure.
 
-    - For scenarios that all the the equivalent surplus amounts are positive, if all the prices are
-    below the reference price plus an upper limit percentage (e.g. 5%), then algorithm uses the highest
-    of the potential equilibrium prices. If all the prices are above the reference price plus an upper
-    limit, use the lowest price; for other cases, use the reference price plus the upper limit.
-    - Conversely, if market pressure is on the sell side, if all prices are above the reference price
-    minus a lower percentage limit, then the algorithm uses the lowest of the potential prices.
-    If all the price are below the reference price minus the lower percentage limit, use the highest
-    price, otherwise use the reference price minus the lower percentage limit.
+      - For scenarios that all the the equivalent surplus amounts are positive, if all the prices are
+      below the reference price plus an upper limit percentage (e.g. 5%), then algorithm uses the highest
+      of the potential equilibrium prices. If all the prices are above the reference price plus an upper
+      limit, use the lowest price; for other cases, use the reference price plus the upper limit.
+      - Conversely, if market pressure is on the sell side, if all prices are above the reference price
+      minus a lower percentage limit, then the algorithm uses the lowest of the potential prices.
+      If all the price are below the reference price minus the lower percentage limit, use the highest
+      price, otherwise use the reference price minus the lower percentage limit.
 
-    If both positive and negative surplus amounts exist, precede to Step 4.
+      If both positive and negative surplus amounts exist, precede to Step 4.
 
 - Step 4: When both positive and negative surplus amounts exists at the lowest, if the
-reference price falls at / into these prices, the reference price should be chose, otherwise
-the price closest to the reference price would be chosen.
-
+  reference price falls at / into these prices, the reference price should be chose, otherwise
+  the price closest to the reference price would be chosen.
 
 ## Examples
-The chosen price level row would have ``*`` on the deciding colume.
+
+The chosen price level row would have `*` on the deciding colume.
+
 ```
 1. Choose the largest execution (Step 1)
 -------------------------------------------------------------
