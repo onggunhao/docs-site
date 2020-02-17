@@ -19,37 +19,52 @@ The first thing you’ll need to do anything on the Binance Chain is an `Account
 
 ## Create Account
 
-You can generate a new key and mnemonic with `bnbcli` (`tbnbcli` for testnet).
+You can generate a new key and mnemonic with `bnbcli` (`tbnbcli` for testnet). You will be asked to give the key a `name` which is used to refer to it locally.
+
+For this quickstart, we will be creating a key named `quickstart_key`.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Mainnet CLI-->
 
 ```bash
-$ bnbcli keys add new_key
+$ bnbcli keys add quickstart_key
 ```
-
-<!--Testnet CLI-->
-
-```bash
-$ tbnbcli keys add new_key
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 This should guide you through an interactive prompt to create your account.
-
-> Remember to save your mnemonic in a safe place!
 
 ```
 Enter a passphrase for your key:
 Repeat the passphrase:
-NAME:	TYPE:	ADDRESS:						PUBKEY:
-new_key	local	bnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz	bnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
+NAME:	        TYPE:	ADDRESS:						            PUBKEY:
+quickstart_key	local	bnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz	bnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
 **Important** write this seed phrase in a safe place.
 It is the only way to recover your account if you ever forget your password.
 
 napkin degree boring custom differ smart bundle ball length lyrics auto forest jeans awake entry vocal there repeat rule churn picnic promote screen skull
 ```
+
+<!--Testnet CLI-->
+
+```bash
+$ tbnbcli keys add quickstart_key
+```
+
+This should guide you through an interactive prompt to create your account. Note that testnet addresses have a prefix of `tbnb`.
+
+```
+Enter a passphrase for your key:
+Repeat the passphrase:
+NAME:	        TYPE:	ADDRESS:						            PUBKEY:
+quickstart_key	local	bnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz	tbnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
+**Important** write this seed phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+napkin degree boring custom differ smart bundle ball length lyrics auto forest jeans awake entry vocal there repeat rule churn picnic promote screen skull
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+> Remember to save your mnemonic in a safe place!
 
 ### Restoring Account
 
@@ -78,8 +93,39 @@ Repeat the passphrase:
 > Enter your recovery seed phrase:
 more advice achieve mass clap nose bike bird busy section rigid model doll exchange guard theme catalog junior patrol valley depart decade convince master
 NAME:	        TYPE:	ADDRESS:						            PUBKEY:
-recovery_test	local	bnb14m2gcdjq7aqkdtu2m9qrqrl8eevzpqfj9xc0uu	bnbp1addwnpepqt7nf2dwgfxv6kmzgwhzlp556yhdfeakfdejc6lp8xcddsv83kq552m63s9
+recovery_test	local	bnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz tbnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
 ```
+
+### Seeing list of Accounts
+
+You can see the keys that are available to your local CLI using the following command:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Mainnet-->
+
+```bash
+$ bnbcli keys list
+```
+
+```shell
+NAME:	        TYPE:	ADDRESS:						            PUBKEY:
+quickstart_key	local	bnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz	bnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
+recovery_test	local	bnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz tbnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
+```
+
+<!--Testnet-->
+
+```bash
+$ tbnbcli keys list
+```
+
+```shell
+NAME:	          TYPE:	ADDRESS:						           PUBKEY:
+quickstart_key	local	tbnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz	bnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
+recovery_test	local	tbnb1c5dxrdn9xuw0njwcyevzyjrza550z5au8v0hyz bnbp1addwnpepqwdsud63f5rq2wkgrezlvzdauf4x7wp3defzvhrzkwdzl7p0n6uk666ghpa
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Initial State
 
@@ -94,7 +140,7 @@ We can check this by querying the account with the following command:
 $ bnbcli account <your-address>
     --chain-id Binance-Chain-Tigris # mainnet
     --node https://dataseed5.defibit.io:443
-    --indent
+    --indent      # formatting
     --trust-node  # skips querying proofs (i.e. faster)
 ```
 
@@ -104,7 +150,7 @@ $ bnbcli account <your-address>
 $ tbnbcli account <your-address>
     --chain-id Binance-Chain-Nile # testnet
     --node data-seed-pre-2-s1.binance.org:80
-    --indent
+    --indent      # formatting
     --trust-node  # skips querying proofs (i.e. faster)
 ```
 
