@@ -1,0 +1,690 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Get Extra Data from Full Node · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Get Extra Data From Your Full Node"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Get Extra Data from Full Node · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# Get Extra Data From Your Full Node"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Run a node</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Quickstart<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/intro">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/access">Accessing Binance Chain</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/create-account">Create an Account</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-transfer">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-trade">Make a Trade</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Concepts<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/accounts">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/anti-front-running">Anti Front-Running</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/atomic-swap">Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/blockchain">Blockchain Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/encoding">Transaction Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/exchange-integration">Exchange Integration</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/keys">Keys</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/list">List</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match">Matching Logic</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match-examples">Matching Examples</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/memo-validation">Memo Validation</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/offline">Offline</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/timelock">Timelock</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tokens">Tokens</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trade">Trade</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trading-spec">Trading Spec</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/transfer">Transfers</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tss">Threshold Signatures</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/assets">Assets</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/matching-engine">Matching Engine</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/cross-chain-atomic-swaps">Cross-chain Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/threshold-signature-scheme">Threshold Signature Scheme</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/fees">Fees</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/encoding">Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/walletconnect">WalletConnect</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Run a node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnode">Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnodeissues">Full Node Issues</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs-site/docs/extra-data-from-fullnode">Get Extra Data from Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/light-client">Light Client</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/nodetypes">Types of Nodes</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/fullnode">Run a Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/lightnode">Light Node</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Get Extra Data from Full Node</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="get-extra-data-from-your-full-node"></a><a href="#get-extra-data-from-your-full-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Extra Data From Your Full Node</h1>
+<p>This document is intended for developers who are interested in transactions, order books, account changes, fee charges in every block and would like to build their own downstream services of the full node.<br/>
+Please refer to <a href="/docs-site/docs/fullnode">Running Full Node</a>, if you still haven't deployed a full node.</p>
+<h2><a class="anchor" aria-hidden="true" id="publish-different-messages-to-local-files"></a><a href="#publish-different-messages-to-local-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publish Different Messages to Local Files</h2>
+<p>You can set the <code>publishLocal</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+The full node will append the messages each block published to <code>{fullnode home}/marketdata/marketdata.json</code> (each line is a json object for a topic and height), and you can consume them in your own apps. The messages types are explained below.</p>
+<p>Note: only block messages after this option get turned on can be saved. This function won't make up messages for already saved blocks.</p>
+<h2><a class="anchor" aria-hidden="true" id="set-kafka-broker-version"></a><a href="#set-kafka-broker-version" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set Kafka Broker Version</h2>
+<p>Since the release of bnbchaind <code>v0.6.3</code>, you can customize the version of <code>kafka broker</code> in <code>app.toml</code>. The default value is <code>v2.1.0</code>:</p>
+<blockquote>
+<p>The recommended version 2.1.0 and the minimal version is 0.8.2.0</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-attr">kafkaVersion</span> = <span class="hljs-string">"2.1.0"</span>
+</code></pre>
+<p>If you are using another version of Kafka, please test the compatibility first.</p>
+<h3><a class="anchor" aria-hidden="true" id="1-orderupdates"></a><a href="#1-orderupdates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. OrderUpdates</h3>
+<p>You can set the <code>publishOrderUpdates</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+Then, the full node will save all the trades that have been filled, orders that changed and proposals that been submitted.</p>
+<ul>
+<li>Example:</li>
+</ul>
+<p>All those <a href="https://docs.binance.org/get-extra-data-from-fullnode.html#publish-different-messages-to-local-files">extra info</a> can also be found in exported data from your fullnode.</p>
+<h3><a class="anchor" aria-hidden="true" id="changes"></a><a href="#changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes</h3>
+<p>In <code>trade</code> data structure, there are five new fields: <code>SSrc</code>,<code>BSrc</code>,<code>SSingleFee</code>, <code>BSingleFee</code> and <code>TickerType</code>.</p>
+<ul>
+<li><code>SSrc</code>: Source code of Sell order transaction</li>
+<li><code>BSrc</code>: Source code of Buy order transaction</li>
+<li><code>SSingleFee</code>: fee of matched sell order</li>
+<li><code>BSingleFee</code>: fee of matched buy order</li>
+<li><code>TickerType</code>: ticker type</li>
+</ul>
+<p>In <code>Order</code> data structure, there is a new field: <code>singlefee</code>. This is used to show the fee of this order.</p>
+<p><code>Status</code> is used to indicate the current status of this order. Namely there are 9 status: 0 for Acknowledge; 1 for Canceled ; 2 for Expired , 3 for IocNoFill, 4 for IocExpire, 5 for PartialFill, 6 for FullyFill, 7 for FailedBlocking, 8 for FailedMatching.</p>
+<p>For example:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"Height"</span>: <span class="hljs-number">36384232</span>,
+  <span class="hljs-attr">"Timestamp"</span>: <span class="hljs-number">1569196830136718300</span>,
+  <span class="hljs-attr">"NumOfMsgs"</span>: <span class="hljs-number">10</span>,
+  <span class="hljs-attr">"Trades"</span>: {
+    <span class="hljs-attr">"NumOfMsgs"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"Trades"</span>: [
+      {
+        <span class="hljs-attr">"Id"</span>: <span class="hljs-string">"36384232-0"</span>,
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"DEFI-FA5_BNB"</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">345282</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"Sid"</span>: <span class="hljs-string">"5F511BE6120CE2F92877F3A1E92D408CE56A5CCC-62632"</span>,
+        <span class="hljs-attr">"Bid"</span>: <span class="hljs-string">"4C28D006CF8061E05EEE50D17D8B2375CE09E7EC-71967"</span>,
+        <span class="hljs-attr">"Sfee"</span>: <span class="hljs-string">"BNB:32042"</span>,
+        <span class="hljs-attr">"Bfee"</span>: <span class="hljs-string">"BNB:32042"</span>,
+        <span class="hljs-attr">"SSrc"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"BSrc"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"SSingleFee"</span>: <span class="hljs-string">"BNB:32042"</span>,
+        <span class="hljs-attr">"BSingleFee"</span>: <span class="hljs-string">"BNB:32042"</span>,
+        <span class="hljs-attr">"TickType"</span>: <span class="hljs-number">5</span>,
+        <span class="hljs-attr">"SAddr"</span>: <span class="hljs-string">"bnb1tag3hesjpn30j2rh7ws7jt2q3njk5hxvsx023c"</span>,
+        <span class="hljs-attr">"BAddr"</span>: <span class="hljs-string">"bnb1fs5dqpk0sps7qhhw2rghmzerwh8qnelv7tyat8"</span>
+      },
+      {
+        <span class="hljs-attr">"Id"</span>: <span class="hljs-string">"36384232-1"</span>,
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"EQL-586_BNB"</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">4798</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"Sid"</span>: <span class="hljs-string">"610BFE81695EFD89B19D27D1E8C17D57C0239C66-6367"</span>,
+        <span class="hljs-attr">"Bid"</span>: <span class="hljs-string">"B3CEA961E95C4F104A791F6C33DB83458577BA76-5471"</span>,
+        <span class="hljs-attr">"Sfee"</span>: <span class="hljs-string">"BNB:2111"</span>,
+        <span class="hljs-attr">"Bfee"</span>: <span class="hljs-string">"BNB:2111"</span>,
+        <span class="hljs-attr">"SSrc"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"BSrc"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"SSingleFee"</span>: <span class="hljs-string">"BNB:2111"</span>,
+        <span class="hljs-attr">"BSingleFee"</span>: <span class="hljs-string">"BNB:2111"</span>,
+        <span class="hljs-attr">"TickType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"SAddr"</span>: <span class="hljs-string">"bnb1vy9laqtftm7cnvvaylg73sta2lqz88rxs72mx7"</span>,
+        <span class="hljs-attr">"BAddr"</span>: <span class="hljs-string">"bnb1k082jc0ft383qjnerakr8kurgkzh0wnk8gulnj"</span>
+      }
+    ]
+  },
+  <span class="hljs-attr">"Orders"</span>: {
+    <span class="hljs-attr">"NumOfMsgs"</span>: <span class="hljs-number">8</span>,
+    <span class="hljs-attr">"Orders"</span>: [
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"DEFI-FA5_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"37D9383E6AD9AFEF6C5D8066ABA3ACA8C75D9F39-1724193"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1xlvns0n2mxh77mzaspn2hgav4rr4m8eerfju38"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">344271</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">89600000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"D74A96022A2F090D7D739C1C6716481A215E0F7F10C430C28290758E9DC4EF73"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">""</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"EQL-586_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"B3CEA961E95C4F104A791F6C33DB83458577BA76-5471"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1k082jc0ft383qjnerakr8kurgkzh0wnk8gulnj"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">4798</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"792BA5F932813F9C006075EAA090D82305AD049DDC570271FA8515339A874E97"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">""</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"DEFI-FA5_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"4C28D006CF8061E05EEE50D17D8B2375CE09E7EC-71967"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1fs5dqpk0sps7qhhw2rghmzerwh8qnelv7tyat8"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">345283</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"574CB6DAF26C5D1A465A8D86760FFDFF3DA5946F9C02EB5B89051A8120844523"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">""</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"DEFI-FA5_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"5F511BE6120CE2F92877F3A1E92D408CE56A5CCC-62632"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1tag3hesjpn30j2rh7ws7jt2q3njk5hxvsx023c"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">345282</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"9D8EF7CEAE5D2CDC4026F6306296D57764BB80099B3A65865971D8D71399B6EA"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">""</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"EQL-586_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">5</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"610BFE81695EFD89B19D27D1E8C17D57C0239C66-6367"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">"36384232-1"</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1vy9laqtftm7cnvvaylg73sta2lqz88rxs72mx7"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">4798</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">230000000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">4798</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">"BNB:2111"</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196786802324000</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"EDF132EBDA03382D2BFF7EF58CDE574D4E3FB9622BD8BCF12BA6ABECD692BA5C"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">"BNB:2111"</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"DEFI-FA5_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">6</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"4C28D006CF8061E05EEE50D17D8B2375CE09E7EC-71967"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">"36384232-0"</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1fs5dqpk0sps7qhhw2rghmzerwh8qnelv7tyat8"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">345283</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">345282</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">"BNB:32042"</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"574CB6DAF26C5D1A465A8D86760FFDFF3DA5946F9C02EB5B89051A8120844523"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">"BNB:32042"</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"DEFI-FA5_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">6</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"5F511BE6120CE2F92877F3A1E92D408CE56A5CCC-62632"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">"36384232-0"</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1tag3hesjpn30j2rh7ws7jt2q3njk5hxvsx023c"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">345282</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">345282</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">23200000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">"BNB:32042"</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"9D8EF7CEAE5D2CDC4026F6306296D57764BB80099B3A65865971D8D71399B6EA"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">"BNB:32042"</span>
+      },
+      {
+        <span class="hljs-attr">"Symbol"</span>: <span class="hljs-string">"EQL-586_BNB"</span>,
+        <span class="hljs-attr">"Status"</span>: <span class="hljs-number">6</span>,
+        <span class="hljs-attr">"OrderId"</span>: <span class="hljs-string">"B3CEA961E95C4F104A791F6C33DB83458577BA76-5471"</span>,
+        <span class="hljs-attr">"TradeId"</span>: <span class="hljs-string">"36384232-1"</span>,
+        <span class="hljs-attr">"Owner"</span>: <span class="hljs-string">"bnb1k082jc0ft383qjnerakr8kurgkzh0wnk8gulnj"</span>,
+        <span class="hljs-attr">"Side"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"OrderType"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"Price"</span>: <span class="hljs-number">4798</span>,
+        <span class="hljs-attr">"Qty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"LastExecutedPrice"</span>: <span class="hljs-number">4798</span>,
+        <span class="hljs-attr">"LastExecutedQty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"CumQty"</span>: <span class="hljs-number">110000000000</span>,
+        <span class="hljs-attr">"Fee"</span>: <span class="hljs-string">"BNB:2111"</span>,
+        <span class="hljs-attr">"OrderCreationTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TransactionTime"</span>: <span class="hljs-number">1569196830136718300</span>,
+        <span class="hljs-attr">"TimeInForce"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"CurrentExecutionType"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"TxHash"</span>: <span class="hljs-string">"792BA5F932813F9C006075EAA090D82305AD049DDC570271FA8515339A874E97"</span>,
+        <span class="hljs-attr">"SingleFee"</span>: <span class="hljs-string">"BNB:2111"</span>
+      }
+    ]
+  },
+  <span class="hljs-attr">"Proposals"</span>: {
+    <span class="hljs-attr">"NumOfMsgs"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"Proposals"</span>: <span class="hljs-literal">null</span>
+  },
+  <span class="hljs-attr">"StakeUpdates"</span>: {
+    <span class="hljs-attr">"NumOfMsgs"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"CompletedUnbondingDelegations"</span>: <span class="hljs-literal">null</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-accountbalance"></a><a href="#2-accountbalance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. AccountBalance</h3>
+<p>You can set the <code>publishAccountBalance</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+Then, the full node will save all the changed accounts.</p>
+<ul>
+<li>Example</li>
+</ul>
+<pre><code class="hljs">{
+<span class="hljs-symbol">    Owner:</span>    string,
+<span class="hljs-symbol">    Fee:</span>      string,
+<span class="hljs-symbol">    Balances:</span> []{
+<span class="hljs-symbol">        Asset:</span>  string,
+<span class="hljs-symbol">        Free:</span>   int64,
+<span class="hljs-symbol">        Frozen:</span> int64,
+<span class="hljs-symbol">        Locked:</span> int64
+    }
+
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="3-orderbook"></a><a href="#3-orderbook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. OrderBook</h3>
+<p>You can set the <code>publishOrderBook</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+Then, the full node will save all order book changes.</p>
+<ul>
+<li>Example</li>
+</ul>
+<pre><code class="hljs">{
+<span class="hljs-symbol">    Height:</span>    int64,
+<span class="hljs-symbol">    Timestamp:</span> int64,
+<span class="hljs-symbol">    NumOfMsgs:</span> int,
+<span class="hljs-symbol">    Books:</span>     []{
+<span class="hljs-symbol">       Symbol:</span> string,
+<span class="hljs-symbol">       Buys:</span>   []{
+<span class="hljs-symbol">            Price:</span>   int64,
+<span class="hljs-symbol">            LastQty:</span> int64
+       },
+<span class="hljs-symbol">       Sells:</span>  []{
+<span class="hljs-symbol">            Price:</span>   int64,
+<span class="hljs-symbol">            LastQty:</span> int64
+       }
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="4-blockfee"></a><a href="#4-blockfee" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. BlockFee</h3>
+<p>You can set the <code>publishBlockFee</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+Then, the full node will save all the block fee charged.</p>
+<ul>
+<li>Example</li>
+</ul>
+<pre><code class="hljs">{
+    <span class="hljs-attribute">Height</span>:     int64,
+    Fee:        string,
+    Validators: []string
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="5-transfers"></a><a href="#5-transfers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Transfers</h3>
+<p>You can set the <code>publishTransfer</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+Then, the full node will save all the transfer transactions.</p>
+<ul>
+<li>Example</li>
+</ul>
+<pre><code class="hljs">{
+<span class="hljs-symbol">    Height:</span>    int64,
+<span class="hljs-symbol">    Num:</span>       int,
+<span class="hljs-symbol">    Timestamp:</span> int64,
+<span class="hljs-symbol">    Transfers:</span> []{
+<span class="hljs-symbol">        TxHash:</span> string,
+<span class="hljs-symbol">        Memo:</span> string,
+<span class="hljs-symbol">        From:</span> string,
+<span class="hljs-symbol">        To:</span>   []{
+<span class="hljs-symbol">            Addr:</span>  string,
+<span class="hljs-symbol">            Coins:</span> []{
+<span class="hljs-symbol">                Denom:</span>  string,
+<span class="hljs-symbol">                Amount:</span> int64
+            }
+        }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="publish-different-messages-to-kafka"></a><a href="#publish-different-messages-to-kafka" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publish Different Messages to Kafka</h2>
+<p>You can set the <code>publishKafka</code> option to <code>true</code> in <code>nodebinary/fullnode/{network}/node/app.toml</code>.<br/>
+Then, the full node will save messages that you are interested into Kafka, and you can consume them in your own apps.<br/>
+The message is encoded based on <code>Avro</code> serialization system.<br/>
+Their schemas are shown below:<br/></p>
+<ul>
+<li><strong>OrderUpdates</strong>:</li>
+</ul>
+<pre><code class="hljs">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"ExecutionResults"</span>,
+    <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+    <span class="hljs-attr">"fields"</span>: [
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"timestamp"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"trades"</span>, <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"null"</span>, {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Trades"</span>,
+            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+            <span class="hljs-attr">"fields"</span>: [
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"trades"</span>, <span class="hljs-attr">"type"</span>: {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                    <span class="hljs-attr">"items"</span>:
+                        {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Trade"</span>,
+                            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+                            <span class="hljs-attr">"fields"</span>: [
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"symbol"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"id"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"price"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"qty"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"sid"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bid"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"sfee"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bfee"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"saddr"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"baddr"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }], <span class="hljs-attr">"default"</span>: <span class="hljs-literal">null</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"orders"</span>, <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"null"</span>, {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Orders"</span>,
+            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+            <span class="hljs-attr">"fields"</span>: [
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"orders"</span>, <span class="hljs-attr">"type"</span>: {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                    <span class="hljs-attr">"items"</span>:
+                    {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Order"</span>,
+                        <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+                        <span class="hljs-attr">"fields"</span>: [
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"symbol"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"status"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"orderId"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"tradeId"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"owner"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"side"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"orderType"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"price"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"qty"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"lastExecutedPrice"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"lastExecutedQty"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"cumQty"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"fee"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"orderCreationTime"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"transactionTime"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"timeInForce"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"currentExecutionType"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"txHash"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> }
+                        ]
+                    }
+                   }
+                }
+            ]
+        }], <span class="hljs-attr">"default"</span>: <span class="hljs-literal">null</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"proposals"</span>, <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"null"</span>, {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Proposals"</span>,
+            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+            <span class="hljs-attr">"fields"</span>: [
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"proposals"</span>, <span class="hljs-attr">"type"</span>: {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                    <span class="hljs-attr">"items"</span>:
+                    {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Proposal"</span>,
+                        <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+                        <span class="hljs-attr">"fields"</span>: [
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"id"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"status"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> }
+                        ]
+                    }
+                   }
+                }
+            ]
+        }], <span class="hljs-attr">"default"</span>: <span class="hljs-literal">null</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"stakeUpdates"</span>, <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"null"</span>, {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"StakeUpdates"</span>,
+            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+            <span class="hljs-attr">"fields"</span>: [
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"completedUnbondingDelegations"</span>, <span class="hljs-attr">"type"</span>: {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                    <span class="hljs-attr">"items"</span>:
+                    {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"CompletedUnbondingDelegation"</span>,
+                        <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+                        <span class="hljs-attr">"fields"</span>: [
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"validator"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delegator"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                            { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>, <span class="hljs-attr">"type"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                                    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Coin"</span>,
+                                    <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"org.binance.dex.model.avro"</span>,
+                                    <span class="hljs-attr">"fields"</span>: [
+                                        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"denom"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> }
+                                    ]
+                                }
+                            }
+                        ]
+                     }
+                   }
+                }
+            ]
+        }], <span class="hljs-attr">"default"</span>: <span class="hljs-literal">null</span> }
+    ]
+}
+</code></pre>
+<ul>
+<li><strong>OrderBooksSchema</strong>:</li>
+</ul>
+<pre><code class="hljs">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Books"</span>,
+    <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+    <span class="hljs-attr">"fields"</span>: [
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"timestamp"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"books"</span>, <span class="hljs-attr">"type"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+            <span class="hljs-attr">"items"</span>:
+                {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"OrderBookDelta"</span>,
+                    <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                    <span class="hljs-attr">"fields"</span>: [
+                        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"symbol"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"buys"</span>, <span class="hljs-attr">"type"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                            <span class="hljs-attr">"items"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"PriceLevel"</span>,
+                                <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                                <span class="hljs-attr">"fields"</span>: [
+                                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"price"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"lastQty"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> }
+                                ]
+                            }
+                        } },
+                        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"sells"</span>, <span class="hljs-attr">"type"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                            <span class="hljs-attr">"items"</span>: <span class="hljs-string">"com.company.PriceLevel"</span>
+                        } }
+                    ]
+                }
+            }, <span class="hljs-attr">"default"</span>: []
+        }
+    ]
+}
+</code></pre>
+<ul>
+<li><strong>AccountBalanceSchema</strong>:</li>
+</ul>
+<pre><code class="hljs">{
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Accounts"</span>,
+            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+            <span class="hljs-attr">"fields"</span>: [
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"numOfMsgs"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"accounts"</span>, <span class="hljs-attr">"type"</span>: {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                    <span class="hljs-attr">"items"</span>:
+                        {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Account"</span>,
+                            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                            <span class="hljs-attr">"fields"</span>: [
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"owner"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"fee"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"balances"</span>, <span class="hljs-attr">"type"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                                        <span class="hljs-attr">"items"</span>: {
+                                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                                            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"AssetBalance"</span>,
+                                            <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                                            <span class="hljs-attr">"fields"</span>: [
+                                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"asset"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"free"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"frozen"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+                                                { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"locked"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                   }, <span class="hljs-attr">"default"</span>: []
+                }
+            ]
+        }
+
+</code></pre>
+<ul>
+<li><strong>BlockFeeSchema</strong>:</li>
+</ul>
+<pre><code class="hljs">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"BlockFee"</span>,
+    <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+    <span class="hljs-attr">"fields"</span>: [
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>},
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"fee"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>},
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"validators"</span>, <span class="hljs-attr">"type"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>, <span class="hljs-attr">"items"</span>: <span class="hljs-string">"string"</span> }}
+    ]
+}
+</code></pre>
+<ul>
+<li><strong>TransfersSchema</strong>:</li>
+</ul>
+<pre><code class="hljs">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Transfers"</span>,
+    <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+    <span class="hljs-attr">"fields"</span>: [
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>},
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"num"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"int"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"timestamp"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> },
+        { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"transfers"</span>,
+          <span class="hljs-attr">"type"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+            <span class="hljs-attr">"items"</span>: {
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Transfer"</span>,
+                <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                <span class="hljs-attr">"fields"</span>: [
+                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"txhash"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"from"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"to"</span>,
+                        <span class="hljs-attr">"type"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                            <span class="hljs-attr">"items"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Receiver"</span>,
+                                <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                                <span class="hljs-attr">"fields"</span>: [
+                                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"addr"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"coins"</span>,
+                                        <span class="hljs-attr">"type"</span>: {
+                                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+                                            <span class="hljs-attr">"items"</span>: {
+                                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"record"</span>,
+                                                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Coin"</span>,
+                                                <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"com.company"</span>,
+                                                <span class="hljs-attr">"fields"</span>: [
+                                                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"denom"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span> },
+                                                    { <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>, <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span> }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+          }
+        }
+    ]
+}
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/17/2020 by Daniel Onggunhao</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs-site/docs/fullnodeissues"><span class="arrow-prev">← </span><span>Full Node Issues</span></a><a class="docs-next button" href="/docs-site/docs/light-client"><span>Light Client</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#publish-different-messages-to-local-files">Publish Different Messages to Local Files</a></li><li><a href="#set-kafka-broker-version">Set Kafka Broker Version</a><ul class="toc-headings"><li><a href="#1-orderupdates">1. OrderUpdates</a></li><li><a href="#changes">Changes</a></li><li><a href="#2-accountbalance">2. AccountBalance</a></li><li><a href="#3-orderbook">3. OrderBook</a></li><li><a href="#4-blockfee">4. BlockFee</a></li><li><a href="#5-transfers">5. Transfers</a></li></ul></li><li><a href="#publish-different-messages-to-kafka">Publish Different Messages to Kafka</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

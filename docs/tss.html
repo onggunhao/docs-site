@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Threshold Signatures · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# User Guide of Threshold Signature Scheme (TSS) in Binance Chain"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Threshold Signatures · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# User Guide of Threshold Signature Scheme (TSS) in Binance Chain"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Concepts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Quickstart<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/intro">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/access">Accessing Binance Chain</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/create-account">Create an Account</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-transfer">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-trade">Make a Trade</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Concepts<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/accounts">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/anti-front-running">Anti Front-Running</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/atomic-swap">Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/blockchain">Blockchain Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/encoding">Transaction Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/exchange-integration">Exchange Integration</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/keys">Keys</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/list">List</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match">Matching Logic</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match-examples">Matching Examples</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/memo-validation">Memo Validation</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/offline">Offline</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/timelock">Timelock</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tokens">Tokens</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trade">Trade</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trading-spec">Trading Spec</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/transfer">Transfers</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs-site/docs/tss">Threshold Signatures</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/assets">Assets</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/matching-engine">Matching Engine</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/cross-chain-atomic-swaps">Cross-chain Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/threshold-signature-scheme">Threshold Signature Scheme</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/fees">Fees</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/encoding">Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/walletconnect">WalletConnect</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Run a node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnode">Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnodeissues">Full Node Issues</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/extra-data-from-fullnode">Get Extra Data from Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/light-client">Light Client</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/nodetypes">Types of Nodes</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/fullnode">Run a Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/lightnode">Light Node</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Threshold Signatures</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="user-guide-of-threshold-signature-scheme-tss-in-binance-chain"></a><a href="#user-guide-of-threshold-signature-scheme-tss-in-binance-chain" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Guide of Threshold Signature Scheme (TSS) in Binance Chain</h1>
+<ul>
+<li><a href="#user-guide-of-threshold-signature-scheme-tss-in-binance-chain">User Guide of Threshold Signature Scheme (TSS) in Binance Chain</a>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#security-audit">Security Audit</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#where-can-i-download-the-binance-tss-cli">Where can I download the Binance TSS CLI?</a></li>
+<li><a href="#how-to-use">How to Use</a>
+<ul>
+<li><a href="#init">Init</a></li>
+<li><a href="#describe">Describe</a></li>
+<li><a href="#channel">Channel</a></li>
+<li><a href="#keygen">Keygen</a></li>
+<li><a href="#regroup">Regroup</a></li>
+</ul></li>
+<li><a href="#changes-to-bnbclitbnbcli">Changes to <code>bnbcli/tbnbcli</code></a></li>
+<li><a href="#example">Example</a>
+<ul>
+<li><a href="#step-1-init-tss">Step 1: Init TSS</a></li>
+<li><a href="#step-2-generate-channel-id-for-bootstraping">Step 2: Generate Channel ID for bootstraping</a></li>
+<li><a href="#step-3-generate-and-share-secret">Step 3: Generate and Share Secret</a></li>
+<li><a href="#step-4-sign-transaction">Step 4: Sign Transaction</a></li>
+<li><a href="#step-5-regroup-vault">Step 5: Regroup Vault</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p><strong>Threshold Signature Scheme (TSS)</strong> is a cryptographic protocol for distributed key generation and signing. TSS allows constructing a signature that is distributed among different parties (for example three users), and each user receives a share of the private signing key. To sign a transaction, at least two of these three users need to join. For individuals, threshold signatures allow for two-factor security or splitting the ability to sign between two devices so that a single compromised device won’t put the money at risk. For businesses, threshold signatures allow for the realization of access control policies that prevent both insiders and outsiders from stealing corporate funds. TSS technology allows us to replace all signing commands with distributed computations.The private key is no longer a single point of failure.</p>
+<h2><a class="anchor" aria-hidden="true" id="motivation"></a><a href="#motivation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Motivation</h2>
+<p>A physical key must fit exactly into a keyhole to unlock a physical vault. But if this key is compromised or lost, the funds locked in the vault may no longer be safe. This simple approach of key management may make sense when a small sum is at stake. However, when the amount stored in the vault is large, it is wise to consider spreading the responsibility of key ownership between several trusted parties.</p>
+<p>Traditional <strong>MultiSig (multi-signature)</strong> is a more refined unlocking system that requires <em>multiple</em> independent keys to unlock the vault. MultiSig requires generating a larger private key and the vault has multiple locks - one for each key . More processing power is needed as participants have to sign additional signatures, which must then be checked individually by the network. This is not ideal, because a participant must leave traces showing exactly who signed and multiple parties must be online at the same time.</p>
+<p>With <strong>Threshold Signatures</strong>, all of the parties must forge the vault’s lock together, in a modular way, where each party owns a share of the key. A TSS vault is indistinguishable from a regular vault and is hence universal, and it has the same privacy and verification cost of a regular vault. Even if only a subset of the keys is available, the vault may still be unlocked (this is known as meeting a threshold of participation).</p>
+<p>Combining TSS feature  with Binance Chain client will help users manage their funds in a much safer way. TSS will be offered in an independent binary, but it will have some impact on the existing functions of <em>bnbcli/tbnbcli</em>.</p>
+<h2><a class="anchor" aria-hidden="true" id="implementation"></a><a href="#implementation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implementation</h2>
+<p>Many development resources have been poured into implementing TSS, a cryptographic protocol for distributed key generation and signing. TSS is now compatible and reusable for ECDSA-based blockchains, including Binance Chain, Bitcoin, and Ethereum networks. We expect that members of the Binance ecosystem and partner community can integrate this TSS library with their applications, such as wallets and custodians, and further develop this exciting new technology.</p>
+<p>With the support of the Binance Chain community, we are happy to share the open-source code at <a href="https://github.com/binance-chain/tss-lib">https://github.com/binance-chain/tss-lib</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="security-audit"></a><a href="#security-audit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Security Audit</h2>
+<p>The implementation of a multi-party threshold ECDSA <a href="https://github.com/binance-chain/tss-lib">library</a> is open source so it can be publicly audited by anyone. An independent third party auditors from <a href="https://www.kudelskisecurity.com/">Kudelski Security</a>  are hired to validate the security of the cryptography in TSS solution. The latest report in October by can be found <a href="./assets/audit-binance-tss-lib-final.pdf">here</a>.</p>
+<p>Security checks are routinely and continuously planed for all parts of TSS lib implmentations and future audits  will be reported to Binance Chain community.</p>
+<h2><a class="anchor" aria-hidden="true" id="workflow"></a><a href="#workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Workflow</h2>
+<p>Let’s take a look at the major steps in TSS:</p>
+<ul>
+<li><p><strong>Vault Initialization</strong>: the first step is for setting up tss parameters of each party. This will initialize the node's p2p listen address and setup a directory to save key. It's recommended that you should save your tss key in a different folder other than normal key info.</p></li>
+<li><p><strong>Key Generation</strong>: the second step is also the most complex. We need to define the quorum policy: count of total parties (n) that holds secret shares and threshold (t) which means at least t + 1 parties need to take part in the signing process. We need to generate a key which will be public and used to verify future signatures. However, we also have to generate an individual secret for each party, which is called a secret share. The functions guarantee the same public key to all parties and a different secret share for each. In this way, we achieve: (1) privacy: no secret shares data is leaked between any parties, and (2) correctness: the public key is intact with secret share. They need to agree on the channel which they want to use for sending messages between each other. The channel will have its corresponding password. Both ID and password needs to be shared offline.</p></li>
+<li><p><strong>Signing</strong>: this step involves a signature generation function. The input of each party will be its own secret share, created as output of the distributed key generation in the previous step. There is also public input known to all, which is the message to be signed. The output will be a digital signature, and the property of privacy ensures that no leakage of secret shares occurred during the computation.</p></li>
+<li><p><strong>Verification</strong>: the verification algorithm remains as it is in the classical setting. To be compatible with single key signatures, Binance Chain validator nodes can be able to verify the signature with the public key. The transaction will be no different from others.</p></li>
+<li><p><strong>Vault Regroup</strong>:  Regroup will reset secret share and configs between all parties.It's recommend to switch the configuration periodically, say once a month. If some party lost his key, it's also necessory to reset the distribution once some party lost their key. Regroup will generate new_n secret share with new_t threshold. At least old_t + 1 should participant</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="where-can-i-download-the-binance-tss-cli"></a><a href="#where-can-i-download-the-binance-tss-cli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where can I download the Binance TSS CLI?</h2>
+<p>You can download tss client and Binance Chain Commandline here:</p>
+<ul>
+<li>Mainnet: <a href="https://github.com/binance-chain/node-binary/tree/master/cli/prod/0.6.3">https://github.com/binance-chain/node-binary/tree/master/cli/prod/0.6.3</a></li>
+<li>Testnet: <a href="https://github.com/binance-chain/node-binary/tree/master/cli/testnet/0.6.3">https://github.com/binance-chain/node-binary/tree/master/cli/testnet/0.6.3</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="how-to-use"></a><a href="#how-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to Use</h2>
+<ul>
+<li><strong>Warning</strong>: Please test your TSS setup before use this on mainnet.</li>
+</ul>
+<blockquote>
+<p>Please backup your bnbcli home before use this tool:</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-symbol">cp</span> -r ~/.<span class="hljs-keyword">bnbcli </span>~/.<span class="hljs-keyword">bnbcli_backup_tss </span>(replace ~/.<span class="hljs-keyword">bnbcli </span>with their <span class="hljs-keyword">bnbcli </span>home)
+</code></pre>
+<p>Please refer to this <a href="#example">Example</a> to help you understand the whole process</p>
+<h3><a class="anchor" aria-hidden="true" id="init"></a><a href="#init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Init</h3>
+<p><code>tss init</code> will create home directory of a new tss setup, generate p2p key pair.</p>
+<ul>
+<li>Here are the global transaction flags:</li>
+</ul>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>vault_name</td><td>string</td><td>name of the vault of this party</td><td></td></tr>
+<tr><td>password</td><td>string</td><td>the password of the vault</td><td>must be 32 bytes or more, the default value is 48</td></tr>
+<tr><td>home</td><td>string</td><td>Path to config/route_table/node_key/tss_key files, configs in config file can be overridden by command line argument</td><td>the default value is &quot;~/.tss&quot;</td></tr>
+</tbody>
+</table>
+<ul>
+<li>Here are the flags for <code>tss init</code>:</li>
+</ul>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>kdf.iterations</td><td>uint32</td><td>The number of iterations (or passes) over the memory.</td><td>the default value is 13</td></tr>
+<tr><td>kdf.key_length</td><td>uint32</td><td>Length of the generated key (or password hash) &quot;must be 32 bytes or more,</td><td>the default value is 48&quot;</td></tr>
+<tr><td>kdf.memory</td><td>uint32</td><td>The amount of memory used by the algorithm (in kibibytes)</td><td>the default value is 65536</td></tr>
+<tr><td>kdf.parallelism</td><td>uint8</td><td>The number of threads (or lanes) used by the algorithm.</td><td>the default value is 4</td></tr>
+<tr><td>kdf.salt_length</td><td>uint32</td><td>Length of the random salt. 16 bytes is recommended for password hashing.</td><td>the default value is 16</td></tr>
+<tr><td>moniker</td><td>string</td><td>moniker of current party</td><td></td></tr>
+<tr><td>p2p.listen</td><td>string</td><td>Adds a multiaddress to the listen list</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="describe"></a><a href="#describe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Describe</h3>
+<p><code>tss describe</code> will show config and address of a tss vault</p>
+<ul>
+<li>Here are the flags for <code>tss describe</code>:</li>
+</ul>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>address_prefix</td><td>string</td><td>bech32 prefix of address (default &quot;bnb&quot;)</td><td></td></tr>
+</tbody>
+</table>
+<ul>
+<li>Example</li>
+</ul>
+<pre><code class="hljs">./tss describe
+
+&gt; please <span class="hljs-builtin-name">set</span> vault of this party:
+[input vault name]
+&gt; Password <span class="hljs-keyword">to</span> sign with this vault:
+[input password]<span class="hljs-built_in">
+address </span>of this vault: bnb1<span class="hljs-built_in">
+config </span>of this vault:
+{
+        <span class="hljs-string">"p2p"</span>: {
+                <span class="hljs-string">"listen"</span>: <span class="hljs-string">"/ip4/0.0.0.0/tcp/59968"</span>,
+                <span class="hljs-string">"bootstraps"</span>: <span class="hljs-literal">null</span>,
+                <span class="hljs-string">"relays"</span>: <span class="hljs-literal">null</span>,
+                <span class="hljs-string">"peer_addrs"</span>: [
+                        <span class="hljs-string">"/ip4/127.0.0.1/tcp/59748"</span>,
+                        <span class="hljs-string">"/ip4/127.0.0.1/tcp/60022"</span>
+                ],
+                <span class="hljs-string">"peers"</span>: [
+                        <span class="hljs-string">"test3"</span>,
+                        <span class="hljs-string">"test2"</span>
+                ],
+                <span class="hljs-string">"DefaultBootstap"</span>: <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"Id"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-string">"Moniker"</span>: <span class="hljs-string">"tss1"</span>,
+        <span class="hljs-string">"vault_name"</span>: <span class="hljs-string">"vault1"</span>,
+        <span class="hljs-string">"Threshold"</span>: 1,
+        <span class="hljs-string">"Parties"</span>: 3,
+        <span class="hljs-string">"log_level"</span>: <span class="hljs-string">"info"</span>,
+        <span class="hljs-string">"profile_addr"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-string">"Home"</span>: <span class="hljs-string">"~/.tss"</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="channel"></a><a href="#channel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Channel</h3>
+<p><code>tss channel</code> will generate a channel ID for bootstrapping. One party can generate a channel, then share the generated channel ID with others offline.</p>
+<ul>
+<li>Here are the flags for <code>tss channel</code>:</li>
+</ul>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>channel_expire</td><td>int</td><td>expire time in minutes of this channel</td><td>Default value is 30mins</td></tr>
+</tbody>
+</table>
+<p>It's advised to refresh the channels regularly.</p>
+<h3><a class="anchor" aria-hidden="true" id="keygen"></a><a href="#keygen" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Keygen</h3>
+<p>This command will generated the private key and share the secret. Everyone needs to agree on the password of this private key. The lenght of password must be more than <strong>eight</strong>.</p>
+<p>Note: you need to make sure that all the parties are online.</p>
+<ul>
+<li>Here are the flags for <code>tss keygen</code>:</li>
+</ul>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>address_prefix</td><td>string</td><td>prefix of bech32 address</td><td>the default value is <code>bnb</code></td></tr>
+<tr><td>channel_id</td><td>string</td><td>channel id for this session</td><td></td></tr>
+<tr><td>channel_password</td><td>string</td><td>password to this channel</td><td>This password has to be set offline. And its length should be more than <strong>eight</strong>.</td></tr>
+<tr><td>p2p.peer_addrs</td><td>[]sting</td><td>peer's multiplex addresses</td><td></td></tr>
+<tr><td>parties</td><td>int</td><td>total parities of this scheme</td><td></td></tr>
+<tr><td>threshold</td><td>int</td><td>threshold of this scheme, at least threshold + 1 parties need participant signing</td><td></td></tr>
+</tbody>
+</table>
+<p>if you want to add the generated key files in the bnbcli home, you can copy it to the home folder:</p>
+<pre><code class="hljs">bnbcli keys add <span class="hljs-params">--tss</span> -t tss <span class="hljs-params">--tss-home</span> ~<span class="hljs-string">/.test1</span> <span class="hljs-params">--tss-vault</span> third test1_third
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="regroup"></a><a href="#regroup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Regroup</h3>
+<p>This command will generate new_n secret from the same private key, and it will be shared with new_t threshold. At least old_t + 1 should participante in signing</p>
+<ul>
+<li>Here are the flags for <code>tss regroup</code>:</li>
+</ul>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>channel_password</td><td>string</td><td>channel password of this session</td><td></td></tr>
+<tr><td>channel_id</td><td>string</td><td>channel id of this session</td><td></td></tr>
+<tr><td>is_old</td><td>string</td><td>whether this party is old committee. If it is set to true, it will participant signing in regroup. There should be only t+1 parties set this to true for one regroup</td><td></td></tr>
+<tr><td>is_new_member</td><td>string</td><td>whether this party is new committee, for new party it will changed to true automatically. if an old party set this to true, its share will be replaced by one generated one</td><td></td></tr>
+<tr><td>new_parties</td><td>int</td><td>new total parties of regrouped scheme</td><td></td></tr>
+<tr><td>new_threshold</td><td>int</td><td>new threshold of regrouped scheme</td><td></td></tr>
+<tr><td>p2p.new_peer_addrs</td><td>[]sting</td><td>unknown peer's multiple addresses</td><td></td></tr>
+<tr><td>parties</td><td>int</td><td>total parities of this scheme</td><td></td></tr>
+<tr><td>threshold</td><td>int</td><td>threshold of this scheme, at least threshold + 1 parties  need participant signing</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="changes-to-bnbclitbnbcli"></a><a href="#changes-to-bnbclitbnbcli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes to <code>bnbcli/tbnbcli</code></h2>
+<p>We added a new key type “tss” (just like the existing types: “local”, “offline”, “ledger”) to bnbcli which stands for tss secret share.</p>
+<p>To add a tss key into bnbcli’s keystore:</p>
+<ol>
+<li>Tss keygen command will automatically add generated secret share into default keystore (~/.bnbcli) with name “tss_<moniker>_&lt;vault_name&gt;”</li>
+<li>User can manually specify tss’s home, vault_name and a customized bnbcli home like:</li>
+</ol>
+<pre><code class="hljs">bnbcli keys add <span class="hljs-params">--home</span> ~<span class="hljs-string">/.customized_cli</span> <span class="hljs-params">--tss</span> -t tss <span class="hljs-params">--tss-home</span> ~<span class="hljs-string">/.test1</span> <span class="hljs-params">--tss-vault</span> “default” my_name
+</code></pre>
+<p>All other commands (i.e. send token, place order, delete key etc.) of bnbcli should support tss type key.</p>
+<h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
+<p>In this example, A, B and C are the parties who decided to share a private key together. They decided that any two of them can sign a transaction. To complete a TSS signing process, they need to follow the following steps:</p>
+<h3><a class="anchor" aria-hidden="true" id="step-1-init-tss"></a><a href="#step-1-init-tss" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1: Init TSS</h3>
+<p>During this step, all parties from different machines have to initialite their P2P settings before generate the shared key.</p>
+<table>
+<thead>
+<tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss init</td><td>./tss init</td><td>./tss init</td></tr>
+<tr><td>Interactive input</td><td>&gt; please set moniker of this party: <br> tss1<br/>&gt; please set vault of this party:<br/>vault1<br/>&gt; please set password of thisvault:<br/>[input password]<br/>&gt; please input again:<br/>[input password]</td><td>&gt; please set moniker of this party: <br/>tss2<br/>&gt; please set vault of this party:<br/>vault1<br/>&gt; please set password of this vault:<br/>[input password]<br/>&gt;please input again:<br/>[input password]</td><td>&gt; please set moniker of this party:<br/>tss3<br/>&gt; please set vault of this party:vault1<br/>&gt; please set password of this vault:<br/>[input password]<br/>&gt; please input again:<br/>[input password]</td></tr>
+<tr><td>output</td><td>Local party has been initialized under: <br/>~/.tss/vault1</td><td>Local party has been initialized under: <br/>~/.tss/vault1</td><td>Local party has been initialized under: <br/>~/.tss/vault1</td></tr>
+<tr><td>Files touched or generated</td><td>~/.tss/vault1/config.json      <br/>  ~/.tss/vault1/node_key</td><td>~/.tss/vault1/config.json <br/>  ~/.tss/vault1/node_key</td><td>~/.tss/vault1/config.json <br/>   ~/.tss/vault1/node_key</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="step-2-generate-channel-id-for-bootstraping"></a><a href="#step-2-generate-channel-id-for-bootstraping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2: Generate Channel ID for bootstraping</h3>
+<p>In this step, the parties will create a secrect communication channel between them. One of then will generate the channel ID and share with others. In this example, A will generate the channel ID. B and C will not have to do anything. A can also specify the length for this channel session and the default time is 30 mins.</p>
+<table>
+<thead>
+<tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss channel</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>Interactive input</td><td>&gt; please set expire time in minutes, (default: 30):<br/>[input time]</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>output</td><td>channel id: <strong>5185D3EF597</strong></td><td>N/A</td><td>N/A</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="step-3-generate-and-share-secret"></a><a href="#step-3-generate-and-share-secret" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 3: Generate and Share Secret</h3>
+<p>In this step, the private key will be generated and shared between these three parties. All the parties have to be online at the sme time.</p>
+<table>
+<thead>
+<tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss keygen --vault_name vault1</td><td>./tss keygen --vault_name vault1</td><td>./tss keygen --vault_name vault1</td></tr>
+<tr><td>Interactive input</td><td>&gt; Password to sign with this vault:<br/>[enter password]<br/>&gt; please set total parties(n): <br/>3<br/>&gt; please set threshold(t), at least t + 1 parties  need participant signing: <br/>1<br/>&gt; please set channel id of this session<br/>[enter ID]<br/>&gt; please input password (AGREED offline with peers) of this session:<br/>[enter password]<br/>&gt; please input password of this tss vault: <br/>[enter password]</td><td>&gt;please input&gt; Password to sign with this vault:<br/>[enter password]<br/>&gt; please set total parties(n): <br/>3<br/>&gt; please set threshold(t), at least t + 1 parties need participant signing: <br/>1<br/>&gt; please set channel id of this session<br/>[enter ID]<br/>&gt;please input password (AGREED offline with peers) of this session: <br/>[enter password]<br/>&gt;please input password of this tss vault:<br/> [enter password]</td><td>&gt; Password to sign with this vault:<br/>[enter password]<br/>&gt; please set total parties(n):<br/> 3<br/>&gt; please set threshold(t), at least t + 1 parties need participant signing: <br/>1<br/>&gt; please set channel id of this session<br/>3085D3EC76D<br/>&gt; please input password (AGREED offline with peers) of this session: [enter password]<br/>Password of this tss vault:<br/> [enter password]</td></tr>
+<tr><td>output</td><td>18:00:09.777  INFO    tss-lib: party {0,tss1}: keygen finished! party.go:11318:00:09.777  INFO        tss: [tss1] received save data client.go:30418:00:09.777  INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp client.go:309Password of this tss vault:NAME:   TYPE:   ADDRESS:                                                PUBKEY:tss_tss1_vault1        tss     tbnb19277gzv934ayctxeg5k9zdwnx3j48u6tydjv9p     bnbp1addwnpepqwazk6d3f6e3f5rjev6z0ufqxk8znq8z89ax2tgnwmzreaq8nu7sx2u4jcc</td><td>18:00:09.777  INFO</td></tr>
+<tr><td>: party {1,tss2}: keygen finished! party.go:11318:00:09.777  INFO        tss: [tss2] received save data client.go:30418:00:09.777  INFO        tss: [tss2] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp client.go:309Password of this tss vault:NAME:   TYPE:   ADDRESS:                                                PUBKEY:tss_tss2_vault1       tss     tbnb19277gzv934ayctxeg5k9zdwnx3j48u6tydjv9p     bnbp1addwnpepqwazk6d3f6e3f5rjev6z0ufqxk8znq8z89ax2tgnwmzreaq8nu7sx2u4jcc</td><td>18:00:09.773  INFO    tss-lib: party {2,tss3}: keygen finished! party.go:11318:00:09.773  INFO        tss: [tss3] received save data client.go:30418:00:09.773  INFO        tss: [tss3] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp client.go:309Password of this tss vault:NAME:   TYPE:   ADDRESS:                                                PUBKEY:tss_tss3_vault1        tss     tbnb19277gzv934ayctxeg5k9zdwnx3j48u6tydjv9p     bnbp1addwnpepqwazk6d3f6e3f5rjev6z0ufqxk8znq8z89ax2tgnwmzreaq8nu7sx2u4jcc</td></tr>
+<tr><td>Files touched or generated</td><td>~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/config.json</td><td>~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/config.json</td><td>~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/config.json</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="step-4-sign-transaction"></a><a href="#step-4-sign-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 4: Sign Transaction</h3>
+<p>In this steo, A and B decided to sign a transaction together. Both A and B will try to broadcast the transaction and only one of them will succeed.</p>
+<table>
+<thead>
+<tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>tbnbcli send --amount 1000000:BNB --to tbnb1mh3w2kxmdmnvctt7t5nu7hhz9jnp422edqdw2d --from tss_tss1_vault1 --chain-id Binance-Chain-Nile --node <a href="https://data-seed-pre-0-s1.binance.org:443">https://data-seed-pre-0-s1.binance.org:443</a> --trust-node</td><td>tbnbcli send --amount 1000000:BNB --to tbnb1mh3w2kxmdmnvctt7t5nu7hhz9jnp422edqdw2d --from tss_tss2_vault1 --chain-id Binance-Chain-Nile --node <a href="https://data-seed-pre-0-s1.binance.org:443">https://data-seed-pre-0-s1.binance.org:443</a> --trust-node</td><td>NA</td></tr>
+<tr><td>Interactive input</td><td>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Channel id:<br/>5185D3EF597<br/>please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td><td>Password to sign with tss_tss2_vault1:<br/>[Enter password]<br/>&gt; Channel id:<br/>5185D3EF597<br/>please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td><td>N/A</td></tr>
+<tr><td>output</td><td>Committed at block 33600477 (tx hash: 4FB8096A93D545612A3B5DCE520622608C299C7742103A6BE34C444829BD83A5</td><td>ERROR: broadcast_tx_commit: Response error: RPC error -32603 - Internal error: Error on broadcastTxCommit: Tx already exists in cache</td><td>N/A</td></tr>
+<tr><td>Files touched or generated</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="step-5-regroup-vault"></a><a href="#step-5-regroup-vault" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 5: Regroup Vault</h3>
+<p>First, please generate a new channel for messaging:</p>
+<table>
+<thead>
+<tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss channel</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>Interactive input</td><td>&gt; please set expire time in minutes, (default: 30):<br/>[input time]</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>output</td><td>channel id: <strong>3415D3FBE00</strong></td><td>N/A</td><td>N/A</td></tr>
+</tbody>
+</table>
+<p>Then, we can switch to the new channel for sending messages to each others.</p>
+<table>
+<thead>
+<tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss regroup</td><td>./tss regroup</td><td>./tss regroup</td></tr>
+<tr><td>Interactive input</td><td>&gt; please set vault of this party:<br/>vault1<br/>&gt; Password to sign with this vault:<br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Participant as an old committee? [Y/n]:<br/>Y<br/>&gt; Participant as a new committee? [Y/n]:<br/>Y<br/>&gt; please set new total parties(n): <br/>3<br/>&gt; please set new threshold(t), at least t + 1 parties   participant signing: <br/>1<br/>&gt; Channel id:<br/>3415D3FBE00<br/>please input password (AGREED offline with peers) of this session: <br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]</td><td>&gt; please set vault of this party:<br/>vault1<br/>&gt; Password to sign with this vault:<br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Participant as an old committee? [Y/n]:<br/>Y<br/>&gt; Participant as a new committee? [Y/n]:<br/>Y<br/>&gt; please set new total parties(n): <br/>3<br/>&gt; please set new threshold(t), at least t + 1 parties   participant signing: <br/>1<br/>&gt; Channel id:<br/>3415D3FBE00<br/>please input password (AGREED offline with peers) of this session: <br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]</td><td>&gt; please set vault of this party:<br/>vault1<br/>&gt; Password to sign with this vault:<br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Participant as an old committee? [Y/n]:<br/>Y<br/>&gt; Participant as a new committee? [Y/n]:<br/>Y<br/>&gt; please set new total parties(n): <br/>3<br/>&gt; please set new threshold(t), at least t + 1 parties   participant signing: <br/>1<br/>&gt; Channel id:<br/>3415D3FBE00<br/>please input password (AGREED offline with peers) of this session: <br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]</td></tr>
+<tr><td>output</td><td>INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp</td><td>INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp</td><td>INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp</td></tr>
+<tr><td>Files touched or generated</td><td>~/.tss/vault1/config.json<br/> ~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/node_key</td><td>~/.tss/vault1/config.json<br/> ~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/node_key</td><td>~/.tss/vault1/config.json<br/> ~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/node_key</td></tr>
+</tbody>
+</table>
+<ul>
+<li>New committee having different t-n from old committee</li>
+</ul>
+<ol>
+<li>Change 1-3 into 2-4 scheme.</li>
+<li>old parties (A, B) join new committee</li>
+<li>new parties (D, E) are newly-joined</li>
+</ol>
+<table>
+<thead>
+<tr><th></th><th>D</th><th>E</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss init  --vault_name vault1</td><td>./tss init  --vault_name vault1</td></tr>
+<tr><td>Interactive input</td><td>&gt; please set moniker of this party:<br/> tss4<br/>&gt; please set password for key share:<br/>[Enter password]<br/>&gt; please intput again: <br/>[Enter password]</td><td>&gt; please set moniker of this party:<br/> tss4<br/>&gt; please set password for key share:<br/>[Enter password]<br/>&gt; please intput again:<br/>[Enter password]</td></tr>
+<tr><td>output</td><td>Local party has been initialized under: ~/.tss/vault1</td><td>Local party has been initialized under: ~/.tss/vault1</td></tr>
+</tbody>
+</table>
+<ul>
+<li>Regroup from 1-3 to 2-4, with 2 old parties (A and B) and 2 new parties (D and E)</li>
+</ul>
+<table>
+<thead>
+<tr><th></th><th>A (old&amp;new committee)</th><th>B (old&amp;new committee)</th><th>D (new committee)</th><th>E (new committee)</th></tr>
+</thead>
+<tbody>
+<tr><td>command</td><td>./tss regroup/ --vault_name vault1</td><td>./tss regroup  --vault_name vault1</td><td>./tss regroup  --vault_name vault1</td><td>./tss regroup  --vault_name vault1</td></tr>
+<tr><td>Interactive input</td><td>&gt; please input password:<br/> [Enter password] <br/>&gt; Participant as an old committee? [Y/n]: <br/>Y<br/> &gt; Participant as a new commitee? [Y/n]: <br/>Y <br/>&gt; please set NEW total parties(n):<br/> 4<br/> &gt; please set NEW threshold(t), at least t + 1 parties   participant signing: <br/>2 <br/>&gt; Channel id:<br/> 3415D3FBE00<br/> &gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td><td>&gt; please input password: <br/>[Enter password]<br/> &gt; Participant as an old committee? [Y/n]:<br/> Y <br/>&gt; Participant as a new committee? [Y/n]:<br/> Y <br/>&gt; please set NEW total parties(n):<br/> 4<br/> &gt; please set NEW threshold(t), at least t + 1 parties need participant signing:<br/> 2 <br/>&gt; Channel id: 3415D3FBE00 <br/>&gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td><td>&gt; please input password: <br/>[Enter password] <br/>&gt; please set Old total parties(n): <br/>3 <br/>&gt; please set Old threshold(t), at least t + 1 parties need participant signing: <br/>1 <br/>&gt; please set NEW total parties(n): <br/>4 <br/>&gt; please set NEW threshold(t), at least t + 1 parties need participant signing: <br/>2<br/> &gt; Channel id: <br/>3415D3FBE00 <br/>&gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td><td>&gt; please input password:<br/>[Enter password] <br/>&gt; please set Old total parties(n): <br/>3 <br/>&gt; please set Old threshold(t), at least t + 1 parties need participant signing: <br/>1 <br/>&gt; please set NEW total parties(n): <br/>4<br/> &gt; please set NEW threshold(t), at least t + 1 parties need participant signing: <br/>2<br/> &gt; Channel id: <br/>3415D3FBE00<br/> &gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td></tr>
+<tr><td>output</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Files touched or generated</td><td>~/.tss/vault1/config.json<br/>  ~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json</td><td>~/.tss/vault1/config.json<br/>  ~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json</td><td>~/.tss/vault1/config.json<br/>  ~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json</td><td>~/.tss/payment/config.json<br/>  ~/.tss/payment/pk.json <br/> ~/.tss/vault1/sk.json</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/17/2020 by Daniel Onggunhao</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs-site/docs/transfer"><span class="arrow-prev">← </span><span>Transfers</span></a><a class="docs-next button" href="/docs-site/docs/walletconnect"><span class="function-name-prevnext">WalletConnect</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#motivation">Motivation</a></li><li><a href="#implementation">Implementation</a></li><li><a href="#security-audit">Security Audit</a></li><li><a href="#workflow">Workflow</a></li><li><a href="#where-can-i-download-the-binance-tss-cli">Where can I download the Binance TSS CLI?</a></li><li><a href="#how-to-use">How to Use</a><ul class="toc-headings"><li><a href="#init">Init</a></li><li><a href="#describe">Describe</a></li><li><a href="#channel">Channel</a></li><li><a href="#keygen">Keygen</a></li><li><a href="#regroup">Regroup</a></li></ul></li><li><a href="#changes-to-bnbclitbnbcli">Changes to <code>bnbcli/tbnbcli</code></a></li><li><a href="#example">Example</a><ul class="toc-headings"><li><a href="#step-1-init-tss">Step 1: Init TSS</a></li><li><a href="#step-2-generate-channel-id-for-bootstraping">Step 2: Generate Channel ID for bootstraping</a></li><li><a href="#step-3-generate-and-share-secret">Step 3: Generate and Share Secret</a></li><li><a href="#step-4-sign-transaction">Step 4: Sign Transaction</a></li><li><a href="#step-5-regroup-vault">Step 5: Regroup Vault</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

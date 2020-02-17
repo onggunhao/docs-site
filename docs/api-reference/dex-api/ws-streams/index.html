@@ -1,0 +1,610 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>api-reference/dex-api/ws-streams · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# WebSocket Streams"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="api-reference/dex-api/ws-streams · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# WebSocket Streams"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">api-reference/dex-api/ws-streams</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="websocket-streams"></a><a href="#websocket-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WebSocket Streams</h1>
+<h3><a class="anchor" aria-hidden="true" id="1-orders"></a><a href="#1-orders" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Orders</h3>
+<p>Returns individual order updates.</p>
+<p>Examples are written in JavaScript.</p>
+<p><strong>Topic Name:</strong> orders | Stream: /ws/address</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> accountAndOrderAndTransfers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/bnb1m4m9etgf3ca5wpgkqe5nr6r33a4ynxfln3yz4v"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"orders"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"bnb1m4m9etgf3ca5wpgkqe5nr6r33a4ynxfln3yz4v"</span> }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> accountAndOrderAndTransfers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"orders"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc"</span> }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">  {
+    <span class="hljs-string">"stream"</span>: <span class="hljs-string">"orders"</span>,
+    <span class="hljs-string">"data"</span>: [{
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"executionReport"</span>,        <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">1499405658658</span>,            <span class="hljs-comment">// Event height</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"ETH_BTC"</span>,                <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"S"</span>: <span class="hljs-number">1</span>,                        <span class="hljs-comment">// Side, 1 for Buy; 2 for Sell</span>
+        <span class="hljs-string">"o"</span>: <span class="hljs-number">2</span>,                        <span class="hljs-comment">// Order type, 2 for LIMIT (only)</span>
+        <span class="hljs-string">"f"</span>: <span class="hljs-number">1</span>,                        <span class="hljs-comment">// Time in force,  1 for Good Till Expire (GTE); 3 for Immediate Or Cancel (IOC)</span>
+        <span class="hljs-string">"q"</span>: <span class="hljs-string">"1.00000000"</span>,             <span class="hljs-comment">// Order quantity</span>
+        <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.10264410"</span>,             <span class="hljs-comment">// Order price</span>
+        <span class="hljs-string">"x"</span>: <span class="hljs-string">"NEW"</span>,                    <span class="hljs-comment">// Current execution type</span>
+        <span class="hljs-string">"X"</span>: <span class="hljs-string">"Ack"</span>,                    <span class="hljs-comment">// Current order status, possible values Ack, Canceled, Expired, IocNoFill, PartialFill, FullyFill, FailedBlocking, FailedMatching, Unknown</span>
+        <span class="hljs-string">"i"</span>: <span class="hljs-string">"91D9...7E18-2317"</span>,       <span class="hljs-comment">// Order ID</span>
+        <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.00000000"</span>,             <span class="hljs-comment">// Last executed quantity</span>
+        <span class="hljs-string">"z"</span>: <span class="hljs-string">"0.00000000"</span>,             <span class="hljs-comment">// Cumulative filled quantity</span>
+        <span class="hljs-string">"L"</span>: <span class="hljs-string">"0.00000000"</span>,             <span class="hljs-comment">// Last executed price</span>
+        <span class="hljs-string">"n"</span>: <span class="hljs-string">"10000BNB"</span>,               <span class="hljs-comment">// Commission amount for all user trades within a given block. Fees will be displayed with each order but will be charged once.</span>
+                                       <span class="hljs-comment">// Fee can be composed of a single symbol, ex: "10000BNB"</span>
+                                       <span class="hljs-comment">// or multiple symbols if the available "BNB" balance is not enough to cover the whole fees, ex: "1.00000000BNB;0.00001000BTC;0.00050000ETH"</span>
+        <span class="hljs-string">"T"</span>: <span class="hljs-number">1499405658657</span>,            <span class="hljs-comment">// Transaction time</span>
+        <span class="hljs-string">"t"</span>: <span class="hljs-string">"TRD1"</span>,                   <span class="hljs-comment">// Trade ID</span>
+        <span class="hljs-string">"O"</span>: <span class="hljs-number">1499405658657</span>,            <span class="hljs-comment">// Order creation time</span>
+    },
+    {
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"executionReport"</span>,        <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">1499405658658</span>,            <span class="hljs-comment">// Event height</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"ETH_BNB"</span>,                <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"S"</span>: <span class="hljs-string">"BUY"</span>,                    <span class="hljs-comment">// Side</span>
+        <span class="hljs-string">"o"</span>: <span class="hljs-string">"LIMIT"</span>,                  <span class="hljs-comment">// Order type</span>
+        <span class="hljs-string">"f"</span>: <span class="hljs-string">"GTE"</span>,                    <span class="hljs-comment">// Time in force</span>
+        <span class="hljs-string">"q"</span>: <span class="hljs-string">"1.00000000"</span>,             <span class="hljs-comment">// Order quantity</span>
+        <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.10264410"</span>,             <span class="hljs-comment">// Order price</span>
+        <span class="hljs-string">"x"</span>: <span class="hljs-string">"NEW"</span>,                    <span class="hljs-comment">// Current execution type</span>
+        <span class="hljs-string">"X"</span>: <span class="hljs-string">"Ack"</span>,                    <span class="hljs-comment">// Current order status</span>
+        <span class="hljs-string">"i"</span>: <span class="hljs-number">4293154</span>,                  <span class="hljs-comment">// Order ID</span>
+        <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.00000000"</span>,             <span class="hljs-comment">// Last executed quantity</span>
+        <span class="hljs-string">"z"</span>: <span class="hljs-string">"0.00000000"</span>,             <span class="hljs-comment">// Cumulative filled quantity</span>
+        <span class="hljs-string">"L"</span>: <span class="hljs-string">"0.00000000"</span>,             <span class="hljs-comment">// Last executed price</span>
+        <span class="hljs-string">"n"</span>: <span class="hljs-string">"10000BNB"</span>,               <span class="hljs-comment">// Commission amount for all user trades within a given block. Fees will be displayed with each order but will be charged once.</span>
+                                        <span class="hljs-comment">// Fee can be composed of a single symbol, ex: "10000BNB"</span>
+                                        <span class="hljs-comment">// or multiple symbols if the available "BNB" balance is not enough to cover the whole fees, ex: "1.00000000BNB;0.00001000BTC;0.00050000ETH"</span>
+        <span class="hljs-string">"T"</span>: <span class="hljs-number">1499405658657</span>,            <span class="hljs-comment">// Transaction time</span>
+        <span class="hljs-string">"t"</span>: <span class="hljs-string">"TRD2"</span>,                   <span class="hljs-comment">// Trade ID</span>
+        <span class="hljs-string">"O"</span>: <span class="hljs-number">1499405658657</span>,            <span class="hljs-comment">// Order creation time</span>
+      }]
+  }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-account"></a><a href="#2-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Account</h3>
+<p>Return account updates.</p>
+<p><strong>Topic Name:</strong> accounts | Stream: /ws/address</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> accountAndOrderAndTransfers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/bnb1m4m9etgf3ca5wpgkqe5nr6r33a4ynxfln3yz4v"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"accounts"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"bnb1m4m9etgf3ca5wpgkqe5nr6r33a4ynxfln3yz4v"</span> }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> accountAndOrderAndTransfers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"accounts"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"tbnb1qtuf578qs9wfl0wh3vs0r5nszf80gvxd28hkrc"</span> }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-string">"stream"</span>: <span class="hljs-string">"accounts"</span>,
+    <span class="hljs-string">"data"</span>: [{
+      <span class="hljs-string">"e"</span>: <span class="hljs-string">"outboundAccountInfo"</span>,   <span class="hljs-comment">// Event type</span>
+      <span class="hljs-string">"E"</span>: <span class="hljs-number">1499405658849</span>,           <span class="hljs-comment">// Event height</span>
+      <span class="hljs-string">"B"</span>: [                        <span class="hljs-comment">// Balances array</span>
+        {
+          <span class="hljs-string">"a"</span>: <span class="hljs-string">"LTC"</span>,               <span class="hljs-comment">// Asset</span>
+          <span class="hljs-string">"f"</span>: <span class="hljs-string">"17366.18538083"</span>,    <span class="hljs-comment">// Free amount</span>
+          <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.00000000"</span>,        <span class="hljs-comment">// Locked amount</span>
+          <span class="hljs-string">"r"</span>: <span class="hljs-string">"0.00000000"</span>         <span class="hljs-comment">// Frozen amount</span>
+        },
+        {
+          <span class="hljs-string">"a"</span>: <span class="hljs-string">"BTC"</span>,
+          <span class="hljs-string">"f"</span>: <span class="hljs-string">"10537.85314051"</span>,
+          <span class="hljs-string">"l"</span>: <span class="hljs-string">"2.19464093"</span>,
+          <span class="hljs-string">"r"</span>: <span class="hljs-string">"0.00000000"</span>
+        },
+        {
+          <span class="hljs-string">"a"</span>: <span class="hljs-string">"ETH"</span>,
+          <span class="hljs-string">"f"</span>: <span class="hljs-string">"17902.35190619"</span>,
+          <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.00000000"</span>,
+          <span class="hljs-string">"r"</span>: <span class="hljs-string">"0.00000000"</span>
+        }
+      ]
+    }]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="3-transfer"></a><a href="#3-transfer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Transfer</h3>
+<p>Return transfer updates if address is involved (as sender or receiver) in a transfer. Multisend is also covered</p>
+<p><strong>Topic Name:</strong> transfers | Stream: /ws/address</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> accountAndOrderAndTransfers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/bnb1z220ps26qlwfgz5dew9hdxe8m5malre3qy6zr9"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"transfers"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"bnb1z220ps26qlwfgz5dew9hdxe8m5malre3qy6zr9"</span> }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> accountAndOrderAndTransfers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/tbnb1c346qk3yfk89lzcacwzxsx402rv25gu6v40ghf"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"transfers"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"tbnb1c346qk3yfk89lzcacwzxsx402rv25gu6v40ghf"</span> }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"transfers"</span>,
+  <span class="hljs-string">"data"</span>: {
+    <span class="hljs-string">"e"</span>:<span class="hljs-string">"outboundTransferInfo"</span>,                                                <span class="hljs-comment">// Event type</span>
+    <span class="hljs-string">"E"</span>:<span class="hljs-number">12893</span>,                                                                 <span class="hljs-comment">// Event height</span>
+    <span class="hljs-string">"H"</span>:<span class="hljs-string">"0434786487A1F4AE35D49FAE3C6F012A2AAF8DD59EC860DC7E77123B761DD91B"</span>,    <span class="hljs-comment">// Transaction hash</span>
+    <span class="hljs-string">"M"</span>:<span class="hljs-string">"123456789"</span>,                                                           <span class="hljs-comment">// Transaction memo, added for BEP39</span>
+    <span class="hljs-string">"f"</span>:<span class="hljs-string">"bnb1z220ps26qlwfgz5dew9hdxe8m5malre3qy6zr9"</span>,                          <span class="hljs-comment">// From addr</span>
+    <span class="hljs-string">"t"</span>:
+      [{
+        <span class="hljs-string">"o"</span>:<span class="hljs-string">"bnb1xngdalruw8g23eqvpx9klmtttwvnlk2x4lfccu"</span>,                      <span class="hljs-comment">// To addr</span>
+        <span class="hljs-string">"c"</span>:[{                                                                 <span class="hljs-comment">// Coins</span>
+          <span class="hljs-string">"a"</span>:<span class="hljs-string">"BNB"</span>,                                                           <span class="hljs-comment">// Asset</span>
+          <span class="hljs-string">"A"</span>:<span class="hljs-string">"100.00000000"</span>                                                   <span class="hljs-comment">// Amount</span>
+          }]
+      }]
+  }
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="4-trades"></a><a href="#4-trades" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Trades</h3>
+<p>Returns individual trade updates.</p>
+<p><strong>Topic Name:</strong> trades | Stream: &lt;symbol&gt;@trades</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> trades = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/BNB_BTCB-1DE@trades"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"trades"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTCB-1DE"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> trades = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/BNB_USDT.B-B7C@trades"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"trades"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_USDT.B-B7C"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-string">"stream"</span>: <span class="hljs-string">"trades"</span>,
+    <span class="hljs-string">"data"</span>: [{
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"trade"</span>,       <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,     <span class="hljs-comment">// Event height</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"BNB_BTC"</span>,     <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"t"</span>: <span class="hljs-string">"12345"</span>,       <span class="hljs-comment">// Trade ID</span>
+        <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.001"</span>,       <span class="hljs-comment">// Price</span>
+        <span class="hljs-string">"q"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// Quantity</span>
+        <span class="hljs-string">"b"</span>: <span class="hljs-string">"88"</span>,          <span class="hljs-comment">// Buyer order ID</span>
+        <span class="hljs-string">"a"</span>: <span class="hljs-string">"50"</span>,          <span class="hljs-comment">// Seller order ID</span>
+        <span class="hljs-string">"T"</span>: <span class="hljs-number">123456785</span>,     <span class="hljs-comment">// Trade time</span>
+        <span class="hljs-string">"sa"</span>: <span class="hljs-string">"bnb1me5u083m2spzt8pw8vunprnctc8syy64hegrcp"</span>, <span class="hljs-comment">// SellerAddress</span>
+        <span class="hljs-string">"ba"</span>: <span class="hljs-string">"bnb1kdr00ydr8xj3ydcd3a8ej2xxn8lkuja7mdunr5"</span> <span class="hljs-comment">// BuyerAddress</span>
+        <span class="hljs-string">"tt"</span>: <span class="hljs-number">1</span>             <span class="hljs-comment">//tiekertype 0: Unknown 1: SellTaker 2: BuyTaker 3: BuySurplus 4: SellSurplus 5: Neutral</span>
+    },
+    {
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"trade"</span>,       <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">123456795</span>,     <span class="hljs-comment">// Event time</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"BNB_BTC"</span>,     <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"t"</span>: <span class="hljs-string">"12348"</span>,       <span class="hljs-comment">// Trade ID</span>
+        <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.001"</span>,       <span class="hljs-comment">// Price</span>
+        <span class="hljs-string">"q"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// Quantity</span>
+        <span class="hljs-string">"b"</span>: <span class="hljs-string">"88"</span>,          <span class="hljs-comment">// Buyer order ID</span>
+        <span class="hljs-string">"a"</span>: <span class="hljs-string">"52"</span>,          <span class="hljs-comment">// Seller order ID</span>
+        <span class="hljs-string">"T"</span>: <span class="hljs-number">123456795</span>,     <span class="hljs-comment">// Trade time</span>
+        <span class="hljs-string">"sa"</span>: <span class="hljs-string">"bnb1me5u083m2spzt8pw8vunprnctc8syy64hegrcp"</span>, <span class="hljs-comment">// SellerAddress</span>
+        <span class="hljs-string">"ba"</span>: <span class="hljs-string">"bnb1kdr00ydr8xj3ydcd3a8ej2xxn8lkuja7mdunr5"</span> <span class="hljs-comment">// BuyerAddress</span>
+        <span class="hljs-string">"tt"</span>: <span class="hljs-number">1</span>             <span class="hljs-comment">//tiekertype 0: Unknown 1: SellTaker 2: BuyTaker 3: BuySurplus 4: SellSurplus 5: Neutral</span>
+    }]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="5-diff-depth-stream"></a><a href="#5-diff-depth-stream" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Diff. Depth Stream</h3>
+<p>Order book price and quantity depth updates used to locally keep an order book.</p>
+<p><strong>Topic Name:</strong> marketDiff | Stream: &lt;symbol&gt;@marketDiff</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> marketDiff = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/BNB_BTCB-1DE@marketDiff"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"marketDiff"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTCB-1DE"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> marketDiff = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/BNB_USDT.B-B7C@marketDiff"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"marketDiff"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_USDT.B-B7C"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-string">"stream"</span>: <span class="hljs-string">"marketDiff"</span>,
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"depthUpdate"</span>,   <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,       <span class="hljs-comment">// Event time</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"BNB_BTC"</span>,       <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"b"</span>: [                <span class="hljs-comment">// Bids to be updated</span>
+            [
+            <span class="hljs-string">"0.0024"</span>,         <span class="hljs-comment">// Price level to be updated</span>
+            <span class="hljs-string">"10"</span>              <span class="hljs-comment">// Quantity</span>
+            ]
+        ],
+        <span class="hljs-string">"a"</span>: [                <span class="hljs-comment">// Asks to be updated</span>
+            [
+            <span class="hljs-string">"0.0026"</span>,         <span class="hljs-comment">// Price level to be updated</span>
+            <span class="hljs-string">"100"</span>             <span class="hljs-comment">// Quantity</span>
+            ]
+        ]
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="6-book-depth-streams"></a><a href="#6-book-depth-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Book Depth Streams</h3>
+<p>Top 20 (could extend to 100, 500, 1000) levels of bids and asks.</p>
+<p>If you want subscribe topic marketDepth1000,your client must enable <a href="https://tools.ietf.org/html/rfc7692">compression</a>.</p>
+<p><strong>Topic Name:</strong> marketDepth | Stream: &lt;symbol&gt;@marketDepth</p>
+<p><strong>Extension:</strong> marketDepth100, marketDepth500, marketDepth1000 | Stream: &lt;symbol&gt;@marketDepth100, &lt;symbol&gt;@marketDepth500, &lt;symbol&gt;@marketDepth1000</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> marketDepth = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/BNB_BTCB-1DE@marketDepth"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"marketDepth"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTCB-1DE"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> marketDepth = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/BNB_USDT.B-B7C@marketDepth"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"marketDepth"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_USDT.B-B7C"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-string">"stream"</span>: <span class="hljs-string">"marketDepth"</span>,
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"lastUpdateId"</span>: <span class="hljs-number">160</span>,    <span class="hljs-comment">// Last update ID</span>
+        <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BNB_BTC"</span>,    <span class="hljs-comment">// symbol</span>
+        <span class="hljs-string">"bids"</span>: [               <span class="hljs-comment">// Bids to be updated</span>
+            [
+            <span class="hljs-string">"0.0024"</span>,           <span class="hljs-comment">// Price level to be updated</span>
+            <span class="hljs-string">"10"</span>                <span class="hljs-comment">// Quantity</span>
+            ]
+        ],
+        <span class="hljs-string">"asks"</span>: [               <span class="hljs-comment">// Asks to be updated</span>
+            [
+            <span class="hljs-string">"0.0026"</span>,           <span class="hljs-comment">// Price level to be updated</span>
+            <span class="hljs-string">"100"</span>               <span class="hljs-comment">// Quantity</span>
+            ]
+        ]
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="7-klinecandlestick-streams"></a><a href="#7-klinecandlestick-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Kline/Candlestick Streams</h3>
+<p>The kline/candlestick stream pushes updates to the current klines/candlestick every second.</p>
+<p><strong>Kline/Candlestick chart intervals:</strong></p>
+<p>m -&gt; minutes; h -&gt; hours; d -&gt; days; w -&gt; weeks; M -&gt; months</p>
+<ul>
+<li>1m</li>
+<li>3m</li>
+<li>5m</li>
+<li>15m</li>
+<li>30m</li>
+<li>1h</li>
+<li>2h</li>
+<li>4h</li>
+<li>6h</li>
+<li>8h</li>
+<li>12h</li>
+<li>1d</li>
+<li>3d</li>
+<li>1w</li>
+<li>1M</li>
+</ul>
+<p><strong>Topic Name:</strong> kline_&lt;interval&gt; | Stream: &lt;symbol&gt;@kline_&lt;interval&gt;</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> kline = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/BNB_BTCB-1DE@kline_1h"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"kline_1h"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTCB-1DE"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> kline = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/BBNB_USDT.B-B7C@kline_1h"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"kline_1h"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_USDT.B-B7C"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"kline_1m"</span>,
+  <span class="hljs-string">"data"</span>: {
+    <span class="hljs-string">"e"</span>: <span class="hljs-string">"kline"</span>,         <span class="hljs-comment">// Event type</span>
+    <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,       <span class="hljs-comment">// Event time</span>
+    <span class="hljs-string">"s"</span>: <span class="hljs-string">"BNBBTC"</span>,        <span class="hljs-comment">// Symbol</span>
+    <span class="hljs-string">"k"</span>: {
+      <span class="hljs-string">"t"</span>: <span class="hljs-number">123400000</span>,     <span class="hljs-comment">// Kline start time</span>
+      <span class="hljs-string">"T"</span>: <span class="hljs-number">123460000</span>,     <span class="hljs-comment">// Kline close time</span>
+      <span class="hljs-string">"s"</span>: <span class="hljs-string">"ABC_0DX-BNB"</span>,      <span class="hljs-comment">// Symbol</span>
+      <span class="hljs-string">"i"</span>: <span class="hljs-string">"1m"</span>,          <span class="hljs-comment">// Interval</span>
+      <span class="hljs-string">"f"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// First trade ID</span>
+      <span class="hljs-string">"L"</span>: <span class="hljs-string">"200"</span>,         <span class="hljs-comment">// Last trade ID</span>
+      <span class="hljs-string">"o"</span>: <span class="hljs-string">"0.0010"</span>,      <span class="hljs-comment">// Open price</span>
+      <span class="hljs-string">"c"</span>: <span class="hljs-string">"0.0020"</span>,      <span class="hljs-comment">// Close price</span>
+      <span class="hljs-string">"h"</span>: <span class="hljs-string">"0.0025"</span>,      <span class="hljs-comment">// High price</span>
+      <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.0015"</span>,      <span class="hljs-comment">// Low price</span>
+      <span class="hljs-string">"v"</span>: <span class="hljs-string">"1000"</span>,        <span class="hljs-comment">// Base asset volume</span>
+      <span class="hljs-string">"n"</span>: <span class="hljs-number">100</span>,           <span class="hljs-comment">// Number of trades</span>
+      <span class="hljs-string">"x"</span>: <span class="hljs-literal">false</span>,         <span class="hljs-comment">// Is this kline closed?</span>
+      <span class="hljs-string">"q"</span>: <span class="hljs-string">"1.0000"</span>,      <span class="hljs-comment">// Quote asset volume</span>
+    }
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="8-individual-symbol-ticker-streams"></a><a href="#8-individual-symbol-ticker-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. Individual Symbol Ticker Streams</h3>
+<p>24hr Ticker statistics for a single symbol are pushed every second.</p>
+<p><strong>Topic Name:</strong> ticker | Stream: &lt;symbol&gt;@ticker</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> ticker = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/BNB_BTCB-1D@ticker"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"ticker"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTCB-1D"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> ticker = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/BBNB_USDT.B-B7C@ticker"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"ticker"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_USDT.B-B7C"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<p>&quot;stream&quot; and &quot;data&quot; wrapper object is ignored here</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"ticker"</span>,
+  <span class="hljs-string">"data"</span>: {
+    <span class="hljs-string">"e"</span>: <span class="hljs-string">"24hrTicker"</span>,  <span class="hljs-comment">// Event type</span>
+    <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,     <span class="hljs-comment">// Event time</span>
+    <span class="hljs-string">"s"</span>: <span class="hljs-string">"ABC_0DX-BNB"</span>,      <span class="hljs-comment">// Symbol</span>
+    <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.0015"</span>,      <span class="hljs-comment">// Price change</span>
+    <span class="hljs-string">"P"</span>: <span class="hljs-string">"250.00"</span>,      <span class="hljs-comment">// Price change percent</span>
+    <span class="hljs-string">"w"</span>: <span class="hljs-string">"0.0018"</span>,      <span class="hljs-comment">// Weighted average price</span>
+    <span class="hljs-string">"x"</span>: <span class="hljs-string">"0.0009"</span>,      <span class="hljs-comment">// Previous day's close price</span>
+    <span class="hljs-string">"c"</span>: <span class="hljs-string">"0.0025"</span>,      <span class="hljs-comment">// Current day's close price</span>
+    <span class="hljs-string">"Q"</span>: <span class="hljs-string">"10"</span>,          <span class="hljs-comment">// Close trade's quantity</span>
+    <span class="hljs-string">"b"</span>: <span class="hljs-string">"0.0024"</span>,      <span class="hljs-comment">// Best bid price</span>
+    <span class="hljs-string">"B"</span>: <span class="hljs-string">"10"</span>,          <span class="hljs-comment">// Best bid quantity</span>
+    <span class="hljs-string">"a"</span>: <span class="hljs-string">"0.0026"</span>,      <span class="hljs-comment">// Best ask price</span>
+    <span class="hljs-string">"A"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// Best ask quantity</span>
+    <span class="hljs-string">"o"</span>: <span class="hljs-string">"0.0010"</span>,      <span class="hljs-comment">// Open price</span>
+    <span class="hljs-string">"h"</span>: <span class="hljs-string">"0.0025"</span>,      <span class="hljs-comment">// High price</span>
+    <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.0010"</span>,      <span class="hljs-comment">// Low price</span>
+    <span class="hljs-string">"v"</span>: <span class="hljs-string">"10000"</span>,       <span class="hljs-comment">// Total traded base asset volume</span>
+    <span class="hljs-string">"q"</span>: <span class="hljs-string">"18"</span>,          <span class="hljs-comment">// Total traded quote asset volume</span>
+    <span class="hljs-string">"O"</span>: <span class="hljs-number">0</span>,             <span class="hljs-comment">// Statistics open time</span>
+    <span class="hljs-string">"C"</span>: <span class="hljs-number">86400000</span>,      <span class="hljs-comment">// Statistics close time</span>
+    <span class="hljs-string">"F"</span>: <span class="hljs-string">"0"</span>,           <span class="hljs-comment">// First trade ID</span>
+    <span class="hljs-string">"L"</span>: <span class="hljs-string">"18150"</span>,       <span class="hljs-comment">// Last trade Id</span>
+    <span class="hljs-string">"n"</span>: <span class="hljs-number">18151</span>          <span class="hljs-comment">// Total number of trades</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="9-all-symbols-ticker-streams"></a><a href="#9-all-symbols-ticker-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. All Symbols Ticker Streams</h3>
+<p>24hr Ticker statistics for a all symbols are pushed every second.</p>
+<p><strong>Topic Name:</strong> allTickers | Stream: $all@allTickers</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> allTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/$all@allTickers"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"allTickers"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"$all"</span>] }));
+    }
+</code></pre>
+<p><strong>Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> allTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/$all@allTickers"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"allTickers"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"$all"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"allTickers"</span>,
+  <span class="hljs-string">"data"</span>: [
+    {
+      <span class="hljs-string">"e"</span>: <span class="hljs-string">"24hrTicker"</span>,  <span class="hljs-comment">// Event type</span>
+      <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,     <span class="hljs-comment">// Event time</span>
+      <span class="hljs-string">"s"</span>: <span class="hljs-string">"ABC_0DX-BNB"</span>,      <span class="hljs-comment">// Symbol</span>
+      <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.0015"</span>,      <span class="hljs-comment">// Price change</span>
+      <span class="hljs-string">"P"</span>: <span class="hljs-string">"250.00"</span>,      <span class="hljs-comment">// Price change percent</span>
+      <span class="hljs-string">"w"</span>: <span class="hljs-string">"0.0018"</span>,      <span class="hljs-comment">// Weighted average price</span>
+      <span class="hljs-string">"x"</span>: <span class="hljs-string">"0.0009"</span>,      <span class="hljs-comment">// Previous day's close price</span>
+      <span class="hljs-string">"c"</span>: <span class="hljs-string">"0.0025"</span>,      <span class="hljs-comment">// Current day's close price</span>
+      <span class="hljs-string">"Q"</span>: <span class="hljs-string">"10"</span>,          <span class="hljs-comment">// Close trade's quantity</span>
+      <span class="hljs-string">"b"</span>: <span class="hljs-string">"0.0024"</span>,      <span class="hljs-comment">// Best bid price</span>
+      <span class="hljs-string">"B"</span>: <span class="hljs-string">"10"</span>,          <span class="hljs-comment">// Best bid quantity</span>
+      <span class="hljs-string">"a"</span>: <span class="hljs-string">"0.0026"</span>,      <span class="hljs-comment">// Best ask price</span>
+      <span class="hljs-string">"A"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// Best ask quantity</span>
+      <span class="hljs-string">"o"</span>: <span class="hljs-string">"0.0010"</span>,      <span class="hljs-comment">// Open price</span>
+      <span class="hljs-string">"h"</span>: <span class="hljs-string">"0.0025"</span>,      <span class="hljs-comment">// High price</span>
+      <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.0010"</span>,      <span class="hljs-comment">// Low price</span>
+      <span class="hljs-string">"v"</span>: <span class="hljs-string">"10000"</span>,       <span class="hljs-comment">// Total traded base asset volume</span>
+      <span class="hljs-string">"q"</span>: <span class="hljs-string">"18"</span>,          <span class="hljs-comment">// Total traded quote asset volume</span>
+      <span class="hljs-string">"O"</span>: <span class="hljs-number">0</span>,             <span class="hljs-comment">// Statistics open time</span>
+      <span class="hljs-string">"C"</span>: <span class="hljs-number">86400000</span>,      <span class="hljs-comment">// Statistics close time</span>
+      <span class="hljs-string">"F"</span>: <span class="hljs-string">"0"</span>,           <span class="hljs-comment">// First trade ID</span>
+      <span class="hljs-string">"L"</span>: <span class="hljs-string">"18150"</span>,       <span class="hljs-comment">// Last trade Id</span>
+      <span class="hljs-string">"n"</span>: <span class="hljs-number">18151</span>          <span class="hljs-comment">// Total number of trades</span>
+    },
+    {
+      ...
+    }]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="10-individual-symbol-mini-ticker-streams"></a><a href="#10-individual-symbol-mini-ticker-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10. Individual Symbol Mini Ticker Streams</h3>
+<p>A ticker for a single symbol is pushed every second.</p>
+<p><strong>Topic Name:</strong> miniTicker | Stream: &lt;symbol&gt;@miniTicker</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> miniTicker = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/BNB_BTCB-1D@miniTicker"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"miniTicker"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTCB-1D"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> miniTicker = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/BNB_USDT.B-B7C@miniTicker"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"miniTicker"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_USDT.B-B7C"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"miniTicker"</span>,
+  <span class="hljs-string">"data"</span>: {
+    <span class="hljs-string">"e"</span>: <span class="hljs-string">"24hrMiniTicker"</span>,    <span class="hljs-comment">// Event type</span>
+    <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,           <span class="hljs-comment">// Event time</span>
+    <span class="hljs-string">"s"</span>: <span class="hljs-string">"ABC_0DX-BNB"</span>,            <span class="hljs-comment">// Symbol</span>
+    <span class="hljs-string">"c"</span>: <span class="hljs-string">"0.0025"</span>,            <span class="hljs-comment">// Current day's close price</span>
+    <span class="hljs-string">"o"</span>: <span class="hljs-string">"0.0010"</span>,            <span class="hljs-comment">// Open price</span>
+    <span class="hljs-string">"h"</span>: <span class="hljs-string">"0.0025"</span>,            <span class="hljs-comment">// High price</span>
+    <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.0010"</span>,            <span class="hljs-comment">// Low price</span>
+    <span class="hljs-string">"v"</span>: <span class="hljs-string">"10000"</span>,             <span class="hljs-comment">// Total traded base asset volume</span>
+    <span class="hljs-string">"q"</span>: <span class="hljs-string">"18"</span>,                <span class="hljs-comment">// Total traded quote asset volume</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="11-all-symbols-mini-ticker-streams"></a><a href="#11-all-symbols-mini-ticker-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11. All Symbols Mini Ticker Streams</h3>
+<p>Array of 24hr Mini Ticker statistics for a all symbols pushed every second.</p>
+<p><strong>Topic Name:</strong> allMiniTickers | Stream: $all@allMiniTickers</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> miniTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/$all@allMiniTickers"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"allMiniTickers"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"$all"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> miniTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/$all@allMiniTickers"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"allMiniTickers"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"$all"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"allMiniTickers"</span>,
+  <span class="hljs-string">"data"</span>: [
+    {
+      <span class="hljs-string">"e"</span>: <span class="hljs-string">"24hrMiniTicker"</span>,      <span class="hljs-comment">// Event type</span>
+      <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,             <span class="hljs-comment">// Event time</span>
+      <span class="hljs-string">"s"</span>: <span class="hljs-string">"ABC_0DX-BNB"</span>,              <span class="hljs-comment">// Symbol</span>
+      <span class="hljs-string">"c"</span>: <span class="hljs-string">"0.0025"</span>,              <span class="hljs-comment">// Current day's close price</span>
+      <span class="hljs-string">"o"</span>: <span class="hljs-string">"0.0010"</span>,              <span class="hljs-comment">// Open price</span>
+      <span class="hljs-string">"h"</span>: <span class="hljs-string">"0.0025"</span>,              <span class="hljs-comment">// High price</span>
+      <span class="hljs-string">"l"</span>: <span class="hljs-string">"0.0010"</span>,              <span class="hljs-comment">// Low price</span>
+      <span class="hljs-string">"v"</span>: <span class="hljs-string">"10000"</span>,               <span class="hljs-comment">// Total traded base asset volume</span>
+      <span class="hljs-string">"q"</span>: <span class="hljs-string">"18"</span>,                  <span class="hljs-comment">// Total traded quote asset volume</span>
+    },
+    {
+      ...
+    }]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="12-blockheight"></a><a href="#12-blockheight" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12. Blockheight</h3>
+<p>Streams the latest block height.</p>
+<p><strong>Topic Name:</strong> blockheight | Stream: $all@blockheight</p>
+<p><strong>Mainnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> blockHeights = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/$all@blockheight"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"blockheight"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"$all"</span>] }));
+    }
+</code></pre>
+<p><strong>Testnet Connection Example:</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// URL connection</span>
+    <span class="hljs-keyword">const</span> blockHeights = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/$all@blockheight"</span>);
+
+    <span class="hljs-comment">// Or Subscribe method</span>
+    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"blockheight"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"$all"</span>] }));
+    }
+</code></pre>
+<p><strong>Received Payload:</strong></p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"stream"</span>: <span class="hljs-string">"blockheight"</span>,
+  <span class="hljs-string">"data"</span>: {
+    <span class="hljs-string">"h"</span>: <span class="hljs-number">123456789</span>,     <span class="hljs-comment">// Block height</span>
+  }
+}
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/23/2019 by cong</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

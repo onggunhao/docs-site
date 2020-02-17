@@ -1,0 +1,543 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>api-reference/api-server · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="API Server"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="api-reference/api-server · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="API Server"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">api-reference/api-server</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="api-server"></a><a href="#api-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API Server</h1>
+<p>API server daemon</p>
+<blockquote>
+<p>Before starting <code>api-server</code>, please make sure that you have created an address locally. Otherwise, your wil see the following error:</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-string">panic:</span> stat <span class="hljs-regexp">/Users/</span>user<span class="hljs-regexp">/.bnbcli/</span>keys/keys.<span class="hljs-string">db:</span> no such file or directory
+
+goroutine <span class="hljs-number">1</span> [running]:
+github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/plugins/</span>api.newServer(<span class="hljs-number">0xc000c12230</span>, <span class="hljs-number">0xc0000a96d0</span>, <span class="hljs-number">0x4e3e600</span>, <span class="hljs-number">0xc0001a0ec0</span>, <span class="hljs-number">0x4e10180</span>, <span class="hljs-number">0xc000010010</span>, <span class="hljs-number">0x0</span>, <span class="hljs-number">0x7ffeefbff802</span>, <span class="hljs-number">0x27</span>, <span class="hljs-number">0x0</span>, ...)
+<span class="hljs-regexp">/Users/</span>b<span class="hljs-regexp">/Documents/</span>go<span class="hljs-regexp">/src/</span>github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/plugins/</span>api/server.<span class="hljs-string">go:</span><span class="hljs-number">39</span> +<span class="hljs-number">0x28b</span>
+github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/plugins/</span>api.ServeCommand.func1(<span class="hljs-number">0xc000c27d40</span>, <span class="hljs-number">0xc000c12690</span>, <span class="hljs-number">0x0</span>, <span class="hljs-number">0x7</span>, <span class="hljs-number">0x0</span>, <span class="hljs-number">0x0</span>)
+<span class="hljs-regexp">/Users/</span>b<span class="hljs-regexp">/Documents/</span>go<span class="hljs-regexp">/src/</span>github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/plugins/</span>api/cli.<span class="hljs-string">go:</span><span class="hljs-number">34</span> +<span class="hljs-number">0x1b3</span>
+github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/vendor/</span>github.com<span class="hljs-regexp">/spf13/</span>cobra.(*Command).execute(<span class="hljs-number">0xc000c27d40</span>, <span class="hljs-number">0xc000c12620</span>, <span class="hljs-number">0x7</span>, <span class="hljs-number">0x7</span>, <span class="hljs-number">0xc000c27d40</span>, <span class="hljs-number">0xc000c12620</span>)
+<span class="hljs-regexp">/Users/</span>b<span class="hljs-regexp">/Documents/</span>go<span class="hljs-regexp">/src/</span>github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/vendor/</span>github.com<span class="hljs-regexp">/spf13/</span>cobra/command.<span class="hljs-string">go:</span><span class="hljs-number">698</span> +<span class="hljs-number">0x431</span>
+github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/vendor/</span>github.com<span class="hljs-regexp">/spf13/</span>cobra.(*Command).ExecuteC(<span class="hljs-number">0x55f9fc0</span>, <span class="hljs-number">0x48110ef</span>, <span class="hljs-number">0x55f9fc0</span>, <span class="hljs-number">0x4b81beb</span>)
+<span class="hljs-regexp">/Users/</span>b<span class="hljs-regexp">/Documents/</span>go<span class="hljs-regexp">/src/</span>github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/vendor/</span>github.com<span class="hljs-regexp">/spf13/</span>cobra/command.<span class="hljs-string">go:</span><span class="hljs-number">783</span> +<span class="hljs-number">0x29f</span>
+github.com<span class="hljs-regexp">/binance-chain/</span>node<span class="hljs-regexp">/vendor/</span>github.com<span class="hljs-regexp">/spf13/</span>cobra.(*Command).Execute(...)
+</code></pre>
+<p>Start the API server according to the Platform.<br/>
+Replace the <code>platform</code> variable with <code>mac</code>, <code>windows</code> or <code>linux</code> in the following command:</p>
+<pre><code class="hljs css language-bash">./{{platform}}/bnbcli api-server --chain-id <span class="hljs-string">"{chain-id}"</span> --node tcp://{full node addr}:80 --laddr localhost:8080
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-for-mainnet"></a><a href="#example-for-mainnet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example for Mainnet:</h3>
+<pre><code class="hljs css language-bash">./bnbcli api-server --chain-id <span class="hljs-string">"Binance-Chain-Tigris"</span> --node tcp://dataseed1.binance.org:80 --laddr tcp://127.0.0.1:8080 --trust-node
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-for-testnet"></a><a href="#example-for-testnet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example for Testnet:</h3>
+<pre><code class="hljs css language-bash">./tbnbcli api-server --chain-id <span class="hljs-string">"Binance-Chain-Nile"</span> --node tcp://data-seed-pre-0-s1.binance.org:80 --laddr tcp://127.0.0.1:8080 --trust-node
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="version"></a><a href="#version" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/version</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get the blockchain version.</p>
+<p><strong>Description:</strong> Get the blockchain version of the fullnode you connect with.</p>
+<p><strong>Example</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span><span class="hljs-comment">//localhost:8080/version</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="apiv1accountaddress"></a><a href="#apiv1accountaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/account/{address}</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-1"></a><a href="#get-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get an account.</p>
+<p><strong>Description:</strong> Gets account metadata for an address.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/account/</span>bnb1g9rzc0e2jf8ef3qp9ax8h0pmpmvjzwmtwqmzfj
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/account/</span>tbnb1ke87gxdtsk32kuaqxj6skhhmn79ma89cx2ep4g
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Located in</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td>path</td><td>The account address to query</td><td>Yes</td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td><a href="#account">Account</a></td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1markets"></a><a href="#apiv1markets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/markets</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-2"></a><a href="#get-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get market pairs.</p>
+<p><strong>Description:</strong> Gets the list of market pairs that have been listed.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http</span>://localhost:<span class="hljs-number">8080</span>/api/<span class="hljs-built_in">v1</span>/<span class="hljs-keyword">markets
+</span></code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http</span>://localhost:<span class="hljs-number">8080</span>/api/<span class="hljs-built_in">v1</span>/<span class="hljs-keyword">markets
+</span></code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Located in</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>limit</td><td>query</td><td>default 100; max 1000.</td><td>No</td><td>integer</td></tr>
+<tr><td>offset</td><td>query</td><td>start with 0; default 0.</td><td>No</td><td>integer</td></tr>
+</tbody>
+</table>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>[ <a href="#market">Market</a> ]</td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1depth"></a><a href="#apiv1depth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/depth</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-3"></a><a href="#get-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get the order book.</p>
+<p><strong>Description:</strong> Gets the order book depth data for a given pair symbol.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/depth</span>?symbol=SPNDB-<span class="hljs-number">91</span>6_BNB
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/depth</span>?symbol=GEOP-<span class="hljs-number">15</span>2_BNB
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Located in</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>symbol</td><td>query</td><td>Market pair symbol, e.g. NNB-0AD_BNB</td><td>Yes</td><td>string</td></tr>
+<tr><td>limit</td><td>query</td><td>The limit of results. Default: 100 Allowed limits: [5, 10, 20, 50, 100]</td><td>No</td><td>integer</td></tr>
+</tbody>
+</table>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td><a href="#marketdepth">MarketDepth</a></td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1ordersopen"></a><a href="#apiv1ordersopen" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/orders/open</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-4"></a><a href="#get-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get open orders.</p>
+<p><strong>Description:</strong> Gets open orders for a given address.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/orders/</span>open?address=bnb1g9rzc0e2jf8ef3qp9ax8h0pmpmvjzwmtwqmzfj&amp;symbol=SPNDB-<span class="hljs-number">916</span>_BNB
+
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/orders/</span>open?address=tbnb1g9rzc0e2jf8ef3qp9ax8h0pmpmvjzwmtq4jxfr&amp;symbol=TEST-<span class="hljs-number">599</span>_BNB
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Located in</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td>query</td><td>the owner address</td><td>Yes</td><td>string</td></tr>
+<tr><td>limit</td><td>query</td><td>default 100; max 1000.</td><td>No</td><td>integer</td></tr>
+<tr><td>offset</td><td>query</td><td>start with 0; default 0.</td><td>No</td><td>integer</td></tr>
+<tr><td>symbol</td><td>query</td><td>symbol</td><td>No</td><td>string</td></tr>
+<tr><td>total</td><td>query</td><td>total number required, 0 for not required and 1 for required; default not required, return total =-1 in response</td><td>No</td><td>integer</td></tr>
+</tbody>
+</table>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td><td><a href="#orderlist">OrderList</a></td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1tokens"></a><a href="#apiv1tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/tokens</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-5"></a><a href="#get-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get tokens list.</p>
+<p><strong>Description:</strong> Gets a list of tokens that have been issued.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/tokens</span>
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/tokens</span>
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Located in</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>limit</td><td>query</td><td>default 100; max 1000.</td><td>No</td><td>integer</td></tr>
+<tr><td>offset</td><td>query</td><td>start with 0; default 0.</td><td>No</td><td>integer</td></tr>
+</tbody>
+</table>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>[ <a href="#token">Token</a> ]</td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1tokenssymbol"></a><a href="#apiv1tokenssymbol" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/tokens/{symbol}</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-6"></a><a href="#get-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get information for a token.</p>
+<p><strong>Description:</strong> Get information for a token.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/tokens/</span>SPNDB-<span class="hljs-number">916</span>
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/tokens/</span>TEST-<span class="hljs-number">599</span>
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>[ <a href="#token">Token</a> ]</td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1balanceaddress"></a><a href="#apiv1balanceaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/balance/{address}</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-7"></a><a href="#get-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get account balance for an address.</p>
+<p><strong>Description:</strong> Get account balance for an address.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/balances/</span>bnb1qwugqccfrefqyg9kgm0st8szjf8mmgkmvyt76lv9
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/balances/</span>tbnb1g9rzc0e2jf8ef3qp9ax8h0pmpmvjzwmtq4jxfr
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td><a href="#balances">Balance</a></td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1balanceaddresssymbol"></a><a href="#apiv1balanceaddresssymbol" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/balance/{address}/{symbol}</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-8"></a><a href="#get-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get balance for one token from an address.</p>
+<p><strong>Description:</strong> Get balance for one token from an address.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/balances</span><span class="hljs-regexp">/bnb1qwugqccfrefqyg9kgm0st8szjf8mmgkmvyt76lv9/</span>BNB
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/balances</span><span class="hljs-regexp">/tbnb1g9rzc0e2jf8ef3qp9ax8h0pmpmvjzwmtq4jxfr/</span>BNB
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td><a href="#balances">Balance</a></td></tr>
+<tr><td>500</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1fees"></a><a href="#apiv1fees" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/fees</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-9"></a><a href="#get-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Obtain trading fees information.</p>
+<p><strong>Description:</strong> Gets the current trading fees settings.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/fees</span>
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/fees</span>
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>[ <a href="#fee">Fee</a> ]</td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1validators"></a><a href="#apiv1validators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/validators</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-10"></a><a href="#get-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get validators.</p>
+<p><strong>Description:</strong> Gets the list of validators used in consensus.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/stake/</span>validators
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/stake/</span>validators
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>[ <a href="#validators">Validators</a> ]</td></tr>
+<tr><td>400</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1timelocktimelocksaddress"></a><a href="#apiv1timelocktimelocksaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/timelock/timelocks/{address}</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-11"></a><a href="#get-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get all the timelock records of an address.</p>
+<p><strong>Description:</strong> Gets the list of the timelock records of an address.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/timelock</span><span class="hljs-regexp">/timelocks/bnb</span>1ycuzfx8cxpqmleu7z64uys9wx5ntcujre2knpc
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs"><span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/localhost:8080/api</span><span class="hljs-regexp">/v1/timelock</span><span class="hljs-regexp">/timelocks/tbnb</span>1g9rzc0e2jf8ef3qp9ax7h0pmpmvjzwmtq4jxfr
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td><a href="#TimelockList">TimelockList</a></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1timelocktimelockaddressid"></a><a href="#apiv1timelocktimelockaddressid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/timelock/timelock/{address}/{id}</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="get-12"></a><a href="#get-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get a timelock record of an address.</p>
+<p><strong>Description:</strong> Gets a timelock record of an address.</p>
+<p><strong>Example for mainnet</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/timelock/</span>timelock<span class="hljs-regexp">/bnb1ycuzfx8cxpqmleu7z54uys9wx5ntcujre2knpc/</span><span class="hljs-number">1</span>
+</code></pre>
+<p><strong>Example for testnet:</strong></p>
+<pre><code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">8080</span><span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/timelock/</span>timelock<span class="hljs-regexp">/tbnb1g9rzc0e2jf7ef3qp9ax8h0pmpmvjzwmtq4jxfr/</span><span class="hljs-number">1</span>
+</code></pre>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td><a href="#Timelock">Timelock</a></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="account"></a><a href="#account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Account</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>account_number</td><td>integer</td><td></td><td></td></tr>
+<tr><td>address</td><td>string (address)</td><td></td><td></td></tr>
+<tr><td>balances</td><td>[ <a href="#balance">Balance</a> ]</td><td></td><td></td></tr>
+<tr><td>public_key</td><td>[ integer ]</td><td>Public key bytes</td><td></td></tr>
+<tr><td>sequence</td><td>long</td><td>sequence is for preventing replay attack</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="balances"></a><a href="#balances" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Balances</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td>string (address)</td><td></td><td></td></tr>
+<tr><td>balances</td><td>[ <a href="#balance">Balance</a> ]</td><td></td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="balance"></a><a href="#balance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Balance</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>symbol</td><td>string (currency)</td><td>asset symbol</td><td>BNB</td></tr>
+<tr><td>free</td><td>string (fixed8)</td><td>In decimal form, e.g. 0.00000000</td><td>0.00000000</td></tr>
+<tr><td>locked</td><td>string (fixed8)</td><td>In decimal form, e.g. 0.00000000</td><td>0.00000000</td></tr>
+<tr><td>frozen</td><td>string (fixed8)</td><td>In decimal form, e.g. 0.00000000</td><td>0.00000000</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="token"></a><a href="#token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Token</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>token name</td><td>Binance Chain Native Token</td></tr>
+<tr><td>symbol</td><td>string</td><td>unique token trade symbol</td><td>BTC-000</td></tr>
+<tr><td>original_symbol</td><td>string</td><td>token symbol</td><td>BTC</td></tr>
+<tr><td>total_supply</td><td>string (fixed8)</td><td>total token supply in decimal form, e.g. 1.00000000</td><td>0.00000000</td></tr>
+<tr><td>owner</td><td>string (address)</td><td>Address which issue the token</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="market"></a><a href="#market" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Market</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>base_asset_symbol</td><td>string (currency)</td><td>symbol of base asset</td><td>BNB</td></tr>
+<tr><td>quote_asset_symbol</td><td>string (currency)</td><td>symbol of quote asset</td><td>ABC-5CA</td></tr>
+<tr><td>price</td><td>string (fixed8)</td><td>In decimal form, e.g. 1.00000000</td><td>0.00000000</td></tr>
+<tr><td>tick_size</td><td>string (fixed8)</td><td>Minimum price change in decimal form, e.g. 1.00000000</td><td>0.00000001</td></tr>
+<tr><td>lot_size</td><td>string (fixed8)</td><td>Minimum trading quantity in decimal form, e.g. 1.00000000</td><td>0.000001</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="fee"></a><a href="#fee" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fee</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>msg_type</td><td>string</td><td>Transaction msg type that this fee applies to</td><td>submit_proposal</td></tr>
+<tr><td>fee</td><td>number</td><td>The fee amount</td><td>1000000000</td></tr>
+<tr><td>fee_for</td><td>integer</td><td>1 = proposer, 2 = all, 3 = free</td><td>1</td></tr>
+<tr><td>multi_transfer_fee</td><td>string</td><td>Fee for multi-transfer</td><td>200000</td></tr>
+<tr><td>lower_limit_as_multi</td><td>string</td><td>e.g. 2</td><td>2</td></tr>
+<tr><td>fixed_fee_params</td><td><a href="#fixedfeeparams">FixedFeeParams</a></td><td>Set if the fee is fixed</td><td></td></tr>
+<tr><td>dex_fee_fields</td><td><a href="#dexfeefieldparams">DexFeeFieldParams</a></td><td>dex fee</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="fixedfeeparams"></a><a href="#fixedfeeparams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FixedFeeParams</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>msg_type</td><td>string</td><td>Transaction msg type that this fee applies to</td><td>submit_proposal</td></tr>
+<tr><td>fee</td><td>number</td><td>The fixed fee amount</td><td>1000000000</td></tr>
+<tr><td>fee_for</td><td>integer</td><td>1 = proposer, 2 = all, 3 = free</td><td>1</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="dexfeefieldparams"></a><a href="#dexfeefieldparams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DexFeeFieldParams</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>fee_name</td><td>string</td><td>fee name</td><td></td></tr>
+<tr><td>fee_value</td><td>integer</td><td>fee value</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="error"></a><a href="#error" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>code</td><td>long</td><td>error code</td><td>400</td></tr>
+<tr><td>message</td><td>string</td><td>error message</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="marketdepth"></a><a href="#marketdepth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MarketDepth</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>asks</td><td>[ string (fixed8) ]</td><td>Price and qty in decimal form, e.g. 1.00000000</td><td>[&quot;1.00000000&quot;,&quot;800.00000000&quot;]</td></tr>
+<tr><td>bids</td><td>[ string (fixed8) ]</td><td>Price and qty in decimal form, e.g. 1.00000000</td><td>[&quot;1.00000000&quot;,&quot;800.00000000&quot;]</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="orderlist"></a><a href="#orderlist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OrderList</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>order</td><td>[ <a href="#order">Order</a> ]</td><td>list of orders</td><td></td></tr>
+<tr><td>total</td><td>long</td><td></td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="order"></a><a href="#order" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Order</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>cumulateQuantity</td><td>string</td><td></td><td></td></tr>
+<tr><td>fee</td><td>string</td><td>trading fee on the block of this order</td><td></td></tr>
+<tr><td>lastExecutedPrice</td><td>string</td><td>price of last execution</td><td></td></tr>
+<tr><td>lastExecutedQuantity</td><td>string</td><td>quantity of last execution</td><td></td></tr>
+<tr><td>orderCreateTime</td><td>dateTime</td><td>time of order creation</td><td></td></tr>
+<tr><td>orderId</td><td>string</td><td>order ID</td><td></td></tr>
+<tr><td>owner</td><td>string</td><td>order issuer</td><td></td></tr>
+<tr><td>price</td><td>string</td><td>order price</td><td></td></tr>
+<tr><td>quantity</td><td>string</td><td>order quantity</td><td></td></tr>
+<tr><td>side</td><td>integer</td><td>1 for buy and 2 for sell</td><td></td></tr>
+<tr><td>status</td><td>string</td><td>enum [Ack, PartialFill, IocNoFill, FullyFill, Canceled, Expired, FailedBlocking, FailedMatching, IocExpire]</td><td></td></tr>
+<tr><td>symbol</td><td>string</td><td></td><td></td></tr>
+<tr><td>timeInForce</td><td>integer</td><td>1 for Good Till Expire(GTE) order and 3 for Immediate Or Cancel (IOC)</td><td></td></tr>
+<tr><td>tradeId</td><td>string</td><td>trade ID</td><td></td></tr>
+<tr><td>transactionHash</td><td>string</td><td></td><td></td></tr>
+<tr><td>transactionTime</td><td>dateTime</td><td>time of transaction</td><td></td></tr>
+<tr><td>type</td><td>integer</td><td>only 2 is available for now, meaning limit order</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="timelocklist"></a><a href="#timelocklist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TimelockList</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>Timelocks</td><td>[ <a href="#timelock">Timelock</a> ]</td><td>list of timelock records</td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="timelock"></a><a href="#timelock" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Timelock</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>ID</td><td>integer</td><td></td><td></td></tr>
+<tr><td>description</td><td>string</td><td></td><td></td></tr>
+<tr><td>amount</td><td><a href="#coin">Coin</a></td><td></td><td></td></tr>
+<tr><td>locktime</td><td>timestamp</td><td></td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="coin"></a><a href="#coin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Coin</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>denom</td><td>string</td><td></td><td></td></tr>
+<tr><td>amount</td><td>int</td><td></td><td></td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/16/2019 by huangsuyu</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

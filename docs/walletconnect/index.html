@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>WalletConnect · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# &lt;img src=&quot;./assets/walletconnect.svg&quot; width=&quot;60&quot;&gt; WalletConnect"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="WalletConnect · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# &lt;img src=&quot;./assets/walletconnect.svg&quot; width=&quot;60&quot;&gt; WalletConnect"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Concepts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Quickstart<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/intro">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/access">Accessing Binance Chain</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/create-account">Create an Account</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-transfer">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-trade">Make a Trade</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Concepts<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/accounts">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/anti-front-running">Anti Front-Running</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/atomic-swap">Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/blockchain">Blockchain Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/encoding">Transaction Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/exchange-integration">Exchange Integration</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/keys">Keys</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/list">List</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match">Matching Logic</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match-examples">Matching Examples</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/memo-validation">Memo Validation</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/offline">Offline</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/timelock">Timelock</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tokens">Tokens</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trade">Trade</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trading-spec">Trading Spec</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/transfer">Transfers</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tss">Threshold Signatures</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/assets">Assets</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/matching-engine">Matching Engine</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/cross-chain-atomic-swaps">Cross-chain Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/threshold-signature-scheme">Threshold Signature Scheme</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/fees">Fees</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/encoding">Encoding</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs-site/docs/walletconnect">WalletConnect</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Run a node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnode">Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnodeissues">Full Node Issues</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/extra-data-from-fullnode">Get Extra Data from Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/light-client">Light Client</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/nodetypes">Types of Nodes</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/fullnode">Run a Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/lightnode">Light Node</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">WalletConnect</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="img-srcassetswalletconnectsvg-width60-walletconnect"></a><a href="#img-srcassetswalletconnectsvg-width60-walletconnect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><img src="./assets/walletconnect.svg" width="60"> WalletConnect</h1>
+<p>The Binance Chain Web Wallet supports connecting with external wallet providers via the <a href="https://docs.walletconnect.org/tech-spec">WalletConnect protocol</a>.</p>
+<p>WalletConnect allows the user to scan a QR code from the wallet app to unlock and use their wallet seamlessly in the web UI.</p>
+<p>In order for this to work, some modifications to the standard WalletConnect protocol are used in the Binance Chain wallet's implementation.</p>
+<p>See the list of wallets which support WalletConnect on Binance Chain <a href="/docs-site/docs/walletconnect-support">here</a></p>
+<h2><a class="anchor" aria-hidden="true" id="connecting-via-walletconnect"></a><a href="#connecting-via-walletconnect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connecting via WalletConnect</h2>
+<p>Wallet providers should make use of the <a href="https://docs.walletconnect.org/client-sdk">WalletConnect Client SDK</a> for their target programming language and OS. There are implementations <a href="https://github.com/walletconnect">on GitHub</a> for iOS, Android, React Native, etc.</p>
+<h2><a class="anchor" aria-hidden="true" id="protocol-differences"></a><a href="#protocol-differences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Protocol Differences</h2>
+<p>Since we do not use Ethereum transactions, there are some differences:</p>
+<ul>
+<li><p>Typically <code>sendTransaction</code> is used with Ethereum transaction parameters in WalletConnect dApp integrations. But in Binance Chain's case, instead of invoking <code>sendTransaction</code> in the WalletConnect flow, the new <a href="https://docs.walletconnect.org/client-sdk#send-custom-request"><code>sendCustomRequest</code></a> call is used instead with a method called <code>bnb_sign</code> (see below).</p></li>
+<li><p>The external wallet provider is responsible for sending back the signature and public key of the transaction but should <em>not</em> broadcast the transaction itself. We have instead defined a custom <code>result</code> format in the form of stringified JSON containing the signature and public key. The reason for this is that the wallet app probably does not have access to the complete serialized binary form of the transaction (as this requires Amino encoding).</p></li>
+<li><p>The web wallet will send back a second custom call (after <code>bnb_sign</code>) called <code>bnb_tx_confirmation</code>, which contains the boolean result of the transaction build/broadcast and any error message encountered by the web wallet during broadcasting. In a complete implementation, this confirmation callback should be responded to with a call to <code>approveRequest</code>.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="sequence-diagram"></a><a href="#sequence-diagram" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sequence Diagram</h2>
+<p>This sequence diagram shows the flow of messages when the web wallet interacts with an external wallet provider via WalletConnect.</p>
+<p><img src="./assets/walletconnect_sequence.png" alt="WalletConnect Protocol Sequence"></p>
+<h2><a class="anchor" aria-hidden="true" id="custom-requests"></a><a href="#custom-requests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Requests</h2>
+<p>A custom call request adheres to this structure:</p>
+<pre><code class="hljs css language-json">{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "method": "method_name",
+  "params": [{ ... }],
+}
+</code></pre>
+<p>We have two custom call request formats, here are examples of them:</p>
+<h3><a class="anchor" aria-hidden="true" id="example-bnb_sign"></a><a href="#example-bnb_sign" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: bnb_sign</h3>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"method"</span>: <span class="hljs-string">"bnb_sign"</span>,
+  <span class="hljs-attr">"params"</span>: [
+    {
+      <span class="hljs-attr">"account_number"</span>: <span class="hljs-string">"34"</span>,
+      <span class="hljs-attr">"chain_id"</span>: <span class="hljs-string">"Binance-Chain-Nile"</span>,
+      <span class="hljs-attr">"data"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"memo"</span>: <span class="hljs-string">"test"</span>,
+      <span class="hljs-attr">"msgs"</span>: [
+        {
+          <span class="hljs-attr">"inputs"</span>: [
+            {
+              <span class="hljs-attr">"address"</span>: <span class="hljs-string">"tbnb1hgm0p7khfk85zpz5v0j8wnej3a90w709zzlffd"</span>,
+              <span class="hljs-attr">"coins"</span>: [
+                {
+                  <span class="hljs-attr">"amount"</span>: <span class="hljs-number">1000000000</span>,
+                  <span class="hljs-attr">"denom"</span>: <span class="hljs-string">"BNB"</span>
+                }
+              ]
+            }
+          ],
+          <span class="hljs-attr">"outputs"</span>: [
+            {
+              <span class="hljs-attr">"address"</span>: <span class="hljs-string">"tbnb1ss57e8sa7xnwq030k2ctr775uac9gjzglqhvpy"</span>,
+              <span class="hljs-attr">"coins"</span>: [
+                {
+                  <span class="hljs-attr">"amount"</span>: <span class="hljs-number">1000000000</span>,
+                  <span class="hljs-attr">"denom"</span>: <span class="hljs-string">"BNB"</span>
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      <span class="hljs-attr">"sequence"</span>: <span class="hljs-string">"31"</span>,
+      <span class="hljs-attr">"source"</span>: <span class="hljs-string">"1"</span>
+    }
+  ]
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-approverequest"></a><a href="#response-approverequest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response (approveRequest)</h4>
+<p>A response like this should be sent back from the wallet app:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">1553682007906047</span>,
+  <span class="hljs-attr">"result"</span>: <span class="hljs-string">"{\"signature\":\"...\",\"publicKey\":\"...\"}"</span>
+}
+</code></pre>
+<p>In <code>result</code>, a JSON-encoded object must be included containing the following hex-string properties: <code>signature</code>, <code>publicKey</code>.</p>
+<p>Note that:</p>
+<ul>
+<li><p><code>id</code> and <code>jsonrpc</code> are usually pre-filled by the client SDK, so there should be no need to set this in the object yourself.</p></li>
+<li><p><code>signature</code> should be 64 bytes in length (128 hex chars)</p></li>
+<li><p><code>publicKey</code> should be 65 bytes in length (130 hex chars, non-compressed form, prefixed with <code>0x04</code>)</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="example-bnb_tx_confirmation"></a><a href="#example-bnb_tx_confirmation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: bnb_tx_confirmation</h3>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"method"</span>: <span class="hljs-string">"bnb_tx_confirmation"</span>,
+  <span class="hljs-attr">"params"</span>: [
+    {
+      <span class="hljs-attr">"ok"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"error"</span>: <span class="hljs-string">"Error message (optional)"</span>
+    }
+  ]
+}
+</code></pre>
+<p>Receipt of the <code>bnb_tx_confirmation</code> should be confirmed by the app with <code>approveRequest</code> as per the WalletConnect protocol flow.</p>
+<p>For this response, <code>result</code> may be empty or contain an empty JSON-encoded object:</p>
+<h4><a class="anchor" aria-hidden="true" id="response-approverequest-1"></a><a href="#response-approverequest-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response (approveRequest)</h4>
+<p>A response like this should be sent back from the wallet app:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">1553682007906050</span>,
+  <span class="hljs-attr">"result"</span>: <span class="hljs-string">""</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="ending-the-session"></a><a href="#ending-the-session" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ending the Session</h2>
+<p>Remember to call <code>killSession()</code> when the user has finished using the integration from your app!</p>
+<p>This will redirect the user back to the unlock screen in the web wallet.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/17/2020 by Daniel Onggunhao</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs-site/docs/guides/concepts/encoding"><span class="arrow-prev">← </span><span>Encoding</span></a><a class="docs-next button" href="/docs-site/docs/fullnode"><span>Full Node</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#connecting-via-walletconnect">Connecting via WalletConnect</a></li><li><a href="#protocol-differences">Protocol Differences</a></li><li><a href="#sequence-diagram">Sequence Diagram</a></li><li><a href="#custom-requests">Custom Requests</a><ul class="toc-headings"><li><a href="#example-bnb_sign">Example: bnb_sign</a></li><li><a href="#example-bnb_tx_confirmation">Example: bnb_tx_confirmation</a></li></ul></li><li><a href="#ending-the-session">Ending the Session</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

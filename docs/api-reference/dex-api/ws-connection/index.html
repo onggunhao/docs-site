@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>api-reference/dex-api/ws-connection · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# WebSocket Connections"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="api-reference/dex-api/ws-connection · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# WebSocket Connections"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">api-reference/dex-api/ws-connection</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="websocket-connections"></a><a href="#websocket-connections" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WebSocket Connections</h1>
+<p>The DEX exposes several data streams over standard WebSocket connections, which can be consumed by modern web browsers and server-side WebSocket libraries.</p>
+<ul>
+<li>The base endpoint for mainnet is: <strong><a href="wss://dex.binance.org/api/">wss://dex.binance.org/api/</a></strong>.</li>
+<li>The base endpoint for testnet is: <strong><a href="wss://testnet-dex.binance.org/api/">wss://testnet-dex.binance.org/api/</a></strong>.</li>
+<li>Each connection can consume a single stream or multiple streams may be multiplexed through one connection for more complex apps.</li>
+<li>All symbols in stream names are lowercase.</li>
+</ul>
+<p>Stream names may be provided in the URL <strong>or</strong> there is a mechanism to <code>subscribe</code> to consume streams on demand through one connection.</p>
+<p>Note: Once the connection is established, websocket server would send ping frame to client every 30 seconds. Client should response pong frame in time (this has already implemented by most mordern browers, but programmatical users need be aware of whether your websocket library support this), otherwise, the connection might be closed.</p>
+<p>Examples for each of these methods are provided below in JavaScript:</p>
+<h3><a class="anchor" aria-hidden="true" id="method-1-connect-with-stream-names-in-the-url"></a><a href="#method-1-connect-with-stream-names-in-the-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Method 1: Connect with stream names in the URL</h3>
+<p>Using this method, stream names are specified in the URLs used to connect to the data streams:</p>
+<ul>
+<li>Single streams <code>/ws/&lt;streamName&gt;</code></li>
+<li>Combined streams <code>/stream?streams=&lt;streamName1&gt;/&lt;streamName2&gt;/&lt;streamName3&gt;</code> (etc.)</li>
+</ul>
+<p><strong>Mainnet Example:</strong> Various methods of connecting to streams where stream names are provided in URLs:</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-comment">// for personal streams, ex: Account &amp; Orders &amp; Transfers</span>
+  <span class="hljs-keyword">const</span> accountAndOrdersFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/&lt;USER_ADDRESS&gt;"</span>);
+
+  <span class="hljs-comment">// for single streams</span>
+  <span class="hljs-keyword">const</span> tradesFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/&lt;symbol&gt;@trades"</span>);
+  <span class="hljs-keyword">const</span> marketFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/&lt;symbol&gt;@marketDiff"</span>);
+  <span class="hljs-keyword">const</span> deltaFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/&lt;symbol&gt;@marketDepth"</span>);
+  ... etc
+
+  <span class="hljs-comment">// for all symbols</span>
+  <span class="hljs-keyword">const</span> allTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/$all@allTickers"</span>);
+  <span class="hljs-keyword">const</span> allMiniTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/$all@allMiniTickers"</span>);
+  <span class="hljs-keyword">const</span> blockHeight = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/$all@blockheight"</span>);
+
+  <span class="hljs-comment">// for combined streams, can combined a mixed symbols and streams</span>
+  <span class="hljs-keyword">const</span> combinedFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/stream?streams=&lt;symbol&gt;@trades/&lt;symbol&gt;@marketDepth/&lt;symbol&gt;@marketDiff"</span>);
+</code></pre>
+<p><strong>Testnet Example:</strong> Various methods of connecting to streams where stream names are provided in URLs:</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-comment">// for personal streams, ex: Account &amp; Orders &amp; Transfers</span>
+  <span class="hljs-keyword">const</span> accountAndOrdersFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/&lt;USER_ADDRESS&gt;"</span>);
+
+  <span class="hljs-comment">// for single streams</span>
+  <span class="hljs-keyword">const</span> tradesFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/&lt;symbol&gt;@trades"</span>);
+  <span class="hljs-keyword">const</span> marketFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/&lt;symbol&gt;@marketDiff"</span>);
+  <span class="hljs-keyword">const</span> deltaFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/&lt;symbol&gt;@marketDepth"</span>);
+  ... etc
+
+  <span class="hljs-comment">// for all symbols</span>
+  <span class="hljs-keyword">const</span> allTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/$all@allTickers"</span>);
+  <span class="hljs-keyword">const</span> allMiniTickers = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/$all@allMiniTickers"</span>);
+  <span class="hljs-keyword">const</span> blockHeight = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/ws/$all@blockheight"</span>);
+
+  <span class="hljs-comment">// for combined streams, can combined a mixed symbols and streams</span>
+  <span class="hljs-keyword">const</span> combinedFeeds = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://testnet-dex.binance.org/api/stream?streams=&lt;symbol&gt;@trades/&lt;symbol&gt;@marketDepth/&lt;symbol&gt;@marketDiff"</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="method-2-subscribe-to-streams-on-demand"></a><a href="#method-2-subscribe-to-streams-on-demand" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Method 2: Subscribe to streams on demand</h3>
+<p>Using this method, streams are be consumed via subscribe and unsubscribe commands, sent through a single WebSocket connection.</p>
+<p><strong>Note: one connection is only allowed to subscribe to one address.</strong></p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        <span class="hljs-comment">// send Subscribe/Unsubscribe messages here (see below)</span>
+    }
+    conn.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        <span class="hljs-built_in">console</span>.info(<span class="hljs-string">'received data'</span>, evt.data);
+    };
+    conn.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'an error occurred'</span>, evt.data);
+    };
+</code></pre>
+<p>After connecting successfully you can subscribe/unsubscribe to different topics.</p>
+<p><strong>Example:</strong> To subscribe to orders events and market depth updates, you should send a socket message with the <code>subscribe</code> payload as below:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">const</span> conn = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">"wss://dex.binance.org/api/ws/bnb17zw3mqjx64x4dxtwqjqz5tssql6qp2m0cgv06x"</span>);
+    conn.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+        <span class="hljs-comment">// for personal topics such as accounts &amp; orders &amp; transfers, an `address` is required</span>
+        <span class="hljs-comment">// Note: one connection is only allowed to subscribe to one address.</span>
+        <span class="hljs-comment">// If you subscribe to a new address, regardless of whether the topic is new, the subscriptions for the previous addresses will be removed.</span>
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"orders"</span>, <span class="hljs-attr">address</span>: <span class="hljs-string">"bnb17zw3mqjx64x4dxtwqjqz5tssql6qp2m0cgv06x"</span> }));
+
+        <span class="hljs-comment">// for data topics such as marketDepth, marketDelta, trades and ticker;</span>
+        <span class="hljs-comment">// a list of symbols is required. Same message can be used to append new topic and/or symbols</span>
+        conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"subscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"marketDepth"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTC"</span>,<span class="hljs-string">"BNB_ETH"</span>] }));
+    }
+</code></pre>
+<p><strong>Example:</strong> To unsubscribe from orders events, you should send a socket message with payloads as below:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// unsubscribe from topic</span>
+    conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"unsubscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"orders"</span> }));
+
+    <span class="hljs-comment">// unsubscribe from individual symbols</span>
+    conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"unsubscribe"</span>, <span class="hljs-attr">topic</span>: <span class="hljs-string">"marketDepth"</span>, <span class="hljs-attr">symbols</span>: [<span class="hljs-string">"BNB_BTC"</span>] }));
+</code></pre>
+<p><strong>Example:</strong> To extend connection life, you should send a a message with a payload using the <code>keepAlive</code> method:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// This will extend the connection time to another 30 minutes</span>
+    <span class="hljs-comment">// It's good to send this message every 30 minutes to maintain the connection life</span>
+    conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"keepAlive"</span> }));
+</code></pre>
+<p><strong>Example:</strong> To close a connection, you should send a socket message with a payload as below:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-comment">// Connections will auto close after 30 - 60 minutes if no "keepAlive" messages received</span>
+    <span class="hljs-comment">// Connections with no subscriptions will be closed, regardless the keepAlive messages.</span>
+    conn.send(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">method</span>: <span class="hljs-string">"close"</span> }));
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/30/2019 by huangsuyu</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

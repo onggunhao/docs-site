@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>api-reference/cli · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Command Line Interface (CLI)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="api-reference/cli · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# Command Line Interface (CLI)"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">api-reference/cli</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="command-line-interface-cli"></a><a href="#command-line-interface-cli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Command Line Interface (CLI)</h1>
+<ul>
+<li><a href="#command-line-interface--cli-">Command Line Interface (CLI)</a>
+<ul>
+<li><a href="#where-can-i-download-the-binance-chain-cli-">Where can I download the Binance Chain CLI?</a>
+<ul>
+<li><a href="#cli-installation">CLI installation</a></li>
+</ul></li>
+<li><a href="#where-to-connect">Where to connect</a></li>
+<li><a href="#which-chain-id-to-use">Which Chain-ID to use</a></li>
+<li><a href="#key-manager">Key manager</a>
+<ul>
+<li><a href="#local-key">Local key</a></li>
+<li><a href="#ledger-key">Ledger key</a></li>
+</ul></li>
+<li><a href="#how-to-use">How to use</a></li>
+<li><a href="#cli-reference">CLI Reference</a></li>
+<li><a href="#use-cli-for-different-blockchains">Use CLI for Different Blockchains</a></li>
+</ul></li>
+</ul>
+<p>Binance Chain CLI is one of several ways to interact with Binance Chain.</p>
+<p>Binance Chain CLI can be used as a local wallet, you can manage your keys via Binance CLI. You can add a new
+key or restore your key from mnemonic words. And you can list your keys and show specified key info.</p>
+<p>With Binance Chain CLI, you can send transactions to Binance Chain, like placing an order, transferring token,
+issuing token and so on. Actually you can do almost everything you can do with Binance Chain web wallet. What is
+more, you can propose to list trading pairs and join chain governance.</p>
+<p>In addition, you can do some simple queries through CLI. For example, you can query your account's
+balance, transaction detail by transaction hash and etc.</p>
+<h2><a class="anchor" aria-hidden="true" id="where-can-i-download-the-binance-chain-cli"></a><a href="#where-can-i-download-the-binance-chain-cli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where can I download the Binance Chain CLI?</h2>
+<p>You can download Binance Chain CLI releases here: <a href="https://github.com/binance-chain/node-binary/tree/master/cli">https://github.com/binance-chain/node-binary</a></p>
+<pre><code class="hljs">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/binance-chain/<span class="hljs-keyword">node</span><span class="hljs-title">-binary</span>.git
+</code></pre>
+<p>You can choose to download the version for testnet or mainnet. Replace the network var with <code>testnet</code> or<code>prod</code> in the following command:</p>
+<pre><code class="hljs">cd <span class="hljs-keyword">node</span><span class="hljs-title">-binary</span>/cli/{network}/{<span class="hljs-keyword">version</span>}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="cli-installation"></a><a href="#cli-installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CLI installation</h3>
+<p>Once you have downloaded the binary for your platform, you may drop it into any folder you like. Open a terminal window or <code>cmd.exe</code> in that folder, and then follow the examples on the documentation site.</p>
+<p>For mainnet:</p>
+<pre><code class="hljs css language-bash">$  ./bnbcli
+</code></pre>
+<p>On Windows you would most likely use this instead:</p>
+<pre><code class="hljs css language-bash">C:\&gt; bnbcli.exe
+</code></pre>
+<p>For testnet:</p>
+<pre><code class="hljs css language-bash">$  ./tbnbcli
+</code></pre>
+<p>On Windows you would most likely use this instead:</p>
+<pre><code class="hljs css language-bash">C:\&gt; tbnbcli.exe
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="where-to-connect"></a><a href="#where-to-connect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where to connect</h2>
+<p>You can manage you keys locally without connecting to any node. But if you want to interact with Binance Chain, you need to connect to one of Binance Chain full nodes.</p>
+<p>You can run your own full node, which may automatically connect to Binance Chain, and you can run your CLI there with your own full node. In the mean time, you can connect to any full nodes provided by other people.</p>
+<p>You could query this API for for a list of full node on mainnet: <a href="https://dex.binance.org/api/v1/peers">https://dex.binance.org/api/v1/peers</a>.</p>
+<p>For testnet, visit  <a href="https://testnet-dex.binance.org/api/v1/peers">https://testnet-dex.binance.org/api/v1/peers</a>.</p>
+<p>Full nodes will be denoted as the format of <code>ip:port</code>, you could use <code>access_addr</code> as your peer to get connected, such as <code>https://dataseed4.defibit.io:443</code></p>
+<p>Please note that there are two types of nodes that offer RPC services. Some support TLS and others don't.</p>
+<h2><a class="anchor" aria-hidden="true" id="which-chain-id-to-use"></a><a href="#which-chain-id-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Which Chain-ID to use</h2>
+<p><code>chain-id</code> is an important field to fill for every transaction sent from <code>bnbcli</code>. The<code>chain-id</code> for mainnet is <code>Binance-Chain-Tigris</code>, and is <code>Binance-Chain-Nile</code> for testnet. Please choose the correct one in your case.</p>
+<h2><a class="anchor" aria-hidden="true" id="which-private-key-to-use"></a><a href="#which-private-key-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Which Private Key To Use</h2>
+<p>There are two ways for you to sign transaction：</p>
+<ul>
+<li>Use Local Keystore File</li>
+</ul>
+<p>This is the default way to sign transactions with <code>bnbcli</code>. It will use the encrypted  keystore files saved at bnbcli home. You need to specify which key to decrypt with <code>--from</code>.</p>
+<ul>
+<li>Use Private Key in Hardware Wallet</li>
+</ul>
+<p>First, you must add <code>--ledger</code> when creating a new address. For example,</p>
+<pre><code class="hljs"><span class="hljs-comment">bnbcli</span> <span class="hljs-comment">keys</span> <span class="hljs-comment">add</span> <span class="hljs-comment">test</span> --<span class="hljs-comment">ledger</span> --<span class="hljs-comment">index</span> <span class="hljs-comment">0</span> --<span class="hljs-comment">account</span> <span class="hljs-comment">0</span>
+</code></pre>
+<p>Then,  the private key file in ledger will be used to generate a new address.</p>
+<p>You could also specify <code>--account</code> and <code>--index</code> to generate more addresses. After the generation, you could use Ledger for signing.</p>
+<p>When you use the address to sign transactions, <code>bnbcli</code> will send transactions to Ledger and get signatures. Then <code>bnbcli</code> build the signed transactions and boardcast them to full nodes.</p>
+<h2><a class="anchor" aria-hidden="true" id="key-manager"></a><a href="#key-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key manager</h2>
+<p>Here we support two types of key: local key and leder key</p>
+<h3><a class="anchor" aria-hidden="true" id="local-key"></a><a href="#local-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Local key</h3>
+<ul>
+<li>Create a local key</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-keyword">bnbcli </span>keys <span class="hljs-keyword">add </span>test_key
+</code></pre>
+<p>The new created local key will be encrypted and saved to local keystore.</p>
+<ul>
+<li>Sign transation with a local key</li>
+</ul>
+<pre><code class="hljs">bnbcli send <span class="hljs-attribute">--chain-id</span>=&lt;chain-id&gt; <span class="hljs-attribute">--from</span>=test_key <span class="hljs-attribute">--amount</span>=100:BNB <span class="hljs-attribute">--to</span>=&lt;address&gt;
+</code></pre>
+<p>For instance, if you want to send a token transfer transaction, you can use the above command. The flag --from is used to specify which key to sign the transaction.</p>
+<h3><a class="anchor" aria-hidden="true" id="ledger-key"></a><a href="#ledger-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ledger key</h3>
+<ul>
+<li>Create a local key</li>
+</ul>
+<p>Before creating a new ledger key, make sure you have done these steps:</p>
+<ol>
+<li>Ledger device is installed binance ledger app and the version should be later or equal to <strong>v1.1.3</strong>.</li>
+<li>Connect your ledger device to your machine and input pin code to unlock it.</li>
+<li>Open binanche ledger app on your ledger device.</li>
+</ol>
+<pre><code class="hljs">bnbcli <span class="hljs-built_in">keys</span> <span class="hljs-built_in">add</span> test_ledger_key <span class="hljs-comment">--ledger</span>
+</code></pre>
+<p>Execute the above command to create a ledger key. The private key is only stored in your ledger device. And your local key store will save the corresponding publick key and address.</p>
+<pre><code class="hljs"><span class="hljs-comment">bnbcli</span> <span class="hljs-comment">keys</span> <span class="hljs-comment">add</span> <span class="hljs-comment">test_ledger_key_new</span> --<span class="hljs-comment">ledger</span> --<span class="hljs-comment">index</span> <span class="hljs-comment">0</span> --<span class="hljs-comment">account</span> <span class="hljs-comment">0</span>
+</code></pre>
+<p>You can also specify --account and --index to generate more keys.</p>
+<ul>
+<li>Sign transation with a ledger key</li>
+</ul>
+<p>Taking transfer transaction for example, please follow these steps:</p>
+<ol>
+<li>Execute command in your console:</li>
+</ol>
+<pre><code class="hljs">bnbcli send <span class="hljs-attribute">--chain-id</span>=&lt;chain-id&gt; <span class="hljs-attribute">--from</span>=test_ledger_key <span class="hljs-attribute">--amount</span>=100:BNB <span class="hljs-attribute">--to</span>=&lt;address&gt;
+</code></pre>
+<ol start="2">
+<li>Your console will print some message like this:</li>
+</ol>
+<pre><code class="hljs">Please confirm <span class="hljs-keyword">if</span><span class="hljs-built_in"> address </span>displayed on ledger is identical <span class="hljs-keyword">to</span> bnb15339dcwlq5nza4atfmqxfx6mhamywz35evruva (<span class="hljs-literal">yes</span>/<span class="hljs-literal">no</span>)?
+</code></pre>
+<ol start="3">
+<li>User can click confirm button on ledger device and input yes to continue following steps.</li>
+<li>Then user can preview the transaction data on ledger screen.</li>
+<li>After preview all transaction data, user can select <code>sign transaction</code> or<code>reject</code>.</li>
+<li>After user select <code>sign transaction</code>, <code>bnbcli</code> will get signature and broadcast the signed transaction to blockchain nodes.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="how-to-use"></a><a href="#how-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to use</h2>
+<p>When you have downloaded Binance Chain CLI, you can use <code>help</code> subcommand to see all the available commands:</p>
+<pre><code class="hljs css language-bash">$  ./bnbcli <span class="hljs-built_in">help</span>
+BNBChain light-client
+
+Usage:
+  bnbcli [<span class="hljs-built_in">command</span>]
+
+Available Commands:
+  init        Initialize light client
+  status      Query remote node <span class="hljs-keyword">for</span> status
+
+  txs         Search <span class="hljs-keyword">for</span> all transactions that match the given tags.
+  tx          Matches this txhash over all committed blocks
+
+  account     Query account balance
+  send        Create and sign a send tx
+  transfer
+
+  api-server  Start the API server daemon
+  keys        Add or view <span class="hljs-built_in">local</span> private keys
+
+  version     Print the app version
+  token       issue or view tokens
+  dex         dex commands
+  gov         gov commands
+  <span class="hljs-built_in">help</span>        Help about any <span class="hljs-built_in">command</span>
+
+Flags:
+  -e, --encoding string   Binary encoding (hex|b64|btc) (default <span class="hljs-string">"hex"</span>)
+  -h, --<span class="hljs-built_in">help</span>              <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> bnbcli
+      --home string       directory <span class="hljs-keyword">for</span> config and data (default <span class="hljs-string">"/root/.bnbcli"</span>)
+  -o, --output string     Output format (text|json) (default <span class="hljs-string">"text"</span>)
+      --trace             <span class="hljs-built_in">print</span> out full stack trace on errors
+
+Use <span class="hljs-string">"bnbcli [command] --help"</span> <span class="hljs-keyword">for</span> more information about a <span class="hljs-built_in">command</span>.
+</code></pre>
+<p><strong>Note</strong>:there is one special flag <code>--trust-node</code> of most subcommands, if not enabled which is by default the CLI
+will take an extra 2-4 seconds to verify blockchain proof at current height. You can enable that flag if the peer is trustful so that most commands will accomplish in 500 milliseconds. If your node cannot prove the transaction, there will be the following notice:</p>
+<pre><code class="hljs">Create verifier failed: Commit: Response error: RPC <span class="hljs-builtin-name">error</span> -32603 - Internal error: runtime error: invalid memory<span class="hljs-built_in"> address </span><span class="hljs-keyword">or</span> <span class="hljs-literal">nil</span> pointer dereference
+Please check<span class="hljs-built_in"> network connection </span><span class="hljs-keyword">and</span> verify the<span class="hljs-built_in"> address </span>of the node <span class="hljs-keyword">to</span> connect <span class="hljs-keyword">to</span>
+</code></pre>
+<p>To solve this issue, you need to set <code>--trust-node</code> to <code>true</code></p>
+<h2><a class="anchor" aria-hidden="true" id="cli-reference"></a><a href="#cli-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CLI Reference</h2>
+<p>For detailed usage, you can refer to:</p>
+<ul>
+<li><a href="/docs-site/docs/transfer">transfer</a></li>
+<li><a href="/docs-site/docs/trade">trade</a></li>
+<li><a href="/docs-site/docs/tokens">issue</a></li>
+<li><a href="/docs-site/docs/governance">governance</a></li>
+<li><a href="/docs-site/docs/list">list</a></li>
+<li><a href="/docs-site/docs/keys">keys</a></li>
+<li><a href="/docs-site/docs/offline">offline</a></li>
+<li><a href="/docs-site/docs/timelock">timelock</a></li>
+<li><a href="/docs-site/docs/memo-validation">memo validation</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="use-cli-for-different-blockchains"></a><a href="#use-cli-for-different-blockchains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use CLI for Different Blockchains</h2>
+<p><code>bnbcli</code> will save data about validatorset changes at home of <code>bnbcli</code>. Once you want to use <code>bnbcli</code> for different blockchains, for example, you want to change from testnet to mainnet, the data will be stale. In order to swtich between blockchains, you need clean data folder <code>rm -rf ~/.bnbcli/.bnblite/</code>  or create a new home folder for bnbcli with <code>--home</code> flag.
+If you forget to specify different home folder path, then you will not be able to make queries with <code>bnbcli</code>.</p>
+<p>The same logic applies to <code>tbnbcli</code>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/5/2019 by huangsuyu</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#where-can-i-download-the-binance-chain-cli">Where can I download the Binance Chain CLI?</a><ul class="toc-headings"><li><a href="#cli-installation">CLI installation</a></li></ul></li><li><a href="#where-to-connect">Where to connect</a></li><li><a href="#which-chain-id-to-use">Which Chain-ID to use</a></li><li><a href="#which-private-key-to-use">Which Private Key To Use</a></li><li><a href="#key-manager">Key manager</a><ul class="toc-headings"><li><a href="#local-key">Local key</a></li><li><a href="#ledger-key">Ledger key</a></li></ul></li><li><a href="#how-to-use">How to use</a></li><li><a href="#cli-reference">CLI Reference</a></li><li><a href="#use-cli-for-different-blockchains">Use CLI for Different Blockchains</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

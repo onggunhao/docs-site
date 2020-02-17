@@ -1,0 +1,461 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Transfers · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Asset Transfer"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Transfers · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# Asset Transfer"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Concepts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Quickstart<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/intro">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/access">Accessing Binance Chain</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/create-account">Create an Account</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-transfer">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-trade">Make a Trade</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Concepts<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/accounts">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/anti-front-running">Anti Front-Running</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/atomic-swap">Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/blockchain">Blockchain Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/encoding">Transaction Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/exchange-integration">Exchange Integration</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/keys">Keys</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/list">List</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match">Matching Logic</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match-examples">Matching Examples</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/memo-validation">Memo Validation</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/offline">Offline</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/timelock">Timelock</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tokens">Tokens</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trade">Trade</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trading-spec">Trading Spec</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs-site/docs/transfer">Transfers</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tss">Threshold Signatures</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/assets">Assets</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/matching-engine">Matching Engine</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/cross-chain-atomic-swaps">Cross-chain Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/threshold-signature-scheme">Threshold Signature Scheme</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/fees">Fees</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/encoding">Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/walletconnect">WalletConnect</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Run a node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnode">Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnodeissues">Full Node Issues</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/extra-data-from-fullnode">Get Extra Data from Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/light-client">Light Client</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/nodetypes">Types of Nodes</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/fullnode">Run a Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/lightnode">Light Node</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Transfers</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="asset-transfer"></a><a href="#asset-transfer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Asset Transfer</h1>
+<p><code>Transfer</code> is the most basic transaction Binance Chain supports, it moves assets among different addresses.</p>
+<p>Please note the fees must be paid first in BNB before the transaction can be executed.</p>
+<p>If you want to read more about the idea of account and balance, please refer to this <a href="/docs-site/docs/accounts">doc</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="simple-transfer-and-memo"></a><a href="#simple-transfer-and-memo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple Transfer and Memo</h2>
+<p>Before transferring tokens to someone else, please make sure that you have an account with enough balance
+and have unlocked your wallet on browser or restored your key via CLI.</p>
+<p>You can always input a &quot;memo&quot; sentence as extra information to be recorded on the blockchain, though it has a limit on the length.</p>
+<h3><a class="anchor" aria-hidden="true" id="web-wallet"></a><a href="#web-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Web wallet</h3>
+<p>You can easily send tokens to another address on web wallet.</p>
+<p><img src="./assets/web_wallet_transfer.png" alt=""></p>
+<p>First, you need to choose what asset you want to send.</p>
+<p>Then you input the address you want to send tokens to and amount of token.</p>
+<p>And you can also input memo here and size of memo is restricted to 128 bytes.</p>
+<p>Fee charged and balance will be showed in below.</p>
+<h3><a class="anchor" aria-hidden="true" id="cli"></a><a href="#cli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CLI</h3>
+<p>If you want to send token to an address, make sure you have restored your key. You can list all of your keys:</p>
+<pre><code class="hljs css language-bash"> ./bnbcli keys list --home ~/.bnbcli
+NAME:   TYPE:   ADDRESS:                        PUBKEY:
+<span class="hljs-built_in">test</span>    <span class="hljs-built_in">local</span>   bnb17kwznuljsy4n89wcjd6esx2j5t0w326c03xhyr  bncp1addwnpepq2gudmfe0dqqax3f57j9azy5rujlwcra4w8ueehsl5whzhlvczxuuakuldy
+</code></pre>
+<p>Query your addresses on testnet</p>
+<pre><code class="hljs css language-bash">$  ./tbnbcli keys list  PUBKEY:
+<span class="hljs-built_in">test</span>    <span class="hljs-built_in">local</span>   tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5 bnbp1addwnpepqgfehhv4meevy2kz52c0s7znk8x2969dl8zc5jngn36axf3szdzp5efearf
+</code></pre>
+<p>You can query your balance on mainnet before send tokens.</p>
+<pre><code class="hljs css language-bash"> ./bnbcli account bnb1XXXXXXXXXXXXXXXXXXX --chain-id Binance-Chain-Tigris --node  https://dataseed5.defibit.io:443 --indent
+{
+  <span class="hljs-string">"type"</span>: <span class="hljs-string">"bnbchain/Account"</span>,
+  <span class="hljs-string">"value"</span>: {
+    <span class="hljs-string">"base"</span>: {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"bnb14h5yfk0n54msscs3hjfupscx2s9efw62sg3phh"</span>,
+      <span class="hljs-string">"coins"</span>: [
+        {
+          <span class="hljs-string">"denom"</span>: <span class="hljs-string">"BNB"</span>,
+          <span class="hljs-string">"amount"</span>: <span class="hljs-string">"100000000"</span>
+        }
+      ],
+      <span class="hljs-string">"public_key"</span>: null,
+      <span class="hljs-string">"account_number"</span>: <span class="hljs-string">"56"</span>,
+      <span class="hljs-string">"sequence"</span>: <span class="hljs-string">"0"</span>
+    },
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-string">"frozen"</span>: null,
+    <span class="hljs-string">"locked"</span>: null
+  }
+}
+</code></pre>
+<p>You can query your balance on testnet before send tokens.</p>
+<pre><code class="hljs css language-bash">./tbnbcli account tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5 --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --indent
+
+{
+  <span class="hljs-string">"type"</span>: <span class="hljs-string">"bnbchain/Account"</span>,
+  <span class="hljs-string">"value"</span>: {
+    <span class="hljs-string">"base"</span>: {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5"</span>,
+      <span class="hljs-string">"coins"</span>: [
+        {
+          <span class="hljs-string">"denom"</span>: <span class="hljs-string">"BNB"</span>,
+          <span class="hljs-string">"amount"</span>: <span class="hljs-string">"100000000"</span>
+        }
+      ],
+      <span class="hljs-string">"public_key"</span>: null,
+      <span class="hljs-string">"account_number"</span>: <span class="hljs-string">"56"</span>,
+      <span class="hljs-string">"sequence"</span>: <span class="hljs-string">"0"</span>
+    },
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-string">"frozen"</span>: null,
+    <span class="hljs-string">"locked"</span>: null
+  }
+}
+</code></pre>
+<p>Then you can send token.</p>
+<p>Please note that you need to boosted the amount you want to send by <strong>e^8</strong> .</p>
+<p>Example on <strong>mainnet</strong>:</p>
+<pre><code class="hljs css language-bash">./bnbcli send --from from-key-name --to to-address --amount 200000000:BNB --chain-id Binance-Chain-Tigris --node  https://dataseed5.defibit.io:443 --json --memo <span class="hljs-string">"Test transfer"</span>
+Password to sign with <span class="hljs-string">'test'</span>:
+{
+   <span class="hljs-string">"Height"</span>:<span class="hljs-string">"272155"</span>,
+   <span class="hljs-string">"TxHash"</span>:<span class="hljs-string">"A8F78BF8736A35B9433CA9CD1CDD03A8FB3D5D82"</span>,
+   <span class="hljs-string">"Response"</span>:{
+      <span class="hljs-string">"log"</span>:<span class="hljs-string">"Msg 0: "</span>,
+      <span class="hljs-string">"tags"</span>:[
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"c2VuZGVy"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5jMTdrd3pudWxqc3k0bjg5d2NqZDZlc3gyajV0MHczMjZjMDN4aHly"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5jMWw3a3IzNWRnajNqZXpqdnc2bnQ2enlxY215dDJqaDdyczJ2NG45"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"YWN0aW9u"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"c2VuZA=="</span>
+         }
+      ]
+   }
+}
+</code></pre>
+<p>Example on <strong>testnet</strong>:</p>
+<pre><code class="hljs css language-bash">./tbnbcli send --from from-key-name --to to-address --amount 200000000:BNB --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json --memo <span class="hljs-string">"Test transfer"</span>
+
+Password to sign with <span class="hljs-string">'test'</span>:
+{
+   <span class="hljs-string">"Height"</span>:<span class="hljs-string">"272155"</span>,
+   <span class="hljs-string">"TxHash"</span>:<span class="hljs-string">"A8F78BF8736A35B9433CA9CD1CDD03A8FB3D5D82"</span>,
+   <span class="hljs-string">"Response"</span>:{
+      <span class="hljs-string">"log"</span>:<span class="hljs-string">"Msg 0: "</span>,
+      <span class="hljs-string">"tags"</span>:[
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"c2VuZGVy"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5jMTdrd3pudWxqc3k0bjg5d2NqZDZlc3gyajV0MHczMjZjMDN4aHly"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5jMWw3a3IzNWRnajNqZXpqdnc2bnQ2enlxY215dDJqaDdyczJ2NG45"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"YWN0aW9u"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"c2VuZA=="</span>
+         }
+      ]
+   }
+}
+</code></pre>
+<p>If you are not familiar with CLI, you can use <code>-h</code> to get helps:</p>
+<pre><code class="hljs css language-bash"> ./bnbcli send -h
+Create and sign a send tx
+
+Usage:
+  bnbcli send [flags]
+
+Flags:
+      --account-number int   AccountNumber number to sign the tx
+      --amount string        Amount of coins to send
+      --async                broadcast transactions asynchronously
+      --chain-id string      Chain ID of Binance Chain node
+      --dry-run              ignore the perform a simulation of a transaction, but don<span class="hljs-string">'t broadcast it
+      --from string          Name or address of private key with which to sign
+      --generate-only        build an unsigned transaction and write it to STDOUT
+  -h, --help                 help for send
+      --indent               Add indent to JSON response
+      --json                 return output in json format
+      --ledger               Use a connected Ledger device
+      --memo string          Memo to send along with transaction
+      --node string          &lt;host&gt;:&lt;port&gt; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --print-response       return tx response (only works with async = false) (default true)
+      --sequence int         Sequence number to sign the tx
+      --source int           Source of tx
+      --to string            Address to send coins
+      --trust-node           Trust connected full node (don'</span>t verify proofs <span class="hljs-keyword">for</span> responses) (default <span class="hljs-literal">true</span>)
+
+Global Flags:
+  -e, --encoding string   Binary encoding (hex|b64|btc) (default <span class="hljs-string">"hex"</span>)
+      --home string       directory <span class="hljs-keyword">for</span> config and data (default <span class="hljs-string">"/root/.bnbcli"</span>)
+  -o, --output string     Output format (text|json) (default <span class="hljs-string">"text"</span>)
+      --trace             <span class="hljs-built_in">print</span> out full stack trace on errors
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="multi-send"></a><a href="#multi-send" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multi-send</h3>
+<p>Sometimes, you may want to transfer tokens to multiple people. So <code>bnbcli</code> also provides you a <code>multi-send</code> command.</p>
+<p>You can use <code>-h</code> to get helps:</p>
+<pre><code class="hljs css language-bash"> ./bnbcli token multi-send -h
+Create and sign a multi send tx
+
+Usage:
+  bnbcli token multi-send [flags]
+
+Flags:
+      --account-number int      AccountNumber number to sign the tx
+      --async                   broadcast transactions asynchronously
+      --chain-id string         Chain ID of tendermint node
+      --dry-run                 ignore the perform a simulation of a transaction, but don<span class="hljs-string">'t broadcast it
+      --from string             Name or address of private key with which to sign
+      --generate-only           build an unsigned transaction and write it to STDOUT
+  -h, --help                    help for multi-send
+      --indent                  Add indent to JSON response
+      --json                    return output in json format
+      --ledger                  Use a connected Ledger device
+      --memo string             Memo to send along with transaction
+      --node string             &lt;host&gt;:&lt;port&gt; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --print-response          return tx response (only works with async = false) (default true)
+      --sequence int            Sequence number to sign the tx
+      --source int              Source of tx
+      --transfers string        Transfers details, format: [{"to": "addr", "amount": "1:BNB,2:BTC"}, ...]
+      --transfers-file string   File of transfers details, if transfers-file is not empty, --transfers will be ignored
+      --trust-node              Trust connected full node (don'</span>t verify proofs <span class="hljs-keyword">for</span> responses) (default <span class="hljs-literal">true</span>)
+
+Global Flags:
+  -e, --encoding string   Binary encoding (hex|b64|btc) (default <span class="hljs-string">"hex"</span>)
+      --home string       directory <span class="hljs-keyword">for</span> config and data (default <span class="hljs-string">"/Users/wuzhenxing/.bnbcli"</span>)
+  -o, --output string     Output format (text|json) (default <span class="hljs-string">"text"</span>)
+      --trace             <span class="hljs-built_in">print</span> out full stack trace on errors
+</code></pre>
+<p>The difference here is you have to construct the transfer detail by yourself. You have to specify <code>--transfers</code> flag and
+format is showed above. In the same time, you can write the transaction detail in a file and specify <code>--transfers-file</code>
+flag and read from the file contains transaction.</p>
+<p>Example, you can specify <code>--transfers</code> and send it to <strong>mainnet</strong>:</p>
+<pre><code class="hljs css language-bash"> ./bnbcli token multi-send --home ./testnodecli --from <span class="hljs-built_in">test</span> --chain-id Binance-Chain-Tigris --node  https://dataseed5.defibit.io:443  --transfers <span class="hljs-string">"[{\"to\":\"bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl\",\"amount\":\"100000000000000:BNB\"},{\"to\":\"bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw\",\"amount\":\"100000000000000:BNB\"}]"</span> --json
+Password to sign with <span class="hljs-string">'test'</span>:
+{
+   <span class="hljs-string">"Height"</span>:<span class="hljs-string">"1412"</span>,
+   <span class="hljs-string">"TxHash"</span>:<span class="hljs-string">"A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138"</span>,
+   <span class="hljs-string">"Response"</span>:{
+      <span class="hljs-string">"log"</span>:<span class="hljs-string">"Msg 0: "</span>,
+      <span class="hljs-string">"tags"</span>:[
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"c2VuZGVy"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"YWN0aW9u"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"c2VuZA=="</span>
+         }
+      ]
+   }
+}
+</code></pre>
+<p>Example on <strong>testnet</strong>:</p>
+<pre><code class="hljs css language-bash">
+./tbnbcli token multi-send --home ./testnodecli --from <span class="hljs-built_in">test</span> --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80  --transfers <span class="hljs-string">"[{\"to\":\"tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5\",\"amount\":\"100000000000000:BNB\"},{\"to\":\"tbnb1e244vmvym7g6cn9lk4hmhf9p2f9jaf0x9hxmwc\",\"amount\":\"100000000000000:BNB\"}]"</span> --json
+
+Password to sign with <span class="hljs-string">'test'</span>:
+{
+   <span class="hljs-string">"Height"</span>:<span class="hljs-string">"1412"</span>,
+   <span class="hljs-string">"TxHash"</span>:<span class="hljs-string">"A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138"</span>,
+   <span class="hljs-string">"Response"</span>:{
+      <span class="hljs-string">"log"</span>:<span class="hljs-string">"Msg 0: "</span>,
+      <span class="hljs-string">"tags"</span>:[
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"c2VuZGVy"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"YWN0aW9u"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"c2VuZA=="</span>
+         }
+      ]
+   }
+}
+</code></pre>
+<p>And you can also try <code>--transfers-file</code>.</p>
+<p>Assume that you have a file named <code>transaction.json</code> in your current path and content is :</p>
+<pre><code class="hljs css language-json">[
+  {
+    <span class="hljs-attr">"to"</span>: <span class="hljs-string">"bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl"</span>,
+    <span class="hljs-attr">"amount"</span>: <span class="hljs-string">"100000000000000:BNB"</span>
+  },
+  {
+    <span class="hljs-attr">"to"</span>: <span class="hljs-string">"bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw"</span>,
+    <span class="hljs-attr">"amount"</span>: <span class="hljs-string">"100000000000000:BNB"</span>
+  }
+]
+</code></pre>
+<p>Then you can specify <code>--transfers-file</code> and send it to <strong>mainnet</strong>:</p>
+<pre><code class="hljs css language-bash"> ./bnbcli token multi-send --home ./testnodecli --from <span class="hljs-built_in">test</span> --chain-id Binance-Chain-Tigris --node  https://dataseed5.defibit.io:443  --transfers-file ./transaction.json --json
+Password to sign with <span class="hljs-string">'test'</span>:
+{
+   <span class="hljs-string">"Height"</span>:<span class="hljs-string">"1412"</span>,
+   <span class="hljs-string">"TxHash"</span>:<span class="hljs-string">"A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138"</span>,
+   <span class="hljs-string">"Response"</span>:{
+      <span class="hljs-string">"log"</span>:<span class="hljs-string">"Msg 0: "</span>,
+      <span class="hljs-string">"tags"</span>:[
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"c2VuZGVy"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"YWN0aW9u"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"c2VuZA=="</span>
+         }
+      ]
+   }
+}
+</code></pre>
+<p>Example on <strong>testnet</strong>:</p>
+<pre><code class="hljs css language-bash"> ./tbnbcli token multi-send --home ./testnodecli --from <span class="hljs-built_in">test</span>--chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80  --transfers-file ./transaction.json --json
+
+Password to sign with <span class="hljs-string">'test'</span>:
+{
+   <span class="hljs-string">"Height"</span>:<span class="hljs-string">"1412"</span>,
+   <span class="hljs-string">"TxHash"</span>:<span class="hljs-string">"A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138"</span>,
+   <span class="hljs-string">"Response"</span>:{
+      <span class="hljs-string">"log"</span>:<span class="hljs-string">"Msg 0: "</span>,
+      <span class="hljs-string">"tags"</span>:[
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"c2VuZGVy"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"cmVjaXBpZW50"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3"</span>
+         },
+         {
+            <span class="hljs-string">"key"</span>:<span class="hljs-string">"YWN0aW9u"</span>,
+            <span class="hljs-string">"value"</span>:<span class="hljs-string">"c2VuZA=="</span>
+         }
+      ]
+   }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="verify-transfer-transaction"></a><a href="#verify-transfer-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verify Transfer Transaction</h2>
+<p>To confirm that your transaction went through, you can use the following queries:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"E79DE52B7D8F6BA93787C5B0389AF26C0C29C03BC84DAE42317965797E38076E"</span>,
+  <span class="hljs-attr">"height"</span>: <span class="hljs-string">"1412766"</span>,
+  <span class="hljs-attr">"tx"</span>: {
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"auth/StdTx"</span>,
+    <span class="hljs-attr">"value"</span>: {
+      <span class="hljs-attr">"msg"</span>: [
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"cosmos-sdk/Send"</span>,
+          <span class="hljs-attr">"value"</span>: {
+            <span class="hljs-attr">"inputs"</span>: [
+              {
+                <span class="hljs-attr">"address"</span>: <span class="hljs-string">"tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5"</span>,
+                <span class="hljs-attr">"coins"</span>: [{ <span class="hljs-attr">"denom"</span>: <span class="hljs-string">"BNB"</span>, <span class="hljs-attr">"amount"</span>: <span class="hljs-string">"20"</span> }]
+              }
+            ],
+            <span class="hljs-attr">"outputs"</span>: [
+              {
+                <span class="hljs-attr">"address"</span>: <span class="hljs-string">"tbnb1qq559fkes779t3q9p9aegnjplvtc53yg9vusah"</span>,
+                <span class="hljs-attr">"coins"</span>: [{ <span class="hljs-attr">"denom"</span>: <span class="hljs-string">"BNB"</span>, <span class="hljs-attr">"amount"</span>: <span class="hljs-string">"20"</span> }]
+              }
+            ]
+          }
+        }
+      ],
+      <span class="hljs-attr">"signatures"</span>: [
+        {
+          <span class="hljs-attr">"pub_key"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"tendermint/PubKeySecp256k1"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"AhOb3ZXecsIqwqKw+HhTscyi6K35xYpKaJx10yYwE0Qa"</span>
+          },
+          <span class="hljs-attr">"signature"</span>: <span class="hljs-string">"AlpHUBlC/V0cR7YNm5G46aAjmeRIxjkX9Vg8EtTKkfgPso+snT3/r2nRNjsphtjTonub3VYfE4lwOnjpY+Jwcg=="</span>,
+          <span class="hljs-attr">"account_number"</span>: <span class="hljs-string">"406226"</span>,
+          <span class="hljs-attr">"sequence"</span>: <span class="hljs-string">"27"</span>
+        }
+      ],
+      <span class="hljs-attr">"memo"</span>: <span class="hljs-string">"Test transfer"</span>,
+      <span class="hljs-attr">"source"</span>: <span class="hljs-string">"0"</span>,
+      <span class="hljs-attr">"data"</span>: <span class="hljs-literal">null</span>
+    }
+  },
+  <span class="hljs-attr">"result"</span>: {
+    <span class="hljs-attr">"log"</span>: <span class="hljs-string">"Msg 0: "</span>,
+    <span class="hljs-attr">"tags"</span>: [
+      {
+        <span class="hljs-attr">"key"</span>: <span class="hljs-string">"c2VuZGVy"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"dGJuYjFzeWx5ancwMzJlYWpyOWN5bGxwMjZuMDQzMDBxenpyZTM4cXl2NQ=="</span>
+      },
+      {
+        <span class="hljs-attr">"key"</span>: <span class="hljs-string">"cmVjaXBpZW50"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"dGJuYjFxcTU1OWZrZXM3Nzl0M3E5cDlhZWduanBsdnRjNTN5Zzl2dXNhaA=="</span>
+      },
+      { <span class="hljs-attr">"key"</span>: <span class="hljs-string">"YWN0aW9u"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"c2VuZA=="</span> }
+    ]
+  }
+}
+</code></pre>
+<p>As you can see from the example output, this transaction is executed at block height 1412766 and you could read about the details.
+Double check with blockchain explorer if you interact with the network through a full-node.</p>
+<p>Binance Chain is essentially a digital asset creation and exchange platform.
+The features listed below are currently supported on Binance Chain:</p>
+<ul>
+<li>The Issuance, Burning, Minting and Freezing of Tokens</li>
+<li>Transfer of Tokens</li>
+<li>The Listing and Delisting of Tokens</li>
+</ul>
+<p>Transfer is the most basic transaction Binance Chain supports, it moves assets among different addresses.</p>
+<p>Please note the fees must be paid first in<code>BNB</code> before the transaction can be executed.</p>
+<h2><a class="anchor" aria-hidden="true" id="build-transfer-transaction"></a><a href="#build-transfer-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build Transfer Transaction</h2>
+<p>For sdk init, you should know the http api URL. Besides, you should know what kind of network the api gateway is in, since we have different configurations for test network and production network.</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-44-tab-45" class="nav-link active" data-group="group_44" data-tab="tab-group-44-content-45">JavaScript</div><div id="tab-group-44-tab-46" class="nav-link" data-group="group_44" data-tab="tab-group-44-content-46">Go</div><div id="tab-group-44-tab-47" class="nav-link" data-group="group_44" data-tab="tab-group-44-content-47">Python</div></div><div class="tab-content"><div id="tab-group-44-content-45" class="tab-pane active" data-group="group_44" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> BnbApiClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@binance-chain/javascript-sdk"</span>);<br /><span class="hljs-keyword">const</span> axios = <span class="hljs-built_in">require</span>(<span class="hljs-string">"axios"</span>);<br /><br /><span class="hljs-keyword">const</span> asset = <span class="hljs-string">"BNB"</span>; <span class="hljs-comment">// asset string</span><br /><span class="hljs-keyword">const</span> amount = <span class="hljs-number">1.123</span>; <span class="hljs-comment">// amount float</span><br /><span class="hljs-keyword">const</span> addressTo = <span class="hljs-string">"bnb1jxfh2g85q3v0tdq57fnevx6xcxtcnhtsmcu54m"</span>; <span class="hljs-comment">// addressTo string</span><br /><span class="hljs-keyword">const</span> message = <span class="hljs-string">"A note to you"</span>; <span class="hljs-comment">// memo string</span><br /><span class="hljs-keyword">const</span> api = <span class="hljs-string">"https://dex.binance.org/"</span>; <span class="hljs-comment">/// api string can be "https://testnet-dex.binance.org" for testnet</span><br /><br /><span class="hljs-keyword">let</span> privKey = <span class="hljs-string">"DEADBEEF"</span>; <span class="hljs-comment">// privkey hexstring (keep this safe)</span><br /><br /><span class="hljs-keyword">const</span> bnbClient = <span class="hljs-keyword">new</span> BnbApiClient(api);<br /><span class="hljs-keyword">const</span> httpClient = axios.create({ <span class="hljs-attr">baseURL</span>: api });<br /><br />bnbClient.chooseNetwork(<span class="hljs-string">"testnet"</span>); <span class="hljs-comment">// or this can be "mainnet"</span><br />bnbClient.setPrivateKey(privKey);<br />bnbClient.initChain();<br /><br /><span class="hljs-keyword">const</span> addressFrom = bnbClient.getClientKeyAddress(); <span class="hljs-comment">// sender address string (e.g. bnb1...)</span><br /><span class="hljs-keyword">const</span> sequenceURL = <span class="hljs-string">`<span class="hljs-subst">${api}</span>api/v1/account/<span class="hljs-subst">${addressFrom}</span>/sequence`</span>;<br /><br />httpClient<br />  .get(sequenceURL)<br />  .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {<br />    <span class="hljs-keyword">const</span> sequence = res.data.sequence || <span class="hljs-number">0</span>;<br />    <span class="hljs-keyword">return</span> bnbClient.transfer(<br />      addressFrom,<br />      addressTo,<br />      amount,<br />      asset,<br />      message,<br />      sequence<br />    );<br />  })<br />  .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {<br />    <span class="hljs-built_in">console</span>.log(result);<br />    <span class="hljs-keyword">if</span> (result.status === <span class="hljs-number">200</span>) {<br />      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"success"</span>, result.result[<span class="hljs-number">0</span>].hash);<br />    } <span class="hljs-keyword">else</span> {<br />      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"error"</span>, result);<br />    }<br />  })<br />  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {<br />    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"error"</span>, error);<br />  });<br /></code></pre>
+</span></div></div><div id="tab-group-44-content-46" class="tab-pane" data-group="group_44" tabindex="-1"><div><span><pre><code class="hljs css language-Go"><span class="hljs-comment">//-----   Init KeyManager  -------------</span><br />keyManager1, _ := NewKeyManager()<br /><span class="hljs-comment">//-----   Init sdk  -------------</span><br />client, err := sdk.NewDexClient(<span class="hljs-string">"dex.binance.org"</span>, types.TestNetwork, keyManager) <span class="hljs-comment">//api string can be "testnet-dex.binance.org" for testnet</span><br />accn,_:=client.GetAccount(client.GetKeyManager().GetAddr().String())<br /><span class="hljs-comment">//-----   Init KeyManager  -------------</span><br />keyManager, _ := keys.NewMnemonicKeyManager(mnemonic)<br /><span class="hljs-comment">//----   Send tx  -----------</span><br />send, err := client.SendToken([]msg.Transfer{{testAccount2, []ctypes.Coin{{nativeSymbol, <span class="hljs-number">100000000</span>}}}, {testAccount3, []ctypes.Coin{{nativeSymbol, <span class="hljs-number">100000000</span>}}}}, <span class="hljs-literal">true</span>)<br /><br />fmt.Printf(<span class="hljs-string">"Send token: %v\n"</span>, send)<br /><br /></code></pre>
+</span></div></div><div id="tab-group-44-content-47" class="tab-pane" data-group="group_44" tabindex="-1"><div><span><pre><code class="hljs css language-py"><span class="hljs-keyword">from</span> binance_chain.http <span class="hljs-keyword">import</span> HttpApiClient<br /><span class="hljs-keyword">from</span> binance_chain.messages <span class="hljs-keyword">import</span> TransferMsg<br /><span class="hljs-keyword">from</span> binance_chain.wallet <span class="hljs-keyword">import</span> Wallet<br /><br />wallet = Wallet(<span class="hljs-string">'private_key_string'</span>)<br />client = HttpApiClient()<br /><br />transfer_msg = TransferMsg(<br />    wallet=wallet,<br />    symbol=<span class="hljs-string">'BNB'</span>,<br />    amount=<span class="hljs-number">1</span>,<br />    to_address=<span class="hljs-string">'&lt;to address&gt;'</span>,<br />    memo=<span class="hljs-string">'Thanks for the beer'</span><br />)<br />res = client.broadcast_msg(transfer_msg, sync=<span class="hljs-literal">True</span>)<br /></code></pre>
+</span></div></div></div></div>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/14/2020 by Daniel Onggunhao</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs-site/docs/trading-spec"><span class="arrow-prev">← </span><span>Trading Spec</span></a><a class="docs-next button" href="/docs-site/docs/tss"><span>Threshold Signatures</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#simple-transfer-and-memo">Simple Transfer and Memo</a><ul class="toc-headings"><li><a href="#web-wallet">Web wallet</a></li><li><a href="#cli">CLI</a></li><li><a href="#multi-send">Multi-send</a></li></ul></li><li><a href="#verify-transfer-transaction">Verify Transfer Transaction</a></li><li><a href="#build-transfer-transaction">Build Transfer Transaction</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

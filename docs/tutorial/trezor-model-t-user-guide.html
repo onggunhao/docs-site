@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>tutorial/trezor-model-t-user-guide · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Trezor User Guide"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="tutorial/trezor-model-t-user-guide · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# Trezor User Guide"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">tutorial/trezor-model-t-user-guide</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="trezor-user-guide"></a><a href="#trezor-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trezor User Guide</h1>
+<p>This guide will show you how to use your <a href="https://shop.trezor.io/product/trezor-model-t">Trezor Model T</a> hardware wallet with Binance Chain and Binance DEX.
+Please follow best security practices when using any hardware wallet to store cryptocurrency.</p>
+<blockquote>
+<p>Please note that the Trezor Model One is not supported yet.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
+<p>In order to use a Trezor with Binance Chain and Binance DEX, you will need:</p>
+<ul>
+<li>A supported web browser: Chrome or Firefox</li>
+<li>Access to the Binance Chain web wallet (<a href="https://binance.org/unlock">https://binance.org/unlock</a>) using your web browser</li>
+<li>An initialized Trezor Model T device with the most recent firmware updates installed</li>
+<li>The Trezor Bridge application installed on your computer</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="app-installation-instructions"></a><a href="#app-installation-instructions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>App Installation Instructions</h2>
+<ol>
+<li>Install Trezor Bridge</li>
+</ol>
+<p>Please make sure that you have <a href="https://wiki.trezor.io/User_manual-Setting_up_the_Trezor_device#Trezor_Bridge">bridge</a> installed on your computer.</p>
+<p><img src="https://lh5.googleusercontent.com/PW7zw3jAPjJr7OADRl62ZwxH75Eg-PGffH2vDf1waZRA3mVkRX55mmYAJsqR9ptnfITnRh9cpsiemMjuZU_iLxDUJCqM7r_J086PVG-AM4EtJRa7PQTEJJ-fkE5mTiCP-d0P4gxj" alt="img"></p>
+<ol start="2">
+<li>Install the firmware</li>
+</ol>
+<p>Please make sure your Trezor has the <a href="https://wiki.trezor.io/User_manual-Setting_up_the_Trezor_device#Install_the_latest_firmware">latest firmware</a> installed.</p>
+<p><img src="https://lh4.googleusercontent.com/Y7mbzuPLLAtqNBgf6unnxFQ4lqQ3lY4DF1ubWCQk3JyZ6VGGRJ0aoM46ERXLPvpKOpEId8DUbc_8l5srws5AZcNUa2u7RvIWBfOvbDeg7PScLdwY9ZE-WzwLYwkv6a3DBxSTJWRx" alt="img"></p>
+<ol start="3">
+<li>Generate and backup your address</li>
+</ol>
+<p>Please make sure that you have seed phrase backed up.</p>
+<p><img src="https://lh5.googleusercontent.com/L4VXP1_ZqyQEfqEXbTrXeIjtPlDtf814RXxuUj3eHDVom0Sfr6Q6ZpYyV1TIRb4y8M-lvLdCp7VlZkqmTYwxlne4YBvEL8v2XDwvFJF45KYS6JEKdTVmGEmt0nPjgWihYbBFeMZc" alt="img"><img src="https://lh6.googleusercontent.com/U9QE83qrsDMJGmWmVEtrzsrapmLoAgqAVwqst6dFi2EEnD8CClEOzClNte-01dtzn3HjUzyzbTxb9l8UppsVWwMaTzb19CgQ535fh8voifx4DCMocghHRqD6umOnuQk04J_Xgk1w" alt="img"></p>
+<h2><a class="anchor" aria-hidden="true" id="setuplogin-instructions"></a><a href="#setuplogin-instructions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup/Login Instructions</h2>
+<ol>
+<li>Open Binance Chain web wallet &lt;<a href="http://www.binance.org">www.binance.org</a>&gt;, then go to <a href="https://www.binance.org/en/unlock">unlock page</a>. You should see that Trezor is already an option for you.</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/SHsBGqNHNfRqPO85GCQbC84lEq-5f0tkTLp3xMa2sg10FT8leiHe0i5rk9h0luegET3CUXODO2jTBP7I5AwrmoERZg7k61EWLeHToJhXVYqz-r2Kat1q7BtwFOBmAGifLjR1_p0U" alt="img"></p>
+<ol start="2">
+<li>Allow  access of your devide:</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/NUPkk08poavyTwzMvo9h_ig0VEJQkqDKHt1MQT5MnocqAsZjKvWjwfExFl5-BkRzLKjSJH_bKgRr6B8f3dE0UNsF114mRA1DCkpmySvxjUqZKVpxVmUFUgsj9ZjcYS5p-5hL2gpg" alt="img"></p>
+<ol start="3">
+<li>Export Binance address for account #1</li>
+</ol>
+<p><img src="https://lh4.googleusercontent.com/g-P7oXukPxxvHhiel6G5gLRWDwMXYW05hN-Vdw0Qhlm8VLhKC7oiC0ZAE8HpAGh8947TEQ_91yY4sUakLiRV26z2YMRQYMqSdv8mA_8RFhae4SU_nNIY7mjTolzcjFwpMSPEVcK5" alt="img"></p>
+<ol start="4">
+<li>Get your address for this device</li>
+</ol>
+<p><img src="https://lh5.googleusercontent.com/jG0dJVoBTTEHp8QgE3QjRXdtTzJlU6YsQJ7jcniu_ISZYDrtYrT1SBjL0NctHKPQRolHMnJvlXAVQQxPmtqpYUHyuhEB8f951xFyDkkellD2GS5QBjLYt1rWlNONiKiooqDiYATS" alt="img"></p>
+<ol start="5">
+<li>Confirm your address on Trezor</li>
+</ol>
+<p><img src="https://lh4.googleusercontent.com/d2YxOhj8kptDdPmwJ1QIWKn57BeHooCmR_6NYBH1FqRxxlMDm5PaOvz07HV9KGuUR3K-WG70n83v7vvOZ8WOe_kcippxedz3N4JV1DLlPLNXg_tQg0HoDiBrLy_tZS9hh5b4wREX" alt="img"></p>
+<blockquote>
+<p>Please note that Trezor only supports the Binance Chain mainnet</p>
+</blockquote>
+<ol>
+<li>Click on the “Balances” navigation button in the Trading Interface to view your account balances.</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/5uzD0Lr6qKIg7EhGewDHWlRO-f14VCMkH_h_0D0ydMI-lGaN-jFqfNkAqHXCBYQtaO5ICqUtw-Lc5XWd2LA7p0xTbZkhFrudA-iYPocZrW8GMbGNeYxqmyopTFqPKS70lkOt3yAL" alt="img"></p>
+<ol start="2">
+<li>Your account balances are displayed.</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/h7xez7MrpBQt8n888v8mmWujn4rNKH88h11zesBkBe-pvCKtqiPM_IE3MZRRGuQi47DOLRAgrVMY3g8a-QXvhkpnJOLacHgyTeUe5FvKT2LAVTX7t8NMfaHdzoP53dbbG4pz4j_2" alt="img"></p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-send-binance-chain-crypto-assets"></a><a href="#how-to-send-binance-chain-crypto-assets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to send Binance Chain crypto assets</h2>
+<ol>
+<li>Click on the “Balances” navigation button in the Trading Interface to view your account balances.</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/h7xez7MrpBQt8n888v8mmWujn4rNKH88h11zesBkBe-pvCKtqiPM_IE3MZRRGuQi47DOLRAgrVMY3g8a-QXvhkpnJOLacHgyTeUe5FvKT2LAVTX7t8NMfaHdzoP53dbbG4pz4j_2" alt="img"></p>
+<ol start="2">
+<li>Then click on the “Send” button for the asset that you would like to send.</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/qQ2Leiu4z95Yx6TilYswNwzncWSmoiXTqYcZDbkHE1m4emYiDKC9VMl-NoYPNEKog-JZoWziwKVuiMYJxP1cafMiKOXViiAtl0tA4RXiLtqBSUInAHu9ZSzDbmQDmWEk7KZREiN2" alt="img"></p>
+<ol start="3">
+<li><p>Confirm to give permission
+<img src="https://lh3.googleusercontent.com/xBRZ3hZzhgzrDCuX8q6yeHIJvL2I0XM-R9aDQF9_1Hl-ey1G0l0dv-qWLT2v0T25E37uoPafHuGgyc7UpWJ5EPeTiD-0d7JoNgc_nCM7cKdJW2s3ia8y6g6f6zaQLwCo1pWMJK-O" alt="img"></p></li>
+<li><p>Check details about this transaction</p></li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/8_ou6nauvga5COMjalNRUFeR1583Z2dDwSUYT_uCEfenAjqPwCRsFCh-jF1FPO7u2KrGE3GdEo_0nGxuRn7MFHaIii0q2ta-1CKeI-Awb27VCTKXspvLv5RclVZYl1ZXX8UimdUf" alt="img"></p>
+<ol start="5">
+<li>You’ll see this pop-up to ask to hold the screen to sign the transaction on your Trezor.</li>
+</ol>
+<p><img src="https://lh4.googleusercontent.com/CgV9tpPpgGZFowBeka3VUqgA5zCfT7gLxi3m1qujN00lFKGJu8uSoTpP8_VnF5qCasdPHb-S2FQEEKHGm37xjXJhCmxyxvpWN_mQ6CHb6Q4aCaHb4Y4MmOeZrUibQeGLPtyqFON2" alt="img"></p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-trade-binance-chain-crypto-assets"></a><a href="#how-to-trade-binance-chain-crypto-assets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to trade Binance Chain crypto assets</h2>
+<ol>
+<li>You can place your order on trading page</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/uVP-RjLkBt9YFxPrF6Xa0zSTc1wsct9az0s21bJ7lLj93nZkIHOReqNajz7iWn27DE3TbLmxAlYqPSLh-XqngTBTVjOHWIDJLYZBstgWf48vB_OvgZHAxS9_mwdNpBoEnShhkUMq" alt="img"></p>
+<ol start="2">
+<li>Confirm to give permission</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/xBRZ3hZzhgzrDCuX8q6yeHIJvL2I0XM-R9aDQF9_1Hl-ey1G0l0dv-qWLT2v0T25E37uoPafHuGgyc7UpWJ5EPeTiD-0d7JoNgc_nCM7cKdJW2s3ia8y6g6f6zaQLwCo1pWMJK-O" alt="img"></p>
+<ol start="3">
+<li>Check details about this transaction</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/8_ou6nauvga5COMjalNRUFeR1583Z2dDwSUYT_uCEfenAjqPwCRsFCh-jF1FPO7u2KrGE3GdEo_0nGxuRn7MFHaIii0q2ta-1CKeI-Awb27VCTKXspvLv5RclVZYl1ZXX8UimdUf" alt="img"></p>
+<ol start="4">
+<li>You’ll see this pop-up to ask to hold the screen to sign the transaction on your Trezor.</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/G44kc4A5tNPC-km-ofY_gmZ9k8BlME00GGPrwGD2CBdOHr74kkx62V43htZlJ6MGtnJn0qIhPEg6pJZtVMURlYyyqrWLjZ1sD_jdN36pPXs8rIcz9In_fQ7eO8LOl9cSgVJzfHOG" alt="img"></p>
+<p>Reference: <a href="https://wiki.trezor.io/User_manual">https://wiki.trezor.io/User_manual</a></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/7/2019 by huangsuyu</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirements">Requirements</a></li><li><a href="#app-installation-instructions">App Installation Instructions</a></li><li><a href="#setuplogin-instructions">Setup/Login Instructions</a></li><li><a href="#how-to-send-binance-chain-crypto-assets">How to send Binance Chain crypto assets</a></li><li><a href="#how-to-trade-binance-chain-crypto-assets">How to trade Binance Chain crypto assets</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Full Node Issues · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Common Issues When Running a Full Node"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Full Node Issues · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# Common Issues When Running a Full Node"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Run a node</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Quickstart<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/intro">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/access">Accessing Binance Chain</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/create-account">Create an Account</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-transfer">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/intro/make-trade">Make a Trade</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Concepts<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/accounts">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/anti-front-running">Anti Front-Running</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/atomic-swap">Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/blockchain">Blockchain Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/encoding">Transaction Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/exchange-integration">Exchange Integration</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/keys">Keys</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/list">List</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match">Matching Logic</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/match-examples">Matching Examples</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/memo-validation">Memo Validation</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/offline">Offline</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/timelock">Timelock</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tokens">Tokens</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trade">Trade</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/trading-spec">Trading Spec</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/transfer">Transfers</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/tss">Threshold Signatures</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/assets">Assets</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/matching-engine">Matching Engine</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/cross-chain-atomic-swaps">Cross-chain Atomic Swaps</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/threshold-signature-scheme">Threshold Signature Scheme</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/fees">Fees</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/concepts/encoding">Encoding</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/walletconnect">WalletConnect</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Run a node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs-site/docs/fullnode">Full Node</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs-site/docs/fullnodeissues">Full Node Issues</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/extra-data-from-fullnode">Get Extra Data from Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/light-client">Light Client</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/nodetypes">Types of Nodes</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/fullnode">Run a Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs-site/docs/guides/node/lightnode">Light Node</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Full Node Issues</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="common-issues-when-running-a-full-node"></a><a href="#common-issues-when-running-a-full-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Issues When Running a Full Node</h1>
+<ul>
+<li><a href="#common-issues-when-running-a-full-node">Common Issues When Running a Full Node</a>
+<ul>
+<li><a href="#how-to-monitor-your-full-node-syncing-process">How to monitor your full node syncing process?</a></li>
+<li><a href="#common-issues">Common Issues</a>
+<ul>
+<li><a href="#apphash-confliction">AppHash Confliction</a></li>
+<li><a href="#peer-connection-error">Peer connection error</a></li>
+<li><a href="#connection-timeout">Connection Timeout</a></li>
+<li><a href="#out-of-memory">Out of memory</a></li>
+<li><a href="#no-privvalidatorstatejson-after-reset">No priv_validator_state.json after reset</a></li>
+<li><a href="#bnbchaind-crashes-because-of-too-many-open-files"><code>bnbchaind</code> crashes because of <code>too many open files</code></a></li>
+<li><a href="#forget-to-upgrade">Forget to Upgrade</a></li>
+<li><a href="#bnbchaind-is-not-properly-killed"><code>bnbchaind</code> is not properly killed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="how-to-monitor-your-full-node-syncing-process"></a><a href="#how-to-monitor-your-full-node-syncing-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to monitor your full node syncing process?</h3>
+<ul>
+<li>You can check the current height of full node by visiting <code>localhost:26657/status</code></li>
+<li>You can check the log info in your log under your $BNCHOME.<br/>
+Monitor the output with:</li>
+</ul>
+<pre><code class="hljs">tail -f $BNCHOME/bnc.<span class="hljs-built_in">log</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="common-issues"></a><a href="#common-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Issues</h3>
+<p>If you start running a full node from scratch, you are likely to encounter the following issues:</p>
+<h4><a class="anchor" aria-hidden="true" id="apphash-confliction"></a><a href="#apphash-confliction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AppHash Confliction</h4>
+<ul>
+<li>Error Log</li>
+</ul>
+<pre><code class="hljs">panic: Tendermint <span class="hljs-keyword">state</span>.AppHash does not <span class="hljs-built_in">match</span> AppHash after replay. Got XXXXXXX, expected <span class="hljs-number">251</span>DF08F2BA7824F0875D33992CF03EA35106DDD34B3A9FE4EFA0B73CDD2FE14
+</code></pre>
+<p>This error is caused by a consensus issue and thus bnbchaind will panic.</p>
+<ul>
+<li>Solution</li>
+</ul>
+<p>To solve this issue, make sure that you have downloaded the correct genesis file.<br/>
+If you replaced the genesis file, then you need to do a node reset.<br/>
+To reset node:</p>
+<pre><code class="hljs"><span class="hljs-keyword">rm</span> <span class="hljs-variable">$BNCHOME</span>/data
+
+<span class="hljs-keyword">rm</span> <span class="hljs-variable">$BNCHOME</span>/config/priv_validator_key.json
+</code></pre>
+<p>Then, start again.</p>
+<h4><a class="anchor" aria-hidden="true" id="peer-connection-error"></a><a href="#peer-connection-error" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Peer connection error</h4>
+<ul>
+<li>Error log:</li>
+</ul>
+<pre><code class="hljs">E[<span class="hljs-string">2019-04-17|23:52:24.069</span>] Connection failed @ recvRoutine (reading byte) module=p2p peer=[<span class="hljs-string">aea74b16d28d06cbfbb1179c177e8cd71315cce4@54.64.99.130:27146</span>](<span class="hljs-link">http://aea74b16d28d06cbfbb1179c177e8cd71315cce4@54.64.99.130:27146</span>)conn=MConn{[<span class="hljs-string">52.199.237.19:27146</span>](<span class="hljs-link">http://52.199.237.19:27146</span>)} err=EOF
+E[<span class="hljs-string">2019-04-17|23:52:24.070</span>] Stopping peer for error module=p2p peer=&amp;quot;Peer{MConn{[<span class="hljs-string">52.199.237.19:27146</span>](<span class="hljs-link">http://52.199.237.19:27146</span>)} aea74b16d28d06cbfbb1179c177e8cd71315cce4 out}&amp;quot; err=EOF
+</code></pre>
+<p>This error is caused by the handshake failing between two peers.</p>
+<ul>
+<li>Solution</li>
+</ul>
+<p>To solve this problem, you need to make sure node_key.json is under <code>$BNCHOME/config</code> and nodes will try to re-connect automatically, so this issue should not persist.</p>
+<h4><a class="anchor" aria-hidden="true" id="connection-timeout"></a><a href="#connection-timeout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connection Timeout</h4>
+<ul>
+<li>Error log</li>
+</ul>
+<pre><code class="hljs">Dialing failed module=pex addr=<span class="hljs-symbol">2c1fa9c1698961da38d8cd50da9fe8b4bc433c50@</span><span class="hljs-number">34.202</span><span class="hljs-number">.245</span><span class="hljs-number">.91</span>:<span class="hljs-number">26856</span> err=&amp;quot;dial tcp <span class="hljs-number">34.202</span><span class="hljs-number">.245</span><span class="hljs-number">.91</span>:<span class="hljs-number">26856</span>: i/o timeout&amp;quot; attempts=<span class="hljs-number">3</span>
+</code></pre>
+<ul>
+<li>Solution</li>
+</ul>
+<p>Check your internet connection and make sure it is stable.</p>
+<h4><a class="anchor" aria-hidden="true" id="out-of-memory"></a><a href="#out-of-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Out of memory</h4>
+<ul>
+<li>Error Log</li>
+</ul>
+<pre><code class="hljs">fatal <span class="hljs-keyword">error</span>: <span class="hljs-keyword">out</span> of <span class="hljs-keyword">memory</span>
+</code></pre>
+<ul>
+<li>Solution</li>
+</ul>
+<p>Your machine must have more than <code>16 GB of memory</code>, otherwise, it will not handle DB restoration during state sync.</p>
+<h4><a class="anchor" aria-hidden="true" id="no-priv_validator_statejson-after-reset"></a><a href="#no-priv_validator_statejson-after-reset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>No priv_validator_state.json after reset</h4>
+<ul>
+<li>Error log</li>
+</ul>
+<pre><code class="hljs">open <span class="hljs-regexp">/Users/</span>.bnbchaind<span class="hljs-regexp">/data/</span>priv_validator_state.json: no such <span class="hljs-keyword">file</span> or directory
+</code></pre>
+<ul>
+<li>Solution</li>
+</ul>
+<p>Delete both <code>priv_validator_state.json</code> &amp; <code>node_key.json</code> file and <code>data</code> folder if you want to reset your full node.</p>
+<h4><a class="anchor" aria-hidden="true" id="bnbchaind-crashes-because-of-too-many-open-files"></a><a href="#bnbchaind-crashes-because-of-too-many-open-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>bnbchaind</code> crashes because of <code>too many open files</code></h4>
+<p>The default number of files Linux can open (per-process) is <code>1024</code>.<br/>
+<code>bnbchaind</code> is likely to open more than <code>1024</code> files.<br/>
+This causes the process to crash.<br/></p>
+<p>A quick fix is to run <code>ulimit -n 65535</code> (increase the number of open files allowed) and then restart the process with:</p>
+<pre><code class="hljs"><span class="hljs-keyword">bnbchaind </span>start
+</code></pre>
+<p>Verify the number of open files:</p>
+<pre><code class="hljs">ulimit -a
+core file size          (<span class="hljs-name">blocks</span>, -c) <span class="hljs-number">0</span>
+data seg size           (<span class="hljs-name">kbytes</span>, -d) unlimited
+scheduling priority             (<span class="hljs-name">-e</span>) <span class="hljs-number">0</span>
+file size               (<span class="hljs-name">blocks</span>, -f) unlimited
+pending signals                 (<span class="hljs-name">-i</span>) <span class="hljs-number">3829</span>
+max locked memory       (<span class="hljs-name">kbytes</span>, -l) <span class="hljs-number">64</span>
+max memory size         (<span class="hljs-name">kbytes</span>, -m) unlimited
+open files                      (<span class="hljs-name">-n</span>) <span class="hljs-number">65535</span>
+pipe size            (<span class="hljs-number">512</span> bytes, -p) <span class="hljs-number">8</span>
+POSIX message queues     (<span class="hljs-name">bytes</span>, -q) <span class="hljs-number">819200</span>
+real-time priority              (<span class="hljs-name">-r</span>) <span class="hljs-number">0</span>
+stack size              (<span class="hljs-name">kbytes</span>, -s) <span class="hljs-number">8192</span>
+cpu time               (<span class="hljs-name">seconds</span>, -t) unlimited
+max user processes              (<span class="hljs-name">-u</span>) <span class="hljs-number">3829</span>
+virtual memory          (<span class="hljs-name">kbytes</span>, -v) unlimited
+file locks                      (<span class="hljs-name">-x</span>) unlimited
+</code></pre>
+<p>Please note that open files are different now.</p>
+<h4><a class="anchor" aria-hidden="true" id="forget-to-upgrade"></a><a href="#forget-to-upgrade" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Forget to Upgrade</h4>
+<p>The Binance Chain has a hardfork upgrade and if you failed to upgrade your fullnode to the latest version, <code>bnbchaind</code> process will stop and even if you restart with the latest version, the following error will appear:</p>
+<pre><code class="hljs">panic: Tendermint state.AppHash does <span class="hljs-keyword">not</span> match AppHash after replay. Got , expected <span class="hljs-number">393887</span>B67F69B19CAB5C48FB87B4966018ABA893FB3FFD241C0A94D2C8668DD2
+goroutine <span class="hljs-number">1</span> [running]:
+github.com/binance-chain/node/vendor/github.com/tendermint/tendermint/consensus.checkAppHash(<span class="hljs-number">0xa</span>, <span class="hljs-number">0x0</span>, <span class="hljs-number">0xc000bd8c56</span>, <span class="hljs-number">0x6</span>, <span class="hljs-number">0xc000b247c0</span>, <span class="hljs-number">0x12</span>, <span class="hljs-number">0x14e7bf9</span>, <span class="hljs-number">0x8592eb</span>, <span class="hljs-number">0xc000b247e0</span>, <span class="hljs-number">0x20</span>, ...)
+/Users/huangsuyu/go/src/github.com/binance-chain/node/vendor/github.com/tendermint/tendermint/consensus/replay.go:<span class="hljs-number">464</span> +<span class="hljs-number">0x213</span>
+github.com/binance-chain/node/vendor/github.com/tendermint/tendermint/consensus.(*Handshaker).ReplayBlocks(<span class="hljs-number">0xc000b37980</span>, <span class="hljs-number">0xa</span>, <span class="hljs-number">0x0</span>, <span class="hljs-number">0xc000bd8c56</span>, <span class="hljs-number">0x6</span>, <span class="hljs-number">0xc000b247c0</span>, <span class="hljs-number">0x12</span>, <span class="hljs-number">0x14e7bf9</span>, <span class="hljs-number">0x8592eb</span>, <span class="hljs-number">0xc000b247e0</span>, ...)
+</code></pre>
+<p>To recover from the <code>state</code> conflict error, you need to:</p>
+<ul>
+<li><p>Backup your home directory, (default is ~/.bnbchaind)</p></li>
+<li><p>Download the tool: <a href="https://github.com/binance-chain/node-binary/tree/master/tools/recover">state-recover</a></p></li>
+<li><p>Get the height of upgrade, this height will be announced in the upgrade announcement on the forum. For example, if it's announced as 5000 in the forum and run the following command will make your full node recover to the last block before the upgrade, and that is 4999 :</p></li>
+</ul>
+<pre><code class="hljs">./state_recover <span class="hljs-number">4999</span> &lt;your_home_path&gt;
+</code></pre>
+<ul>
+<li>Restart with the latest version of <code>bnbchaind</code></li>
+</ul>
+<pre><code class="hljs">bnbchaind start <span class="hljs-meta">&amp;</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="bnbchaind-is-not-properly-killed"></a><a href="#bnbchaind-is-not-properly-killed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>bnbchaind</code> is not properly killed</h4>
+<p>If you started your <code>bnbchaind</code> process after it was not properly killed. You will see the following error:</p>
+<pre><code class="hljs"><span class="hljs-string">panic:</span> <span class="hljs-string">ERROR:</span>
+<span class="hljs-string">Codespace:</span> <span class="hljs-number">5</span>
+<span class="hljs-string">Code:</span> <span class="hljs-number">9</span>
+<span class="hljs-string">Message:</span> <span class="hljs-string">"Initial ProposalID already set"</span>
+</code></pre>
+<p>To recover, please reset your node and restart:</p>
+<pre><code class="hljs">bnbchaind unsafe-<span class="hljs-keyword">reset</span>-<span class="hljs-keyword">all</span> <span class="hljs-comment">--home&lt;your-home-dir&gt;</span>
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/17/2020 by Daniel Onggunhao</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs-site/docs/fullnode"><span class="arrow-prev">← </span><span>Full Node</span></a><a class="docs-next button" href="/docs-site/docs/extra-data-from-fullnode"><span>Get Extra Data from Full Node</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

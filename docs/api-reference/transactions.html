@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>api-reference/transactions · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Transaction Data"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="api-reference/transactions · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="# Transaction Data"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">api-reference/transactions</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="transaction-data"></a><a href="#transaction-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction Data</h1>
+<p>A transaction in tendermint is any sequence of bytes. It's up to the ABCI application to accept or reject the transactions.</p>
+<p>On Binance Chain, all kinds of transactions are wrapped in type <code>StdTx</code> before marshalling by <a href="https://github.com/tendermint/go-amino">Amino</a>:</p>
+<pre><code class="hljs css language-go"><span class="hljs-keyword">type</span> StdTx <span class="hljs-keyword">struct</span> {
+    Msg                       <span class="hljs-string">`json:"msg"`</span>
+    Fee        StdFee         <span class="hljs-string">`json:"fee"`</span>
+    Signatures []StdSignature <span class="hljs-string">`json:"signatures"`</span>
+}
+</code></pre>
+<p>All kinds of transactions have the same type of Fee and Signatures, the difference is the <code>msg</code> part.</p>
+<p>Adding new transaction types would not require fork of blockchain, while upgrading transaction would be done via adding new transaction type: e.g. Burn2 vs. Burn.</p>
+<h3><a class="anchor" aria-hidden="true" id="order"></a><a href="#order" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Order</h3>
+<pre><code class="hljs css language-go"><span class="hljs-keyword">type</span> Msg <span class="hljs-keyword">struct</span> {
+    From   sdk.Address <span class="hljs-string">`json:"from"`</span>
+    Id     <span class="hljs-keyword">string</span> <span class="hljs-string">`json:"id"`</span>
+    Pair   <span class="hljs-keyword">string</span> <span class="hljs-string">`json:"pair"`</span>
+    Type   <span class="hljs-keyword">int8</span>   <span class="hljs-string">`json:"type"`</span>
+    Side   <span class="hljs-keyword">int8</span>   <span class="hljs-string">`json:"side"`</span>
+    Price  <span class="hljs-keyword">int64</span>  <span class="hljs-string">`json:price`</span>
+    Quantity <span class="hljs-keyword">int64</span> <span class="hljs-string">`json:"quantity"`</span>
+    TimeInForce <span class="hljs-keyword">int8</span> <span class="hljs-string">`json:"tif"
+}
+</span></code></pre>
+<h3><a class="anchor" aria-hidden="true" id="issue-msg"></a><a href="#issue-msg" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Issue Msg</h3>
+<pre><code class="hljs css language-go"><span class="hljs-keyword">type</span> Msg <span class="hljs-keyword">struct</span> {
+  From     sdk.Address <span class="hljs-string">`json:"from"`</span>
+  Name     <span class="hljs-keyword">string</span>      <span class="hljs-string">`json:"name"`</span>
+  Symbol   <span class="hljs-keyword">string</span>      <span class="hljs-string">`json:"symbol"`</span>
+  Supply   <span class="hljs-keyword">int64</span>       <span class="hljs-string">`json:"supply"`</span>
+  Decimals <span class="hljs-keyword">int8</span>        <span class="hljs-string">`json:"decimals"`</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="burnfreezeunfreeze-msg"></a><a href="#burnfreezeunfreeze-msg" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Burn/Freeze/Unfreeze Msg</h3>
+<pre><code class="hljs css language-go"><span class="hljs-keyword">type</span> Msg <span class="hljs-keyword">struct</span> {
+  From   sdk.Address <span class="hljs-string">`json:"from"`</span>
+  Symbol <span class="hljs-keyword">string</span>      <span class="hljs-string">`json:"symbol"`</span>
+  Amount <span class="hljs-keyword">int64</span>       <span class="hljs-string">`json:"amount"`</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="amino-types"></a><a href="#amino-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Amino Types</h2>
+<p>Amino uses 4-byte type prefixes to encode type information. This list was obtained through <code>cdc.PrintTypes(os.Stdout)</code>.</p>
+<p>There is an example on how this prefix is used in JavaScript <a href="https://github.com/mappum/js-tendermint/blob/51f4a8601e5e1a697c905bb0612be21ad46ec484/src/types.js#L87">here</a>. We should use <a href="https://www.npmjs.com/package/varstruct">varstruct</a> to encode binary structures.</p>
+<p>More documentation is available <a href="/docs-site/docs/encoding">here</a></p>
+<p>Binance Chain JavaScript SDK Amino API <a href="https://github.com/binance-chain/javascript-sdk/wiki/API-Examples#amino-js-amino">example</a></p>
+<table>
+<thead>
+<tr><th>Type</th><th>Name</th><th>Prefix</th><th>Length</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td>PubKeyEd25519</td><td>tendermint/PubKeyEd25519</td><td>0x1624DE64</td><td>0x20</td><td></td></tr>
+<tr><td>PubKeySecp256k1</td><td>tendermint/PubKeySecp256k1</td><td>0xEB5AE987</td><td>0x21</td><td></td></tr>
+<tr><td>PubKeyMultisigThreshold</td><td>tendermint/PubKeyMultisigThreshold</td><td>0x22C1F7E2</td><td>variable</td><td></td></tr>
+<tr><td>PrivKeyEd25519</td><td>tendermint/PrivKeyEd25519</td><td>0xA3288910</td><td>0x40</td><td></td></tr>
+<tr><td>PrivKeySecp256k1</td><td>tendermint/PrivKeySecp256k1</td><td>0xE1B0F79B</td><td>0x20</td><td></td></tr>
+<tr><td>MsgSend</td><td>cosmos-sdk/Send</td><td>0x2A2C87FA</td><td>variable</td><td></td></tr>
+<tr><td>Genesis</td><td>dex/Genesis</td><td>0xDE082972</td><td>variable</td><td></td></tr>
+<tr><td>NewOrderMsg</td><td>dex/NewOrder</td><td>0xCE6DC043</td><td>variable</td><td></td></tr>
+<tr><td>CancelOrderMsg</td><td>dex/CancelOrder</td><td>0x166E681B</td><td>variable</td><td></td></tr>
+<tr><td>ListMsg</td><td>dex/ListMsg</td><td>0xB41DE13F</td><td>variable</td><td></td></tr>
+<tr><td>TradingPair</td><td>dex/TradingPair</td><td>0x4F88DF56</td><td>variable</td><td></td></tr>
+<tr><td>FeeConfig</td><td>dex/FeeConfig</td><td>0xF7DB5159</td><td>variable</td><td></td></tr>
+<tr><td>OrderBookSnapshot</td><td>dex/OrderBookSnapshot</td><td>0x48C09C8E</td><td>variable</td><td></td></tr>
+<tr><td>ActiveOrders</td><td>dex/ActiveOrders</td><td>0xBB70A053</td><td>variable</td><td></td></tr>
+<tr><td>RecentPrice</td><td>dex/RecentPrice</td><td>0x278FAD64</td><td>variable</td><td></td></tr>
+<tr><td>IssueMsg</td><td>tokens/IssueMsg</td><td>0x17EFAB80</td><td>variable</td><td></td></tr>
+<tr><td>MintMsg</td><td>tokens/MintMsg</td><td>0x467E0829</td><td>variable</td><td></td></tr>
+<tr><td>BurnMsg</td><td>tokens/BurnMsg</td><td>0x7ED2D2A0</td><td>variable</td><td></td></tr>
+<tr><td>FreezeMsg</td><td>tokens/FreezeMsg</td><td>0xE774B32D</td><td>variable</td><td></td></tr>
+<tr><td>UnfreezeMsg</td><td>tokens/UnfreezeMsg</td><td>0x6515FF0D</td><td>variable</td><td></td></tr>
+<tr><td>AppAccount</td><td>bnbchain/Account</td><td>0x4BDC4C27</td><td>variable</td><td></td></tr>
+<tr><td>Token</td><td>bnbchain/Token</td><td>0x140364E6</td><td>variable</td><td></td></tr>
+<tr><td>StdTx</td><td>auth/StdTx</td><td>0xF0625DEE</td><td>variable</td><td></td></tr>
+<tr><td>MsgCreateValidator</td><td>cosmos-sdk/MsgCreateValidator</td><td>0xEB361D01</td><td>variable</td><td></td></tr>
+<tr><td>MsgCreateValidatorProposal</td><td>cosmos-sdk/MsgCreateValidatorProposal</td><td>0xDB6A19FD</td><td>variable</td><td></td></tr>
+<tr><td>MsgEditValidator</td><td>cosmos-sdk/MsgEditValidator</td><td>0xC2E8BCCD</td><td>variable</td><td></td></tr>
+<tr><td>MsgDelegate</td><td>cosmos-sdk/MsgDelegate</td><td>0x921D2E4E</td><td>variable</td><td></td></tr>
+<tr><td>MsgBeginUnbonding</td><td>cosmos-sdk/BeginUnbonding</td><td>0xA3823C9A</td><td>variable</td><td></td></tr>
+<tr><td>MsgBeginRedelegate</td><td>cosmos-sdk/BeginRedelegate</td><td>0x267996D2</td><td>variable</td><td></td></tr>
+<tr><td>MsgSubmitProposal</td><td>cosmos-sdk/MsgSubmitProposal</td><td>0xB42D614E</td><td>variable</td><td></td></tr>
+<tr><td>MsgDeposit</td><td>cosmos-sdk/MsgDeposit</td><td>0xA18A56E5</td><td>variable</td><td></td></tr>
+<tr><td>MsgVote</td><td>cosmos-sdk/MsgVote</td><td>0xA1CADD36</td><td>variable</td><td></td></tr>
+<tr><td>TextProposal</td><td>gov/TextProposal</td><td>0xACCBA2DE</td><td>variable</td><td></td></tr>
+<tr><td>FixedFeeParams</td><td>params/FixedFeeParams</td><td>0xC2A96FA3</td><td>variable</td><td></td></tr>
+<tr><td>TransferFeeParam</td><td>params/TransferFeeParams</td><td>0x9A3D2769</td><td>variable</td><td></td></tr>
+<tr><td>DexFeeParam</td><td>params/DexFeeParam</td><td>0x495A5044</td><td>variable</td><td></td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/11/2020 by Daniel Onggunhao</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#amino-types">Amino Types</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

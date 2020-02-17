@@ -1,0 +1,1307 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>api-reference/js-sdk/jsdoc · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Modules"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="api-reference/js-sdk/jsdoc · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="## Modules"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">api-reference/js-sdk/jsdoc</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="modules"></a><a href="#modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modules</h2>
+<dl>
+<dt><a href="#module_client">client</a></dt>
+<dd></dd>
+<dt><a href="#module_crypto">crypto</a></dt>
+<dd></dd>
+<dt><a href="#module_amino">amino</a></dt>
+<dd></dd>
+<dt><a href="#module_ledger">ledger</a></dt>
+<dd></dd>
+<dt><a href="#module_utils">utils</a></dt>
+<dd></dd>
+</dl>
+<h2><a class="anchor" aria-hidden="true" id="classes"></a><a href="#classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Classes</h2>
+<dl>
+<dt><a href="#Transaction">Transaction</a></dt>
+<dd><p>Creates a new transaction object.</p>
+</dd>
+</dl>
+<p><a name="module_client"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="client"></a><a href="#client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client</h2>
+<ul>
+<li><a href="#module_client">client</a>
+<ul>
+<li><em>static</em>
+<ul>
+<li><a href="#module_client.BncClient">.BncClient</a>
+<ul>
+<li><a href="#new_module_client.BncClient_new">new exports.BncClient(server, useAsyncBroadcast)</a></li>
+<li><a href="#module_client.BncClient+initChain">.initChain()</a> ⇒ <code>Promise</code></li>
+<li><a href="#module_client.BncClient+setPrivateKey">.setPrivateKey()</a> ⇒ <code>Promise</code></li>
+<li><a href="#module_client.BncClient+useAsyncBroadcast">.useAsyncBroadcast(useAsyncBroadcast)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+setSigningDelegate">.setSigningDelegate(delegate)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+setBroadcastDelegate">.setBroadcastDelegate(delegate)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+useDefaultSigningDelegate">.useDefaultSigningDelegate()</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+useDefaultBroadcastDelegate">.useDefaultBroadcastDelegate()</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+useLedgerSigningDelegate">.useLedgerSigningDelegate(ledgerApp, preSignCb, postSignCb, errCb)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+transfer">.transfer(fromAddress, toAddress, amount, asset, memo, sequence)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+cancelOrder">.cancelOrder(fromAddress, symbol, refid, sequence)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+placeOrder">.placeOrder(address, symbol, side, price, quantity, sequence, timeinforce)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+_prepareTransaction">._prepareTransaction(msg, stdSignMsg, address, sequence, memo)</a> ⇒ <a href="#Transaction"><code>Transaction</code></a></li>
+<li><a href="#module_client.BncClient+sendTransaction">.sendTransaction(tx, sync)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+sendRawTransaction">.sendRawTransaction(signedBz, sync)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+_sendTransaction">._sendTransaction(msg, stdSignMsg, address, sequence, memo, sync)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+getAccount">.getAccount(address)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+getBalance">.getBalance(address)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+createAccount">.createAccount()</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+createAccountWithKeystore">.createAccountWithKeystore(password)</a></li>
+<li><a href="#module_client.BncClient+createAccountWithMneomnic">.createAccountWithMneomnic()</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+recoverAccountFromKeystore">.recoverAccountFromKeystore(keystore, password)</a></li>
+<li><a href="#module_client.BncClient+recoverAccountFromMneomnic">.recoverAccountFromMneomnic(mneomnic)</a></li>
+<li><a href="#module_client.BncClient+recoverAccountFromPrivateKey">.recoverAccountFromPrivateKey(privateKey)</a></li>
+<li><a href="#module_client.BncClient+checkAddress">.checkAddress(address)</a> ⇒ <code>Boolean</code></li>
+<li><a href="#module_client.BncClient+getClientKeyAddress">.getClientKeyAddress()</a> ⇒ <code>String</code></li>
+</ul></li>
+<li><a href="#module_client.DefaultSigningDelegate">.DefaultSigningDelegate</a> ⇒ <a href="#Transaction"><code>Transaction</code></a></li>
+<li><a href="#module_client.DefaultBroadcastDelegate">.DefaultBroadcastDelegate</a></li>
+<li><a href="#module_client.LedgerSigningDelegate">.LedgerSigningDelegate</a> ⇒ <code>function</code></li>
+</ul></li>
+<li><em>inner</em>
+<ul>
+<li><a href="#module_client..checkNumber">~checkNumber(value)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><a name="module_client.BncClient"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="clientbncclient"></a><a href="#clientbncclient" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client.BncClient</h3>
+<p>The Binance Chain client.</p>
+<p><strong>Kind</strong>: static class of <a href="#module_client"><code>client</code></a></p>
+<ul>
+<li><a href="#module_client.BncClient">.BncClient</a>
+<ul>
+<li><a href="#new_module_client.BncClient_new">new exports.BncClient(server, useAsyncBroadcast)</a></li>
+<li><a href="#module_client.BncClient+initChain">.initChain()</a> ⇒ <code>Promise</code></li>
+<li><a href="#module_client.BncClient+setPrivateKey">.setPrivateKey()</a> ⇒ <code>Promise</code></li>
+<li><a href="#module_client.BncClient+useAsyncBroadcast">.useAsyncBroadcast(useAsyncBroadcast)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+setSigningDelegate">.setSigningDelegate(delegate)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+setBroadcastDelegate">.setBroadcastDelegate(delegate)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+useDefaultSigningDelegate">.useDefaultSigningDelegate()</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+useDefaultBroadcastDelegate">.useDefaultBroadcastDelegate()</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+useLedgerSigningDelegate">.useLedgerSigningDelegate(ledgerApp, preSignCb, postSignCb, errCb)</a> ⇒ <code>BncClient</code></li>
+<li><a href="#module_client.BncClient+transfer">.transfer(fromAddress, toAddress, amount, asset, memo, sequence)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+cancelOrder">.cancelOrder(fromAddress, symbol, refid, sequence)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+placeOrder">.placeOrder(address, symbol, side, price, quantity, sequence, timeinforce)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+_prepareTransaction">._prepareTransaction(msg, stdSignMsg, address, sequence, memo)</a> ⇒ <a href="#Transaction"><code>Transaction</code></a></li>
+<li><a href="#module_client.BncClient+sendTransaction">.sendTransaction(tx, sync)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+sendRawTransaction">.sendRawTransaction(signedBz, sync)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+_sendTransaction">._sendTransaction(msg, stdSignMsg, address, sequence, memo, sync)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+getAccount">.getAccount(address)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+getBalance">.getBalance(address)</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+createAccount">.createAccount()</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+createAccountWithKeystore">.createAccountWithKeystore(password)</a></li>
+<li><a href="#module_client.BncClient+createAccountWithMneomnic">.createAccountWithMneomnic()</a> ⇒ <code>Object</code></li>
+<li><a href="#module_client.BncClient+recoverAccountFromKeystore">.recoverAccountFromKeystore(keystore, password)</a></li>
+<li><a href="#module_client.BncClient+recoverAccountFromMneomnic">.recoverAccountFromMneomnic(mneomnic)</a></li>
+<li><a href="#module_client.BncClient+recoverAccountFromPrivateKey">.recoverAccountFromPrivateKey(privateKey)</a></li>
+<li><a href="#module_client.BncClient+checkAddress">.checkAddress(address)</a> ⇒ <code>Boolean</code></li>
+<li><a href="#module_client.BncClient+getClientKeyAddress">.getClientKeyAddress()</a> ⇒ <code>String</code></li>
+</ul></li>
+</ul>
+<p><a name="new_module_client.BncClient_new"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="new-exportsbncclientserver-useasyncbroadcast"></a><a href="#new-exportsbncclientserver-useasyncbroadcast" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>new exports.BncClient(server, useAsyncBroadcast)</h4>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>server</td><td><code>string</code></td><td></td><td>Binance Chain public url</td></tr>
+<tr><td>useAsyncBroadcast</td><td><code>Boolean</code></td><td><code>false</code></td><td>use async broadcast mode, faster but less guarantees (default off)</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+initChain"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientinitchain-⇒-codepromisecode"></a><a href="#bncclientinitchain-⇒-codepromisecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.initChain() ⇒ <code>Promise</code></h4>
+<p>Initialize the client with the chain's ID. Asynchronous.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<a name="module_client.BncClient+setPrivateKey"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientsetprivatekey-⇒-codepromisecode"></a><a href="#bncclientsetprivatekey-⇒-codepromisecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.setPrivateKey() ⇒ <code>Promise</code></h4>
+<p>Sets the client's private key for calls made by this client. Asynchronous.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<a name="module_client.BncClient+useAsyncBroadcast"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientuseasyncbroadcastuseasyncbroadcast-⇒-codebncclientcode"></a><a href="#bncclientuseasyncbroadcastuseasyncbroadcast-⇒-codebncclientcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.useAsyncBroadcast(useAsyncBroadcast) ⇒ <code>BncClient</code></h4>
+<p>Use async broadcast mode. Broadcasts faster with less guarantees (default off)</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>BncClient</code> - this instance (for chaining)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td>useAsyncBroadcast</td><td><code>Boolean</code></td><td><code>true</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+setSigningDelegate"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientsetsigningdelegatedelegate-⇒-codebncclientcode"></a><a href="#bncclientsetsigningdelegatedelegate-⇒-codebncclientcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.setSigningDelegate(delegate) ⇒ <code>BncClient</code></h4>
+<p>Sets the signing delegate (for wallet integrations).</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>BncClient</code> - this instance (for chaining)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>delegate</td><td><code>function</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+setBroadcastDelegate"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientsetbroadcastdelegatedelegate-⇒-codebncclientcode"></a><a href="#bncclientsetbroadcastdelegatedelegate-⇒-codebncclientcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.setBroadcastDelegate(delegate) ⇒ <code>BncClient</code></h4>
+<p>Sets the broadcast delegate (for wallet integrations).</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>BncClient</code> - this instance (for chaining)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>delegate</td><td><code>function</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+useDefaultSigningDelegate"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientusedefaultsigningdelegate-⇒-codebncclientcode"></a><a href="#bncclientusedefaultsigningdelegate-⇒-codebncclientcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.useDefaultSigningDelegate() ⇒ <code>BncClient</code></h4>
+<p>Applies the default signing delegate.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>BncClient</code> - this instance (for chaining)
+<a name="module_client.BncClient+useDefaultBroadcastDelegate"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientusedefaultbroadcastdelegate-⇒-codebncclientcode"></a><a href="#bncclientusedefaultbroadcastdelegate-⇒-codebncclientcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.useDefaultBroadcastDelegate() ⇒ <code>BncClient</code></h4>
+<p>Applies the default broadcast delegate.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>BncClient</code> - this instance (for chaining)
+<a name="module_client.BncClient+useLedgerSigningDelegate"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientuseledgersigningdelegateledgerapp-presigncb-postsigncb-errcb-⇒-codebncclientcode"></a><a href="#bncclientuseledgersigningdelegateledgerapp-presigncb-postsigncb-errcb-⇒-codebncclientcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.useLedgerSigningDelegate(ledgerApp, preSignCb, postSignCb, errCb) ⇒ <code>BncClient</code></h4>
+<p>Applies the Ledger signing delegate.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>BncClient</code> - this instance (for chaining)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>ledgerApp</td><td><code>function</code></td></tr>
+<tr><td>preSignCb</td><td><code>function</code></td></tr>
+<tr><td>postSignCb</td><td><code>function</code></td></tr>
+<tr><td>errCb</td><td><code>function</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+transfer"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclienttransferfromaddress-toaddress-amount-asset-memo-sequence-⇒-codeobjectcode"></a><a href="#bncclienttransferfromaddress-toaddress-amount-asset-memo-sequence-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.transfer(fromAddress, toAddress, amount, asset, memo, sequence) ⇒ <code>Object</code></h4>
+<p>Transfer tokens from one address to another.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - response (success or fail)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>fromAddress</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>toAddress</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>amount</td><td><code>Number</code></td><td></td><td></td></tr>
+<tr><td>asset</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>memo</td><td><code>String</code></td><td></td><td>optional memo</td></tr>
+<tr><td>sequence</td><td><code>Number</code></td><td><code></code></td><td>optional sequence</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+cancelOrder"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientcancelorderfromaddress-symbol-refid-sequence-⇒-codeobjectcode"></a><a href="#bncclientcancelorderfromaddress-symbol-refid-sequence-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.cancelOrder(fromAddress, symbol, refid, sequence) ⇒ <code>Object</code></h4>
+<p>Cancel an order.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - response (success or fail)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>fromAddress</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>symbol</td><td><code>String</code></td><td></td><td>the market pair</td></tr>
+<tr><td>refid</td><td><code>String</code></td><td></td><td>the order ID of the order to cancel</td></tr>
+<tr><td>sequence</td><td><code>Number</code></td><td><code></code></td><td>optional sequence</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+placeOrder"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientplaceorderaddress-symbol-side-price-quantity-sequence-timeinforce-⇒-codeobjectcode"></a><a href="#bncclientplaceorderaddress-symbol-side-price-quantity-sequence-timeinforce-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.placeOrder(address, symbol, side, price, quantity, sequence, timeinforce) ⇒ <code>Object</code></h4>
+<p>Place an order.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - response (success or fail)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>symbol</td><td><code>String</code></td><td></td><td>the market pair</td></tr>
+<tr><td>side</td><td><code>Number</code></td><td></td><td>(1-Buy, 2-Sell)</td></tr>
+<tr><td>price</td><td><code>Number</code></td><td></td><td></td></tr>
+<tr><td>quantity</td><td><code>Number</code></td><td></td><td></td></tr>
+<tr><td>sequence</td><td><code>Number</code></td><td><code></code></td><td>optional sequence</td></tr>
+<tr><td>timeinforce</td><td><code>Number</code></td><td><code>1</code></td><td>(1-GTC(Good Till Expire), 3-IOC(Immediate or Cancel))</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+_prepareTransaction"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclient_preparetransactionmsg-stdsignmsg-address-sequence-memo-⇒-codetransactioncodetransaction"></a><a href="#bncclient_preparetransactionmsg-stdsignmsg-address-sequence-memo-⇒-codetransactioncodetransaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient._prepareTransaction(msg, stdSignMsg, address, sequence, memo) ⇒ <a href="#Transaction"><code>Transaction</code></a></h4>
+<p>Prepare a serialized raw transaction for sending to the blockchain.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <a href="#Transaction"><code>Transaction</code></a> - signed transaction</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>msg</td><td><code>Object</code></td><td></td><td>the msg object</td></tr>
+<tr><td>stdSignMsg</td><td><code>Object</code></td><td></td><td>the sign doc object used to generate a signature</td></tr>
+<tr><td>address</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>sequence</td><td><code>Number</code></td><td><code></code></td><td>optional sequence</td></tr>
+<tr><td>memo</td><td><code>String</code></td><td></td><td>optional memo</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+sendTransaction"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientsendtransactiontx-sync-⇒-codeobjectcode"></a><a href="#bncclientsendtransactiontx-sync-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.sendTransaction(tx, sync) ⇒ <code>Object</code></h4>
+<p>Broadcast a transaction to the blockchain.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - response (success or fail)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>tx</td><td><code>signedTx</code></td><td>signed Transaction object</td></tr>
+<tr><td>sync</td><td><code>Boolean</code></td><td>use synchronous mode, optional</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+sendRawTransaction"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientsendrawtransactionsignedbz-sync-⇒-codeobjectcode"></a><a href="#bncclientsendrawtransactionsignedbz-sync-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.sendRawTransaction(signedBz, sync) ⇒ <code>Object</code></h4>
+<p>Broadcast a raw transaction to the blockchain.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - response (success or fail)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>signedBz</td><td><code>String</code></td><td>signed and serialized raw transaction</td></tr>
+<tr><td>sync</td><td><code>Boolean</code></td><td>use synchronous mode, optional</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+_sendTransaction"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclient_sendtransactionmsg-stdsignmsg-address-sequence-memo-sync-⇒-codeobjectcode"></a><a href="#bncclient_sendtransactionmsg-stdsignmsg-address-sequence-memo-sync-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient._sendTransaction(msg, stdSignMsg, address, sequence, memo, sync) ⇒ <code>Object</code></h4>
+<p>Broadcast a raw transaction to the blockchain.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - response (success or fail)</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>msg</td><td><code>Object</code></td><td></td><td>the msg object</td></tr>
+<tr><td>stdSignMsg</td><td><code>Object</code></td><td></td><td>the sign doc object used to generate a signature</td></tr>
+<tr><td>address</td><td><code>String</code></td><td></td><td></td></tr>
+<tr><td>sequence</td><td><code>Number</code></td><td><code></code></td><td>optional sequence</td></tr>
+<tr><td>memo</td><td><code>String</code></td><td></td><td>optional memo</td></tr>
+<tr><td>sync</td><td><code>Boolean</code></td><td></td><td>use synchronous mode, optional</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+getAccount"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientgetaccountaddress-⇒-codeobjectcode"></a><a href="#bncclientgetaccountaddress-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.getAccount(address) ⇒ <code>Object</code></h4>
+<p>get account</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - http response</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td><code>String</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+getBalance"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientgetbalanceaddress-⇒-codeobjectcode"></a><a href="#bncclientgetbalanceaddress-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.getBalance(address) ⇒ <code>Object</code></h4>
+<p>get balances</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - http response</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td><code>String</code></td><td>optional address</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+createAccount"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientcreateaccount-⇒-codeobjectcode"></a><a href="#bncclientcreateaccount-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.createAccount() ⇒ <code>Object</code></h4>
+<p>Creates a private key.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - {
+address,
+privateKey
+}
+<a name="module_client.BncClient+createAccountWithKeystore"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientcreateaccountwithkeystorepassword"></a><a href="#bncclientcreateaccountwithkeystorepassword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.createAccountWithKeystore(password)</h4>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>password</td><td><code>String</code></td><td>{  privateKey,  address,  keystore }</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+createAccountWithMneomnic"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientcreateaccountwithmneomnic-⇒-codeobjectcode"></a><a href="#bncclientcreateaccountwithmneomnic-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.createAccountWithMneomnic() ⇒ <code>Object</code></h4>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<strong>Returns</strong>: <code>Object</code> - {
+privateKey,
+address,
+mnemonic
+}
+<a name="module_client.BncClient+recoverAccountFromKeystore"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientrecoveraccountfromkeystorekeystore-password"></a><a href="#bncclientrecoveraccountfromkeystorekeystore-password" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.recoverAccountFromKeystore(keystore, password)</h4>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>keystore</td><td><code>String</code></td><td></td></tr>
+<tr><td>password</td><td><code>String</code></td><td>{ privateKey, address }</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+recoverAccountFromMneomnic"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientrecoveraccountfrommneomnicmneomnic"></a><a href="#bncclientrecoveraccountfrommneomnicmneomnic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.recoverAccountFromMneomnic(mneomnic)</h4>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>mneomnic</td><td><code>String</code></td><td>{ privateKey, address }</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+recoverAccountFromPrivateKey"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientrecoveraccountfromprivatekeyprivatekey"></a><a href="#bncclientrecoveraccountfromprivatekeyprivatekey" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.recoverAccountFromPrivateKey(privateKey)</h4>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>privateKey</td><td><code>String</code></td><td>{ privateKey, address }</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+checkAddress"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientcheckaddressaddress-⇒-codebooleancode"></a><a href="#bncclientcheckaddressaddress-⇒-codebooleancode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.checkAddress(address) ⇒ <code>Boolean</code></h4>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td><code>String</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client.BncClient+getClientKeyAddress"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="bncclientgetclientkeyaddress-⇒-codestringcode"></a><a href="#bncclientgetclientkeyaddress-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bncClient.getClientKeyAddress() ⇒ <code>String</code></h4>
+<p>Returns the address for the current account if setPrivateKey has been called on this client.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_client.BncClient"><code>BncClient</code></a>
+<a name="module_client.DefaultSigningDelegate"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="clientdefaultsigningdelegate-⇒-codetransactioncodetransaction"></a><a href="#clientdefaultsigningdelegate-⇒-codetransactioncodetransaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client.DefaultSigningDelegate ⇒ <a href="#Transaction"><code>Transaction</code></a></h3>
+<p>The default signing delegate which uses the local private key.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_client"><code>client</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>tx</td><td><a href="#Transaction"><code>Transaction</code></a></td><td>the transaction</td></tr>
+<tr><td>signMsg</td><td><code>Object</code></td><td>the canonical sign bytes for the msg</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.DefaultBroadcastDelegate"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="clientdefaultbroadcastdelegate"></a><a href="#clientdefaultbroadcastdelegate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client.DefaultBroadcastDelegate</h3>
+<p>The default broadcast delegate which immediately broadcasts a transaction.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_client"><code>client</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>signedTx</td><td><a href="#Transaction"><code>Transaction</code></a></td><td>the signed transaction</td></tr>
+</tbody>
+</table>
+<p><a name="module_client.LedgerSigningDelegate"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="clientledgersigningdelegate-⇒-codefunctioncode"></a><a href="#clientledgersigningdelegate-⇒-codefunctioncode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client.LedgerSigningDelegate ⇒ <code>function</code></h3>
+<p>The Ledger signing delegate.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_client"><code>client</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>ledgerApp</td><td><code>LedgerApp</code></td></tr>
+<tr><td>function</td><td><code>preSignCb</code></td></tr>
+<tr><td>function</td><td><code>postSignCb</code></td></tr>
+<tr><td>function</td><td><code>errCb</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_client..checkNumber"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="clientchecknumbervalue"></a><a href="#clientchecknumbervalue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client~checkNumber(value)</h3>
+<p>validate the input number.</p>
+<p><strong>Kind</strong>: inner method of <a href="#module_client"><code>client</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td><code>Number</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="crypto"></a><a href="#crypto" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto</h2>
+<ul>
+<li><a href="#module_crypto">crypto</a>
+<ul>
+<li><a href="#module_crypto.decodeAddress">.decodeAddress</a></li>
+<li><a href="#module_crypto.checkAddress">.checkAddress</a></li>
+<li><a href="#module_crypto.encodeAddress">.encodeAddress</a></li>
+<li><a href="#module_crypto.generatePrivateKey">.generatePrivateKey</a> ⇒ <code>string</code></li>
+<li><a href="#module_crypto.generateRandomArray">.generateRandomArray</a> ⇒ <code>ArrayBuffer</code></li>
+<li><a href="#module_crypto.getPublicKey">.getPublicKey</a> ⇒ <code>Elliptic.PublicKey</code></li>
+<li><a href="#module_crypto.getPublicKeyFromPrivateKey">.getPublicKeyFromPrivateKey</a> ⇒ <code>string</code></li>
+<li><a href="#module_crypto.generatePubKey">.generatePubKey</a> ⇒ <code>Elliptic.PublicKey</code></li>
+<li><a href="#module_crypto.getAddressFromPublicKey">.getAddressFromPublicKey</a></li>
+<li><a href="#module_crypto.getAddressFromPrivateKey">.getAddressFromPrivateKey</a></li>
+<li><a href="#module_crypto.generateSignature">.generateSignature</a> ⇒ <code>Buffer</code></li>
+<li><a href="#module_crypto.verifySignature">.verifySignature</a> ⇒ <code>Buffer</code></li>
+<li><a href="#module_crypto.generateKeyStore">.generateKeyStore</a> ⇒ <code>object</code></li>
+<li><a href="#module_crypto.getPrivateKeyFromKeyStore">.getPrivateKeyFromKeyStore</a></li>
+<li><a href="#module_crypto.generateMnemonic">.generateMnemonic</a></li>
+<li><a href="#module_crypto.validateMnemonic">.validateMnemonic</a> ⇒ <code>bool</code></li>
+<li><a href="#module_crypto.getPrivateKeyFromMnemonic">.getPrivateKeyFromMnemonic</a> ⇒ <code>string</code></li>
+</ul></li>
+</ul>
+<p><a name="module_crypto.decodeAddress"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptodecodeaddress"></a><a href="#cryptodecodeaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.decodeAddress</h3>
+<p>Decodes an address in bech32 format.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td><code>string</code></td><td>the bech32 address to decode</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.checkAddress"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptocheckaddress"></a><a href="#cryptocheckaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.checkAddress</h3>
+<p>checek address whether is valid</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td><code>string</code></td><td>the bech32 address to decode</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.encodeAddress"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptoencodeaddress"></a><a href="#cryptoencodeaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.encodeAddress</h3>
+<p>Encodes an address from input data bytes.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td><code>string</code></td><td>the public key to encode</td></tr>
+<tr><td>prefix</td><td><code>*</code></td><td>the address prefix</td></tr>
+<tr><td>type</td><td><code>*</code></td><td>the output type (default: hex)</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.generatePrivateKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogenerateprivatekey-⇒-codestringcode"></a><a href="#cryptogenerateprivatekey-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.generatePrivateKey ⇒ <code>string</code></h3>
+<p>Generates 32 bytes of random entropy</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>string</code> - entropy bytes hexstring</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>len</td><td><code>number</code></td><td>output length (default: 32 bytes)</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.generateRandomArray"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogeneraterandomarray-⇒-codearraybuffercode"></a><a href="#cryptogeneraterandomarray-⇒-codearraybuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.generateRandomArray ⇒ <code>ArrayBuffer</code></h3>
+<p>Generates an arrayBuffer filled with random bits.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>length</td><td><code>number</code></td><td>Length of buffer.</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.getPublicKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogetpublickey-⇒-codeellipticpublickeycode"></a><a href="#cryptogetpublickey-⇒-codeellipticpublickeycode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.getPublicKey ⇒ <code>Elliptic.PublicKey</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>Elliptic.PublicKey</code> - public key hexstring</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>publicKey</td><td><code>string</code></td><td>Encoded public key</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.getPublicKeyFromPrivateKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogetpublickeyfromprivatekey-⇒-codestringcode"></a><a href="#cryptogetpublickeyfromprivatekey-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.getPublicKeyFromPrivateKey ⇒ <code>string</code></h3>
+<p>Calculates the public key from a given private key.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>string</code> - public key hexstring</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>privateKeyHex</td><td><code>string</code></td><td>the private key hexstring</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.generatePubKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogeneratepubkey-⇒-codeellipticpublickeycode"></a><a href="#cryptogeneratepubkey-⇒-codeellipticpublickeycode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.generatePubKey ⇒ <code>Elliptic.PublicKey</code></h3>
+<p>PubKey performs the point-scalar multiplication from the privKey on the
+generator point to get the pubkey.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>Elliptic.PublicKey</code> - PubKey</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>privateKey</td><td><code>Buffer</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.getAddressFromPublicKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogetaddressfrompublickey"></a><a href="#cryptogetaddressfrompublickey" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.getAddressFromPublicKey</h3>
+<p>Gets an address from a public key hex.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>publicKeyHex</td><td><code>string</code></td><td>the public key hexstring</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.getAddressFromPrivateKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogetaddressfromprivatekey"></a><a href="#cryptogetaddressfromprivatekey" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.getAddressFromPrivateKey</h3>
+<p>Gets an address from a private key.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>privateKeyHex</td><td><code>string</code></td><td>the private key hexstring</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.generateSignature"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogeneratesignature-⇒-codebuffercode"></a><a href="#cryptogeneratesignature-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.generateSignature ⇒ <code>Buffer</code></h3>
+<p>Generates a signature (64 byte &lt;r,s&gt;) for a transaction based on given private key.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - Signature. Does not include tx.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>signBytesHex</td><td><code>string</code></td><td>Unsigned transaction sign bytes hexstring.</td></tr>
+<tr><td>privateKey</td><td><code>string</code> \</td><td><code>Buffer</code></td><td>The private key.</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.verifySignature"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptoverifysignature-⇒-codebuffercode"></a><a href="#cryptoverifysignature-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.verifySignature ⇒ <code>Buffer</code></h3>
+<p>Verifies a signature (64 byte &lt;r,s&gt;) given the sign bytes and public key.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - Signature. Does not include tx.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>sigHex</td><td><code>string</code></td><td>The signature hexstring.</td></tr>
+<tr><td>signBytesHex</td><td><code>string</code></td><td>Unsigned transaction sign bytes hexstring.</td></tr>
+<tr><td>publicKeyHex</td><td><code>string</code></td><td>The public key.</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.generateKeyStore"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogeneratekeystore-⇒-codeobjectcode"></a><a href="#cryptogeneratekeystore-⇒-codeobjectcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.generateKeyStore ⇒ <code>object</code></h3>
+<p>Generates a keystore based on given private key and password.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>object</code> - the keystore object.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>privateKeyHex</td><td><code>string</code></td><td>the private key hexstring.</td></tr>
+<tr><td>password</td><td><code>string</code></td><td>the password.</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.getPrivateKeyFromKeyStore"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogetprivatekeyfromkeystore"></a><a href="#cryptogetprivatekeyfromkeystore" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.getPrivateKeyFromKeyStore</h3>
+<p>Gets a private key from a keystore given its password.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>keystore</td><td><code>string</code></td><td>the keystore in json format</td></tr>
+<tr><td>password</td><td><code>string</code></td><td>the password.</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.generateMnemonic"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogeneratemnemonic"></a><a href="#cryptogeneratemnemonic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.generateMnemonic</h3>
+<p>Generates mnemonic phrase words using random entropy.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<a name="module_crypto.validateMnemonic"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptovalidatemnemonic-⇒-codeboolcode"></a><a href="#cryptovalidatemnemonic-⇒-codeboolcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.validateMnemonic ⇒ <code>bool</code></h3>
+<p>Validates mnemonic phrase words.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>bool</code> - validation result</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>mnemonic</td><td><code>string</code></td><td>the mnemonic phrase words</td></tr>
+</tbody>
+</table>
+<p><a name="module_crypto.getPrivateKeyFromMnemonic"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="cryptogetprivatekeyfrommnemonic-⇒-codestringcode"></a><a href="#cryptogetprivatekeyfrommnemonic-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto.getPrivateKeyFromMnemonic ⇒ <code>string</code></h3>
+<p>Get a private key from mnemonic words.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_crypto"><code>crypto</code></a>
+<strong>Returns</strong>: <code>string</code> - hexstring</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>mnemonic</td><td><code>string</code></td><td>the mnemonic phrase words</td></tr>
+<tr><td>derive</td><td><code>Boolean</code></td><td>derive a private key using the default HD path (default: true)</td></tr>
+</tbody>
+</table>
+<p><a name="module_amino"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="amino"></a><a href="#amino" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino</h2>
+<ul>
+<li><a href="#module_amino">amino</a>
+<ul>
+<li><a href="#module_amino.encodeNumber">.encodeNumber</a></li>
+<li><a href="#module_amino.encodeBool">.encodeBool</a></li>
+<li><a href="#module_amino.encodeString">.encodeString</a></li>
+<li><a href="#module_amino.encodeTime">.encodeTime</a></li>
+<li><a href="#module_amino.convertObjectToSignBytes">.convertObjectToSignBytes</a> ⇒ <code>Buffer</code></li>
+<li><a href="#module_amino.marshalBinary">.marshalBinary</a></li>
+<li><a href="#module_amino.marshalBinaryBare">.marshalBinaryBare</a></li>
+<li><a href="#module_amino.encodeBinary">.encodeBinary</a> ⇒ <code>Buffer</code></li>
+<li><a href="#module_amino.encodeBinaryByteArray">.encodeBinaryByteArray</a> ⇒ <code>Buffer</code></li>
+<li><a href="#module_amino.encodeObjectBinary">.encodeObjectBinary</a> ⇒ <code>Buffer</code></li>
+<li><a href="#module_amino.encodeArrayBinary">.encodeArrayBinary</a> ⇒ <code>Buffer</code></li>
+</ul></li>
+</ul>
+<p><a name="module_amino.encodeNumber"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodenumber"></a><a href="#aminoencodenumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeNumber</h3>
+<p>encode number</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th></tr>
+</thead>
+<tbody>
+<tr><td>num</td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeBool"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodebool"></a><a href="#aminoencodebool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeBool</h3>
+<p>encode bool</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th></tr>
+</thead>
+<tbody>
+<tr><td>b</td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeString"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodestring"></a><a href="#aminoencodestring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeString</h3>
+<p>encode string</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th></tr>
+</thead>
+<tbody>
+<tr><td>str</td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeTime"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodetime"></a><a href="#aminoencodetime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeTime</h3>
+<p>encode time</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.convertObjectToSignBytes"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoconvertobjecttosignbytes-⇒-codebuffercode"></a><a href="#aminoconvertobjecttosignbytes-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.convertObjectToSignBytes ⇒ <code>Buffer</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - bytes</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>obj</td><td><code>object</code></td><td>-</td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.marshalBinary"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminomarshalbinary"></a><a href="#aminomarshalbinary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.marshalBinary</h3>
+<p>js amino MarshalBinary</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>obj</td><td><code>Object</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.marshalBinaryBare"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminomarshalbinarybare"></a><a href="#aminomarshalbinarybare" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.marshalBinaryBare</h3>
+<p>js amino MarshalBinaryBare</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>obj</td><td><code>Object</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeBinary"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodebinary-⇒-codebuffercode"></a><a href="#aminoencodebinary-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeBinary ⇒ <code>Buffer</code></h3>
+<p>This is the main entrypoint for encoding all types in binary form.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - binary of object.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>js</td><td><code>*</code></td><td>data type (not null, not undefined)</td></tr>
+<tr><td>field</td><td><code>Number</code></td><td>index of object</td></tr>
+<tr><td>isByteLenPrefix</td><td><code>Boolean</code></td><td></td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeBinaryByteArray"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodebinarybytearray-⇒-codebuffercode"></a><a href="#aminoencodebinarybytearray-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeBinaryByteArray ⇒ <code>Buffer</code></h3>
+<p>prefixed with bytes length</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - with bytes length prefixed</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>bytes</td><td><code>Buffer</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeObjectBinary"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodeobjectbinary-⇒-codebuffercode"></a><a href="#aminoencodeobjectbinary-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeObjectBinary ⇒ <code>Buffer</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - with bytes length prefixed</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>obj</td><td><code>Object</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_amino.encodeArrayBinary"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="aminoencodearraybinary-⇒-codebuffercode"></a><a href="#aminoencodearraybinary-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>amino.encodeArrayBinary ⇒ <code>Buffer</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_amino"><code>amino</code></a>
+<strong>Returns</strong>: <code>Buffer</code> - bytes of array</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>fieldNum</td><td><code>Number</code></td><td>object field index</td></tr>
+<tr><td>arr</td><td><code>Array</code></td><td></td></tr>
+<tr><td>isByteLenPrefix</td><td><code>Boolean</code></td><td></td></tr>
+</tbody>
+</table>
+<p><a name="module_ledger"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="ledger"></a><a href="#ledger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledger</h2>
+<ul>
+<li><a href="#module_ledger">ledger</a>
+<ul>
+<li><a href="#module_ledger.LedgerApp">.LedgerApp</a>
+<ul>
+<li><a href="#new_module_ledger.LedgerApp_new">new LedgerApp(transport, interactiveTimeout, nonInteractiveTimeout)</a></li>
+<li><a href="#module_ledger.LedgerApp+getVersion">.getVersion()</a></li>
+<li><a href="#module_ledger.LedgerApp+publicKeySecp256k1">.publicKeySecp256k1(hdPath)</a></li>
+<li><a href="#module_ledger.LedgerApp+signSecp256k1">.signSecp256k1(signBytes, hdPath)</a></li>
+<li><a href="#module_ledger.LedgerApp+getPublicKey">.getPublicKey(hdPath)</a></li>
+<li><a href="#module_ledger.LedgerApp+sign">.sign(signBytes, hdPath)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><a name="module_ledger.LedgerApp"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="ledgerledgerapp"></a><a href="#ledgerledgerapp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledger.LedgerApp</h3>
+<p>Ledger app interface.</p>
+<p><strong>Kind</strong>: static class of <a href="#module_ledger"><code>ledger</code></a></p>
+<ul>
+<li><a href="#module_ledger.LedgerApp">.LedgerApp</a>
+<ul>
+<li><a href="#new_module_ledger.LedgerApp_new">new LedgerApp(transport, interactiveTimeout, nonInteractiveTimeout)</a></li>
+<li><a href="#module_ledger.LedgerApp+getVersion">.getVersion()</a></li>
+<li><a href="#module_ledger.LedgerApp+publicKeySecp256k1">.publicKeySecp256k1(hdPath)</a></li>
+<li><a href="#module_ledger.LedgerApp+signSecp256k1">.signSecp256k1(signBytes, hdPath)</a></li>
+<li><a href="#module_ledger.LedgerApp+getPublicKey">.getPublicKey(hdPath)</a></li>
+<li><a href="#module_ledger.LedgerApp+sign">.sign(signBytes, hdPath)</a></li>
+</ul></li>
+</ul>
+<p><a name="new_module_ledger.LedgerApp_new"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="new-ledgerapptransport-interactivetimeout-noninteractivetimeout"></a><a href="#new-ledgerapptransport-interactivetimeout-noninteractivetimeout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>new LedgerApp(transport, interactiveTimeout, nonInteractiveTimeout)</h4>
+<p>Constructs a new LedgerApp.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>transport</td><td><code>Transport</code></td><td>Ledger Transport, a subclass of ledgerjs Transport.</td></tr>
+<tr><td>interactiveTimeout</td><td><code>Number</code></td><td>The interactive (user input) timeout in ms. Default 45s.</td></tr>
+<tr><td>nonInteractiveTimeout</td><td><code>Number</code></td><td>The non-interactive timeout in ms. Default 3s.</td></tr>
+</tbody>
+</table>
+<p><a name="module_ledger.LedgerApp+getVersion"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="ledgerappgetversion"></a><a href="#ledgerappgetversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledgerApp.getVersion()</h4>
+<p>Gets the version of the Ledger app that is currently open on the device.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_ledger.LedgerApp"><code>LedgerApp</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li>Will throw Error if a transport error occurs, or if the firmware app is not open.</li>
+</ul>
+<p><a name="module_ledger.LedgerApp+publicKeySecp256k1"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="ledgerapppublickeysecp256k1hdpath"></a><a href="#ledgerapppublickeysecp256k1hdpath" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledgerApp.publicKeySecp256k1(hdPath)</h4>
+<p>Gets the public key from the Ledger app that is currently open on the device.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_ledger.LedgerApp"><code>LedgerApp</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li>Will throw Error if a transport error occurs, or if the firmware app is not open.</li>
+</ul>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>hdPath</td><td><code>array</code></td><td>The HD path to use to get the public key. Default is [44, 714, 0, 0, 0]</td></tr>
+</tbody>
+</table>
+<p><a name="module_ledger.LedgerApp+signSecp256k1"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="ledgerappsignsecp256k1signbytes-hdpath"></a><a href="#ledgerappsignsecp256k1signbytes-hdpath" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledgerApp.signSecp256k1(signBytes, hdPath)</h4>
+<p>Sends a transaction sign doc to the Ledger app to be signed.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_ledger.LedgerApp"><code>LedgerApp</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li>Will throw Error if a transport error occurs, or if the firmware app is not open.</li>
+</ul>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>signBytes</td><td><code>Buffer</code></td><td>The TX sign doc bytes to sign</td></tr>
+<tr><td>hdPath</td><td><code>array</code></td><td>The HD path to use to get the public key. Default is [44, 714, 0, 0, 0]</td></tr>
+</tbody>
+</table>
+<p><a name="module_ledger.LedgerApp+getPublicKey"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="ledgerappgetpublickeyhdpath"></a><a href="#ledgerappgetpublickeyhdpath" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledgerApp.getPublicKey(hdPath)</h4>
+<p>Gets the public key from the Ledger app that is currently open on the device.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_ledger.LedgerApp"><code>LedgerApp</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li>Will throw Error if a transport error occurs, or if the firmware app is not open.</li>
+</ul>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>hdPath</td><td><code>array</code></td><td>The HD path to use to get the public key. Default is [44, 714, 0, 0, 0]</td></tr>
+</tbody>
+</table>
+<p><a name="module_ledger.LedgerApp+sign"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="ledgerappsignsignbytes-hdpath"></a><a href="#ledgerappsignsignbytes-hdpath" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ledgerApp.sign(signBytes, hdPath)</h4>
+<p>Sends a transaction sign doc to the Ledger app to be signed.</p>
+<p><strong>Kind</strong>: instance method of <a href="#module_ledger.LedgerApp"><code>LedgerApp</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li>Will throw Error if a transport error occurs, or if the firmware app is not open.</li>
+</ul>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>signBytes</td><td><code>Buffer</code></td><td>The TX sign doc bytes to sign</td></tr>
+<tr><td>hdPath</td><td><code>array</code></td><td>The HD path to use to get the public key. Default is [44, 714, 0, 0, 0]</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="utils"></a><a href="#utils" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils</h2>
+<ul>
+<li><a href="#module_utils">utils</a>
+<ul>
+<li><a href="#module_utils.ab2str">.ab2str</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.str2ab">.str2ab</a> ⇒ <code>arrayBuffer</code></li>
+<li><a href="#module_utils.hexstring2ab">.hexstring2ab</a> ⇒ <code>Array.&lt;number&gt;</code></li>
+<li><a href="#module_utils.ab2hexstring">.ab2hexstring</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.str2hexstring">.str2hexstring</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.hexstring2str">.hexstring2str</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.int2hex">.int2hex</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.num2hexstring">.num2hexstring</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.num2VarInt">.num2VarInt</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.hexXor">.hexXor</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.reverseArray">.reverseArray</a> ⇒ <code>Uint8Array</code></li>
+<li><a href="#module_utils.reverseHex">.reverseHex</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.isHex">.isHex</a> ⇒ <code>boolean</code></li>
+<li><a href="#module_utils.ensureHex">.ensureHex</a></li>
+<li><a href="#module_utils.sha256ripemd160">.sha256ripemd160</a> ⇒ <code>string</code></li>
+<li><a href="#module_utils.sha256">.sha256</a> ⇒ <code>string</code></li>
+</ul></li>
+</ul>
+<p><a name="module_utils.ab2str"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsab2str-⇒-codestringcode"></a><a href="#utilsab2str-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.ab2str ⇒ <code>string</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - ASCII string</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>buf</td><td><code>arrayBuffer</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.str2ab"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsstr2ab-⇒-codearraybuffercode"></a><a href="#utilsstr2ab-⇒-codearraybuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.str2ab ⇒ <code>arrayBuffer</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>str</td><td><code>string</code></td><td>ASCII string</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.hexstring2ab"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilshexstring2ab-⇒-codearrayltnumbergtcode"></a><a href="#utilshexstring2ab-⇒-codearrayltnumbergtcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.hexstring2ab ⇒ <code>Array.&lt;number&gt;</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>str</td><td><code>string</code></td><td>HEX string</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.ab2hexstring"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsab2hexstring-⇒-codestringcode"></a><a href="#utilsab2hexstring-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.ab2hexstring ⇒ <code>string</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - HEX string</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>arr</td><td><code>arrayBuffer</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.str2hexstring"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsstr2hexstring-⇒-codestringcode"></a><a href="#utilsstr2hexstring-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.str2hexstring ⇒ <code>string</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - HEX string</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>str</td><td><code>string</code></td><td>ASCII string</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.hexstring2str"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilshexstring2str-⇒-codestringcode"></a><a href="#utilshexstring2str-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.hexstring2str ⇒ <code>string</code></h3>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - ASCII string</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>hexstring</td><td><code>string</code></td><td>HEX string</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.int2hex"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsint2hex-⇒-codestringcode"></a><a href="#utilsint2hex-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.int2hex ⇒ <code>string</code></h3>
+<p>convert an integer to big endian hex and add leading zeros</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>num</td><td><code>Number</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.num2hexstring"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsnum2hexstring-⇒-codestringcode"></a><a href="#utilsnum2hexstring-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.num2hexstring ⇒ <code>string</code></h3>
+<p>Converts a number to a big endian hexstring of a suitable size, optionally little endian</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>num</td><td><code>Number</code></td><td></td></tr>
+<tr><td>size</td><td><code>Number</code></td><td>The required size in bytes, eg 1 for Uint8, 2 for Uint16. Defaults to 1.</td></tr>
+<tr><td>littleEndian</td><td><code>Boolean</code></td><td>Encode the hex in little endian form</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.num2VarInt"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsnum2varint-⇒-codestringcode"></a><a href="#utilsnum2varint-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.num2VarInt ⇒ <code>string</code></h3>
+<p>Converts a number to a variable length Int. Used for array length header</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - hexstring of the variable Int.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>num</td><td><code>Number</code></td><td>The number</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.hexXor"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilshexxor-⇒-codestringcode"></a><a href="#utilshexxor-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.hexXor ⇒ <code>string</code></h3>
+<p>XORs two hexstrings</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - XOR output as a HEX string</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>str1</td><td><code>string</code></td><td>HEX string</td></tr>
+<tr><td>str2</td><td><code>string</code></td><td>HEX string</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.reverseArray"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsreversearray-⇒-codeuint8arraycode"></a><a href="#utilsreversearray-⇒-codeuint8arraycode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.reverseArray ⇒ <code>Uint8Array</code></h3>
+<p>Reverses an array. Accepts arrayBuffer.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>arr</td><td><code>Array</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.reverseHex"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsreversehex-⇒-codestringcode"></a><a href="#utilsreversehex-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.reverseHex ⇒ <code>string</code></h3>
+<p>Reverses a HEX string, treating 2 chars as a byte.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - HEX string reversed in 2s.</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>hex</td><td><code>string</code></td><td>HEX string</td></tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="hljs css language-js">reverseHex(<span class="hljs-string">'abcdef'</span>) = <span class="hljs-string">'efcdab'</span>
+</code></pre>
+<p><a name="module_utils.isHex"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsishex-⇒-codebooleancode"></a><a href="#utilsishex-⇒-codebooleancode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.isHex ⇒ <code>boolean</code></h3>
+<p>Checks if input is a hexstring. Empty string is considered a hexstring.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>str</td><td><code>string</code></td></tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="hljs css language-js">isHex(<span class="hljs-string">'0101'</span>) = <span class="hljs-literal">true</span>
+isHex(<span class="hljs-string">''</span>) = <span class="hljs-literal">true</span>
+isHex(<span class="hljs-string">'0x01'</span>) = <span class="hljs-literal">false</span>
+</code></pre>
+<p><a name="module_utils.ensureHex"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilsensurehex"></a><a href="#utilsensurehex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.ensureHex</h3>
+<p>Throws an error if input is not hexstring.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>str</td><td><code>string</code></td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.sha256ripemd160"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilssha256ripemd160-⇒-codestringcode"></a><a href="#utilssha256ripemd160-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.sha256ripemd160 ⇒ <code>string</code></h3>
+<p>Performs a SHA256 followed by a RIPEMD160.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - hash output</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>hex</td><td><code>string</code></td><td>String to hash</td></tr>
+</tbody>
+</table>
+<p><a name="module_utils.sha256"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="utilssha256-⇒-codestringcode"></a><a href="#utilssha256-⇒-codestringcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>utils.sha256 ⇒ <code>string</code></h3>
+<p>Performs a single SHA256.</p>
+<p><strong>Kind</strong>: static constant of <a href="#module_utils"><code>utils</code></a>
+<strong>Returns</strong>: <code>string</code> - hash output</p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>hex</td><td><code>string</code></td><td>String to hash</td></tr>
+</tbody>
+</table>
+<p><a name="Transaction"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="transaction"></a><a href="#transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction</h2>
+<p>Creates a new transaction object.</p>
+<p><strong>Kind</strong>: global class
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>raw</td><td><code>Buffer</code></td><td>The raw vstruct encoded transaction</td></tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#Transaction">Transaction</a>
+<ul>
+<li><a href="#new_Transaction_new">new Transaction(type)</a></li>
+<li><a href="#Transaction+getSignBytes">.getSignBytes(concrete)</a> ⇒ <code>Buffer</code></li>
+<li><a href="#Transaction+addSignature">.addSignature(pubKey, signature)</a> ⇒ <a href="#Transaction"><code>Transaction</code></a></li>
+<li><a href="#Transaction+sign">.sign(privateKey, concrete)</a> ⇒ <a href="#Transaction"><code>Transaction</code></a></li>
+<li><a href="#Transaction+serialize">.serialize(opts)</a></li>
+<li><a href="#Transaction+_serializePubKey">._serializePubKey(unencodedPubKey)</a> ⇒ <code>Buffer</code></li>
+</ul></li>
+</ul>
+<p><a name="new_Transaction_new"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="new-transactiontype"></a><a href="#new-transactiontype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>new Transaction(type)</h3>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>data.account_number</td><td><code>Number</code></td><td>account number</td></tr>
+<tr><td>data.chain_id</td><td><code>String</code></td><td>bnbChain Id</td></tr>
+<tr><td>data.memo</td><td><code>String</code></td><td>transaction memo</td></tr>
+<tr><td>type</td><td><code>String</code></td><td>transaction type</td></tr>
+<tr><td>data.msg</td><td><code>Object</code></td><td>object data of tx type</td></tr>
+<tr><td>data.sequence</td><td><code>Number</code></td><td>transaction counts</td></tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> rawTx = {
+  <span class="hljs-attr">account_number</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">chain_id</span>: <span class="hljs-string">'bnbchain-1000'</span>,
+  <span class="hljs-attr">memo</span>: <span class="hljs-string">''</span>,
+  <span class="hljs-attr">msg</span>: {},
+  <span class="hljs-attr">type</span>: <span class="hljs-string">'NewOrderMsg'</span>,
+  <span class="hljs-attr">sequence</span>: <span class="hljs-number">29</span>,
+};
+<span class="hljs-keyword">var</span> tx = <span class="hljs-keyword">new</span> Transaction(rawTx);
+</code></pre>
+<p><a name="Transaction+getSignBytes"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="transactiongetsignbytesconcrete-⇒-codebuffercode"></a><a href="#transactiongetsignbytesconcrete-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>transaction.getSignBytes(concrete) ⇒ <code>Buffer</code></h3>
+<p>generate the sign bytes for a transaction, given a msg</p>
+<p><strong>Kind</strong>: instance method of <a href="#Transaction"><code>Transaction</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>concrete</td><td><code>Object</code></td><td>msg object</td></tr>
+</tbody>
+</table>
+<p><a name="Transaction+addSignature"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="transactionaddsignaturepubkey-signature-⇒-codetransactioncodetransaction"></a><a href="#transactionaddsignaturepubkey-signature-⇒-codetransactioncodetransaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>transaction.addSignature(pubKey, signature) ⇒ <a href="#Transaction"><code>Transaction</code></a></h3>
+<p>attaches a signature to the transaction</p>
+<p><strong>Kind</strong>: instance method of <a href="#Transaction"><code>Transaction</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>pubKey</td><td><code>Elliptic.PublicKey</code></td></tr>
+<tr><td>signature</td><td><code>Buffer</code></td></tr>
+</tbody>
+</table>
+<p><a name="Transaction+sign"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="transactionsignprivatekey-concrete-⇒-codetransactioncodetransaction"></a><a href="#transactionsignprivatekey-concrete-⇒-codetransactioncodetransaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>transaction.sign(privateKey, concrete) ⇒ <a href="#Transaction"><code>Transaction</code></a></h3>
+<p>sign transaction with a given private key and msg</p>
+<p><strong>Kind</strong>: instance method of <a href="#Transaction"><code>Transaction</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>privateKey</td><td><code>string</code></td><td>private key hex string</td></tr>
+<tr><td>concrete</td><td><code>Object</code></td><td>msg object</td></tr>
+</tbody>
+</table>
+<p><a name="Transaction+serialize"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="transactionserializeopts"></a><a href="#transactionserializeopts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>transaction.serialize(opts)</h3>
+<p>encode signed transaction to hex which is compatible with amino</p>
+<p><strong>Kind</strong>: instance method of <a href="#Transaction"><code>Transaction</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>opts</td><td><code>object</code></td><td>msg field</td></tr>
+</tbody>
+</table>
+<p><a name="Transaction+_serializePubKey"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="transaction_serializepubkeyunencodedpubkey-⇒-codebuffercode"></a><a href="#transaction_serializepubkeyunencodedpubkey-⇒-codebuffercode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>transaction._serializePubKey(unencodedPubKey) ⇒ <code>Buffer</code></h3>
+<p>serializes a public key in a 33-byte compressed format.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Transaction"><code>Transaction</code></a></p>
+<table>
+<thead>
+<tr><th>Param</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>unencodedPubKey</td><td><code>Elliptic.PublicKey</code></td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/13/2019 by Stefan</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#modules">Modules</a></li><li><a href="#classes">Classes</a></li><li><a href="#client">client</a><ul class="toc-headings"><li><a href="#clientbncclient">client.BncClient</a></li><li><a href="#clientdefaultsigningdelegate-⇒-codetransactioncodetransaction">client.DefaultSigningDelegate ⇒ <a href="#Transaction"><code>Transaction</code></a></a></li><li><a href="#clientdefaultbroadcastdelegate">client.DefaultBroadcastDelegate</a></li><li><a href="#clientledgersigningdelegate-⇒-codefunctioncode">client.LedgerSigningDelegate ⇒ <code>function</code></a></li><li><a href="#clientchecknumbervalue">client~checkNumber(value)</a></li></ul></li><li><a href="#crypto">crypto</a><ul class="toc-headings"><li><a href="#cryptodecodeaddress">crypto.decodeAddress</a></li><li><a href="#cryptocheckaddress">crypto.checkAddress</a></li><li><a href="#cryptoencodeaddress">crypto.encodeAddress</a></li><li><a href="#cryptogenerateprivatekey-⇒-codestringcode">crypto.generatePrivateKey ⇒ <code>string</code></a></li><li><a href="#cryptogeneraterandomarray-⇒-codearraybuffercode">crypto.generateRandomArray ⇒ <code>ArrayBuffer</code></a></li><li><a href="#cryptogetpublickey-⇒-codeellipticpublickeycode">crypto.getPublicKey ⇒ <code>Elliptic.PublicKey</code></a></li><li><a href="#cryptogetpublickeyfromprivatekey-⇒-codestringcode">crypto.getPublicKeyFromPrivateKey ⇒ <code>string</code></a></li><li><a href="#cryptogeneratepubkey-⇒-codeellipticpublickeycode">crypto.generatePubKey ⇒ <code>Elliptic.PublicKey</code></a></li><li><a href="#cryptogetaddressfrompublickey">crypto.getAddressFromPublicKey</a></li><li><a href="#cryptogetaddressfromprivatekey">crypto.getAddressFromPrivateKey</a></li><li><a href="#cryptogeneratesignature-⇒-codebuffercode">crypto.generateSignature ⇒ <code>Buffer</code></a></li><li><a href="#cryptoverifysignature-⇒-codebuffercode">crypto.verifySignature ⇒ <code>Buffer</code></a></li><li><a href="#cryptogeneratekeystore-⇒-codeobjectcode">crypto.generateKeyStore ⇒ <code>object</code></a></li><li><a href="#cryptogetprivatekeyfromkeystore">crypto.getPrivateKeyFromKeyStore</a></li><li><a href="#cryptogeneratemnemonic">crypto.generateMnemonic</a></li><li><a href="#cryptovalidatemnemonic-⇒-codeboolcode">crypto.validateMnemonic ⇒ <code>bool</code></a></li><li><a href="#cryptogetprivatekeyfrommnemonic-⇒-codestringcode">crypto.getPrivateKeyFromMnemonic ⇒ <code>string</code></a></li></ul></li><li><a href="#amino">amino</a><ul class="toc-headings"><li><a href="#aminoencodenumber">amino.encodeNumber</a></li><li><a href="#aminoencodebool">amino.encodeBool</a></li><li><a href="#aminoencodestring">amino.encodeString</a></li><li><a href="#aminoencodetime">amino.encodeTime</a></li><li><a href="#aminoconvertobjecttosignbytes-⇒-codebuffercode">amino.convertObjectToSignBytes ⇒ <code>Buffer</code></a></li><li><a href="#aminomarshalbinary">amino.marshalBinary</a></li><li><a href="#aminomarshalbinarybare">amino.marshalBinaryBare</a></li><li><a href="#aminoencodebinary-⇒-codebuffercode">amino.encodeBinary ⇒ <code>Buffer</code></a></li><li><a href="#aminoencodebinarybytearray-⇒-codebuffercode">amino.encodeBinaryByteArray ⇒ <code>Buffer</code></a></li><li><a href="#aminoencodeobjectbinary-⇒-codebuffercode">amino.encodeObjectBinary ⇒ <code>Buffer</code></a></li><li><a href="#aminoencodearraybinary-⇒-codebuffercode">amino.encodeArrayBinary ⇒ <code>Buffer</code></a></li></ul></li><li><a href="#ledger">ledger</a><ul class="toc-headings"><li><a href="#ledgerledgerapp">ledger.LedgerApp</a></li></ul></li><li><a href="#utils">utils</a><ul class="toc-headings"><li><a href="#utilsab2str-⇒-codestringcode">utils.ab2str ⇒ <code>string</code></a></li><li><a href="#utilsstr2ab-⇒-codearraybuffercode">utils.str2ab ⇒ <code>arrayBuffer</code></a></li><li><a href="#utilshexstring2ab-⇒-codearrayltnumbergtcode">utils.hexstring2ab ⇒ <code>Array.&lt;number&gt;</code></a></li><li><a href="#utilsab2hexstring-⇒-codestringcode">utils.ab2hexstring ⇒ <code>string</code></a></li><li><a href="#utilsstr2hexstring-⇒-codestringcode">utils.str2hexstring ⇒ <code>string</code></a></li><li><a href="#utilshexstring2str-⇒-codestringcode">utils.hexstring2str ⇒ <code>string</code></a></li><li><a href="#utilsint2hex-⇒-codestringcode">utils.int2hex ⇒ <code>string</code></a></li><li><a href="#utilsnum2hexstring-⇒-codestringcode">utils.num2hexstring ⇒ <code>string</code></a></li><li><a href="#utilsnum2varint-⇒-codestringcode">utils.num2VarInt ⇒ <code>string</code></a></li><li><a href="#utilshexxor-⇒-codestringcode">utils.hexXor ⇒ <code>string</code></a></li><li><a href="#utilsreversearray-⇒-codeuint8arraycode">utils.reverseArray ⇒ <code>Uint8Array</code></a></li><li><a href="#utilsreversehex-⇒-codestringcode">utils.reverseHex ⇒ <code>string</code></a></li><li><a href="#utilsishex-⇒-codebooleancode">utils.isHex ⇒ <code>boolean</code></a></li><li><a href="#utilsensurehex">utils.ensureHex</a></li><li><a href="#utilssha256ripemd160-⇒-codestringcode">utils.sha256ripemd160 ⇒ <code>string</code></a></li><li><a href="#utilssha256-⇒-codestringcode">utils.sha256 ⇒ <code>string</code></a></li></ul></li><li><a href="#transaction">Transaction</a><ul class="toc-headings"><li><a href="#new-transactiontype">new Transaction(type)</a></li><li><a href="#transactiongetsignbytesconcrete-⇒-codebuffercode">transaction.getSignBytes(concrete) ⇒ <code>Buffer</code></a></li><li><a href="#transactionaddsignaturepubkey-signature-⇒-codetransactioncodetransaction">transaction.addSignature(pubKey, signature) ⇒ <a href="#Transaction"><code>Transaction</code></a></a></li><li><a href="#transactionsignprivatekey-concrete-⇒-codetransactioncodetransaction">transaction.sign(privateKey, concrete) ⇒ <a href="#Transaction"><code>Transaction</code></a></a></li><li><a href="#transactionserializeopts">transaction.serialize(opts)</a></li><li><a href="#transaction_serializepubkeyunencodedpubkey-⇒-codebuffercode">transaction._serializePubKey(unencodedPubKey) ⇒ <code>Buffer</code></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>

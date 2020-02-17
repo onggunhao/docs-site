@@ -1,0 +1,607 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>changelog · Developers</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [Upcoming Changes in Binance Chain API v0.6.4](#upcoming-changes-in-binance-chain-api-v064)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="changelog · Developers"/><meta property="og:type" content="website"/><meta property="og:url" content="https://daniel.ai/docs-site/"/><meta property="og:description" content="- [Upcoming Changes in Binance Chain API v0.6.4](#upcoming-changes-in-binance-chain-api-v064)"/><meta property="og:image" content="https://daniel.ai/docs-site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://daniel.ai/docs-site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs-site/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://daniel.ai/docs-site/blog/atom.xml" title="Developers Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://daniel.ai/docs-site/blog/feed.xml" title="Developers Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs-site/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs-site/css/main.css"/><script src="/docs-site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs-site/"><img class="logo" src="/docs-site/img/logo.svg" alt="Developers"/><h2 class="headerTitleWithLogo">Developers</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs-site/docs/guides/intro/intro" target="_self">Guides</a></li><li class=""><a href="/docs-site/docs/api-reference/api-reference" target="_self">API Reference</a></li><li class=""><a href="/docs-site/docs/enduser/how-to-trade" target="_self">End User</a></li><li class=""><a href="/docs-site/blog/" target="_self">Blog</a></li><li class=""><a href="https://github.com/binance-chain/node-binary" target="_self">GitHub</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">changelog</h1></header><article><div><span><ul>
+<li><a href="#upcoming-changes-in-binance-chain-api-v064">Upcoming Changes in Binance Chain API v0.6.4</a>
+<ul>
+<li><a href="#http-api">HTTP API</a>
+<ul>
+<li><a href="#-api-v1-trades-">/api/v1/trades</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#upcoming-changes-in-binance-chain-api-v063">Upcoming Changes in Binance Chain API v0.6.3</a>
+<ul>
+<li><a href="#node-rpc">Node RPC</a></li>
+<li><a href="#http-api">HTTP API</a>
+<ul>
+<li><a href="#-api-v1-atomic-swaps-">/api/v1/atomic-swaps</a></li>
+</ul></li>
+<li><a href="#websocket">WebSocket</a></li>
+</ul></li>
+<li><a href="#upcoming-changes-in-binance-chain-api-v062">Upcoming Changes in Binance Chain API v0.6.2</a>
+<ul>
+<li><a href="#http-api">HTTP API</a>
+<ul>
+<li><a href="#-api-v2-transactions-in-block--blockheight-">/api/v2/transactions-in-block/{blockHeight}</a></li>
+<li><a href="#-api-v1-timelocks--account-addr-">/api/v1/timelocks/{account_addr}</a></li>
+<li><a href="#-api-v1-timelock--account-addr---id--recordid--">/api/v1/timelock/{account_addr}?(id={recordid})</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#upcoming-changes-in-binance-chain-api-v061">Upcoming Changes in Binance Chain API v0.6.1</a>
+<ul>
+<li><a href="#http-api">HTTP API</a>
+<ul>
+<li><a href="#apiv1accountaddress">/api/v1/account/{address}</a></li>
+<li><a href="#account">Account</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#upcoming-changes-in-binance-chain-api-v060">Upcoming Changes in Binance Chain API v0.6.0</a>
+<ul>
+<li><a href="#http-api_1">HTTP API</a>
+<ul>
+<li><a href="#apiv1trades">/api/v1/trades</a>
+<ul>
+<li><a href="#changes">Changes</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#extra-data-from-your-fullnode">Extra data from your fullnode</a>
+<ul>
+<li><a href="#changes-1">Changes</a></li>
+</ul></li>
+<li><a href="#extra-data-from-your-fullnode">Extra data from your fullnode</a>
+<ul>
+<li><a href="#changes_3">Changes</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tendermint-changes">Tendermint Changes</a>
+<ul>
+<li><a href="#upcoming-changes-in-v062">Upcoming Changes in v0.6.2</a></li>
+</ul></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="upcoming-changes-in-binance-chain-api-v064"></a><a href="#upcoming-changes-in-binance-chain-api-v064" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upcoming Changes in Binance Chain API v0.6.4</h1>
+<h2><a class="anchor" aria-hidden="true" id="http-api"></a><a href="#http-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP API</h2>
+<h3><a class="anchor" aria-hidden="true" id="apiv1trades"></a><a href="#apiv1trades" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/trades</h3>
+<h5><a class="anchor" aria-hidden="true" id="changes"></a><a href="#changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>Add <code>buyerSource</code> and <code>sellerSource</code> in the response Trade data structure. The Source Id reference can be found in <a href="https://github.com/binance-chain/BEPs/blob/master/BEP10.md">https://github.com/binance-chain/BEPs/blob/master/BEP10.md</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="trade"></a><a href="#trade" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trade</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>baseAsset</td><td>string</td><td>base asset symbol</td><td></td></tr>
+<tr><td>blockHeight</td><td>long</td><td>block height</td><td></td></tr>
+<tr><td>buyFee</td><td>string</td><td>trading fee for the buyer address on the block of this trade</td><td></td></tr>
+<tr><td>buyerId</td><td>string</td><td>id of buyer</td><td></td></tr>
+<tr><td>buyerOrderId</td><td>string</td><td>order id for buyer</td><td></td></tr>
+<tr><td>buySingleFee</td><td>string</td><td>trading fee for the buyer address on this single trade</td><td>BNB:0.00000172;</td></tr>
+<tr><td>buyerSource</td><td>long</td><td>tx source of buy order</td><td>1</td></tr>
+<tr><td>price</td><td>string</td><td>trade price</td><td></td></tr>
+<tr><td>quantity</td><td>string</td><td>trade quantity</td><td></td></tr>
+<tr><td>quoteAsset</td><td>string</td><td>quote asset symbol</td><td></td></tr>
+<tr><td>sellFee</td><td>string</td><td>trading fee for the seller address on the block of this trade</td><td></td></tr>
+<tr><td>sellerId</td><td>string</td><td>seller ID</td><td></td></tr>
+<tr><td>sellerOrderId</td><td>string</td><td>seller order ID</td><td></td></tr>
+<tr><td>sellSingleFee</td><td>string</td><td>trading fee for the seller address on this single trade</td><td>BNB:0.00000216;</td></tr>
+<tr><td>sellerSource</td><td>long</td><td>tx source of sell order</td><td>1</td></tr>
+<tr><td>symbol</td><td>string</td><td>asset symbol</td><td></td></tr>
+<tr><td>tickType</td><td>string</td><td>enum [Unknown,SellTaker,BuyTaker,BuySurplus,SellSurplus,Neutral]</td><td></td></tr>
+<tr><td>time</td><td>long</td><td>trade time</td><td></td></tr>
+<tr><td>tradeId</td><td>string</td><td>trade ID</td><td></td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="upcoming-changes-in-binance-chain-api-v063"></a><a href="#upcoming-changes-in-binance-chain-api-v063" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upcoming Changes in Binance Chain API v0.6.3</h1>
+<h2><a class="anchor" aria-hidden="true" id="http-api-1"></a><a href="#http-api-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP API</h2>
+<h3><a class="anchor" aria-hidden="true" id="apiv1atomic-swaps"></a><a href="#apiv1atomic-swaps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/atomic-swaps</h3>
+<h3><a class="anchor" aria-hidden="true" id="apiv1atomic-swapsid"></a><a href="#apiv1atomic-swapsid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/atomic-swaps/{id}</h3>
+<h5><a class="anchor" aria-hidden="true" id="changes-1"></a><a href="#changes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>The API is used to query atomic-swaps by id or by address.
+In the <code>AtomicSwap</code> data structure:</p>
+<ul>
+<li>A new field <code>blockTimestamp</code> is added to indicate the block time in millisecond</li>
+<li>The original <code>timestamp</code> is changed to indicate the timestamp for randomNumberHash calculation. Its unit is second.</li>
+<li><code>createTime</code> and <code>updateTime</code> are removed from <code>AtomicSwap</code>.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="atomicswap"></a><a href="#atomicswap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AtomicSwap</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>blockTimestamp</td><td>long</td><td>Timestamp of block in which the swap is initiated. The unit is millisecond.</td><td></td></tr>
+<tr><td>closedTime</td><td>long</td><td></td><td></td></tr>
+<tr><td>crossChain</td><td>integer</td><td></td><td></td></tr>
+<tr><td>expectedIncome</td><td>string</td><td></td><td></td></tr>
+<tr><td>expireHeight</td><td>long</td><td></td><td></td></tr>
+<tr><td>fromAddr</td><td>string</td><td></td><td></td></tr>
+<tr><td>inAmount</td><td>string</td><td></td><td></td></tr>
+<tr><td>outAmount</td><td>string</td><td></td><td></td></tr>
+<tr><td>randomNumber</td><td>string</td><td></td><td></td></tr>
+<tr><td>randomNumberHash</td><td>string</td><td></td><td></td></tr>
+<tr><td>recipientOtherChain</td><td>string</td><td></td><td></td></tr>
+<tr><td>status</td><td>integer</td><td></td><td></td></tr>
+<tr><td>swapId</td><td>string</td><td></td><td></td></tr>
+<tr><td>timestamp</td><td>long</td><td>The timestamp for randomNumberHash calculation, randomNumberHash=sha256(randomNumber, timestamp). The unit is second.</td><td></td></tr>
+<tr><td>toAddr</td><td>string</td><td></td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="websocket"></a><a href="#websocket" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WebSocket</h2>
+<p>As described in <a href="https://docs.binance.org/api-reference/dex-api/ws-streams.html#6-book-depth-streams">https://docs.binance.org/api-reference/dex-api/ws-streams.html#6-book-depth-streams</a>, you can now customize the returned level from orderbook. The default level is 20 and you can extend the level to 100, 500, or 1000 with compression enabled.</p>
+<ul>
+<li>Example on mainnet:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-keyword">var</span>  marketDepth = <span class="hljs-keyword">new</span> <span class="hljs-type">WebSocket</span>(<span class="hljs-string">"wss://dex-atlantic.binance.org/api/ws/NEXO-A84_BNB@marketDepth100"</span>);
+</code></pre>
+<ul>
+<li>Example on testnet:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-keyword">var</span>  marketDepth = <span class="hljs-keyword">new</span> <span class="hljs-type">WebSocket</span>(<span class="hljs-string">"wss://testnet-de.binance.org/api/ws/ALT-3B6_BNB@marketDepth100"</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="node-rpc"></a><a href="#node-rpc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node RPC</h2>
+<p>Due to changes of underling Tendermint library, <code>ResponseCheckTx</code>, <code>ResponseDeliverTx</code>, <code>ResponseBeginBlock</code>, and <code>ResponseEndBlock</code> now include <code>Events</code> instead of <code>Tags</code>. Each <code>Event</code> contains a type and a list of attributes (list of key-value pairs) allowing for inclusion of multiple distinct events in each response.</p>
+<h3><a class="anchor" aria-hidden="true" id="events"></a><a href="#events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Events</h3>
+<p>Some methods (<code>CheckTx, BeginBlock, DeliverTx, EndBlock</code>)
+include an <code>Events</code> field in their <code>Response*</code>. Each event contains a type and a
+list of attributes, which are key-value pairs denoting something about what happened
+during the method's execution.</p>
+<p>Events can be used to index transactions and blocks according to what happened
+during their execution. Note that the set of events returned for a block from
+<code>BeginBlock</code> and <code>EndBlock</code> are merged. In case both methods return the same
+tag, only the value defined in <code>EndBlock</code> is used.</p>
+<p>Each event has a <code>type</code> which is meant to categorize the event for a particular
+<code>Response*</code> or tx. A <code>Response*</code> or tx may contain multiple events with duplicate
+<code>type</code> values, where each distinct entry is meant to categorize attributes for a
+particular event. Every key and value in an event's attributes must be UTF-8
+encoded strings along with the event type itself.</p>
+<p>Example:</p>
+<pre><code class="hljs css language-go"> abci.ResponseDeliverTx{
+  <span class="hljs-comment">// ...</span>
+  Events: []abci.Event{
+    {
+      Type: <span class="hljs-string">"validator.provisions"</span>,
+      Attributes: cmn.KVPairs{
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"address"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"amount"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"balance"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+      },
+    },
+    {
+      Type: <span class="hljs-string">"validator.provisions"</span>,
+      Attributes: cmn.KVPairs{
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"address"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"amount"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"balance"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+      },
+    },
+    {
+      Type: <span class="hljs-string">"validator.slashed"</span>,
+      Attributes: cmn.KVPairs{
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"address"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"amount"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+        cmn.KVPair{Key: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"reason"</span>), Value: []<span class="hljs-keyword">byte</span>(<span class="hljs-string">"..."</span>)},
+      },
+    },
+    <span class="hljs-comment">// ...</span>
+  },
+}
+</code></pre>
+<ul>
+<li>ResponseCheckTx</li>
+</ul>
+<pre><code class="hljs">type ResponseCheckTx struct {
+  Code                 uint32   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"varint,1,opt,name=code,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"code,omitempty"</span>`
+  Data                 []<span class="hljs-keyword">byte</span>   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,2,opt,name=data,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"data,omitempty"</span>`
+  Log                  string   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,3,opt,name=log,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"log,omitempty"</span>`
+  Info                 string   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,4,opt,name=info,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"info,omitempty"</span>`
+  GasWanted            int64    `<span class="hljs-string">protobuf:</span><span class="hljs-string">"varint,5,opt,name=gas_wanted,json=gasWanted,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"gas_wanted,omitempty"</span>`
+  GasUsed              int64    `<span class="hljs-string">protobuf:</span><span class="hljs-string">"varint,6,opt,name=gas_used,json=gasUsed,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"gas_used,omitempty"</span>`
+  Events               []Event  `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,7,rep,name=events,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"events,omitempty"</span>`
+  Codespace            string   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,8,opt,name=codespace,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"codespace,omitempty"</span>`
+  XXX_NoUnkeyedLiteral struct{} `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_unrecognized     []<span class="hljs-keyword">byte</span>   `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_sizecache        int32    `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+}
+</code></pre>
+<ul>
+<li>ResponseDeliverTx</li>
+</ul>
+<pre><code class="hljs">type ResponseDeliverTx struct {
+  Code                 uint32   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"varint,1,opt,name=code,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"code,omitempty"</span>`
+  Data                 []<span class="hljs-keyword">byte</span>   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,2,opt,name=data,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"data,omitempty"</span>`
+  Log                  string   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,3,opt,name=log,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"log,omitempty"</span>`
+  Info                 string   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,4,opt,name=info,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"info,omitempty"</span>`
+  GasWanted            int64    `<span class="hljs-string">protobuf:</span><span class="hljs-string">"varint,5,opt,name=gas_wanted,json=gasWanted,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"gas_wanted,omitempty"</span>`
+  GasUsed              int64    `<span class="hljs-string">protobuf:</span><span class="hljs-string">"varint,6,opt,name=gas_used,json=gasUsed,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"gas_used,omitempty"</span>`
+  Events               []Event  `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,7,rep,name=events,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"events,omitempty"</span>`
+  Codespace            string   `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,8,opt,name=codespace,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"codespace,omitempty"</span>`
+  XXX_NoUnkeyedLiteral struct{} `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_unrecognized     []<span class="hljs-keyword">byte</span>   `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_sizecache        int32    `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+}
+</code></pre>
+<ul>
+<li>ResponseBeginBlock</li>
+</ul>
+<pre><code class="hljs">type ResponseBeginBlock struct {
+  Events               []Event  `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,1,rep,name=events,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"events,omitempty"</span>`
+  XXX_NoUnkeyedLiteral struct{} `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_unrecognized     []<span class="hljs-keyword">byte</span>   `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_sizecache        int32    `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+}
+</code></pre>
+<ul>
+<li>ResponseEndBlock</li>
+</ul>
+<pre><code class="hljs">type ResponseEndBlock struct {
+  ValidatorUpdates      []ValidatorUpdate `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,1,rep,name=validator_updates,json=validatorUpdates,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"validator_updates"</span>`
+  ConsensusParamUpdates *ConsensusParams  `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,2,opt,name=consensus_param_updates,json=consensusParamUpdates,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"consensus_param_updates,omitempty"</span>`
+  Events                []Event           `<span class="hljs-string">protobuf:</span><span class="hljs-string">"bytes,3,rep,name=events,proto3"</span> <span class="hljs-string">json:</span><span class="hljs-string">"events,omitempty"</span>`
+  XXX_NoUnkeyedLiteral  struct{}          `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_unrecognized      []<span class="hljs-keyword">byte</span>            `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+  XXX_sizecache         int32             `<span class="hljs-string">json:</span><span class="hljs-string">"-"</span>`
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="upcoming-changes-in-binance-chain-api-v062"></a><a href="#upcoming-changes-in-binance-chain-api-v062" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upcoming Changes in Binance Chain API v0.6.2</h1>
+<h2><a class="anchor" aria-hidden="true" id="http-api-2"></a><a href="#http-api-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP API</h2>
+<h3><a class="anchor" aria-hidden="true" id="apiv2transactions-in-blockblockheight"></a><a href="#apiv2transactions-in-blockblockheight" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v2/transactions-in-block/{blockHeight}</h3>
+<h5><a class="anchor" aria-hidden="true" id="changes-2"></a><a href="#changes-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>This endpoint is used for getting all transactions in the block. Multi-send and multi-coin transactions are flattened as sub-transactions.</p>
+<h3><a class="anchor" aria-hidden="true" id="txv2"></a><a href="#txv2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TxV2</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>blockHeight</td><td>long</td><td></td><td></td></tr>
+<tr><td>code</td><td>integer</td><td></td><td>0</td></tr>
+<tr><td>data</td><td>string</td><td></td><td></td></tr>
+<tr><td>fromAddr</td><td>string</td><td></td><td></td></tr>
+<tr><td>memo</td><td>string</td><td></td><td></td></tr>
+<tr><td>orderId</td><td>string</td><td>Optional. Available when the transaction type is NEW_ORDER</td><td></td></tr>
+<tr><td>proposalId</td><td>string</td><td>Optional. Available when the transaction type is PROPOSAL</td><td></td></tr>
+<tr><td>sequence</td><td>long</td><td></td><td></td></tr>
+<tr><td>source</td><td>long</td><td></td><td></td></tr>
+<tr><td>subTransactions</td><td>[ <a href="#subtx">SubTx</a> ]</td><td>Optional. Available when the transaction has sub-transactions, such as multi-send transaction or a transaction have multiple assets</td><td></td></tr>
+<tr><td>swapId</td><td>string</td><td>Optional. Available when the transaction type is one of HTL_TRANSFER, CLAIM_HTL, REFUND_HTL, DEPOSIT_HTL</td><td></td></tr>
+<tr><td>timeStamp</td><td>dateTime</td><td></td><td></td></tr>
+<tr><td>toAddr</td><td>string</td><td></td><td></td></tr>
+<tr><td>txAsset</td><td>string</td><td></td><td></td></tr>
+<tr><td>txFee</td><td>string</td><td></td><td></td></tr>
+<tr><td>txHash</td><td>string</td><td></td><td></td></tr>
+<tr><td>txType</td><td>string</td><td></td><td></td></tr>
+<tr><td>value</td><td>string</td><td></td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1timelocksaccount_addr"></a><a href="#apiv1timelocksaccount_addr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/timelocks/{account_addr}</h3>
+<h5><a class="anchor" aria-hidden="true" id="changes-3"></a><a href="#changes-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>This new function is for getting the whole timelock history of an address.</p>
+<h3><a class="anchor" aria-hidden="true" id="timelocks"></a><a href="#timelocks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TimeLocks</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>long</td><td>The record id of the timelock transaction</td><td></td></tr>
+<tr><td>description</td><td>string</td><td>The description of the timelock transaction</td><td></td></tr>
+<tr><td>amount</td><td>[  ]</td><td></td><td></td></tr>
+<tr><td>locktime</td><td>string</td><td>The available unlock time</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apiv1timelockaccount_addridrecordid"></a><a href="#apiv1timelockaccount_addridrecordid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/timelock/{account_addr}?(id={recordid})</h3>
+<h5><a class="anchor" aria-hidden="true" id="changes-4"></a><a href="#changes-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>This new function is for getting the timelock history of an address by id.</p>
+<h3><a class="anchor" aria-hidden="true" id="timelocks-1"></a><a href="#timelocks-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TimeLocks</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>long</td><td>The record id of the timelock transaction</td><td></td></tr>
+<tr><td>description</td><td>string</td><td>The description of the timelock transaction</td><td></td></tr>
+<tr><td>amount</td><td>[  ]</td><td></td><td></td></tr>
+<tr><td>locktime</td><td>string</td><td>The available unlock time</td><td></td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="upcoming-changes-in-binance-chain-api-v061"></a><a href="#upcoming-changes-in-binance-chain-api-v061" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upcoming Changes in Binance Chain API v0.6.1</h1>
+<h2><a class="anchor" aria-hidden="true" id="http-api-3"></a><a href="#http-api-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP API</h2>
+<p>As you know, There are some accelerate nodes which provides some advanced API services for the public. Here is a list of all the HTTP API information it provides on mainnet: <a href="https://docs.binance.org/api-reference/dex-api/paths.html">https://docs.binance.org/api-reference/dex-api/paths.html</a></p>
+<p>In the latest update of HTTP API for testnet, there are the following changes:</p>
+<h3><a class="anchor" aria-hidden="true" id="apiv1accountaddress"></a><a href="#apiv1accountaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/account/{address}</h3>
+<h5><a class="anchor" aria-hidden="true" id="changes-5"></a><a href="#changes-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>In the <code>Account</code> data structure, a new field <code>flags</code> is added to indicate the constrains for this address.</p>
+<ul>
+<li><code>flags</code> is used to indicate which script needs to be executed.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="account"></a><a href="#account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Account</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>account_number</td><td>integer</td><td></td><td></td></tr>
+<tr><td>address</td><td>string (address)</td><td></td><td></td></tr>
+<tr><td>balances</td><td>[ <a href="#balance">Balance</a> ]</td><td></td><td></td></tr>
+<tr><td>public_key</td><td>[ integer ]</td><td>Public key bytes</td><td></td></tr>
+<tr><td>flags</td><td>integer</td><td>indicate additional check for this account</td><td></td></tr>
+<tr><td>sequence</td><td>long</td><td>sequence is for preventing replay attack</td><td></td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="upcoming-changes-in-binance-chain-api-v060"></a><a href="#upcoming-changes-in-binance-chain-api-v060" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upcoming Changes in Binance Chain API v0.6.0</h1>
+<h2><a class="anchor" aria-hidden="true" id="http-api-4"></a><a href="#http-api-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP API</h2>
+<p>As you know, There are some accelerate nodes which provides some advanced API services for the public. Here is a list of all the HTTP API information it provides on mainnet: <a href="https://docs.binance.org/api-reference/dex-api/paths.html">https://docs.binance.org/api-reference/dex-api/paths.html</a></p>
+<p>In the latest update of HTTP API for testnet, there are the following changes:</p>
+<h3><a class="anchor" aria-hidden="true" id="apiv1trades-1"></a><a href="#apiv1trades-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>/api/v1/trades</h3>
+<hr>
+<h5><a class="anchor" aria-hidden="true" id="changes-6"></a><a href="#changes-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>Changes</em></strong></h5>
+<p>In the <code>Trade</code> data structure, a new field <code>Ticker Type</code> is added. The enumerate values are: &quot;Unknown&quot;, &quot;SellTaker&quot;,&quot;BuyTaker&quot;,&quot;BuySurplus&quot;,&quot;SellSurplus&quot;,&quot;Neutral&quot;. When there is a maker and taker, <code>SellTaker</code> and  <code>BuyTaker</code> are used to indicate the side. When both sides are taker,  <code>BuySurplus</code>, <code>SellSurplus</code> and <code>Neutral</code> are used to indicate market pressure.<code>Unknown</code> mean the type is not possible to define.</p>
+<ul>
+<li><code>buySingleFee</code> is used to show trading fee for the buyer address on this single trade.</li>
+<li><code>sellSingleFee</code>is used to show  trading fee for the seller address on this single trade.</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><em>GET</em></strong></h5>
+<p><strong>Summary:</strong> Get market trades.</p>
+<p><strong>Description:</strong> Gets a list of historical trades.</p>
+<p><strong>Query Window:</strong> Default query window is latest 7 days; The maximum start - end query window is 3 months.</p>
+<p><strong>Rate Limit:</strong> 5 requests per IP per second.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Located in</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>address</td><td>query</td><td>the buyer/seller address</td><td>No</td><td>string</td></tr>
+<tr><td>buyerOrderId</td><td>query</td><td>buyer order id</td><td>No</td><td>string</td></tr>
+<tr><td>end</td><td>query</td><td>end time in Milliseconds</td><td>No</td><td>long</td></tr>
+<tr><td>height</td><td>query</td><td>block height</td><td>No</td><td>long</td></tr>
+<tr><td>limit</td><td>query</td><td>default 500; max 1000.</td><td>No</td><td>integer</td></tr>
+<tr><td>offset</td><td>query</td><td>start with 0; default 0.</td><td>No</td><td>integer</td></tr>
+<tr><td>quoteAsset</td><td>query</td><td>quote asset</td><td>No</td><td>string</td></tr>
+<tr><td>sellerOrderId</td><td>query</td><td>seller order id</td><td>No</td><td>string</td></tr>
+<tr><td>side</td><td>query</td><td>order side. 1 for buy and 2 for sell.</td><td>No</td><td>integer</td></tr>
+<tr><td>start</td><td>query</td><td>start time in Milliseconds</td><td>No</td><td>long</td></tr>
+<tr><td>symbol</td><td>query</td><td>symbol</td><td>No</td><td>string</td></tr>
+<tr><td>total</td><td>query</td><td>total number required, 0 for not required and 1 for required; default not required, return total=-1 in response</td><td>No</td><td>integer</td></tr>
+</tbody>
+</table>
+<p><strong>Responses</strong></p>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td><td><a href="#tradepage">TradePage</a></td></tr>
+<tr><td>400</td><td>Bad Request</td><td><a href="#error">Error</a></td></tr>
+<tr><td>404</td><td>Not Found</td><td></td></tr>
+<tr><td>default</td><td>Generic error response</td><td><a href="#error">Error</a></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="tradepage"></a><a href="#tradepage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TradePage</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>total</td><td>long</td><td></td><td></td></tr>
+<tr><td>trade</td><td>[ <a href="#trade">Trade</a> ]</td><td></td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="trade-1"></a><a href="#trade-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trade</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>baseAsset</td><td>string</td><td>base asset</td><td></td></tr>
+<tr><td>blockHeight</td><td>long</td><td>block height</td><td></td></tr>
+<tr><td>buyFee</td><td>string</td><td>trading fee for the buyer address on the block of this trade</td><td></td></tr>
+<tr><td>buyerId</td><td>string</td><td>id of buyer</td><td></td></tr>
+<tr><td>buyerOrderId</td><td>string</td><td>order id for buyer</td><td></td></tr>
+<tr><td><strong>buySingleFee</strong></td><td>string</td><td>trading fee for the buyer address on this single trade</td><td></td></tr>
+<tr><td>price</td><td>string</td><td>trade price</td><td></td></tr>
+<tr><td>quantity</td><td>string</td><td>trade quantity</td><td></td></tr>
+<tr><td>quoteAsset</td><td>string</td><td>quote asset</td><td></td></tr>
+<tr><td>sellFee</td><td>string</td><td>trading fee for the seller address on the block of this trade</td><td></td></tr>
+<tr><td>sellerId</td><td>string</td><td>seller ID</td><td></td></tr>
+<tr><td>sellerOrderId</td><td>string</td><td>seller order ID</td><td></td></tr>
+<tr><td><strong>sellSingleFee</strong></td><td>string</td><td>trading fee for the seller address on this single trade</td><td></td></tr>
+<tr><td>symbol</td><td>string</td><td>asset symbol</td><td></td></tr>
+<tr><td><strong>tickType</strong></td><td>string</td><td>enum [Unknown,SellTaker,BuyTaker,BuySurplus,SellSurplus,Neutral]</td><td></td></tr>
+<tr><td>time</td><td>long</td><td>trade time</td><td></td></tr>
+<tr><td>tradeId</td><td>string</td><td>trade ID</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="websocket-1"></a><a href="#websocket-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Websocket</h2>
+<h3><a class="anchor" aria-hidden="true" id="trades"></a><a href="#trades" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trades</h3>
+<h4><a class="anchor" aria-hidden="true" id="changes-7"></a><a href="#changes-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes</h4>
+<p>In received Payload of <code>trades</code>, a new filed <code>tt</code> is added. Its enumerate values are:</p>
+<ul>
+<li><p>0: Unknown</p></li>
+<li><p>1: SellTaker</p></li>
+<li><p>2: BuyTaker</p></li>
+<li><p>3: BuySurplus</p></li>
+<li><p>4: SellSurplus</p></li>
+<li><p>5: Neutral</p>
+<p><strong>Received Payload:</strong></p></li>
+</ul>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-string">"stream"</span>: <span class="hljs-string">"trades"</span>,
+    <span class="hljs-string">"data"</span>: [{
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"trade"</span>,       <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">123456789</span>,     <span class="hljs-comment">// Event height</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"BNB_BTC"</span>,     <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"t"</span>: <span class="hljs-string">"12345"</span>,       <span class="hljs-comment">// Trade ID</span>
+        <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.001"</span>,       <span class="hljs-comment">// Price</span>
+        <span class="hljs-string">"q"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// Quantity</span>
+        <span class="hljs-string">"b"</span>: <span class="hljs-string">"88"</span>,          <span class="hljs-comment">// Buyer order ID</span>
+        <span class="hljs-string">"a"</span>: <span class="hljs-string">"50"</span>,          <span class="hljs-comment">// Seller order ID</span>
+        <span class="hljs-string">"T"</span>: <span class="hljs-number">123456785</span>,     <span class="hljs-comment">// Trade time</span>
+        <span class="hljs-string">"sa"</span>: <span class="hljs-string">"bnb1me5u083m2spzt8pw8vunprnctc8syy64hegrcp"</span>, <span class="hljs-comment">// SellerAddress</span>
+        <span class="hljs-string">"ba"</span>: <span class="hljs-string">"bnb1kdr00ydr8xj3ydcd3a8ej2xxn8lkuja7mdunr5"</span> <span class="hljs-comment">// BuyerAddress</span>
+        <span class="hljs-string">"tt"</span>: <span class="hljs-number">1</span>   <span class="hljs-comment">//tiekertype</span>
+    },
+    {
+        <span class="hljs-string">"e"</span>: <span class="hljs-string">"trade"</span>,       <span class="hljs-comment">// Event type</span>
+        <span class="hljs-string">"E"</span>: <span class="hljs-number">123456795</span>,     <span class="hljs-comment">// Event time</span>
+        <span class="hljs-string">"s"</span>: <span class="hljs-string">"BNB_BTC"</span>,     <span class="hljs-comment">// Symbol</span>
+        <span class="hljs-string">"t"</span>: <span class="hljs-string">"12348"</span>,       <span class="hljs-comment">// Trade ID</span>
+        <span class="hljs-string">"p"</span>: <span class="hljs-string">"0.001"</span>,       <span class="hljs-comment">// Price</span>
+        <span class="hljs-string">"q"</span>: <span class="hljs-string">"100"</span>,         <span class="hljs-comment">// Quantity</span>
+        <span class="hljs-string">"b"</span>: <span class="hljs-string">"88"</span>,          <span class="hljs-comment">// Buyer order ID</span>
+        <span class="hljs-string">"a"</span>: <span class="hljs-string">"52"</span>,          <span class="hljs-comment">// Seller order ID</span>
+        <span class="hljs-string">"T"</span>: <span class="hljs-number">123456795</span>,     <span class="hljs-comment">// Trade time</span>
+        <span class="hljs-string">"sa"</span>: <span class="hljs-string">"bnb1me5u083m2spzt8pw8vunprnctc8syy64hegrcp"</span>, <span class="hljs-comment">// SellerAddress</span>
+        <span class="hljs-string">"ba"</span>: <span class="hljs-string">"bnb1kdr00ydr8xj3ydcd3a8ej2xxn8lkuja7mdunr5"</span> <span class="hljs-comment">// BuyerAddress</span>
+        <span class="hljs-string">"tt"</span>: <span class="hljs-number">0</span>    <span class="hljs-comment">//tiekertype</span>
+    }]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="extra-data-from-your-fullnode"></a><a href="#extra-data-from-your-fullnode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extra data from your fullnode</h2>
+<p>All those <a href="https://docs.binance.org/get-extra-data-from-fullnode.html#publish-different-messages-to-local-files">extra info</a> can also be found in exported data from your fullnode.</p>
+<h3><a class="anchor" aria-hidden="true" id="changes-8"></a><a href="#changes-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes</h3>
+<p>In <code>trade</code> data structure, there are five new fields: <code>SSrc</code>,<code>BSrc</code>,<code>SSingleFee</code>, <code>BSingleFee</code> and <code>TickerType</code>.</p>
+<ul>
+<li><code>SSrc</code>: Source code of Sell order transaction</li>
+<li><code>BSrc</code>: Source code of Buy order transaction</li>
+<li><code>SSingleFee</code>: fee of matched sell order</li>
+<li><code>BSingleFee</code>: fee of matched buy order</li>
+<li><code>TickerType</code>: ticker type</li>
+</ul>
+<p>In <code>Order</code> data structure, there is a new field: <code>singlefee</code>. This is used to show the fee of this order.</p>
+<p>For example:</p>
+<pre><code class="hljs css language-json">"Height":3154,
+   "Timestamp":1560927932877738000,
+   "NumOfMsgs":4,
+   "Trades":{
+      "NumOfMsgs":1,
+      "Trades":[
+         {
+            "Id":"3154-0",
+            "Symbol":"NNB-811_BNB",
+            "Price":1200000000,
+            "Qty":1200000000,
+            "Sid":"8FEC97AB9B3F52A30B860CFBB8E41B72E9EB02C1-11",
+            "Bid":"01C93F3512BCAA7E1DDD490B69B85E53A76C79B9-2",
+            "Sfee":"BNB:5760000",
+            "Bfee":"BNB:5760000",
+            "SSrc":0,
+            "BSrc":0,
+            "SSingleFee":"",
+            "BSingleFee":"",
+            "TickType":0,
+            "SAddr":"bnb13lkf02um8af2xzuxpnam3eqmwt57kqkp3hcvyp",
+            "BAddr":"bnb1q8yn7dgjhj48u8wafy9knwz72wnkc7dehf39ch"
+         }
+      ]
+   },
+   "Orders":{
+      "NumOfMsgs":3,
+      "Orders":[
+         {
+            "Symbol":"NNB-811_BNB",
+            "Status":0,
+            "OrderId":"01C93F3512BCAA7E1DDD490B69B85E53A76C79B9-2",
+            "TradeId":"",
+            "Owner":"bnb1q8yn7dgjhj48u8wafy9knwz72wnkc7dehf39ch",
+            "Side":1,
+            "OrderType":2,
+            "Price":1300000000,
+            "Qty":1300000000,
+            "LastExecutedPrice":0,
+            "LastExecutedQty":0,
+            "CumQty":1200000000,
+            "Fee":"",
+            "OrderCreationTime":1560927932877738000,
+            "TransactionTime":1560927932877738000,
+            "TimeInForce":1,
+            "CurrentExecutionType":0,
+            "TxHash":"A120FAA19A3448119E7F32B986540B21A5927616C73F95ACD1626FB54A74A865"
+         },
+         {
+            "Symbol":"NNB-811_BNB",
+            "Status":5,
+            "OrderId":"01C93F3512BCAA7E1DDD490B69B85E53A76C79B9-2",
+            "TradeId":"3154-0",
+            "Owner":"bnb1q8yn7dgjhj48u8wafy9knwz72wnkc7dehf39ch",
+            "Side":1,
+            "OrderType":2,
+            "Price":1300000000,
+            "Qty":1300000000,
+            "LastExecutedPrice":1200000000,
+            "LastExecutedQty":1200000000,
+            "CumQty":1200000000,
+            "Fee":"BNB:5760000",
+            "OrderCreationTime":1560927932877738000,
+            "TransactionTime":1560927932877738000,
+            "TimeInForce":1,
+            "CurrentExecutionType":0,
+            "TxHash":"A120FAA19A3448119E7F32B986540B21A5927616C73F95ACD1626FB54A74A865"
+         },
+         {
+            "Symbol":"NNB-811_BNB",
+            "Status":6,
+            "OrderId":"8FEC97AB9B3F52A30B860CFBB8E41B72E9EB02C1-11",
+            "TradeId":"3154-0",
+            "Owner":"bnb13lkf02um8af2xzuxpnam3eqmwt57kqkp3hcvyp",
+            "Side":2,
+            "OrderType":2,
+            "Price":1200000000,
+            "Qty":1200000000,
+            "LastExecutedPrice":1200000000,
+            "LastExecutedQty":1200000000,
+            "CumQty":1200000000,
+            "Fee":"BNB:5760000",
+            "OrderCreationTime":1560927931834863000,
+            "TransactionTime":1560927932877738000,
+            "TimeInForce":1,
+            "CurrentExecutionType":0,
+            "TxHash":"617565ECA6464E1B7435819A8154BCF5FC773FE1C5982A833DBEEDBE78E660C6"
+         }
+      ]
+   },
+   "Proposals":{
+      "NumOfMsgs":0,
+      "Proposals":null
+   },
+   "StakeUpdates":{
+      "NumOfMsgs":0,
+      "CompletedUnbondingDelegations":null
+   }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="tendermint-changes"></a><a href="#tendermint-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tendermint Changes</h1>
+<h2><a class="anchor" aria-hidden="true" id="upcoming-changes-in-v062"></a><a href="#upcoming-changes-in-v062" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upcoming Changes in v0.6.2</h2>
+<h3><a class="anchor" aria-hidden="true" id="1-better-handle-index-database"></a><a href="#1-better-handle-index-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Better Handle Index database</h3>
+<p>Now Tendermint will recover index data from restart or crash. You can see the latest indexed height from status:</p>
+<pre><code class="hljs">{
+<span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
+<span class="hljs-string">"id"</span>: <span class="hljs-string">""</span>,
+<span class="hljs-string">"result"</span>: {
+...
+<span class="hljs-string">"sync_info"</span>: {
+      <span class="hljs-string">"latest_block_hash"</span>: <span class="hljs-string">"F51538DA498299F4C57AC8162AAFA0254CE08286"</span>,
+      <span class="hljs-string">"latest_app_hash"</span>: <span class="hljs-string">"0000000000000000"</span>,
+      <span class="hljs-string">"latest_block_height"</span>: <span class="hljs-string">"18"</span>,
+      <span class="hljs-string">"latest_block_time"</span>: <span class="hljs-string">"2018-09-17T11:42:19.149920551Z"</span>,
+      <span class="hljs-string">"catching_up"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">"index_height"</span>: <span class="hljs-string">"18"</span>
+    },
+...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-more-configuration-in-config-file"></a><a href="#2-more-configuration-in-config-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. More configuration in config file</h3>
+<p>A new field is added: <code>skip_tx_from_persistent</code> under mempool part. If you set this to be True, your node will not broadcast transactions to its persistent peers.</p>
+<h3><a class="anchor" aria-hidden="true" id="3-change-of-monitoring-metrics"></a><a href="#3-change-of-monitoring-metrics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Change of Monitoring Metrics</h3>
+<ul>
+<li>Add the following metrics:
+<ul>
+<li>IndexHegiht：This metric will show the latest indexed height.</li>
+<li>Height: This metric will show the latest  height of the blockchain</li>
+<li>BlockIntervalSeconds: This metric will show the Time between this and the last block</li>
+<li>NumTxs: This metric will show the total  number of transactions in the current block</li>
+<li>BlockSizeBytes: This metric will show the size of the block</li>
+<li>TotalTxs: This metric will show the total  number of transactions in history</li>
+<li>CommittedHeight: This metric will show the latest block height</li>
+<li>PermanentPeerSetSize: This metric will show the number of peers considered as good</li>
+<li>PermanentPeers: This metric will show the details of peers considered as good</li>
+<li>DecayPeerSetSize:  This metric will show the number of peers considered as bad</li>
+</ul></li>
+<li>Remove metrics of ReceivedTx, PeerSendBytesTotal, PeerReceiveBytesTotal</li>
+</ul>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/14/2019 by erhenglu</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#http-api">HTTP API</a><ul class="toc-headings"><li><a href="#apiv1trades">/api/v1/trades</a></li><li><a href="#trade">Trade</a></li></ul></li><li><a href="#http-api-1">HTTP API</a><ul class="toc-headings"><li><a href="#apiv1atomic-swaps">/api/v1/atomic-swaps</a></li><li><a href="#apiv1atomic-swapsid">/api/v1/atomic-swaps/{id}</a></li><li><a href="#atomicswap">AtomicSwap</a></li></ul></li><li><a href="#websocket">WebSocket</a></li><li><a href="#node-rpc">Node RPC</a><ul class="toc-headings"><li><a href="#events">Events</a></li></ul></li><li><a href="#http-api-2">HTTP API</a><ul class="toc-headings"><li><a href="#apiv2transactions-in-blockblockheight">/api/v2/transactions-in-block/{blockHeight}</a></li><li><a href="#txv2">TxV2</a></li><li><a href="#apiv1timelocksaccount_addr">/api/v1/timelocks/{account_addr}</a></li><li><a href="#timelocks">TimeLocks</a></li><li><a href="#apiv1timelockaccount_addridrecordid">/api/v1/timelock/{account_addr}?(id={recordid})</a></li><li><a href="#timelocks-1">TimeLocks</a></li></ul></li><li><a href="#http-api-3">HTTP API</a><ul class="toc-headings"><li><a href="#apiv1accountaddress">/api/v1/account/{address}</a></li><li><a href="#account">Account</a></li></ul></li><li><a href="#http-api-4">HTTP API</a><ul class="toc-headings"><li><a href="#apiv1trades-1">/api/v1/trades</a></li><li><a href="#tradepage">TradePage</a></li><li><a href="#trade-1">Trade</a></li></ul></li><li><a href="#websocket-1">Websocket</a><ul class="toc-headings"><li><a href="#trades">Trades</a></li></ul></li><li><a href="#extra-data-from-your-fullnode">Extra data from your fullnode</a><ul class="toc-headings"><li><a href="#changes-8">Changes</a></li></ul></li><li><a href="#upcoming-changes-in-v062">Upcoming Changes in v0.6.2</a><ul class="toc-headings"><li><a href="#1-better-handle-index-database">1. Better Handle Index database</a></li><li><a href="#2-more-configuration-in-config-file">2. More configuration in config file</a></li><li><a href="#3-change-of-monitoring-metrics">3. Change of Monitoring Metrics</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs-site/" class="nav-home"><img src="/docs-site/img/logo.svg" alt="Developers" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs-site/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs-site/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs-site/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/docs-site/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/docs-site/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/docs-site/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Binance</section></footer></div></body></html>
